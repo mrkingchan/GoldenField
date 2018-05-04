@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MainVC.h"
+#import "GuideHelpView.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +16,25 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    _window = [UIWindow new];
+    _window.frame = [UIScreen mainScreen].bounds;
+    _window.backgroundColor = [UIColor whiteColor];
+    _window.rootViewController = [MainVC new];
+    [_window makeKeyAndVisible];
+    
+    NSMutableArray *images = [NSMutableArray new];
+    for (int i = 0; i < 3; i ++) {
+        NSString *imageName = [NSString stringWithFormat:@"guide_%i",i +1];
+        UIImage *image = kIMAGE(imageName);
+        [images addObject:image];
+    }
+    if ([kUserDefaultValueForKey(@"guidePass") integerValue]!=1) {
+        [GuideHelpView guidehelpViewWithImageArray:images complete:^{
+            kUserDefaultSetValue(@"guidePass", @(0));
+            kSynchronize;
+        }];
+    }
     return YES;
 }
 
