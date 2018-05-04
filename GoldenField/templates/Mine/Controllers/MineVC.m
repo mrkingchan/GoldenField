@@ -20,9 +20,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    _tableView.tableFooterView = [UIView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    @weakify(self);
+    [_tableView addLegendHeaderWithRefreshingBlock:^{
+        @strongify(self);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self->_tableView.header endRefreshing];
+        });
+    }];
     [self.view addSubview:_tableView];
+}
+
+#pragma mark  -- UITableViewDataSource&Delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

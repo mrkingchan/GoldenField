@@ -20,6 +20,18 @@
 		8FD8CDA5209BF39B00918C0C /* DiscoveryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CDA4209BF39B00918C0C /* DiscoveryVC.m */; };
 		8FD8CDA8209BF3A300918C0C /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CDA7209BF3A300918C0C /* MineVC.m */; };
 		8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF0132209C283D00C2F301 /* GuideHelpView.m */; };
+		8FEF0137209C3EF500C2F301 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF0136209C3EF500C2F301 /* BaseVC.m */; };
+		8FEF013A209C41BA00C2F301 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF0139209C41BA00C2F301 /* HttpClient.m */; };
+		8FEF013D209C41C800C2F301 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF013C209C41C800C2F301 /* DataManager.m */; };
+		8FEF0140209C438000C2F301 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF013F209C438000C2F301 /* UserModel.m */; };
+		8FEF0143209C545800C2F301 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF0141209C545700C2F301 /* UIView+Frame.m */; };
+		8FEF0147209C551300C2F301 /* FreshFishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF0145209C551300C2F301 /* FreshFishCell.m */; };
+		8FEF0148209C551300C2F301 /* FreshFishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FEF0146209C551300C2F301 /* FreshFishCell.xib */; };
+		8FEF014B209C595D00C2F301 /* UIResponder+CurrentResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF014A209C595C00C2F301 /* UIResponder+CurrentResponder.m */; };
+		8FEF014E209C5B3B00C2F301 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF014D209C5B3B00C2F301 /* WebVC.m */; };
+		8FEF0151209C5CC100C2F301 /* SuperNaviVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF0150209C5CC100C2F301 /* SuperNaviVC.m */; };
+		8FEF0158209C619300C2F301 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FEF0157209C619300C2F301 /* LoginVC.m */; };
+		F52D1D75763F017544231994 /* libPods-GoldenField.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D4D14761B6F0283E6054ED9 /* Pods-GoldenField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenField.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField.release.xcconfig"; sourceTree = "<group>"; };
+		5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoldenField.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD8CD51209BEB3B00918C0C /* GoldenField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenField.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD8CD54209BEB3B00918C0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FD8CD55209BEB3B00918C0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +81,28 @@
 		8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8FEF0131209C283D00C2F301 /* GuideHelpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideHelpView.h; sourceTree = "<group>"; };
 		8FEF0132209C283D00C2F301 /* GuideHelpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideHelpView.m; sourceTree = "<group>"; };
+		8FEF0135209C3EF500C2F301 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		8FEF0136209C3EF500C2F301 /* BaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		8FEF0138209C41BA00C2F301 /* HttpClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		8FEF0139209C41BA00C2F301 /* HttpClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		8FEF013B209C41C800C2F301 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		8FEF013C209C41C800C2F301 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		8FEF013E209C438000C2F301 /* UserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		8FEF013F209C438000C2F301 /* UserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		8FEF0141209C545700C2F301 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		8FEF0142209C545700C2F301 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		8FEF0144209C551300C2F301 /* FreshFishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreshFishCell.h; sourceTree = "<group>"; };
+		8FEF0145209C551300C2F301 /* FreshFishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreshFishCell.m; sourceTree = "<group>"; };
+		8FEF0146209C551300C2F301 /* FreshFishCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FreshFishCell.xib; sourceTree = "<group>"; };
+		8FEF0149209C595C00C2F301 /* UIResponder+CurrentResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+CurrentResponder.h"; sourceTree = "<group>"; };
+		8FEF014A209C595C00C2F301 /* UIResponder+CurrentResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+CurrentResponder.m"; sourceTree = "<group>"; };
+		8FEF014C209C5B3B00C2F301 /* WebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
+		8FEF014D209C5B3B00C2F301 /* WebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
+		8FEF014F209C5CC100C2F301 /* SuperNaviVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperNaviVC.h; sourceTree = "<group>"; };
+		8FEF0150209C5CC100C2F301 /* SuperNaviVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperNaviVC.m; sourceTree = "<group>"; };
+		8FEF0156209C619300C2F301 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		8FEF0157209C619300C2F301 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		AEEA02365E0B3A840EB5EA63 /* Pods-GoldenField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenField.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52D1D75763F017544231994 /* libPods-GoldenField.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +131,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70E6976CF8E61933B2F04B2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8FD8CD48209BEB3A00918C0C = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +146,8 @@
 				8FD8CD6C209BEB3D00918C0C /* GoldenFieldTests */,
 				8FD8CD77209BEB3D00918C0C /* GoldenFieldUITests */,
 				8FD8CD52209BEB3B00918C0C /* Products */,
+				DD7611E6137260C7DA7E6F29 /* Pods */,
+				70E6976CF8E61933B2F04B2C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,12 +164,14 @@
 		8FD8CD53209BEB3B00918C0C /* GoldenField */ = {
 			isa = PBXGroup;
 			children = (
-				8FEF012D209C280A00C2F301 /* BaseMVC */,
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
 				8FD8CD54209BEB3B00918C0C /* AppDelegate.h */,
 				8FD8CD55209BEB3B00918C0C /* AppDelegate.m */,
 				8FD8CD9A209BEF5700918C0C /* MainVC.h */,
 				8FD8CD9B209BEF5700918C0C /* MainVC.m */,
+				8FEF0152209C616500C2F301 /* Login */,
+				8FEF0134209C317F00C2F301 /* Utils */,
+				8FEF012D209C280A00C2F301 /* BaseMVC */,
 				8FD8CD86209BEB7D00918C0C /* templates */,
 				8FD8CD5A209BEB3B00918C0C /* Main.storyboard */,
 				8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */,
@@ -214,6 +263,9 @@
 		8FD8CD8C209BEBB300918C0C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8FEF0144209C551300C2F301 /* FreshFishCell.h */,
+				8FEF0145209C551300C2F301 /* FreshFishCell.m */,
+				8FEF0146209C551300C2F301 /* FreshFishCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -307,6 +359,12 @@
 		8FEF012E209C281200C2F301 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8FEF0135209C3EF500C2F301 /* BaseVC.h */,
+				8FEF0136209C3EF500C2F301 /* BaseVC.m */,
+				8FEF014C209C5B3B00C2F301 /* WebVC.h */,
+				8FEF014D209C5B3B00C2F301 /* WebVC.m */,
+				8FEF014F209C5CC100C2F301 /* SuperNaviVC.h */,
+				8FEF0150209C5CC100C2F301 /* SuperNaviVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -314,8 +372,6 @@
 		8FEF012F209C281900C2F301 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8FEF0131209C283D00C2F301 /* GuideHelpView.h */,
-				8FEF0132209C283D00C2F301 /* GuideHelpView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,8 +379,69 @@
 		8FEF0130209C281D00C2F301 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8FEF0138209C41BA00C2F301 /* HttpClient.h */,
+				8FEF0139209C41BA00C2F301 /* HttpClient.m */,
+				8FEF013E209C438000C2F301 /* UserModel.h */,
+				8FEF013F209C438000C2F301 /* UserModel.m */,
+				8FEF013B209C41C800C2F301 /* DataManager.h */,
+				8FEF013C209C41C800C2F301 /* DataManager.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8FEF0134209C317F00C2F301 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8FEF0149209C595C00C2F301 /* UIResponder+CurrentResponder.h */,
+				8FEF014A209C595C00C2F301 /* UIResponder+CurrentResponder.m */,
+				8FEF0142209C545700C2F301 /* UIView+Frame.h */,
+				8FEF0141209C545700C2F301 /* UIView+Frame.m */,
+				8FEF0131209C283D00C2F301 /* GuideHelpView.h */,
+				8FEF0132209C283D00C2F301 /* GuideHelpView.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		8FEF0152209C616500C2F301 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8FEF0155209C618200C2F301 /* Models */,
+				8FEF0154209C617A00C2F301 /* Views */,
+				8FEF0153209C616D00C2F301 /* Controllers */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8FEF0153209C616D00C2F301 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8FEF0156209C619300C2F301 /* LoginVC.h */,
+				8FEF0157209C619300C2F301 /* LoginVC.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8FEF0154209C617A00C2F301 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8FEF0155209C618200C2F301 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD7611E6137260C7DA7E6F29 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEEA02365E0B3A840EB5EA63 /* Pods-GoldenField.debug.xcconfig */,
+				3D4D14761B6F0283E6054ED9 /* Pods-GoldenField.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,9 +451,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FD8CD7D209BEB3D00918C0C /* Build configuration list for PBXNativeTarget "GoldenField" */;
 			buildPhases = (
+				26536E4A05399402BC3446D2 /* [CP] Check Pods Manifest.lock */,
 				8FD8CD4D209BEB3B00918C0C /* Sources */,
 				8FD8CD4E209BEB3B00918C0C /* Frameworks */,
 				8FD8CD4F209BEB3B00918C0C /* Resources */,
+				D5CDCC41315A563EC50BE36E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -430,6 +549,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FEF0148209C551300C2F301 /* FreshFishCell.xib in Resources */,
 				8FD8CD61209BEB3D00918C0C /* LaunchScreen.storyboard in Resources */,
 				8FD8CD5E209BEB3D00918C0C /* Assets.xcassets in Resources */,
 				8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */,
@@ -452,6 +572,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		26536E4A05399402BC3446D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GoldenField-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5CDCC41315A563EC50BE36E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8FD8CD4D209BEB3B00918C0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -459,11 +618,21 @@
 			files = (
 				8FD8CD9C209BEF5700918C0C /* MainVC.m in Sources */,
 				8FD8CDA2209BF39100918C0C /* ProductVC.m in Sources */,
+				8FEF0158209C619300C2F301 /* LoginVC.m in Sources */,
+				8FEF0140209C438000C2F301 /* UserModel.m in Sources */,
+				8FEF013A209C41BA00C2F301 /* HttpClient.m in Sources */,
 				8FD8CD9F209BF38500918C0C /* HomeVC.m in Sources */,
+				8FEF0151209C5CC100C2F301 /* SuperNaviVC.m in Sources */,
+				8FEF0143209C545800C2F301 /* UIView+Frame.m in Sources */,
+				8FEF0137209C3EF500C2F301 /* BaseVC.m in Sources */,
 				8FD8CD64209BEB3D00918C0C /* main.m in Sources */,
+				8FEF0147209C551300C2F301 /* FreshFishCell.m in Sources */,
+				8FEF014E209C5B3B00C2F301 /* WebVC.m in Sources */,
 				8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */,
+				8FEF014B209C595D00C2F301 /* UIResponder+CurrentResponder.m in Sources */,
 				8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */,
 				8FD8CDA8209BF3A300918C0C /* MineVC.m in Sources */,
+				8FEF013D209C41C800C2F301 /* DataManager.m in Sources */,
 				8FD8CDA5209BF39B00918C0C /* DiscoveryVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +800,7 @@
 		};
 		8FD8CD7E209BEB3D00918C0C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEEA02365E0B3A840EB5EA63 /* Pods-GoldenField.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -652,6 +822,7 @@
 		};
 		8FD8CD7F209BEB3D00918C0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D4D14761B6F0283E6054ED9 /* Pods-GoldenField.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

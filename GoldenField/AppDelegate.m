@@ -23,6 +23,7 @@
     _window.rootViewController = [MainVC new];
     [_window makeKeyAndVisible];
     
+    //新手引导页
     NSMutableArray *images = [NSMutableArray new];
     for (int i = 0; i < 3; i ++) {
         NSString *imageName = [NSString stringWithFormat:@"guide_%i",i +1];
@@ -31,7 +32,7 @@
     }
     if ([kUserDefaultValueForKey(@"guidePass") integerValue]!=1) {
         [GuideHelpView guidehelpViewWithImageArray:images complete:^{
-            kUserDefaultSetValue(@"guidePass", @(0));
+            kUserDefaultSetValue(@"guidePass", @(1));
             kSynchronize;
         }];
     }

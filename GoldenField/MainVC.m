@@ -28,7 +28,7 @@
         UIViewController *viewController = [self viewControllerWithClass:classNames[i]
                                                                    Title: titles[i]
                                                              normalImage:kIMAGE(normalImageName) selectedImage:kIMAGE(selectedImageName)];
-        UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:viewController];
+        SuperNaviVC *naviController = [[SuperNaviVC alloc] initWithRootViewController:viewController];
         naviController.navigationItem.title = titles[i];
         [subViewCnotrollers addObject:naviController];
     }
@@ -43,6 +43,7 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:kFontSize(16),NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
+
 
 /**
   构建viewController

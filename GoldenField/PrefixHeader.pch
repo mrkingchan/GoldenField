@@ -12,11 +12,25 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+////4大主模块
 #import "HomeVC.h"
 #import "ProductVC.h"
 #import "DiscoveryVC.h"
 #import "MineVC.h"
 
+////自己写的封装类
+#import "WebVC.h"
+#import "SuperNaviVC.h"
+#import "DataManager.h"
+#import "UIView+Frame.h"
+
+
+////////三方库
+#import <MJRefresh/MJRefresh.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <LKDBHelper.h>
+#import <SDCycleScrollView.h>
+#import <Masonry.h>
 
 #define kIMAGE(XXX) [[UIImage imageNamed:XXX] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
 #define kApperanceColor     [UIColor colorWithRed:247.0/255.0 green:204/255.0 blue:71/255.0 alpha:1.0]
