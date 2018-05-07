@@ -23,7 +23,7 @@
 #import "SuperNaviVC.h"
 #import "DataManager.h"
 #import "UIView+Frame.h"
-
+#import "UIInitMethod.h"
 
 ////////三方库
 #import <MJRefresh/MJRefresh.h>

@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationItem.title = @"一亩黄金";
     _bannerView = [SDCycleScrollView  cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 200) delegate:self placeholderImage:kIMAGE(@"guide_1")];
     
@@ -35,6 +36,7 @@
     _tableView.tableHeaderView = _bannerView;
     _tableView.backgroundColor = [UIColor whiteColor];
     
+    ///下拉刷新
     @weakify(self);
     [_tableView addLegendHeaderWithRefreshingBlock:^{
         @strongify(self);
