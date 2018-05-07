@@ -10,7 +10,6 @@
 
 @interface MineVC () <UITableViewDelegate,UITableViewDataSource> {
     UITableView *_tableView;
-    NSMutableArray *_dataArray;
 }
 
 @end
@@ -19,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
+    /*_tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) style:UITableViewStylePlain];
     _tableView.tableFooterView = [UIView new];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -30,7 +29,23 @@
             [self->_tableView.header endRefreshing];
         });
     }];
-    [self.view addSubview:_tableView];
+    [self.view addSubview:_tableView];*/
+    self.showRefreshHeader = YES;
+    self.showRefreshFooter = YES;
+}
+
+-(void)tableViewHeaderRefreshAction {
+    [super tableViewHeaderRefreshAction];
+    for (int i = 0; i < 10; i ++) {
+        [self.dataArray addObject:[NSString stringWithFormat:@"HeaderData - %i", i + 1]];
+    }
+}
+
+-(void)tableViewFooterRefreshAction {
+    [super tableViewFooterRefreshAction];
+    for (int i = 0; i < 10; i ++) {
+        [self.dataArray  addObject:[NSString stringWithFormat:@"FooterData - %i",i + 1]];
+    }
 }
 
 #pragma mark  -- UITableViewDataSource&Delegate
@@ -40,7 +55,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataArray.count;
+    return self.dataArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,7 +63,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([UITableViewCell class])];
     }
-    cell.textLabel.text = _dataArray[indexPath.row];
+    cell.textLabel.text = self.dataArray[indexPath.row];
     return cell;
 }
 

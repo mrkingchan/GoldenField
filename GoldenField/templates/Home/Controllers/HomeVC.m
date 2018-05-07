@@ -24,10 +24,9 @@
     
     self.navigationItem.title = @"一亩黄金";
     _bannerView = [SDCycleScrollView  cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 200) delegate:self placeholderImage:kIMAGE(@"guide_1")];
-    
     _bannerView.imageURLStringsGroup = @[@"guide_1",@"guide_2",@"guide_3",@"guide_1",@"guide_2",@"guide_3"];
     
-    //tableView初始化
+    /*//tableView初始化
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, self.view.height) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -43,7 +42,10 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self->_tableView.header endRefreshing];
         });
-    }];
+    }];*/
+    self.showRefreshHeader = YES;
+    self.tableView.tableHeaderView = _bannerView;
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([FreshFishCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[FreshFishCell cellIdentifier]];
 }
 
 #pragma mark  -- UITableViewDataSource&Delegate

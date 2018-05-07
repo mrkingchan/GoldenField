@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTableVC.h"
 
-@interface MineVC : UIViewController
+@interface MineVC : BaseTableVC
 
 @end

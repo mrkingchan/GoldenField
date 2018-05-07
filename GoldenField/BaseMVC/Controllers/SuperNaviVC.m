@@ -14,6 +14,7 @@
 
 @implementation SuperNaviVC
 
+#pragma mark  -- 隐藏导航栏     
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.viewControllers.count == 1) {
         viewController.hidesBottomBarWhenPushed = YES;

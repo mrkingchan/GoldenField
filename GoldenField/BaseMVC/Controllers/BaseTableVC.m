@@ -20,16 +20,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     _dataArray = [NSMutableArray new];
     _tableView = InsertTableView(self.view, CGRectMake(0,0, self.view.width, self.view.height), self, self, 0, 0);
-}
-
-- (void)verifyLogin:(void (^)(void))complete {
-    if ([DataManager shareInstance].model.isLogin) {
-        if (complete) {
-            complete();
-        }
-    } else {
-        //跳转登录
-    }
+    [self setShowRefreshHeader:NO];
+    [self setShowRefreshFooter:NO];
 }
 
 #pragma mark  -- Getter &Setter Method
@@ -97,5 +89,9 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    puts(__func__);
 }
 @end

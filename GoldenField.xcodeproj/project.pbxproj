@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD55209BEB3B00918C0C /* AppDelegate.m */; };
 		8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5A209BEB3B00918C0C /* Main.storyboard */; };
 		8FD8CD5E209BEB3D00918C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */; };
@@ -57,6 +58,8 @@
 		5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoldenField.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
+		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		8FC83F82209FEF5500F753D6 /* BaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		8FD8CD51209BEB3B00918C0C /* GoldenField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenField.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD8CD54209BEB3B00918C0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FD8CD55209BEB3B00918C0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 			children = (
 				8FEF0135209C3EF500C2F301 /* BaseTableVC.h */,
 				8FEF0136209C3EF500C2F301 /* BaseTableVC.m */,
+				8FC83F81209FEF5500F753D6 /* BaseVC.h */,
+				8FC83F82209FEF5500F753D6 /* BaseVC.m */,
 				8FEF014C209C5B3B00C2F301 /* WebVC.h */,
 				8FEF014D209C5B3B00C2F301 /* WebVC.m */,
 				8FEF014F209C5CC100C2F301 /* SuperNaviVC.h */,
@@ -624,6 +629,7 @@
 				8FD8CD9C209BEF5700918C0C /* MainVC.m in Sources */,
 				8FD8CDA2209BF39100918C0C /* ProductVC.m in Sources */,
 				8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */,
+				8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */,
 				8FEF0158209C619300C2F301 /* LoginVC.m in Sources */,
 				8FEF0140209C438000C2F301 /* UserModel.m in Sources */,
 				8FEF013A209C41BA00C2F301 /* HttpClient.m in Sources */,

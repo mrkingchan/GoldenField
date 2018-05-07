@@ -10,14 +10,6 @@
 
 @interface BaseTableVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
-
-/**
- 验证登录
-
- @param complete 验证登录
- */
-- (void)verifyLogin:(void(^)(void))complete;
-
 @property(nonatomic,assign) BOOL showRefreshHeader;
 
 @property(nonatomic,assign) BOOL showRefreshFooter;
