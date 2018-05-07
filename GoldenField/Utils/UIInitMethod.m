@@ -15,6 +15,29 @@
 
 #pragma mark - 创建UI
 
+#pragma mark  -- UICollectionView 自己新增的方法++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+UICollectionView *InsertCollectionView(id superView,CGRect rec,id <UICollectionViewDataSource>dataSource,id <UICollectionViewDelegate>delegate ,CGSize itemSize,Class cellClass) {
+    UICollectionViewFlowLayout *layout  = [UICollectionViewFlowLayout new];
+    layout.itemSize = itemSize;
+    layout.minimumLineSpacing = 5.0;
+    layout.minimumInteritemSpacing = 5.0;
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:rec collectionViewLayout:layout];
+    collectionView.backgroundColor = [UIColor whiteColor];
+    if (superView) {
+        [superView addSubview:collectionView];
+    }
+    if (dataSource) {
+        collectionView.dataSource = dataSource;
+    }
+    if (delegate) {
+        collectionView.delegate = delegate;
+    }
+    if (cellClass) {
+        [collectionView registerClass:cellClass forCellWithReuseIdentifier:NSStringFromClass(cellClass)];
+    }
+    return collectionView;
+}
+
 #pragma mark UIAlertView
 UIAlertView *SimpleAlert(UIAlertViewStyle style, NSString *title, NSString *message, NSInteger tag, id delegate, NSString *cancel, NSString *ok)
 {

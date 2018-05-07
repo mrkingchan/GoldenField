@@ -21,9 +21,10 @@
     self.dataArray = [NSMutableArray new];
 }
 
+#pragma mark  -- setSize
 - (void)setItemSize:(CGSize)itemSize {
     _itemSize = itemSize;
-    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+    /*UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.itemSize = self.itemSize;
     layout.minimumInteritemSpacing = self.minimumInteritemSpacing == 0 ? 5.0 :self.minimumInteritemSpacing;
     layout.minimumLineSpacing = self.minimumLineSpacing == 0 ? 5.0 :self.minimumLineSpacing;
@@ -33,7 +34,10 @@
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     [self.view addSubview:_collectionView];
-    [_collectionView registerClass:[UICollectionViewCell  class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
+    [_collectionView registerClass:[UICollectionViewCell  class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];*/
+    
+    _collectionView = InsertCollectionView(self.view, CGRectMake(0, 0, self.view.width, self.view.height), self, self, itemSize, [UICollectionViewCell class]);
+    
     //默认为NO 具体的子类中重写设置
     [self setShowRefreshHeader:NO];
     [self setShowRefreshFooter:NO];

@@ -17,6 +17,13 @@
                                               target:(id)target
                                               sucess:(void(^)(id responseObject))sucess
                                              failure:(void(^)(NSString *errorStr))failure {
+    
+#if DEBUG
+    NSLog(@"request ------------->%@%@\n%@",kBaseURL,urlStr,params);
+#else
+    
+#endif
+    
     NSString *methodStr = nil;
     switch (method) {
         case GET:
@@ -40,7 +47,7 @@
         default:
             break;
     }
-    NSURLSessionDataTask *task  = [kHttpClient dataTaskWithHTTPMethod:methodStr
+    NSURLSessionDataTask *task = [kHttpClient dataTaskWithHTTPMethod:methodStr
                                                             URLString:urlStr
                                                            parameters:params
                                                        uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
@@ -48,8 +55,9 @@
                                                        } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
                                                            
                                                        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-                                                           sucess(responseObject);
-                                                           
+                                                           //转json
+                                                           id json = [[self class] transformResponseObejctToJson:responseObject url:urlStr];
+                                                           sucess(json);
                                                        } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
                                                            NSString *errorStr = error.localizedDescription;
                                                            if (failure) {
@@ -60,6 +68,21 @@
         [target performSelector:@selector(addNet) withObject:task];
     }
     return task;
+}
+
++ (id)transformResponseObejctToJson:(id)responseObject url:(NSString *)urlStr{
+    id json;
+    if ([responseObject isKindOfClass:[NSData class]]) {
+        NSData *jsonData = [((NSString *)responseObject) dataUsingEncoding:NSUTF8StringEncoding];
+        json = [NSJSONSerialization JSONObjectWithData:jsonData
+                                               options:kNilOptions
+                                                 error:nil];
+    }
+#if DEBUG
+    NSLog(@"response---------->%@%@\n%@",kBaseURL,urlStr,json);
+#else
     
+#endif
+    return json ?json:@{};
 }
 @end
