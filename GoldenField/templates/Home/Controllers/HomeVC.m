@@ -8,7 +8,7 @@
 
 #import "HomeVC.h"
 #import "FreshFishCell.h"
-
+#import "ScanVC.h"
 @interface HomeVC () <UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate> {
     UIBarButtonItem *_scan;
     SDCycleScrollView *_bannerView;
@@ -46,6 +46,15 @@
     self.showRefreshHeader = YES;
     self.tableView.tableHeaderView = _bannerView;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([FreshFishCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[FreshFishCell cellIdentifier]];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:kIMAGE(@"scan")   style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
+}
+
+- (void)buttonAction:(id)sender {
+#if TARGET_IPHONE_SIMULATOR
+    NSLog(@"simulator can't support Camera!");  
+#elif TARGET_OS_IPHONE
+    [self.navigationController pushViewController:[ScanVC new] animated:YES];
+#endif
 }
 
 #pragma mark  -- UITableViewDataSource&Delegate

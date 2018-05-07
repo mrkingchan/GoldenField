@@ -38,6 +38,7 @@
 #import <SDCycleScrollView.h>
 #import <Masonry.h>
 #import <AFNetworking.h>
+#import <SGQRCode/SGQRCode.h>
 
 /////公有接口地址
 #define kBaseURL @"http://wwww.baseurl:xxxx"

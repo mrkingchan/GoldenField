@@ -29,9 +29,13 @@
             [self->_tableView.header endRefreshing];
         });
     }];
-    [self.view addSubview:_tableView];*/
+    [self.view addSubview:_tableView];
+     */
     self.showRefreshHeader = YES;
     self.showRefreshFooter = YES;
+    for (int i = 0 ; i < 10; i ++) {
+        [self.dataArray addObject:[NSString stringWithFormat:@"initial Data - %i", i + 1]];
+    }
 }
 
 -(void)tableViewHeaderRefreshAction {
