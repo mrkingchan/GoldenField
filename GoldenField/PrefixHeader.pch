@@ -18,6 +18,9 @@
 #import "DiscoveryVC.h"
 #import "MineVC.h"
 
+/////公有源文件
+#import "BaseTableVC.h"
+
 ////自己写的封装类
 #import "WebVC.h"
 #import "SuperNaviVC.h"
@@ -31,12 +34,10 @@
 #import <LKDBHelper.h>
 #import <SDCycleScrollView.h>
 #import <Masonry.h>
-
-
-/////公有源文件
-#import "BaseTableVC.h"
+#import <AFNetworking.h>
 
 #define kIMAGE(XXX) [[UIImage imageNamed:XXX] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+#define kURL(xxx)         [NSURL URLWithString:xxx]
 #define kApperanceColor     [UIColor colorWithRed:247.0/255.0 green:204/255.0 blue:71/255.0 alpha:1.0]
 #define kFontSize(value) [UIFont systemFontOfSize:value]
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width

@@ -7,7 +7,16 @@
 //
 
 #import "HttpClient.h"
+#define kBaseURL @"http://wwww.baseurl:xxxx"
+static HttpClient *shareClient = nil;
 
 @implementation HttpClient
 
++ (instancetype)shareClient {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shareClient = [[HttpClient alloc] initWithBaseURL:kURL(kBaseURL)];
+    });
+    return shareClient;
+}
 @end

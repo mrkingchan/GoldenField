@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#define kHttpClient [HttpClient shareClient]
+@interface HttpClient : AFHTTPSessionManager
 
-@interface HttpClient : NSObject
++ (instancetype)shareClient;
 
 @end
