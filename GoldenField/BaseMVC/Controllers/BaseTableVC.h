@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseVC.h"
 
-@interface BaseTableVC : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface BaseTableVC : BaseVC <UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,assign) BOOL showRefreshHeader;
 

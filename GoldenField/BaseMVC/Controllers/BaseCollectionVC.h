@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseVC.h"
 
-@interface BaseCollectionVC : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource>
+@interface BaseCollectionVC : BaseVC <UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)NSMutableArray *dataArray;
 

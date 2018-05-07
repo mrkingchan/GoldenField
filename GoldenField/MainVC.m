@@ -44,7 +44,6 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:kFontSize(16),NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
-
 /**
   构建viewController
  

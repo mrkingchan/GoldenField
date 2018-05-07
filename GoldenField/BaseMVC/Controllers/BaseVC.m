@@ -7,6 +7,8 @@
 //
 
 #import "BaseVC.h"
+#import "LoginVC.h"
+#import "MainVC.h"
 
 @interface BaseVC ()
 
@@ -20,12 +22,18 @@
 }
 
 - (void)verifyLogin:(void (^)(void))complete {
-    if ([DataManager shareInstance].model.isLogin) {
+    if (kAppUser.isLogin) {
         if (complete) {
             complete();
         }
     } else {
         //跳转登录
+        MainVC  *rootVC = (MainVC *) [UIApplication sharedApplication].keyWindow.rootViewController;
+        SuperNaviVC *naviController = rootVC.selectedViewController;
+        UIViewController *currentVC = naviController.viewControllers.lastObject;
+        LoginVC *loginVC = [[LoginVC alloc] initWithLoginCompleteBlock:complete];
+        SuperNaviVC *loginNavi = [[SuperNaviVC alloc] initWithRootViewController:loginVC];
+        [currentVC presentViewController:loginNavi animated:YES completion:nil];
     }
 }
 

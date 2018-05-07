@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "UserModel.h"
 
+#define kAppUser [DataManager shareInstance].model
+
 @interface DataManager : NSObject
 
 + (instancetype)shareInstance;

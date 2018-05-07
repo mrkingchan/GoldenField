@@ -19,6 +19,7 @@
 #import "MineVC.h"
 
 /////公有源文件
+#import "BaseVC.h"
 #import "BaseTableVC.h"
 #import "BaseCollectionVC.h"
 
@@ -28,6 +29,7 @@
 #import "DataManager.h"
 #import "UIView+Frame.h"
 #import "UIInitMethod.h"
+#import "DataManager.h"
 
 ////////三方库
 #import <MJRefresh/MJRefresh.h>

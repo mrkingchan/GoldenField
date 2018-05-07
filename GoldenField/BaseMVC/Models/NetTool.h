@@ -18,6 +18,17 @@ typedef enum{
 
 @interface NetTool : NSObject
 
+
+/**
+ 网络请求
+ @param method requestMethod 请求方法
+ @param urlStr url
+ @param params 请求参数
+ @param target target
+ @param sucess 成功回调
+ @param failure 失败回调
+ @return NSURLSessionDataTask
+ */
 + (NSURLSessionDataTask *)innerRequestWithHttpMethod:(HttpMethod)method
                                               urlStr:(NSString *)urlStr
                                               params:(id)params

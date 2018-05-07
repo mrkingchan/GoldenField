@@ -10,4 +10,8 @@
 
 @interface LoginVC : UIViewController
 
+@property(nonatomic,copy) void (^complete)(void);
+
+-(instancetype)initWithLoginCompleteBlock:(void (^)(void))complete;
+
 @end
