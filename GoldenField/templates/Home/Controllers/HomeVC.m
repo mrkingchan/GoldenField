@@ -59,7 +59,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FreshFishCell *cell = [tableView dequeueReusableCellWithIdentifier:[FreshFishCell cellIdentifier]];
-    cell.backgroundColor = indexPath.section == 0 ? [UIColor orangeColor]:indexPath.section == 1?[UIColor blueColor]: indexPath.section  == 2 ?[UIColor redColor]:[UIColor blackColor];
+    cell.backgroundColor = kRandomColor;
     /*if (!cell) {
         cell = [[FreshFishCell alloc] initWithStyle:0 reuseIdentifier:[FreshFishCell cellIdentifier]];
     }*/

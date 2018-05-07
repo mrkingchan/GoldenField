@@ -8,7 +8,9 @@
 
 #import "BaseCollectionVC.h"
 
-@interface BaseCollectionVC ()
+@interface BaseCollectionVC () {
+    
+}
 
 @end
 
@@ -17,17 +19,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray = [NSMutableArray new];
+}
+
+- (void)setItemSize:(CGSize)itemSize {
+    _itemSize = itemSize;
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.itemSize = self.itemSize;
     layout.minimumInteritemSpacing = self.minimumInteritemSpacing == 0 ? 5.0 :self.minimumInteritemSpacing;
     layout.minimumLineSpacing = self.minimumLineSpacing == 0 ? 5.0 :self.minimumLineSpacing;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) collectionViewLayout:layout];
+    _collectionView.backgroundColor = [UIColor whiteColor];
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     [self.view addSubview:_collectionView];
     [_collectionView registerClass:[UICollectionViewCell  class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];
-    //默认为NO 具体的子类中重写设置 
+    //默认为NO 具体的子类中重写设置
     [self setShowRefreshHeader:NO];
     [self setShowRefreshFooter:NO];
 }
@@ -40,6 +47,7 @@
         [_collectionView addLegendFooterWithRefreshingBlock:^{
             @strongify(self);
             [self refreshFooterAction];
+            //停止上拉 reloadData
             [self refreshDoneisHeader:NO];
         }];
     } else {
@@ -55,6 +63,7 @@
         [_collectionView addLegendHeaderWithRefreshingBlock:^{
             @strongify(self);
             [self refreshHeaderAction];
+            //停止下拉 并刷新
             [self refreshDoneisHeader:YES];
         }];
     } else {

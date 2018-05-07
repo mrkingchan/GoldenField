@@ -18,17 +18,16 @@
 
 @property(nonatomic,assign) BOOL showRefreshFooter;
 
-- (void)refreshHeaderAction;
-
-- (void)refreshFooterAction;
-
 @property(nonatomic,assign) CGSize itemSize;
 
 @property(nonatomic,assign) CGFloat minimumInteritemSpacing;
 
 @property(nonatomic,assign) CGFloat minimumLineSpacing;
 
+#pragma mark  -- 交给子类去重写     
+- (void)refreshHeaderAction;
 
+- (void)refreshFooterAction;
 
 
 @end
