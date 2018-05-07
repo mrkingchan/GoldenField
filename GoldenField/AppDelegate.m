@@ -22,7 +22,6 @@
     _window.backgroundColor = [UIColor whiteColor];
     _window.rootViewController = [MainVC new];
     [_window makeKeyAndVisible];
-    
     //新手引导页
     NSMutableArray *images = [NSMutableArray new];
     for (int i = 0; i < 3; i ++) {
