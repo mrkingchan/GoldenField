@@ -17,5 +17,8 @@
  */
 - (void)verifyLogin:(void(^)(void))complete;
 
+@property(nonatomic,strong)NSMutableArray *tasks;
+
+-(void)addNet:(NSURLSessionDataTask *)task;
 
 @end

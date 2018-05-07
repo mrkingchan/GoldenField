@@ -7,7 +7,6 @@
 //
 
 #import "HttpClient.h"
-#define kBaseURL @"http://wwww.baseurl:xxxx"
 static HttpClient *shareClient = nil;
 
 @implementation HttpClient

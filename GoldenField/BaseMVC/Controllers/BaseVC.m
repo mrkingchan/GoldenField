@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tasks = [NSMutableArray new];
 }
 
 - (void)verifyLogin:(void (^)(void))complete {
@@ -28,5 +29,25 @@
     }
 }
 
+-(void)addNet:(NSURLSessionDataTask *)task {
+    [self.tasks addObject:task];
+}
 
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (self.tasks.count) {
+        [self.tasks  enumerateObjectsUsingBlock:^(NSURLSessionDataTask *task, NSUInteger idx, BOOL * _Nonnull stop) {
+            [task cancel];
+        }];
+    }
+}
+
+-(void)dealloc {
+    //释放网络操作
+    [self.tasks enumerateObjectsUsingBlock:^(NSURLSessionDataTask *task, NSUInteger idx, BOOL * _Nonnull stop) {
+        [task cancel];
+    }];
+    self.tasks = nil;
+}
 @end
