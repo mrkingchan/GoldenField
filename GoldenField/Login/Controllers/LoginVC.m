@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor orangeColor];
+    self.view.backgroundColor = kColorOrange;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"暂不登录" style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
     self.navigationItem.title = @"登录";
     //登录完成以后在数据库中存登录的用户信息 并将该用户的登录信息置为YES

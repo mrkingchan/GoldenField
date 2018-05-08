@@ -16,12 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     NSArray *classNames = @[[HomeVC class],
                             [ProductVC class],
                             [DiscoveryVC class],
                             [MineVC class]];
     NSArray *titles =@[@"首页",@"产品",@"发现",@"我的"];
-    NSMutableArray *subViewCnotrollers  = [NSMutableArray new];
+    NSMutableArray *subViewControllers  = [NSMutableArray new];
     for (int i = 0; i < classNames.count; i ++) {
         NSString *normalImageName =  [NSString stringWithFormat:@"tabbar_%i",i  + 1];
         NSString *selectedImageName = [NSString stringWithFormat:@"tabbar_%i_s",i + 1];
@@ -30,9 +33,9 @@
                                                              normalImage:kIMAGE(normalImageName) selectedImage:kIMAGE(selectedImageName)];
         SuperNaviVC *naviController = [[SuperNaviVC alloc] initWithRootViewController:viewController];
         naviController.navigationItem.title = titles[i];
-        [subViewCnotrollers addObject:naviController];
+        [subViewControllers addObject:naviController];
     }
-    self.viewControllers = subViewCnotrollers;
+    self.viewControllers = subViewControllers;
     
     //底部tabbar
     [[UITabBarItem appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor grayColor],NSFontAttributeName:kFontSize(12)} forState:UIControlStateNormal];
