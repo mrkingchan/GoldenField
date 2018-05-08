@@ -2,7 +2,7 @@
 //  HomeVC.m
 //  GoldenField
 //
-//  Created by Macx on 2018/5/4.
+//  Created by Chan on 2018/5/4.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
@@ -25,7 +25,6 @@
     self.navigationItem.title = @"一亩黄金";
     _bannerView = [SDCycleScrollView  cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 200) delegate:self placeholderImage:kIMAGE(@"guide_1")];
     _bannerView.imageURLStringsGroup = @[@"guide_1",@"guide_2",@"guide_3",@"guide_1",@"guide_2",@"guide_3"];
-    
     /*//tableView初始化
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, self.view.height) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
@@ -49,9 +48,10 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:kIMAGE(@"scan")   style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
 }
 
+#pragma mark  -- private Method
 - (void)buttonAction:(id)sender {
 #if TARGET_IPHONE_SIMULATOR
-    NSLog(@"simulator can't support Camera!");  
+    NSLog(@"simulator can't support Camera!");
 #elif TARGET_OS_IPHONE
     [self.navigationController pushViewController:[ScanVC new] animated:YES];
 #endif
@@ -90,5 +90,17 @@
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
     WebVC *nextVC = [[WebVC alloc] initWithUrlString:@"http://www.baidu.com"];
     [self.navigationController pushViewController:nextVC animated:YES];
+}
+
+#pragma mark  -- memerory management
+- (void)dealloc {
+    if (self.tableView) {
+        self.tableView.delegate = nil;
+        self.tableView.dataSource = nil;
+        self.tableView = nil;
+    }
+    if (self.dataArray) {
+        self.dataArray = nil;
+    }
 }
 @end

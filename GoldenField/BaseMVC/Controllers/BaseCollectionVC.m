@@ -2,7 +2,7 @@
 //  BaseCollectionVC.m
 //  GoldenField
 //
-//  Created by Macx on 2018/5/7.
+//  Created by Chan on 2018/5/7.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
@@ -35,9 +35,7 @@
     _collectionView.delegate = self;
     [self.view addSubview:_collectionView];
     [_collectionView registerClass:[UICollectionViewCell  class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];*/
-    
     _collectionView = InsertCollectionView(self.view, CGRectMake(0, 0, self.view.width, self.view.height), self, self, itemSize, [UICollectionViewCell class]);
-    
     //默认为NO 具体的子类中重写设置
     [self setShowRefreshHeader:NO];
     [self setShowRefreshFooter:NO];
@@ -58,7 +56,6 @@
         [_collectionView setValue:nil forKey:@"footer"];
     }
 }
-
 
 -(void)setShowRefreshHeader:(BOOL)showRefreshHeader {
     _showRefreshHeader = showRefreshHeader;
@@ -85,12 +82,14 @@
     
 }
 
+#pragma mark  -- 刷新完成之后的reloadData
 - (void)refreshDoneisHeader:(BOOL)isHeader {
     if (isHeader) {
         [_collectionView.header  endRefreshing];
     } else {
         [_collectionView.footer endRefreshing];
     }
+    //确保在主线程刷新UI
     @weakify(self);
     dispatch_async(dispatch_get_main_queue(), ^{
         @strongify(self);

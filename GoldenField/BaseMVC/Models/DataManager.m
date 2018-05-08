@@ -2,7 +2,7 @@
 //  DataManager.m
 //  GoldenField
 //
-//  Created by Macx on 2018/5/4.
+//  Created by Chan on 2018/5/4.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
@@ -21,7 +21,9 @@ static DataManager *manager = nil;
 
 - (instancetype)init {
     if (self = [super init]) {
+       NSMutableArray *users = [UserModel searchWithSQL:[NSString stringWithFormat:@"select  * from UserModel where userid = '%@'",@""]];
         NSMutableArray *items = [UserModel searchWithWhere:[NSString stringWithFormat:@"userid = '%@'",@""]];
+        //始终保存登录的信息
         for (UserModel *model in items) {
             if (model.isLogin) {
                 self.model = model;
@@ -31,6 +33,4 @@ static DataManager *manager = nil;
     }
     return self;
 }
-
-
 @end

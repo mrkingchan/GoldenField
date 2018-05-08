@@ -2,7 +2,7 @@
 //  ScanVC.m
 //  GoldenField
 //
-//  Created by Macx on 2018/5/7.
+//  Created by Chan on 2018/5/7.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
@@ -36,29 +36,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor clearColor];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    [self.view addSubview:self.scanningView];
-    [self setupNavigationBar];
-    [self setupQRCodeScanning];
-    [self.view addSubview:self.promptLabel];
-}
-
-- (void)setupNavigationBar {
     self.navigationItem.title = @"扫一扫";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:(UIBarButtonItemStyleDone) target:self action:@selector(rightBarButtonItenAction)];
-}
-
-- (SGQRCodeScanningView *)scanningView {
-    if (!_scanningView) {
-        _scanningView = [[SGQRCodeScanningView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        _scanningView.scanningImageName = @"SGQRCode.bundle/QRCodeScanningLineGrid";
-        _scanningView.scanningAnimationStyle = ScanningAnimationStyleGrid;
-        _scanningView.cornerColor = [UIColor orangeColor];
-    }
-    return _scanningView;
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    //扫描view
+    _scanningView = [[SGQRCodeScanningView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height)];
+    _scanningView.scanningImageName = @"SGQRCode.bundle/QRCodeScanningLineGrid";
+    _scanningView.scanningAnimationStyle = ScanningAnimationStyleGrid;
+    _scanningView.cornerColor = [UIColor orangeColor];
+    [self.view addSubview:_scanningView];
+    
+    self.manager = [SGQRCodeScanManager sharedManager];
+    NSArray *arr = @[AVMetadataObjectTypeQRCode, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
+    // AVCaptureSessionPreset1920x1080 推荐使用，对于小型的二维码读取率较高
+    [_manager setupSessionPreset:AVCaptureSessionPreset1920x1080 metadataObjectTypes:arr currentController:self];
+    [_manager cancelSampleBufferDelegate];
+    _manager.delegate = self;
+    
+    [self.view addSubview:self.promptLabel];
 }
 
 - (void)removeScanningView {
@@ -74,15 +72,6 @@
     if (manager.isPHAuthorization == YES) {
         [self.scanningView removeTimer];
     }
-}
-
-- (void)setupQRCodeScanning {
-    self.manager = [SGQRCodeScanManager sharedManager];
-    NSArray *arr = @[AVMetadataObjectTypeQRCode, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode128Code];
-    // AVCaptureSessionPreset1920x1080 推荐使用，对于小型的二维码读取率较高
-    [_manager setupSessionPreset:AVCaptureSessionPreset1920x1080 metadataObjectTypes:arr currentController:self];
-    [_manager cancelSampleBufferDelegate];
-    _manager.delegate = self;
 }
 
 #pragma mark - - - SGQRCodeAlbumManagerDelegate
@@ -102,25 +91,29 @@
         jumpVC.comeFromVC = ScanSuccessJumpComeFromWB;
         jumpVC.jump_bar_code = result;
         [self.navigationController pushViewController:jumpVC animated:YES];*/
-
     }
 }
+
 - (void)QRCodeAlbumManagerDidReadQRCodeFailure:(SGQRCodeAlbumManager *)albumManager {
     NSLog(@"暂未识别出二维码");
 }
 
 #pragma mark - - - SGQRCodeScanManagerDelegate
 - (void)QRCodeScanManager:(SGQRCodeScanManager *)scanManager didOutputMetadataObjects:(NSArray *)metadataObjects {
-    NSLog(@"metadataObjects - - %@", metadataObjects);
     if (metadataObjects != nil && metadataObjects.count > 0) {
         [scanManager playSoundName:@"SGQRCode.bundle/sound.caf"];
         [scanManager stopRunning];
-        AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
-        /*ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
-        jumpVC.comeFromVC = ScanSuccessJumpComeFromWB;
-        jumpVC.jump_URL = [obj stringValue];
-        [self.navigationController pushViewController:jumpVC animated:YES];*/
-        
+        AVMetadataMachineReadableCodeObject *result = metadataObjects.firstObject;
+        NSLog(@"scan result = %@",result.stringValue);
+        NSData *jsonData = [result.stringValue dataUsingEncoding:NSUTF8StringEncoding];
+        id json = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                  options:kNilOptions
+                                                    error:nil];
+#if TARGET_IPHONE_SIMULATOR
+        NSLog(@"simulator can't support QRCode scaning! ");
+#elif TARGET_OS_IPHONE
+        NSLog(@"scan result = %@",json);
+#endif
     } else {
         NSLog(@"暂未识别出扫描的二维码");
     }
@@ -142,4 +135,5 @@
     }
     return _promptLabel;
 }
+
 @end

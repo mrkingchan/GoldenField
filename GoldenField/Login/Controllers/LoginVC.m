@@ -2,7 +2,7 @@
 //  LoginVC.m
 //  GoldenField
 //
-//  Created by Macx on 2018/5/4.
+//  Created by Chan on 2018/5/4.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
@@ -31,6 +31,12 @@
 
 - (void)buttonAction:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC, 2.0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+        
+    });
+    dispatch_resume(timer);
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

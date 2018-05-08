@@ -2,7 +2,7 @@
 //  MainVC.m
 //  GoldenField
 //
-//  Created by Macx on 2018/5/4.
+//  Created by Chan on 2018/5/4.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
@@ -53,18 +53,24 @@
  @param selectedImage tabbarItem的选中图片
  @return viewController
  */
-- (UIViewController *)viewControllerWithClass:(Class)className
+- (UIViewController *)viewControllerWithClass:(nonnull Class)className
                                         Title:(NSString*)titleStr
                                   normalImage:(UIImage *)normalImage
                                 selectedImage:(UIImage *)selectedImage {
     UIViewController *viewController = [className new];
     viewController.navigationItem.title = titleStr;
-    UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:titleStr
-                                                       image:[normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:
-                          [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    viewController.tabBarItem = item;
+    if (kiOSVersion >=7.0) {
+        UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:titleStr
+                                                           image:[normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:
+                              [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        viewController.tabBarItem = item;
+        
+    } else {
+        [viewController.tabBarItem setFinishedSelectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    }
     viewController.title = titleStr;
     return viewController;
 }
+
 
 @end
