@@ -27,6 +27,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     WKWebViewConfiguration *configure = [WKWebViewConfiguration new];
     _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configure];
     [self.view addSubview:_webView];

@@ -35,5 +35,4 @@ typedef enum{
                                               target:(id)target
                                               sucess:(void(^)(id responseObject))sucess
                                              failure:(void(^)(NSString *errorStr))failure;
-
 @end

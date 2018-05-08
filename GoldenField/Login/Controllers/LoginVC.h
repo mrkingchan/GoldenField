@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginVC : UIViewController
+@interface LoginVC : BaseScrollVC
 
 @property(nonatomic,copy) void (^complete)(void);
 

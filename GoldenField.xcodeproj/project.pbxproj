@@ -12,6 +12,7 @@
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
 		8FC83F89209FFBA000F753D6 /* BaseCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F88209FFBA000F753D6 /* BaseCollectionVC.m */; };
 		8FC83FCE20A03FFA00F753D6 /* ScanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83FCD20A03FFA00F753D6 /* ScanVC.m */; };
+		8FC83FD120A1399100F753D6 /* BaseScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83FD020A1399100F753D6 /* BaseScrollVC.m */; };
 		8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD55209BEB3B00918C0C /* AppDelegate.m */; };
 		8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5A209BEB3B00918C0C /* Main.storyboard */; };
 		8FD8CD5E209BEB3D00918C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */; };
@@ -69,6 +70,8 @@
 		8FC83F88209FFBA000F753D6 /* BaseCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionVC.m; sourceTree = "<group>"; };
 		8FC83FCC20A03FFA00F753D6 /* ScanVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanVC.h; sourceTree = "<group>"; };
 		8FC83FCD20A03FFA00F753D6 /* ScanVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanVC.m; sourceTree = "<group>"; };
+		8FC83FCF20A1399100F753D6 /* BaseScrollVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScrollVC.h; sourceTree = "<group>"; };
+		8FC83FD020A1399100F753D6 /* BaseScrollVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseScrollVC.m; sourceTree = "<group>"; };
 		8FD8CD51209BEB3B00918C0C /* GoldenField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenField.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD8CD54209BEB3B00918C0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FD8CD55209BEB3B00918C0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -382,6 +385,8 @@
 				8FC83F88209FFBA000F753D6 /* BaseCollectionVC.m */,
 				8FC83F81209FEF5500F753D6 /* BaseVC.h */,
 				8FC83F82209FEF5500F753D6 /* BaseVC.m */,
+				8FC83FCF20A1399100F753D6 /* BaseScrollVC.h */,
+				8FC83FD020A1399100F753D6 /* BaseScrollVC.m */,
 				8FEF014C209C5B3B00C2F301 /* WebVC.h */,
 				8FEF014D209C5B3B00C2F301 /* WebVC.m */,
 				8FEF014F209C5CC100C2F301 /* SuperNaviVC.h */,
@@ -663,6 +668,7 @@
 				8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */,
 				8FD8CDA8209BF3A300918C0C /* MineVC.m in Sources */,
 				8FC83FCE20A03FFA00F753D6 /* ScanVC.m in Sources */,
+				8FC83FD120A1399100F753D6 /* BaseScrollVC.m in Sources */,
 				8FEF013D209C41C800C2F301 /* DataManager.m in Sources */,
 				8FC83F86209FF37700F753D6 /* NetTool.m in Sources */,
 				8FD8CDA5209BF39B00918C0C /* DiscoveryVC.m in Sources */,

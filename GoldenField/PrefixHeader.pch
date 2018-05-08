@@ -22,6 +22,7 @@
 #import "BaseVC.h"
 #import "BaseTableVC.h"
 #import "BaseCollectionVC.h"
+#import "BaseScrollVC.h"
 
 ////自己写的封装类
 #import "WebVC.h"

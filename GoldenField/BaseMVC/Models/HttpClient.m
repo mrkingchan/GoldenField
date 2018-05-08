@@ -15,7 +15,11 @@ static HttpClient *shareClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareClient = [[HttpClient alloc] initWithBaseURL:kURL(kBaseURL)];
+        //请求格式和响应模式均为json
+        shareClient.requestSerializer = [AFJSONRequestSerializer serializer];
+        shareClient.responseSerializer = [AFJSONResponseSerializer serializer];
     });
     return shareClient;
 }
+
 @end

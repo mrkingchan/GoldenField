@@ -8,7 +8,9 @@
 
 #import "LoginVC.h"
 
-@interface LoginVC ()
+@interface LoginVC () {
+    UITextField *_inputs[2];
+}
 
 @end
 
@@ -27,16 +29,18 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"暂不登录" style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
     self.navigationItem.title = @"登录";
     //登录完成以后在数据库中存登录的用户信息 并将该用户的登录信息置为YES
+    for (int i = 0; i < 2; i ++) {
+        _inputs[i] = InsertTextFieldWithTextColor(self.view, self, CGRectMake(20, i == 0 ?50 :40 + 50 + 20, kScreenWidth - 40, 40), i == 0 ? @"":@"", kFontSize(14), 0, 1, [UIColor blackColor]);
+        _inputs[i].backgroundColor = [UIColor whiteColor];
+        _inputs[i].clipsToBounds = YES;
+        _inputs[i].layer.cornerRadius = 5.0;
+        _inputs[i].layer.borderColor = [UIColor blackColor].CGColor;
+        _inputs[i].layer.borderWidth = 1.5;
+    }
 }
 
 - (void)buttonAction:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC, 2.0 * NSEC_PER_SEC);
-    dispatch_source_set_event_handler(timer, ^{
-        
-    });
-    dispatch_resume(timer);
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

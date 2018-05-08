@@ -2,7 +2,7 @@
 //  BaseVC.m
 //  GoldenField
 //
-//  Created by Macx on 2018/5/4.
+//  Created by Chan on 2018/5/4.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
@@ -17,6 +17,9 @@
 #pragma mark  -- lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     self.view.backgroundColor = [UIColor whiteColor];
     _dataArray = [NSMutableArray new];
     _tableView = InsertTableView(self.view, CGRectMake(0,0, self.view.width, self.view.height), self, self, 0, 0);
@@ -93,5 +96,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     puts(__func__);
+}
+
+#pragma mark  -- memerory management
+- (void)dealloc {
+    if (self.tableView) {
+        self.tableView.delegate = nil;
+        self.tableView.dataSource = nil;
+    }
+    if (self.dataArray) {
+        self.dataArray = nil;
+    }
 }
 @end
