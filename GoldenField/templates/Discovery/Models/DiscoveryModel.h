@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DiscoveryModel : NSObject
+@interface DiscoveryModel : BaseModel
 
 @property(nonatomic,strong)NSArray *pictureItems;
 

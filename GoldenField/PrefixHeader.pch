@@ -23,9 +23,10 @@
 #import "BaseTableVC.h"
 #import "BaseCollectionVC.h"
 #import "BaseScrollVC.h"
+#import "BaseModel.h"
+#import "WebVC.h"
 
 ////自己写的封装类
-#import "WebVC.h"
 #import "SuperNaviVC.h"
 #import "DataManager.h"
 #import "UIView+Frame.h"

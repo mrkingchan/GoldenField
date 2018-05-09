@@ -13,6 +13,6 @@
 #pragma mark  -- 子类继承与BaseModel
 -(id)modelToJson;
 
--(id)jsonToModel:(NSDictionary*)json;
+ + (id)jsonToModel:(NSDictionary*)json;
 
 @end

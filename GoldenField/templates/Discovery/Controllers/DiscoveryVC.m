@@ -24,15 +24,23 @@
     self.showRefreshFooter = YES;
     self.tableView.backgroundColor = kColorLightGray;
     for (int i = 0; i < 10 ; i ++) {
-//        int randomImagesCount = arc4random()%10;
-        DiscoveryModel *model = [DiscoveryModel new];
+        /*DiscoveryModel *model = [DiscoveryModel new];
         model.contentStr = [NSString stringWithFormat:@"XXXXHIHILHTIG4TIBTIBTUIBTI%i",i];
         NSMutableArray *temArray = [NSMutableArray new];
-        //i %2 ==0 ? index < 4 :index < 5
         for (int index = 0; index < 9; index ++) {
             [temArray addObject:[NSString stringWithFormat:@"guide_%i",index %2 == 0 ? 1:2]];
         }
         model.pictureItems = temArray;
+        [self.dataArray addObject:model];*/
+        
+        NSMutableDictionary *json = [NSMutableDictionary new];
+        [json setObject:[NSString stringWithFormat:@"XXXXHIHILHTIG4TIBTIBTUIBTI%i",i] forKey:@"contentStr"];
+        NSMutableArray *temArray = [NSMutableArray new];
+        for (int index = 0; index < 9; index ++) {
+            [temArray addObject:[NSString stringWithFormat:@"guide_%i",index %2 == 0 ? 1:2]];
+        }
+        [json  setObject:temArray forKey:@"pictureItems"];
+        DiscoveryModel *model = [DiscoveryModel jsonToModel:json];
         [self.dataArray addObject:model];
     }
 }
@@ -46,19 +54,26 @@
 - (void)tableViewFooterRefreshAction {
     _currentPage ++;
     for (int i = 0; i < 10 ; i ++) {
-        //        int randomImagesCount = arc4random()%10;
-        DiscoveryModel *model = [DiscoveryModel new];
+        /*DiscoveryModel *model = [DiscoveryModel new];
         model.contentStr = [NSString stringWithFormat:@"XXXXHIHILHTIG4TIBTIBTUIBTI%i",i];
         NSMutableArray *temArray = [NSMutableArray new];
-        //i %2 ==0 ? index < 4 :index < 5
         for (int index = 0; index < 9; index ++) {
             [temArray addObject:[NSString stringWithFormat:@"guide_%i",index %2 == 0 ? 1:2]];
         }
         model.pictureItems = temArray;
+        [self.dataArray addObject:model];*/
+        
+        NSMutableDictionary *json = [NSMutableDictionary new];
+        [json setObject:[NSString stringWithFormat:@"XXXXHIHILHTIG4TIBTIBTUIBTI%i",i] forKey:@"contentStr"];
+        NSMutableArray *temArray = [NSMutableArray new];
+        for (int index = 0; index < 9; index ++) {
+            [temArray addObject:[NSString stringWithFormat:@"guide_%i",index %2 == 0 ? 1:2]];
+        }
+        [json  setObject:temArray forKey:@"pictureItems"];
+        DiscoveryModel *model = [DiscoveryModel jsonToModel:json];
         [self.dataArray addObject:model];
     }
 }
-
 
 - (void)loadDataWithPage:(NSInteger)page {
     @weakify(self);
@@ -111,6 +126,7 @@
 
 - (void)disCoveryCell:(DiscoveryCell *)cell avatarSelected:(DiscoveryModel *)model {
     puts(__func__);
+    NSLog(@"click model = %@",[model modelToJson]);
 }
 
 #pragma mark  -- memerory management
