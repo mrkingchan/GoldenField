@@ -54,7 +54,7 @@
     }
 }
 
--(void)setCellWithData:(DisoveryModel *)model {
+-(void)setCellWithData:(DiscoveryModel *)model {
     _model = model;
     _content.frame = CGRectMake(40, 10, kScreenWidth - 80, 60);
     _content.text = model.contentStr;
@@ -64,7 +64,7 @@
     [_containerView setBoxViewWithData:model.pictureItems];
 }
 
-+(CGFloat)cellHeightWithModel:(DisoveryModel *)model {
++(CGFloat)cellHeightWithModel:(DiscoveryModel *)model {
     return  60  + 10 + [BoxView boxHeightWithPictureArray:model.pictureItems] + 10 + 10;
 }
 

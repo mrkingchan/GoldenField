@@ -7,27 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DisoveryModel.h"
+#import "DiscoveryModel.h"
 #import "BoxView.h"
 
 @class DiscoveryCell;
-@class DisoveryModel;
+@class DiscoveryModel;
 
 @protocol DisCoveryCellDelegate
 
-- (void)disCoveryCell:(DiscoveryCell *)cell avatarSelected:(DisoveryModel *)model;
+- (void)disCoveryCell:(DiscoveryCell *)cell avatarSelected:(DiscoveryModel *)model;
 
 @end
 
 @interface DiscoveryCell : UITableViewCell
 
-@property(nonatomic,strong)DisoveryModel *model;
+@property(nonatomic,strong)DiscoveryModel *model;
 
 @property(nonatomic,strong)BoxView *containerView;
 
-- (void)setCellWithData:(DisoveryModel *)model;
+- (void)setCellWithData:(DiscoveryModel *)model;
 
-+ (CGFloat)cellHeightWithModel:(DisoveryModel *)model;
++ (CGFloat)cellHeightWithModel:(DiscoveryModel *)model;
 
 + (NSString *)cellIdentifier;
 

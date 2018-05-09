@@ -23,6 +23,11 @@
     _window.rootViewController = [MainVC new];
     [_window makeKeyAndVisible];
     //新手引导页
+    if (DEBUG) {
+        NSLog(@"DebugMode");
+    } else {
+        NSLog(@"ReleaseMode");
+    }
     NSMutableArray *images = [NSMutableArray new];
     for (int i = 0; i < 3; i ++) {
         NSString *imageName = [NSString stringWithFormat:@"guide_%i",i +1];
@@ -37,7 +42,6 @@
     }
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

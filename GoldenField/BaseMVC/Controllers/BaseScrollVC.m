@@ -7,7 +7,6 @@
 //
 
 #import "BaseScrollVC.h"
-
 @interface BaseScrollVC () <UITableViewDelegate,UITableViewDataSource> {
     UITableView *_tableView;
 }
@@ -27,6 +26,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor clearColor];
+    //self.view就是一个cell
     self.view = _tableView;
 }
 

@@ -1,5 +1,5 @@
 //
-//  DisoveryModel.h
+//  DiscoveryModel.h
 //  GoldenField
 //
 //  Created by Macx on 2018/5/8.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DisoveryModel : NSObject
+@interface DiscoveryModel : NSObject
 
 @property(nonatomic,strong)NSArray *pictureItems;
 

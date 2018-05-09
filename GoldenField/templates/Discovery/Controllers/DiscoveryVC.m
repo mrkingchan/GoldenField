@@ -7,7 +7,7 @@
 //
 
 #import "DiscoveryVC.h"
-#import "DisoveryModel.h"
+#import "DiscoveryModel.h"
 #import "DiscoveryCell.h"
 
 @interface DiscoveryVC () <BoxViewDelegate,DisCoveryCellDelegate> {
@@ -25,7 +25,7 @@
     self.tableView.backgroundColor = kColorLightGray;
     for (int i = 0; i < 10 ; i ++) {
 //        int randomImagesCount = arc4random()%10;
-        DisoveryModel *model = [DisoveryModel new];
+        DiscoveryModel *model = [DiscoveryModel new];
         model.contentStr = [NSString stringWithFormat:@"XXXXHIHILHTIG4TIBTIBTUIBTI%i",i];
         NSMutableArray *temArray = [NSMutableArray new];
         //i %2 ==0 ? index < 4 :index < 5
@@ -47,7 +47,7 @@
     _currentPage ++;
     for (int i = 0; i < 10 ; i ++) {
         //        int randomImagesCount = arc4random()%10;
-        DisoveryModel *model = [DisoveryModel new];
+        DiscoveryModel *model = [DiscoveryModel new];
         model.contentStr = [NSString stringWithFormat:@"XXXXHIHILHTIG4TIBTIBTUIBTI%i",i];
         NSMutableArray *temArray = [NSMutableArray new];
         //i %2 ==0 ? index < 4 :index < 5
@@ -121,7 +121,7 @@
 
 #pragma mark  -- DisCoveryCellDelegate
 
-- (void)disCoveryCell:(DiscoveryCell *)cell avatarSelected:(DisoveryModel *)model {
+- (void)disCoveryCell:(DiscoveryCell *)cell avatarSelected:(DiscoveryModel *)model {
     puts(__func__);
 }
 
