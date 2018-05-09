@@ -22,6 +22,24 @@
     for (int i = 0; i < 30; i ++) {
         [self.dataArray addObject:@(i)];
     }
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"refresh" style:UIBarButtonItemStylePlain target:self action:@selector(loadData)];
+}
+
+- (void)loadData {
+    [self loadingStartBgClear];
+    [NetTool innerRequestWithHttpMethod:POST
+                                 urlStr:@"xxxxx"
+                                 params:@{@"page":@(1)}
+                                 target:self
+                                 sucess:^(id responseObject) {
+                                     [self loadingSuccess];
+                                 } failure:^(NSString *errorStr) {
+                                     
+                                 }];
+}
+
+-(void)refreshClick {
+    [self loadData];
 }
 
 #pragma mark  -- 上下拉刷新

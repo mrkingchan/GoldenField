@@ -68,7 +68,7 @@
                                                            }
                                                        }];
     if ([target respondsToSelector:@selector(addNet:)]) {
-        [target performSelector:@selector(addNet) withObject:task];
+        [target performSelector:@selector(addNet:) withObject:task];
     }
     return task;
 }

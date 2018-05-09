@@ -45,7 +45,9 @@
     _refreshBtn.frame = CGRectMake(0, _loadingTip.bottom + 10, (self.width - 30)/2, 32);
     [_refreshBtn addTarget:self action:@selector(refreshClick) forControlEvents:UIControlEventTouchUpInside];
     [_refreshBtn setTitle:@"重新加载" forState:UIControlStateNormal];
-    [_refreshBtn setBackgroundImage:kIMAGE(@"button_image_yellow") forState:UIControlStateNormal];
+//    [_refreshBtn setBackgroundImage:kIMAGE(@"button_image_yellow") forState:UIControlStateNormal];
+    [_refreshBtn setBackgroundColor:[UIColor yellowColor]];
+    
     [_refreshBtn setTitleColor:kColorBlack forState:UIControlStateNormal];
     _refreshBtn.layer.cornerRadius = 5;
     _refreshBtn.clipsToBounds = YES;

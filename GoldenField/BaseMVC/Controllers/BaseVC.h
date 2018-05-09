@@ -61,4 +61,7 @@
 - (UIView *)loadingBlankWithOffset:(CGFloat)offset title:(NSString *)title imageStr:(NSString *)imageStr;
 - (UIView *)loadingBlankWithOffset:(CGFloat)offset title:(NSString *)title imageStr:(NSString *)imageStr buttonTitle:(NSString *)buttonTitle;
 
+//刷新加载
+- (void)refreshClick;
+
 @end

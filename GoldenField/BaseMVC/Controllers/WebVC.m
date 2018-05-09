@@ -41,21 +41,37 @@
      _configuration = [WKWebViewConfiguration new];
     _configuration.userContentController = [WKUserContentController new];
     _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:_configuration];
+    _webView.navigationDelegate = self;
     [self.view addSubview:_webView];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
     
     @weakify(self);
     [_webView.scrollView  addLegendHeaderWithRefreshingBlock:^{
         @strongify(self);
+        [self->_webView reload];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self->_webView.scrollView.header endRefreshing];
         });
     }];
 }
 
-- (void)registerJSMethod {
-    [_configuration.userContentController  addScriptMessageHandler:self name:@"xxxx"];
+#pragma mark  -- WKNavigationDelegate
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
+    [self loadingStartBgClear];
 }
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
+    [self loadingFail];
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
+    [self loadingSuccess];
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    decisionHandler(WKNavigationActionPolicyAllow);
+}
+#pragma mark  -- WKUIDelegate
 
 
 #pragma mark  -- memerory management

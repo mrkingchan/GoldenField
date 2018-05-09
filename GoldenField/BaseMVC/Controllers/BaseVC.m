@@ -10,7 +10,7 @@
 #import "LoginVC.h"
 #import "MainVC.h"
 
-@interface BaseVC () {
+@interface BaseVC () <LoadingAndRefreshViewDelegate> {
     LoadingAndRefreshView   *_loadingAndRefreshView;
 }
 
@@ -186,6 +186,11 @@
 }
 
 - (void)refreshClickWithStatus:(LoadingStatus)status {
-    
+    [self refreshClick];
+}
+
+#pragma mark  --交给子类去重写
+- (void)refreshClick {
+    puts(__func__);
 }
 @end
