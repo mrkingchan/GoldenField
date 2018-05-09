@@ -48,7 +48,8 @@
 #import <UIImage+GIF.h>
 
 /////公有接口地址
-#define kBaseURL @"http://wwww.baseurl:xxxx"
+//#define kBaseURL @"http://wwww.baseurl:xxxx"
+#define kBaseURL @"http://wwww.baidu.com/"
 
 #define kiOSVersion     [UIDevice currentDevice].systemVersion.floatValue
 #define kIMAGE(XXX) [[UIImage imageNamed:XXX] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]

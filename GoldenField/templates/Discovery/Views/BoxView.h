@@ -28,5 +28,4 @@
 
 @property(nonatomic,weak)id <BoxViewDelegate>delegate;
 
-
 @end

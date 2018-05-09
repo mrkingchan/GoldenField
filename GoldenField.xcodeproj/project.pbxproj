@@ -20,7 +20,6 @@
 		8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD55209BEB3B00918C0C /* AppDelegate.m */; };
 		8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5A209BEB3B00918C0C /* Main.storyboard */; };
 		8FD8CD5E209BEB3D00918C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */; };
-		8FD8CD61209BEB3D00918C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5F209BEB3D00918C0C /* LaunchScreen.storyboard */; };
 		8FD8CD64209BEB3D00918C0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD63209BEB3D00918C0C /* main.m */; };
 		8FD8CD6E209BEB3D00918C0C /* GoldenFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD6D209BEB3D00918C0C /* GoldenFieldTests.m */; };
 		8FD8CD79209BEB3D00918C0C /* GoldenFieldUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD78209BEB3D00918C0C /* GoldenFieldUITests.m */; };
@@ -89,7 +88,6 @@
 		8FD8CD55209BEB3B00918C0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8FD8CD5B209BEB3B00918C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8FD8CD60209BEB3D00918C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FD8CD62209BEB3D00918C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FD8CD63209BEB3D00918C0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8FD8CD69209BEB3D00918C0C /* GoldenFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,7 +230,6 @@
 				8FD8CD86209BEB7D00918C0C /* templates */,
 				8FD8CD5A209BEB3B00918C0C /* Main.storyboard */,
 				8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */,
-				8FD8CD5F209BEB3D00918C0C /* LaunchScreen.storyboard */,
 				8FD8CD62209BEB3D00918C0C /* Info.plist */,
 				8FD8CD63209BEB3D00918C0C /* main.m */,
 			);
@@ -624,7 +621,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FEF0148209C551300C2F301 /* FreshFishCell.xib in Resources */,
-				8FD8CD61209BEB3D00918C0C /* LaunchScreen.storyboard in Resources */,
 				8FD8CD5E209BEB3D00918C0C /* Assets.xcassets in Resources */,
 				8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */,
 			);
@@ -761,14 +757,6 @@
 				8FD8CD5B209BEB3B00918C0C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8FD8CD5F209BEB3D00918C0C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8FD8CD60209BEB3D00918C0C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

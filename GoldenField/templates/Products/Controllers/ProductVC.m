@@ -25,16 +25,17 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"refresh" style:UIBarButtonItemStylePlain target:self action:@selector(loadData)];
 }
 
+#pragma mark  -- loadData
 - (void)loadData {
     [self loadingStartBgClear];
     [NetTool innerRequestWithHttpMethod:POST
                                  urlStr:@"xxxxx"
-                                 params:@{@"page":@(1)}
+                                 params:nil
                                  target:self
                                  sucess:^(id responseObject) {
                                      [self loadingSuccess];
                                  } failure:^(NSString *errorStr) {
-                                     
+                                     [self loadingFailWithTitle:errorStr];
                                  }];
 }
 
@@ -48,6 +49,7 @@
         [self.dataArray addObject:@(i)];
     }
 }
+
 - (void)refreshFooterAction {
     for (int i = 0; i  < 10; i ++) {
         [self.dataArray addObject:@(i)];
