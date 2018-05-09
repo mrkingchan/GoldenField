@@ -28,11 +28,12 @@
 -(void)setShowRefreshFooter:(BOOL)showRefreshFooter {
     _showRefreshFooter = showRefreshFooter;
     if (showRefreshFooter) {
-        @weakify(self);
         [_tableView addLegendFooterWithRefreshingBlock:^{
-            @strongify(self);
             dispatch_async(dispatch_get_main_queue(), ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-retain-cycles"
                 [self loadingStartBgClear];
+#pragma clang diagnostic pop
             });
             [self tableViewFooterRefreshAction];
             [self refreshDoneActionIsHeader:NO reloadData:YES];
@@ -45,11 +46,13 @@
 - (void)setShowRefreshHeader:(BOOL)showRefreshHeader {
     _showRefreshHeader = showRefreshHeader;
     if (showRefreshHeader) {
-        @weakify(self);
         [_tableView addLegendHeaderWithRefreshingBlock:^{
-            @strongify(self);
             dispatch_async(dispatch_get_main_queue(), ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-retain-cycles"
                 [self loadingStartBgClear];
+#pragma clang diagnostic pop
+
             });
             [self tableViewHeaderRefreshAction];
             [self refreshDoneActionIsHeader:YES reloadData:YES];

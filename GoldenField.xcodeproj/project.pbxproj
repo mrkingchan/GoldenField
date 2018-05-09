@@ -897,7 +897,6 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DEBUG=1",
-					"isTrueEnviroment=0",
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
@@ -923,7 +922,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GoldenField/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"isTrueEnviroment=1",
 					"DEBUG=0",
 					"$(inherited)",
 					"COCOAPODS=1",
