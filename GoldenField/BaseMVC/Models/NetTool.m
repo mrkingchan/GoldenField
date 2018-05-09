@@ -63,6 +63,9 @@
                                                            if (failure) {
                                                                failure(errorStr);
                                                            }
+                                                           if ([target respondsToSelector:@selector(loadingFail)]) {
+                                                               [target performSelectorOnMainThread:@selector(loadingFail) withObject:nil waitUntilDone:NO];
+                                                           }
                                                        }];
     if ([target respondsToSelector:@selector(addNet:)]) {
         [target performSelector:@selector(addNet) withObject:task];

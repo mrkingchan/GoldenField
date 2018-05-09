@@ -9,31 +9,40 @@
 #import "WebVC.h"
 #import <WebKit/WebKit.h>
 
-@interface WebVC () {
-    NSString *_url;
+@interface WebVC () <WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate> {
     WKWebView *_webView;
+    WKWebViewConfiguration *_configuration;
 }
 
 @end
 
 @implementation WebVC
 
+#pragma mark  -- Setter Method
+-(void)setUrlStr:(NSString *)urlStr {
+    _urlStr = urlStr;
+    [_webView loadRequest:[NSURLRequest requestWithURL:kURL(urlStr)]];
+}
+
+#pragma mark  -- initialize method
 -(instancetype)initWithUrlString:(NSString *)urlStr {
     if (self = [super initWithNibName:nil bundle:nil]) {
-        _url = urlStr;
+        _urlStr = urlStr;
     }
     return self;
 }
 
+#pragma mark  -- lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-    WKWebViewConfiguration *configure = [WKWebViewConfiguration new];
-    _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configure];
+     _configuration = [WKWebViewConfiguration new];
+    _configuration.userContentController = [WKUserContentController new];
+    _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:_configuration];
     [self.view addSubview:_webView];
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_url]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
     
     @weakify(self);
     [_webView.scrollView  addLegendHeaderWithRefreshingBlock:^{
@@ -44,4 +53,15 @@
     }];
 }
 
+- (void)registerJSMethod {
+    [_configuration.userContentController  addScriptMessageHandler:self name:@"xxxx"];
+}
+
+
+#pragma mark  -- memerory management
+- (void)dealloc{
+    if (_webView) {
+        _webView = nil;
+    }
+}
 @end

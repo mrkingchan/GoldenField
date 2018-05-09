@@ -21,7 +21,7 @@ static DataManager *manager = nil;
 
 - (instancetype)init {
     if (self = [super init]) {
-       NSMutableArray *users = [UserModel searchWithSQL:[NSString stringWithFormat:@"select  * from UserModel where userid = '%@'",@""]];
+//       NSMutableArray *users = [UserModel searchWithSQL:[NSString stringWithFormat:@"select  * from UserModel where userid = '%@'",@""]];
         NSMutableArray *items = [UserModel searchWithWhere:[NSString stringWithFormat:@"userid = '%@'",@""]];
         //始终保存登录的信息
         for (UserModel *model in items) {

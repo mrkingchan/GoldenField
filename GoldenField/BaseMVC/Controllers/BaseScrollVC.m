@@ -16,6 +16,7 @@
 
 @implementation BaseScrollVC
 
+#pragma mark  -- ViewController lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
@@ -47,5 +48,12 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 0;
+}
+
+#pragma mark  -- memerory management
+- (void)dealloc {
+    if (_tableView ) {
+        _tableView = nil;
+    }
 }
 @end

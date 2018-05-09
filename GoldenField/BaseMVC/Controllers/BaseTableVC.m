@@ -17,12 +17,9 @@
 #pragma mark  -- lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
     self.view.backgroundColor = [UIColor whiteColor];
     _dataArray = [NSMutableArray new];
-    _tableView = InsertTableView(self.view, CGRectMake(0,0, self.view.width, self.view.height), self, self, 0, 0);
+    _tableView = InsertTableView(self.view, CGRectMake(0,0, kScreenWidth, self.view.height), self, self, UITableViewStylePlain, UITableViewCellSeparatorStyleNone);
     [self setShowRefreshHeader:NO];
     [self setShowRefreshFooter:NO];
 }
@@ -34,6 +31,9 @@
         @weakify(self);
         [_tableView addLegendFooterWithRefreshingBlock:^{
             @strongify(self);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self loadingStartBgClear];
+            });
             [self tableViewFooterRefreshAction];
             [self refreshDoneActionIsHeader:NO reloadData:YES];
         }];
@@ -48,6 +48,9 @@
         @weakify(self);
         [_tableView addLegendHeaderWithRefreshingBlock:^{
             @strongify(self);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self loadingStartBgClear];
+            });
             [self tableViewHeaderRefreshAction];
             [self refreshDoneActionIsHeader:YES reloadData:YES];
         }];
@@ -66,6 +69,9 @@
         @weakify(self);
         dispatch_async(dispatch_get_main_queue(), ^{
             @strongify(self);
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self loadingSuccess];
+            });
             [self->_tableView reloadData];
         });
     }
@@ -92,10 +98,6 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    puts(__func__);
 }
 
 #pragma mark  -- memerory management

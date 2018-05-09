@@ -9,6 +9,7 @@
 #import "HomeVC.h"
 #import "FreshFishCell.h"
 #import "ScanVC.h"
+
 @interface HomeVC () <UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate> {
     UIBarButtonItem *_scan;
     SDCycleScrollView *_bannerView;

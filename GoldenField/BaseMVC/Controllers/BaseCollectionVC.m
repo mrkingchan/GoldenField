@@ -51,6 +51,9 @@
         @weakify(self);
         [_collectionView addLegendFooterWithRefreshingBlock:^{
             @strongify(self);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self loadingStartBgClear];
+            });
             [self refreshFooterAction];
             //停止上拉 reloadData
             [self refreshDoneisHeader:NO];
@@ -66,6 +69,9 @@
         @weakify(self);
         [_collectionView addLegendHeaderWithRefreshingBlock:^{
             @strongify(self);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self loadingStartBgClear];
+            });
             [self refreshHeaderAction];
             //停止下拉 并刷新
             [self refreshDoneisHeader:YES];
@@ -87,6 +93,7 @@
 
 #pragma mark  -- 刷新完成之后的reloadData
 - (void)refreshDoneisHeader:(BOOL)isHeader {
+    [self loadingSuccess];
     if (isHeader) {
         [_collectionView.header  endRefreshing];
     } else {
@@ -96,6 +103,9 @@
     @weakify(self);
     dispatch_async(dispatch_get_main_queue(), ^{
         @strongify(self);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self loadingSuccess];
+        });
         [self->_collectionView reloadData];
     });
 }
@@ -115,4 +125,17 @@
     return cell;
 }
 
+#pragma mark  -- memerory management
+
+-(void)dealloc {
+    if (_collectionView) {
+        _collectionView.dataSource = nil;
+        _collectionView.delegate = nil;
+        _collectionView = nil;
+    }
+    if (_dataArray) {
+        [_dataArray removeAllObjects];
+        _dataArray = nil;
+    }
+}
 @end

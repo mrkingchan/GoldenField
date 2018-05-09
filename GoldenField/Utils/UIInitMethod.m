@@ -38,6 +38,7 @@ UICollectionView *InsertCollectionView(id superView,CGRect rec,id <UICollectionV
     return collectionView;
 }
 
+
 #pragma mark UIAlertView
 UIAlertView *SimpleAlert(UIAlertViewStyle style, NSString *title, NSString *message, NSInteger tag, id delegate, NSString *cancel, NSString *ok)
 {
@@ -438,7 +439,8 @@ UITableView *InsertTableView(id superView, CGRect rect, id<UITableViewDataSource
     {
         tabView.delegate = delegate;
     }
-    tabView.tableFooterView = [UIView new];
+    tabView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    tabView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     //tabView.separatorInset = UIEdgeInsetsMake(0, AutoWHGetWidth(15), 0, 0);
     //tabView.separatorColor = kLySeparatorColor;
     tabView.showsVerticalScrollIndicator = NO;

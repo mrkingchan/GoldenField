@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F338DFC20A1A5EF0069CFC1 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFB20A1A5EF0069CFC1 /* DiscoveryCell.m */; };
+		8F338DFF20A1A66A0069CFC1 /* DisoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFE20A1A66A0069CFC1 /* DisoveryModel.m */; };
+		8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338E0120A1A6F50069CFC1 /* BoxView.m */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
 		8FC83F89209FFBA000F753D6 /* BaseCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F88209FFBA000F753D6 /* BaseCollectionVC.m */; };
 		8FC83FCE20A03FFA00F753D6 /* ScanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83FCD20A03FFA00F753D6 /* ScanVC.m */; };
 		8FC83FD120A1399100F753D6 /* BaseScrollVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83FD020A1399100F753D6 /* BaseScrollVC.m */; };
+		8FC83FD420A1500300F753D6 /* LoadingAndRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83FD320A1500300F753D6 /* LoadingAndRefreshView.m */; };
 		8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD55209BEB3B00918C0C /* AppDelegate.m */; };
 		8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5A209BEB3B00918C0C /* Main.storyboard */; };
 		8FD8CD5E209BEB3D00918C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */; };
@@ -60,6 +64,12 @@
 /* Begin PBXFileReference section */
 		3D4D14761B6F0283E6054ED9 /* Pods-GoldenField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenField.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField.release.xcconfig"; sourceTree = "<group>"; };
 		5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoldenField.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F338DFA20A1A5EF0069CFC1 /* DiscoveryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell.h; sourceTree = "<group>"; };
+		8F338DFB20A1A5EF0069CFC1 /* DiscoveryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCell.m; sourceTree = "<group>"; };
+		8F338DFD20A1A66A0069CFC1 /* DisoveryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisoveryModel.h; sourceTree = "<group>"; };
+		8F338DFE20A1A66A0069CFC1 /* DisoveryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisoveryModel.m; sourceTree = "<group>"; };
+		8F338E0020A1A6F50069CFC1 /* BoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxView.h; sourceTree = "<group>"; };
+		8F338E0120A1A6F50069CFC1 /* BoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -72,6 +82,8 @@
 		8FC83FCD20A03FFA00F753D6 /* ScanVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanVC.m; sourceTree = "<group>"; };
 		8FC83FCF20A1399100F753D6 /* BaseScrollVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScrollVC.h; sourceTree = "<group>"; };
 		8FC83FD020A1399100F753D6 /* BaseScrollVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseScrollVC.m; sourceTree = "<group>"; };
+		8FC83FD220A1500300F753D6 /* LoadingAndRefreshView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingAndRefreshView.h; sourceTree = "<group>"; };
+		8FC83FD320A1500300F753D6 /* LoadingAndRefreshView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingAndRefreshView.m; sourceTree = "<group>"; };
 		8FD8CD51209BEB3B00918C0C /* GoldenField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenField.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD8CD54209BEB3B00918C0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FD8CD55209BEB3B00918C0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -157,6 +169,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8F338DF820A1A28C0069CFC1 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		8F338DF920A1A2940069CFC1 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		8FC83FDB20A197D100F753D6 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				8FEF0149209C595C00C2F301 /* UIResponder+CurrentResponder.h */,
+				8FEF014A209C595C00C2F301 /* UIResponder+CurrentResponder.m */,
+				8FEF0142209C545700C2F301 /* UIView+Frame.h */,
+				8FEF0141209C545700C2F301 /* UIView+Frame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		8FD8CD48209BEB3A00918C0C = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +219,8 @@
 		8FD8CD53209BEB3B00918C0C /* GoldenField */ = {
 			isa = PBXGroup;
 			children = (
+				8F338DF920A1A2940069CFC1 /* Share */,
+				8F338DF820A1A28C0069CFC1 /* Push */,
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
 				8FD8CD54209BEB3B00918C0C /* AppDelegate.h */,
 				8FD8CD55209BEB3B00918C0C /* AppDelegate.m */,
@@ -332,6 +371,10 @@
 		8FD8CD92209BEC1D00918C0C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8F338DFA20A1A5EF0069CFC1 /* DiscoveryCell.h */,
+				8F338DFB20A1A5EF0069CFC1 /* DiscoveryCell.m */,
+				8F338E0020A1A6F50069CFC1 /* BoxView.h */,
+				8F338E0120A1A6F50069CFC1 /* BoxView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -339,6 +382,8 @@
 		8FD8CD94209BEEE500918C0C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8F338DFD20A1A66A0069CFC1 /* DisoveryModel.h */,
+				8F338DFE20A1A66A0069CFC1 /* DisoveryModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -398,6 +443,8 @@
 		8FEF012F209C281900C2F301 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8FC83FD220A1500300F753D6 /* LoadingAndRefreshView.h */,
+				8FC83FD320A1500300F753D6 /* LoadingAndRefreshView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -420,10 +467,7 @@
 		8FEF0134209C317F00C2F301 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8FEF0149209C595C00C2F301 /* UIResponder+CurrentResponder.h */,
-				8FEF014A209C595C00C2F301 /* UIResponder+CurrentResponder.m */,
-				8FEF0142209C545700C2F301 /* UIView+Frame.h */,
-				8FEF0141209C545700C2F301 /* UIView+Frame.m */,
+				8FC83FDB20A197D100F753D6 /* Category */,
 				8FEF0131209C283D00C2F301 /* GuideHelpView.h */,
 				8FEF0132209C283D00C2F301 /* GuideHelpView.m */,
 				8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */,
@@ -662,8 +706,11 @@
 				8FD8CD64209BEB3D00918C0C /* main.m in Sources */,
 				8FEF0147209C551300C2F301 /* FreshFishCell.m in Sources */,
 				8FEF014E209C5B3B00C2F301 /* WebVC.m in Sources */,
+				8FC83FD420A1500300F753D6 /* LoadingAndRefreshView.m in Sources */,
 				8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */,
+				8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */,
 				8FC83F89209FFBA000F753D6 /* BaseCollectionVC.m in Sources */,
+				8F338DFC20A1A5EF0069CFC1 /* DiscoveryCell.m in Sources */,
 				8FEF014B209C595D00C2F301 /* UIResponder+CurrentResponder.m in Sources */,
 				8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */,
 				8FD8CDA8209BF3A300918C0C /* MineVC.m in Sources */,
@@ -671,6 +718,7 @@
 				8FC83FD120A1399100F753D6 /* BaseScrollVC.m in Sources */,
 				8FEF013D209C41C800C2F301 /* DataManager.m in Sources */,
 				8FC83F86209FF37700F753D6 /* NetTool.m in Sources */,
+				8F338DFF20A1A66A0069CFC1 /* DisoveryModel.m in Sources */,
 				8FD8CDA5209BF39B00918C0C /* DiscoveryVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -846,6 +894,11 @@
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GoldenField/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"isTrueEnviroment=0",
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -868,6 +921,11 @@
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GoldenField/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"isTrueEnviroment=1",
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -34,7 +34,7 @@
             kUserDefaultSetValue(@"guidePass", @(1));
             kSynchronize;
         }];
-    } 
+    }
     return YES;
 }
 

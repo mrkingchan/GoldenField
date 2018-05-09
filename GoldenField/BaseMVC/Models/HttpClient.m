@@ -11,6 +11,12 @@ static HttpClient *shareClient = nil;
 
 @implementation HttpClient
 
++ (void)initialize {
+    HttpClient *client = [HttpClient new];
+    client.requestSerializer = [AFJSONRequestSerializer serializer];
+    client.responseSerializer = [AFJSONResponseSerializer serializer];
+}
+
 + (instancetype)shareClient {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

@@ -14,6 +14,7 @@
 
 @implementation MainVC
 
+#pragma mark  -- lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
@@ -47,6 +48,7 @@
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:kFontSize(16),NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
+#pragma mark  -- private Method
 /**
   构建viewController
  
@@ -74,6 +76,5 @@
     viewController.title = titleStr;
     return viewController;
 }
-
 
 @end

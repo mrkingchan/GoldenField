@@ -12,4 +12,6 @@
 
 - (instancetype)initWithUrlString:(NSString *)urlStr;
 
+@property(nonatomic,strong)NSString *urlStr;
+
 @end
