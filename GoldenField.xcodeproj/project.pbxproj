@@ -11,6 +11,7 @@
 		8F338DFF20A1A66A0069CFC1 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFE20A1A66A0069CFC1 /* DiscoveryModel.m */; };
 		8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338E0120A1A6F50069CFC1 /* BoxView.m */; };
 		8F4F6E1F20A3103E00885A0D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E1E20A3103E00885A0D /* BaseModel.m */; };
+		8F4F6E2220A314E000885A0D /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E2020A314E000885A0D /* iToast.m */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
@@ -72,6 +73,8 @@
 		8F338E0120A1A6F50069CFC1 /* BoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
 		8F4F6E1D20A3103E00885A0D /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		8F4F6E1E20A3103E00885A0D /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		8F4F6E2020A314E000885A0D /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
+		8F4F6E2120A314E000885A0D /* iToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iToast.h; sourceTree = "<group>"; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -474,6 +477,8 @@
 				8FEF0132209C283D00C2F301 /* GuideHelpView.m */,
 				8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */,
 				8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */,
+				8F4F6E2120A314E000885A0D /* iToast.h */,
+				8F4F6E2020A314E000885A0D /* iToast.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -696,6 +701,7 @@
 				8FD8CD9C209BEF5700918C0C /* MainVC.m in Sources */,
 				8FD8CDA2209BF39100918C0C /* ProductVC.m in Sources */,
 				8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */,
+				8F4F6E2220A314E000885A0D /* iToast.m in Sources */,
 				8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */,
 				8FEF0158209C619300C2F301 /* LoginVC.m in Sources */,
 				8FEF0140209C438000C2F301 /* UserModel.m in Sources */,

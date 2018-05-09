@@ -74,18 +74,6 @@
                                  }];
 }
 
-#pragma mark  -- memerory management
--(void)dealloc {
-    if (self.tableView) {
-        self.tableView.dataSource = nil;
-        self.tableView.delegate = nil;
-        self.tableView = nil;
-    }
-    if (self.dataArray) {
-        self.dataArray = nil;
-    }
-}
-
 #pragma mark  -- UITableViewDataSource&Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -123,6 +111,18 @@
 
 - (void)disCoveryCell:(DiscoveryCell *)cell avatarSelected:(DiscoveryModel *)model {
     puts(__func__);
+}
+
+#pragma mark  -- memerory management
+-(void)dealloc {
+    if (self.tableView) {
+        self.tableView.dataSource = nil;
+        self.tableView.delegate = nil;
+        self.tableView = nil;
+    }
+    if (self.dataArray) {
+        self.dataArray = nil;
+    }
 }
 
 @end

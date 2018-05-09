@@ -32,7 +32,7 @@
 #import "UIInitMethod.h"
 #import "DataManager.h"
 #import "NetTool.h"
-//#import "iToast.h"
+#import "iToast.h"
 //#import "iToast+Category.h"
 
 
