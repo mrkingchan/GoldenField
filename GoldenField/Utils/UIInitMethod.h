@@ -19,6 +19,10 @@
 UICollectionView *InsertCollectionView(id superView,CGRect rect,id <UICollectionViewDataSource>dataSource,id <UICollectionViewDelegate>delegate ,CGSize itemSize,Class cellClass);
 
 #pragma mark UIAlertView
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 /// 实例化UIAlertView
 UIAlertView *SimpleAlert(UIAlertViewStyle style, NSString *title, NSString *message, NSInteger tag, id delegate, NSString *cancel, NSString *ok);
 
@@ -27,6 +31,9 @@ UIAlertView *ActivityIndicatiorAlert(NSString *message, NSInteger tag, id delega
 
 /// 实例化UIAlertView
 UIAlertView *AlertSetString(NSString *title, NSString *cancel, NSString *ok, NSString *set, NSInteger tag, id delegate, SEL selector);
+
+#pragma clang diagnostic pop
+
 
 #pragma mark UIDatePicker
 /// 实例化UIDatePicker

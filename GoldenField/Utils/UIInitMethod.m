@@ -38,6 +38,8 @@ UICollectionView *InsertCollectionView(id superView,CGRect rec,id <UICollectionV
     return collectionView;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 #pragma mark UIAlertView
 UIAlertView *SimpleAlert(UIAlertViewStyle style, NSString *title, NSString *message, NSInteger tag, id delegate, NSString *cancel, NSString *ok)
@@ -103,6 +105,8 @@ UIAlertView *AlertSetString(NSString *title, NSString *cancel, NSString *ok, NSS
     
     return alertview;
 }
+
+#pragma clang diagnostic pop
 
 #pragma mark UIDatePicker
 UIDatePicker *SetDate(UIView *view, NSInteger tag, id delegate, UIInterfaceOrientation orientation)

@@ -68,12 +68,16 @@
     } else {
         [_tableView.footer  endRefreshing];
     }
+    
     if (refreshData) {
-        @weakify(self);
+//        @weakify(self);
         dispatch_async(dispatch_get_main_queue(), ^{
-            @strongify(self);
+//            @strongify(self);
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-retain-cycles"
                 [self loadingSuccess];
+#pragma clang diagnostic pop
             });
             [self->_tableView reloadData];
         });
