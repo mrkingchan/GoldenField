@@ -77,9 +77,9 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-retain-cycles"
                 [self loadingSuccess];
+                [self->_tableView reloadData];
 #pragma clang diagnostic pop
             });
-            [self->_tableView reloadData];
         });
     }
 }

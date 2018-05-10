@@ -93,6 +93,10 @@
     [self loadingSuccess];
 }
 
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    [self loadingFail];
+}
+
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     //加载策略
     decisionHandler(WKNavigationActionPolicyAllow);
@@ -117,5 +121,11 @@
         [_webView removeObserver:self forKeyPath:@"estimatedProgress"];
         _webView = nil;
     }
+}
+
+#pragma mark  -- refreshClick
+- (void)refreshClick {
+    //重新加载webView
+    [_webView loadRequest:[NSURLRequest requestWithURL:kURL(_urlStr)]];
 }
 @end
