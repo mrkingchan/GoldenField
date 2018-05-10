@@ -26,6 +26,7 @@
     _loadingViewBg.clipsToBounds = YES;
     [self addSubview:_loadingViewBg];
     
+    //转圈view
     _loadingView = [[UIImageView alloc] init];
     _loadingView.image = [UIImage imageNamed:@"loading_icon"];
     _loadingView.size = _loadingView.image.size;
@@ -167,7 +168,7 @@
     NSURL *url = [NSURL URLWithString:@"prefs:root = set"];
     if ([[UIApplication sharedApplication]canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
-    }else{
+    } else {
 //        [iToast alertWithTitle:@"系统不支持跳转"];
     }
 }

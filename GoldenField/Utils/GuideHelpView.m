@@ -60,8 +60,8 @@
 - (void)hide {
     [UIView  animateWithDuration:0.1 animations:^{
         [self removeFromSuperview];
-        if (completeBlock) {
-            completeBlock();
+        if (self->completeBlock) {
+            self->completeBlock();
         }
     }];
 }

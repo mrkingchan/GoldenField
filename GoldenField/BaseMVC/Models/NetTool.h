@@ -35,4 +35,17 @@ typedef enum{
                                               target:(id)target
                                               sucess:(void(^)(id responseObject))sucess
                                              failure:(void(^)(NSString *errorStr))failure;
+
+#pragma mark  -- GET & POST
++ (NSURLSessionDataTask *)innerPostWithUrl:(NSString *)urlStr
+                                    params:(id)params
+                                    target:(id)target
+                                    sucess:(void(^)(id responseData))sucess
+                                   failure:(void(^)(NSString *errorStr))failure;
+
++ (NSURLSessionDataTask *)innerGetWithUrl:(NSString *)urlStr
+                                    params:(id)params
+                                    target:(id)target
+                                    sucess:(void(^)(id responseData))sucess
+                                  failure:(void(^)(NSString *errorStr))failure;
 @end

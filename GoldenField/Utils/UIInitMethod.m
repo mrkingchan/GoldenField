@@ -38,6 +38,14 @@ UICollectionView *InsertCollectionView(id superView,CGRect rec,id <UICollectionV
     return collectionView;
 }
 
+#pragma mark  -- UIWindow
+UIWindow *InsertWindow(void) {
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    window.backgroundColor = [UIColor whiteColor];
+    [window makeKeyAndVisible];
+    return window;
+}
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 

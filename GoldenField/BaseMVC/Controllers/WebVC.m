@@ -8,6 +8,7 @@
 
 #import "WebVC.h"
 #import <WebKit/WebKit.h>
+
 @interface WebVC () <WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate> {
     WKWebView *_webView;
     WKWebViewConfiguration *_configuration;
@@ -56,6 +57,17 @@
     //KVO一定要记得移除 remove操作
     [_webView addObserver:self forKeyPath:@"title" options:NSKeyValueObservingOptionNew context:NULL];
     [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
+    //横扫返回
+    _webView.userInteractionEnabled = YES;
+    UISwipeGestureRecognizer *leftSwip = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipLeftAction:)];
+    leftSwip.direction = UISwipeGestureRecognizerDirectionLeft;
+    [_webView addGestureRecognizer:leftSwip];
+}
+
+- (void)swipLeftAction:(UISwipeGestureRecognizer *)tap {
+    if ([_webView canGoBack]) {
+        [_webView goBack];
+    }
 }
 
 #pragma mark  -- KVO 监测加载进度和标题 
@@ -70,9 +82,7 @@
             if (value<1.0) {
                 [_progressView setProgress:value];
             } else {
-                @weakify(self);
                 [UIView animateWithDuration:1.0 animations:^{
-                    @strongify(self);
                     self->_progressView.alpha = 0.0;
                 }];
             }

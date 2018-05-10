@@ -17,11 +17,14 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    _window = [UIWindow new];
+    /*_window = [UIWindow new];
     _window.frame = [UIScreen mainScreen].bounds;
     _window.backgroundColor = [UIColor whiteColor];
     _window.rootViewController = [MainVC new];
-    [_window makeKeyAndVisible];
+    [_window makeKeyAndVisible];*/
+    _window = InsertWindow();
+    _window.rootViewController = [MainVC new];
+
     //新手引导页
     if (DEBUG) {
         NSLog(@"DebugMode");

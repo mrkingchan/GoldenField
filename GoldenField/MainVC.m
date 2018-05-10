@@ -71,10 +71,12 @@
         viewController.tabBarItem = item;
         
     } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         [viewController.tabBarItem setFinishedSelectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+#pragma clang diagnostic pop
     }
     viewController.title = titleStr;
     return viewController;
 }
-
 @end

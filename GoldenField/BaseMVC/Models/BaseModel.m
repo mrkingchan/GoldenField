@@ -44,7 +44,7 @@
 #pragma mark  -- private Method
 
  -(id)modelToJson {
-    NSMutableDictionary *json = [NSMutableDictionary new];
+    /*NSMutableDictionary *json = [NSMutableDictionary new];
     unsigned int count = 0;
 //    Ivar *vars = class_copyIvarList([self class], &count);
      objc_property_t  *properties = class_copyPropertyList([self class], &count);
@@ -52,7 +52,7 @@
         NSString *key = [NSString stringWithUTF8String:property_getName(properties[i])];
         id value = [self valueForKey:key];
         if (value == nil) {
-            //做空字符串处理
+            //做默认空字符串处理
             value = @"";
         }
         if (DEBUG) {
@@ -60,12 +60,33 @@
         }
         [json setValue:value forKey:key];
     }
-    return json;
+    return json;*/
+     
+     NSMutableDictionary * (^complete)(_Nonnull Class) = ^ (Class class) {
+         unsigned int count = 0;
+         NSMutableDictionary *json = [NSMutableDictionary new];
+         objc_property_t *properties = class_copyPropertyList(class, &count);
+         for (int i = 0; i < count; i ++) {
+             NSString *key = [NSString stringWithUTF8String:property_getName(properties[i])];
+             id value = [self valueForKey:key];
+             if (value == nil) {
+                 value = @"";
+             }
+             if (DEBUG) {
+                 NSLog(@"key = %@ -value = %@",key,value);
+             }
+             [json setValue:value forKey:key];
+         }
+         return json;
+     };
+     
+     return complete([self class]);
 }
 
 +(id)jsonToModel:(NSDictionary *)json {
-      id model = [[self class] new];
+      /*id model = [[self class] new];
     unsigned int count = 0;
+    //使用var会出现下划线
 //    Ivar *vars = class_copyIvarList([self class], &count);
     objc_property_t  *properties = class_copyPropertyList([self class], &count);
     for (int i = 0; i < count; i ++) {
@@ -79,7 +100,26 @@
         }
         [model setValue:value forKey:key];
     }
-    return model;
+       return model;
+       */
+    
+    id (^complete) (_Nonnull Class,NSDictionary *) = ^ (Class class,NSDictionary *jsonValue) {
+        id model = [class new];
+        unsigned int count = 0;
+        objc_property_t *propertis = class_copyPropertyList(class, &count);
+        for (int i = 0; i < count; i ++) {
+            NSString *key = [NSString stringWithUTF8String:property_getName(propertis[i])];
+            id value = [jsonValue valueForKey:key];
+            if (value == nil) {
+                value = @"";
+            }
+            if (DEBUG) {
+                NSLog(@"key = %@ -value = %@",key,value);
+            }
+            [model setValue:value forKey:key];
+        }
+        return model;
+    };
+    return complete([self class],json);
 }
-
 @end

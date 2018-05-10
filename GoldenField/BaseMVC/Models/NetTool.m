@@ -89,4 +89,33 @@
 #endif
     return json ?:@{};
 }
+
+#pragma mark  -- GET & POST
++ (NSURLSessionDataTask *)innerPostWithUrl:(NSString *)urlStr
+                                    params:(id)params
+                                    target:(id)target
+                                    sucess:(void(^)(id responseData))sucess
+                                   failure:(void(^)(NSString *errorStr))failure {
+    
+    return [[self class] innerRequestWithHttpMethod:POST
+                                            urlStr:urlStr
+                                            params:params
+                                            target:target
+                                            sucess:sucess
+                                           failure:failure];
+}
+
+
++ (NSURLSessionDataTask *)innerGetWithUrl:(NSString *)urlStr
+                                    params:(id)params
+                                    target:(id)target
+                                    sucess:(void(^)(id responseData))sucess
+                                  failure:(void(^)(NSString *errorStr))failure {
+    return [[self class] innerRequestWithHttpMethod:GET
+                                             urlStr:urlStr
+                                             params:params
+                                             target:target
+                                             sucess:sucess
+                                            failure:failure];
+}
 @end

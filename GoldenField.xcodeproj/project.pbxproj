@@ -897,6 +897,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"DEBUG=1",
+					"isTrueEnviroment=0",
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
@@ -925,6 +926,7 @@
 					"DEBUG=0",
 					"$(inherited)",
 					"COCOAPODS=1",
+					"isTrueEnviroment=1",
 				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

@@ -83,7 +83,9 @@
                                  sucess:^(id responseObject) {
                                      @strongify(self);
                                      ///... add dataSource & reload tableView
-                                     [self.tableView reloadData];
+                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                         [self.tableView reloadData];
+                                     });
                                  } failure:^(NSString *errorStr) {
                                      
                                  }];
@@ -123,7 +125,6 @@
 }
 
 #pragma mark  -- DisCoveryCellDelegate
-
 - (void)disCoveryCell:(DiscoveryCell *)cell avatarSelected:(DiscoveryModel *)model {
     puts(__func__);
     NSLog(@"click model = %@",[model modelToJson]);
@@ -140,5 +141,4 @@
         self.dataArray = nil;
     }
 }
-
 @end

@@ -16,6 +16,14 @@
 
 @implementation BaseCollectionVC
 
+- (instancetype)initWithItemSize:(CGSize)itemsize cellClass:(Class)cellClass {
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        _itemSize = itemsize;
+        _collectionView = InsertCollectionView(self.view, CGRectMake(0, 0, self.view.width, self.view.height), self, self, itemsize, cellClass);
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray = [NSMutableArray new];
@@ -42,7 +50,7 @@
     [self setShowRefreshFooter:NO];
 }
 
-#pragma mark  --Setter &Getter
+#pragma mark  --Setter &Getter Method
 -(void)setShowRefreshFooter:(BOOL)showRefreshFooter {
     _showRefreshFooter = showRefreshFooter;
     if (_showRefreshFooter) {

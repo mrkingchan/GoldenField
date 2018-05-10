@@ -29,5 +29,7 @@
 
 - (void)refreshFooterAction;
 
+#pragma mark  -- initialized method
+- (instancetype)initWithItemSize:(CGSize)itemsize cellClass:(nonnull Class)cellClass;
 
 @end

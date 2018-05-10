@@ -19,7 +19,6 @@
  */
 - (void)verifyLogin:(void(^)(void))complete;
 
-
 /**
  添加网络操作队列
 
@@ -61,7 +60,7 @@
 - (UIView *)loadingBlankWithOffset:(CGFloat)offset title:(NSString *)title imageStr:(NSString *)imageStr;
 - (UIView *)loadingBlankWithOffset:(CGFloat)offset title:(NSString *)title imageStr:(NSString *)imageStr buttonTitle:(NSString *)buttonTitle;
 
-//刷新加载
+//刷新加载 交给子类去重写
 - (void)refreshClick;
 
 @end
