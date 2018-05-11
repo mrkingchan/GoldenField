@@ -77,4 +77,5 @@
 - (void)chanView:(ChanView *)chanView didSelectIndex:(NSInteger)index {
     puts(__func__);
 }
+
 @end

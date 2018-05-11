@@ -24,6 +24,12 @@
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusNotReachable) {
+            [self loadingFail];
+        }
+    }];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
 
 - (void)verifyLogin:(void (^)(void))complete {

@@ -50,13 +50,14 @@
 
 /////公有接口地址
 //#define kBaseURL @"http://wwww.baseurl:xxxx"
-#define kBaseURL @"http://wwww.baidu.com/"
+#define kBaseURL isTrueEnviroment ? @"http://xxxx/":@"http://wwww.baidu.com/"
 
 #define kiOSVersion     [UIDevice currentDevice].systemVersion.floatValue
 #define kIMAGE(XXX) [[UIImage imageNamed:XXX] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
 #define kURL(xxx)         [NSURL URLWithString:xxx]
 #define kApperanceColor     [UIColor colorWithRed:247.0/255.0 green:204/255.0 blue:71/255.0 alpha:1.0]
 #define kFontSize(value) [UIFont systemFontOfSize:value]
+#define kFontBoldSize(value) [UIFont boldSystemFontOfSize:value]
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
