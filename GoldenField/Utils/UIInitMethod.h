@@ -19,7 +19,7 @@
 UICollectionView *InsertCollectionView(id superView,CGRect rect,id <UICollectionViewDataSource>dataSource,id <UICollectionViewDelegate>delegate ,CGSize itemSize,Class cellClass);
 
 #pragma mark  -- UIWindow
-UIWindow *InsertWindow(void);
+UIWindow *InsertWindow(UIViewController *rootViewController);
 
 #pragma mark UIAlertView
 

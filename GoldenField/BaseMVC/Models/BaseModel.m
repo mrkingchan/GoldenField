@@ -79,7 +79,6 @@
          }
          return json;
      };
-     
      return complete([self class]);
 }
 
@@ -102,7 +101,6 @@
     }
        return model;
        */
-    
     id (^complete) (_Nonnull Class,NSDictionary *) = ^ (Class class,NSDictionary *jsonValue) {
         id model = [class new];
         unsigned int count = 0;

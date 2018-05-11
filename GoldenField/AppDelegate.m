@@ -22,9 +22,7 @@
     _window.backgroundColor = [UIColor whiteColor];
     _window.rootViewController = [MainVC new];
     [_window makeKeyAndVisible];*/
-    _window = InsertWindow();
-    _window.rootViewController = [MainVC new];
-
+    _window = InsertWindow([MainVC new]);
     //新手引导页
     if (DEBUG) {
         NSLog(@"DebugMode");

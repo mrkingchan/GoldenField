@@ -10,6 +10,8 @@
 
 @interface FreshFishCell : UITableViewCell
 
+-(void)setCellWithData:(id)model;
+
 + (NSString *)cellIdentifier;
 
 @end

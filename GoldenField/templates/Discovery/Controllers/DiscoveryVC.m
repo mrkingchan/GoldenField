@@ -32,7 +32,6 @@
         }
         model.pictureItems = temArray;
         [self.dataArray addObject:model];*/
-        
         NSMutableDictionary *json = [NSMutableDictionary new];
         [json setObject:[NSString stringWithFormat:@"XXXXHIHILHTIG4TIBTIBTUIBTI%i",i] forKey:@"contentStr"];
         NSMutableArray *temArray = [NSMutableArray new];
@@ -53,6 +52,7 @@
 
 - (void)tableViewFooterRefreshAction {
     _currentPage ++;
+    [self loadingStart];
     for (int i = 0; i < 10 ; i ++) {
         /*DiscoveryModel *model = [DiscoveryModel new];
         model.contentStr = [NSString stringWithFormat:@"XXXXHIHILHTIG4TIBTIBTUIBTI%i",i];
@@ -141,4 +141,5 @@
         self.dataArray = nil;
     }
 }
+
 @end

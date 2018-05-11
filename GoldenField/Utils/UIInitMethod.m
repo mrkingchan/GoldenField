@@ -39,10 +39,11 @@ UICollectionView *InsertCollectionView(id superView,CGRect rec,id <UICollectionV
 }
 
 #pragma mark  -- UIWindow
-UIWindow *InsertWindow(void) {
+UIWindow *InsertWindow(UIViewController *rootViewController) {
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     window.backgroundColor = [UIColor whiteColor];
     [window makeKeyAndVisible];
+    window.rootViewController = rootViewController;
     return window;
 }
 
