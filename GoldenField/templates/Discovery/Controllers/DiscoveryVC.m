@@ -40,8 +40,13 @@
         }
         [json  setObject:temArray forKey:@"pictureItems"];
         DiscoveryModel *model = [DiscoveryModel jsonToModel:json];
+//        [model saveToDB];
         [self.dataArray addObject:model];
     }
+    /*NSMutableArray *dbArray = [DiscoveryModel searchWithWhere:nil];
+    if (DEBUG) {
+        NSLog(@"dataBasePath = %@,dataArray = %@",[[DiscoveryModel class]downloadPath],dbArray);
+    }*/
 }
 
 #pragma mark  -- 上下拉刷新的方法 交给子类去重写

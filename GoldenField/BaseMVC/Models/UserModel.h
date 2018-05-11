@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserModel : NSObject
+@interface UserModel : BaseModel
 
 @property(nonatomic,assign) BOOL isLogin;
 

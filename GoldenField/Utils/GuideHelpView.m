@@ -12,6 +12,7 @@
     UIScrollView *_contentView;
     NSArray* _imageArray;
     void (^completeBlock)(void);
+    UIPageControl *_pageControl;
 }
 @end
 
@@ -44,6 +45,9 @@
             [_contentView addSubview:imageView];
         }
     }
+    
+    //pageControl
+    _pageControl = InsertPageControl(self, CGRectMake(kScreenWidth / 2 - 60, kScreenHeight - 40, 120, 20), imageArray.count, 0, kColorClear, kColorWhite, kColorOrange);
     return self;
 }
 
@@ -57,6 +61,7 @@
     }
 }
 
+#pragma mark  -- hide
 - (void)hide {
     [UIView  animateWithDuration:0.1 animations:^{
         [self removeFromSuperview];
@@ -68,10 +73,12 @@
 
 #pragma mark  -- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    //索引
+    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
+    [_pageControl setCurrentPage:index];
+    
     if (scrollView.contentOffset.x> (_imageArray.count - 1) * kScreenWidth) {
         [self hide];
     }
 }
-
-
 @end

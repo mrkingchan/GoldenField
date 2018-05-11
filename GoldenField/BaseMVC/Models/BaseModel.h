@@ -16,4 +16,7 @@
 
 + (id)jsonToModel:(NSDictionary*)json;
 
+///数据库地址
++ (NSString *)downloadPath;
+
 @end

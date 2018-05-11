@@ -120,4 +120,70 @@
     };
     return complete([self class],json);
 }
+
+#pragma mark  -- DataBase Support
+#pragma mark - DB
++ (LKDBHelper *)getUsingLKDBHelper {
+    static LKDBHelper* db;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *sqlitePath = [BaseModel downloadPath];
+        NSString *dbpath = [sqlitePath stringByAppendingPathComponent:[NSString stringWithFormat:@"GoldenField.db"]];
+        if (DEBUG) {
+         NSLog(@"数据库地址:%@",dbpath);
+        }
+        db = [[LKDBHelper alloc]initWithDBPath:dbpath];
+    });
+    return db;
+}
+
+#pragma mark --DBPath
++ (NSString *)downloadPath {
+    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *downloadPath = [documentPath stringByAppendingPathComponent:@"GoldenField"];
+    if (DEBUG) {
+        NSLog(@"downloadPath:%@",downloadPath);
+    }
+    return downloadPath;
+}
+
+#pragma mark --create Table
++ (NSString *)getCreateTableSQL {
+    LKModelInfos *infos = [self getModelInfos];
+    //主键
+    NSString *primaryKey = [self getPrimaryKey];
+    //表参数
+    NSMutableString *tablePars = [NSMutableString string];
+    for (int i = 0; i < infos.count; i++) {
+        if(i > 0) {
+            [tablePars appendString:@","];
+        }
+        LKDBProperty* property =  [infos objectWithIndex:i];
+        [self columnAttributeWithProperty:property];
+        [tablePars appendFormat:@"%@ %@", property.sqlColumnName, property.sqlColumnType];
+        
+        if([property.sqlColumnType isEqualToString:LKSQL_Type_Text]) {
+            if(property.length > 0) {
+                [tablePars appendFormat:@"(%ld)", (long)property.length];
+            }
+        }
+        if(property.isNotNull) {
+            [tablePars appendFormat:@" %@", LKSQL_Attribute_NotNull];
+        }
+        if(property.isUnique) {
+            [tablePars appendFormat:@" %@", LKSQL_Attribute_Unique];
+        }
+        if(property.checkValue) {
+            [tablePars appendFormat:@" %@(%@)", LKSQL_Attribute_Check, property.checkValue];
+        }
+        if(property.defaultValue) {
+            [tablePars appendFormat:@" %@ %@", LKSQL_Attribute_Default, property.defaultValue];
+        }
+        if(primaryKey && [property.sqlColumnName isEqualToString:primaryKey]) {
+            [tablePars appendFormat:@" %@", LKSQL_Attribute_PrimaryKey];
+        }
+    }
+    NSString* createTableSQL = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@(%@)", [self getTableName], tablePars];
+    return createTableSQL;
+}
 @end

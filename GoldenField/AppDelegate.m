@@ -37,7 +37,7 @@
     }
     if ([kUserDefaultValueForKey(@"guidePass") integerValue]!=1) {
         [GuideHelpView guidehelpViewWithImageArray:images complete:^{
-            kUserDefaultSetValue(@"guidePass", @(1));
+            kUserDefaultSetValue(@"guidePass", @(0));
             kSynchronize;
         }];
     }
