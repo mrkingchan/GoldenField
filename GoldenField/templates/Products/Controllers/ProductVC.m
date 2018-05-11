@@ -19,9 +19,7 @@
     self.itemSize = CGSizeMake((kScreenWidth - 15) / 4.0, (kScreenWidth - 15) / 4.0);
     [self setShowRefreshFooter:YES];
     [self setShowRefreshHeader:YES];
-    for (int i = 0; i < 30; i ++) {
-        [self.dataArray addObject:@(i)];
-    }
+    [self refreshHeaderAction];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"refresh" style:UIBarButtonItemStylePlain target:self action:@selector(loadData)];
 }
 
@@ -70,5 +68,4 @@
     cell.backgroundColor = kRandomColor;
     return cell;
 }
-
 @end

@@ -14,6 +14,7 @@
 		8F4F6E2220A314E000885A0D /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E2020A314E000885A0D /* iToast.m */; };
 		8F4F6E6620A52F3600885A0D /* GoldenField.db in Resources */ = {isa = PBXBuildFile; fileRef = 8F4F6E6520A52F3600885A0D /* GoldenField.db */; };
 		8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E6820A5475E00885A0D /* ChanView.m */; };
+		8F4F6E6C20A58A4200885A0D /* AppDelegate+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
@@ -80,6 +81,8 @@
 		8F4F6E6520A52F3600885A0D /* GoldenField.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = GoldenField.db; sourceTree = "<group>"; };
 		8F4F6E6720A5475E00885A0D /* ChanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChanView.h; sourceTree = "<group>"; };
 		8F4F6E6820A5475E00885A0D /* ChanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChanView.m; sourceTree = "<group>"; };
+		8F4F6E6A20A58A4200885A0D /* AppDelegate+Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Configuration.h"; sourceTree = "<group>"; };
+		8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Configuration.m"; sourceTree = "<group>"; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
 				8FD8CD54209BEB3B00918C0C /* AppDelegate.h */,
 				8FD8CD55209BEB3B00918C0C /* AppDelegate.m */,
+				8F4F6E6A20A58A4200885A0D /* AppDelegate+Configuration.h */,
+				8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */,
 				8FD8CD9A209BEF5700918C0C /* MainVC.h */,
 				8FD8CD9B209BEF5700918C0C /* MainVC.m */,
 				8F338DF920A1A2940069CFC1 /* Share */,
@@ -728,6 +733,7 @@
 				8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */,
 				8FC83F89209FFBA000F753D6 /* BaseCollectionVC.m in Sources */,
 				8F338DFC20A1A5EF0069CFC1 /* DiscoveryCell.m in Sources */,
+				8F4F6E6C20A58A4200885A0D /* AppDelegate+Configuration.m in Sources */,
 				8FEF014B209C595D00C2F301 /* UIResponder+CurrentResponder.m in Sources */,
 				8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */,
 				8FD8CDA8209BF3A300918C0C /* MineVC.m in Sources */,
