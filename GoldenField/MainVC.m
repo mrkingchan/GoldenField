@@ -92,6 +92,7 @@
             [tempArray addObject:subView];
         }
     }
+    //这里的排序是为了针对StoryBoard里面的无序处理
     tempArray = [NSMutableArray arrayWithArray:[tempArray sortedArrayUsingComparator:^NSComparisonResult(UIView *subView1, UIView *subView2) {
         CGFloat X1 = subView1.frame.origin.x;
         CGFloat X2 = subView2.frame.origin.x;

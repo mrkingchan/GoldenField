@@ -41,7 +41,30 @@
             kSynchronize;
         }];
     }
+   [self buildShorcutItems];
     return YES;
+}
+
+#pragma mark  -- touchPress
+-(void)buildShorcutItems {
+    NSMutableArray *items = [NSMutableArray new];
+    NSArray *types = @[@(UIApplicationShortcutIconTypeDate),
+                       @(UIApplicationShortcutIconTypeHome),
+                       @(UIApplicationShortcutIconTypeTask),
+                       @(UIApplicationShortcutIconTypeLocation),
+                       @(UIApplicationShortcutIconTypeLove)];
+    for (int i = 0 ; i < 5; i ++) {
+        UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithType:[types[i] integerValue]];
+        UIApplicationShortcutItem *item = [[UIApplicationShortcutItem alloc] initWithType:@"" localizedTitle:[NSString stringWithFormat:@"title%i",i  + 1] localizedSubtitle:[NSString stringWithFormat:@"subTitle%i",i + 1] icon:icon userInfo:@{@"item":@(i)}];
+        [items addObject:item];
+    }
+    [UIApplication sharedApplication].shortcutItems = items;
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    if (DEBUG) {
+        NSLog(@"您点击的是%@",shortcutItem.localizedTitle);
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
