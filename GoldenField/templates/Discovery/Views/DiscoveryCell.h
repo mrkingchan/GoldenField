@@ -13,7 +13,7 @@
 @class DiscoveryCell;
 @class DiscoveryModel;
 
-@protocol DisCoveryCellDelegate
+@protocol DisCoveryCellDelegate <NSObject>
 
 - (void)disCoveryCell:(DiscoveryCell *)cell avatarSelected:(DiscoveryModel *)model;
 

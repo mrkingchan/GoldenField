@@ -7,9 +7,11 @@
 //
 
 #import "LoginVC.h"
+#import "ChanView.h"
 
-@interface LoginVC () {
+@interface LoginVC () <ChanDelegate,DataSource> {
     UITextField *_inputs[2];
+    ChanView*_subView;
 }
 
 @end
@@ -41,6 +43,12 @@
         _inputs[i].layer.borderColor = kColorBlack.CGColor;
         _inputs[i].layer.borderWidth = 1.5;
     }
+    
+    _subView = [[ChanView alloc] initWithFrame:CGRectMake(0, _inputs[1].bottom + 20, kScreenWidth,300)];
+    _subView.backgroundColor = kRandomColor;
+    _subView.delegate = self;
+    _subView.dataSource = self;
+    [self.view addSubview:_subView];
 }
 
 - (void)buttonAction:(id)sender {
@@ -55,5 +63,18 @@
             self->_complete();
         }
     }];
+}
+
+#pragma mark  -- ChanViewDataSource &Delegate
+- (UIColor *)backgroudColorInChanView:(ChanView *)chanView {
+    return kRandomColor;
+}
+
+-(NSInteger)numberofRowsInChanView:(ChanView *)chanView {
+    return  10;
+}
+
+- (void)chanView:(ChanView *)chanView didSelectIndex:(NSInteger)index {
+    puts(__func__);
 }
 @end

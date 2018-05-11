@@ -10,7 +10,7 @@
 
 @class BoxView;
 
-@protocol BoxViewDelegate
+@protocol BoxViewDelegate <NSObject>
 
 - (void)boxView:(BoxView*)boxView selectedIndex:(NSInteger)index items:(NSArray *)items;
 

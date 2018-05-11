@@ -39,9 +39,9 @@
     if (_complete) {
         _complete(index,_items);
     }
-//    if (_delegate && [_delegate respondsToSelector:@selector(boxView:selectedIndex:items:)]) {
+    if (_delegate && [_delegate respondsToSelector:@selector(boxView:selectedIndex:items:)]) {
         [_delegate boxView:self selectedIndex:index items:_items];
-//    }
+    }
 }
 
 -(void)setBoxViewWithData:(NSArray *)items {
