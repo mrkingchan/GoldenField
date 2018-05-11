@@ -8,6 +8,8 @@
 
 #import "MainVC.h"
 
+#define iPhoneX_BOTTOM_HEIGHT  ([UIScreen mainScreen].bounds.size.height==812?34:0)
+
 @interface MainVC ()
 
 @end
@@ -20,6 +22,10 @@
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+    if (@available(iOS 11.0, *)) {
+        self.additionalSafeAreaInsets = UIEdgeInsetsMake(0, 0, iPhoneX_BOTTOM_HEIGHT, 0);
+    }
+    
     NSArray *classNames = @[[HomeVC class],
                             [ProductVC class],
                             [DiscoveryVC class],
