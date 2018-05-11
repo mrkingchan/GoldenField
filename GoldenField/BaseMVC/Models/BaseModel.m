@@ -20,7 +20,7 @@
         NSString *propertyName = [NSString  stringWithUTF8String:property_getName(properties[i])];
         id value = [self valueForKey:propertyName];
         if (value == nil) {
-            break;
+            continue;
         }
         [aCoder encodeObject:value forKey:propertyName];
     }
@@ -34,7 +34,7 @@
         NSString *propertyName = [NSString stringWithUTF8String:property_getName(properties[i])];
         id value = [aDecoder decodeObjectForKey:propertyName];
         if (value == nil) {
-            break;
+            continue;
         }
         [model setValue:value forKey:propertyName];
     }
