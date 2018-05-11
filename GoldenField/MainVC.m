@@ -79,4 +79,50 @@
     viewController.title = titleStr;
     return viewController;
 }
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item  {
+    NSInteger index = [self.tabBar.items  indexOfObject:item];
+    [self animationActionWithIndex:index];
+}
+
+- (void)animationActionWithIndex:(NSUInteger)index {
+    NSMutableArray *tempArray = [NSMutableArray new];
+    for (UIView *subView in self.tabBar.subviews) {
+        if ([subView isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tempArray addObject:subView];
+        }
+    }
+    tempArray = [NSMutableArray arrayWithArray:[tempArray sortedArrayUsingComparator:^NSComparisonResult(UIView *subView1, UIView *subView2) {
+        CGFloat X1 = subView1.frame.origin.x;
+        CGFloat X2 = subView2.frame.origin.x;
+        return [[NSNumber numberWithFloat:X1]  compare:[NSNumber numberWithFloat:X2]];
+    }]];
+    
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAnimation.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    scaleAnimation.duration = 0.1;
+    scaleAnimation.repeatCount= 1;
+    scaleAnimation.autoreverses= YES;
+    scaleAnimation.fromValue= [NSNumber numberWithFloat:0.7];
+    scaleAnimation.toValue= [NSNumber numberWithFloat:1.3];
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    animation.fromValue = @(0);
+    animation.toValue = @(2 * M_PI);
+    animation.duration = 0.1;
+    animation.repeatCount = 1;
+    animation.removedOnCompletion = YES;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[scaleAnimation,animation];
+    group.duration = 0.1;
+    group.repeatCount = 1;
+    group.removedOnCompletion = YES;
+    group.autoreverses = YES;
+    group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    
+    UIView *itemView = (UIView *)tempArray[index];
+    [itemView.layer addAnimation:scaleAnimation forKey:nil];
+}
 @end
