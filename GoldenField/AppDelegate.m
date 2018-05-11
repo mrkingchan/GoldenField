@@ -29,6 +29,7 @@
     } else {
         NSLog(@"ReleaseMode");
     }
+
     NSMutableArray *images = [NSMutableArray new];
     for (int i = 0; i < 3; i ++) {
         NSString *imageName = [NSString stringWithFormat:@"guide_%i",i +1];

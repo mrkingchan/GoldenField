@@ -8,8 +8,6 @@
 
 #import "MainVC.h"
 
-#define iPhoneX_BOTTOM_HEIGHT  ([UIScreen mainScreen].bounds.size.height==812?34:0)
-
 @interface MainVC ()
 
 @end
@@ -21,9 +19,6 @@
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
-    if (@available(iOS 11.0, *)) {
-        self.additionalSafeAreaInsets = UIEdgeInsetsMake(0, 0, iPhoneX_BOTTOM_HEIGHT, 0);
     }
     
     NSArray *classNames = @[[HomeVC class],
@@ -91,6 +86,7 @@
     [self animationActionWithIndex:index];
 }
 
+#pragma mark  -- animation Method
 - (void)animationActionWithIndex:(NSUInteger)index {
     NSMutableArray *tempArray = [NSMutableArray new];
     for (UIView *subView in self.tabBar.subviews) {
@@ -98,13 +94,14 @@
             [tempArray addObject:subView];
         }
     }
-    //这里的排序是为了针对StoryBoard里面的无序处理
+    //这里的排序是为了针对StoryBoard里面的无序处理，在StoryBoard里面会出现item是无序的情况
     tempArray = [NSMutableArray arrayWithArray:[tempArray sortedArrayUsingComparator:^NSComparisonResult(UIView *subView1, UIView *subView2) {
         CGFloat X1 = subView1.frame.origin.x;
         CGFloat X2 = subView2.frame.origin.x;
         return [[NSNumber numberWithFloat:X1]  compare:[NSNumber numberWithFloat:X2]];
     }]];
     
+    //放大
     CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     scaleAnimation.timingFunction= [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     scaleAnimation.duration = 0.1;
@@ -113,16 +110,18 @@
     scaleAnimation.fromValue= [NSNumber numberWithFloat:0.7];
     scaleAnimation.toValue= [NSNumber numberWithFloat:1.3];
     
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    animation.fromValue = @(0);
-    animation.toValue = @(2 * M_PI);
-    animation.duration = 0.1;
-    animation.repeatCount = 1;
-    animation.removedOnCompletion = YES;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    //旋转
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.fromValue = @(0);
+    rotationAnimation.toValue = @(2 * M_PI);
+    rotationAnimation.duration = 0.1;
+    rotationAnimation.repeatCount = 1;
+    rotationAnimation.removedOnCompletion = YES;
+    rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     
+    //动画组
     CAAnimationGroup *group = [CAAnimationGroup animation];
-    group.animations = @[scaleAnimation,animation];
+    group.animations = @[scaleAnimation,rotationAnimation];
     group.duration = 0.1;
     group.repeatCount = 1;
     group.removedOnCompletion = YES;
