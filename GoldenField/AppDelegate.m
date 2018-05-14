@@ -10,7 +10,7 @@
 #import "MainVC.h"
 #import "GuideHelpView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UNUserNotificationCenterDelegate>
 
 @end
 
@@ -29,7 +29,34 @@
     } else {
         NSLog(@"ReleaseMode");
     }
+    [self buildShorcutItems];
+    [self configureGuide];
+    [self configureCommonPushWithLanunchOptions:launchOptions];
+    
+    return YES;
+}
 
+#pragma mark  -- 推送设置
+- (void)configureCommonPushWithLanunchOptions:(NSDictionary*)launchOptions {
+    //推送
+    UMessageRegisterEntity *entity = [UMessageRegisterEntity new];
+    entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionSound|UMessageAuthorizationOptionAlert;
+    if (@available(iOS 10.0, *)) {
+        [UNUserNotificationCenter currentNotificationCenter].delegate=self;
+    }
+    
+    [UMessage registerForRemoteNotificationsWithLaunchOptions:launchOptions Entity:entity     completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        //授权
+        if (granted) {
+            
+        } else {
+            
+        }
+    }];
+}
+
+#pragma mark  -- 引导页
+- (void)configureGuide {
     NSMutableArray *images = [NSMutableArray new];
     for (int i = 0; i < 3; i ++) {
         NSString *imageName = [NSString stringWithFormat:@"guide_%i",i +1];
@@ -38,12 +65,49 @@
     }
     if ([kUserDefaultValueForKey(@"guidePass") integerValue]!=1) {
         [GuideHelpView guidehelpViewWithImageArray:images complete:^{
-            kUserDefaultSetValue(@"guidePass", @(0));
+            kUserDefaultSetValue(@"guidePass", @(1));
             kSynchronize;
         }];
     }
-   [self buildShorcutItems];
-    return YES;
+}
+
+#pragma mark  -- 交互推送
+- (void)configureInteractPushWithLaunchOptions:(NSDictionary *)launchOptions {
+    UMessageRegisterEntity * entity = [UMessageRegisterEntity new];
+    entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionAlert|UMessageAuthorizationOptionSound;
+    if (kiOSVersion>=8 && kiOSVersion<10) {
+        UIMutableUserNotificationAction *action1 = [[UIMutableUserNotificationAction alloc] init];
+        action1.identifier = @"action1_identifier";
+        action1.title=@"打开应用";
+        action1.activationMode = UIUserNotificationActivationModeForeground;//当点击的时候启动程序
+        
+        UIMutableUserNotificationAction *action2 = [[UIMutableUserNotificationAction alloc] init];  //第二按钮
+        action2.identifier = @"action2_identifier";
+        action2.title=@"忽略";
+        action2.activationMode = UIUserNotificationActivationModeBackground;//当点击的时候不启动程序，在后台处理
+        action2.authenticationRequired = YES;//需要解锁才能处理，如果action.activationMode = UIUserNotificationActivationModeForeground;则这个属性被忽略；
+        action2.destructive = YES;
+        UIMutableUserNotificationCategory *actionCategory1 = [[UIMutableUserNotificationCategory alloc] init];
+        actionCategory1.identifier = @"category1";//这组动作的唯一标示
+        [actionCategory1 setActions:@[action1,action2] forContext:(UIUserNotificationActionContextDefault)];
+        NSSet *categories = [NSSet setWithObjects:actionCategory1, nil];
+        entity.categories = categories;
+    }
+    //如果要在iOS10显示交互式的通知，必须注意实现以下代码
+    if (kiOSVersion>=10) {
+        UNNotificationAction *action1_ios10 = [UNNotificationAction actionWithIdentifier:@"action1_identifier" title:@"打开应用" options:UNNotificationActionOptionForeground];
+        UNNotificationAction *action2_ios10 = [UNNotificationAction actionWithIdentifier:@"action2_identifier" title:@"忽略" options:UNNotificationActionOptionForeground];
+        
+        //UNNotificationCategoryOptionNone
+        //UNNotificationCategoryOptionCustomDismissAction  清除通知被触发会走通知的代理方法
+        //UNNotificationCategoryOptionAllowInCarPlay       适用于行车模式
+        UNNotificationCategory *category1_ios10 = [UNNotificationCategory categoryWithIdentifier:@"category1" actions:@[action1_ios10,action2_ios10]   intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];
+        NSSet *categories = [NSSet setWithObjects:category1_ios10, nil];
+        entity.categories=categories;
+    }
+    [UNUserNotificationCenter currentNotificationCenter].delegate=self;
+    [UMessage registerForRemoteNotificationsWithLaunchOptions:launchOptions Entity:entity completionHandler:^(BOOL granted, NSError * _Nullable error) {
+    }];
 }
 
 #pragma mark  -- touchPress
@@ -60,6 +124,35 @@
         [items addObject:item];
     }
     [UIApplication sharedApplication].shortcutItems = items;
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+}
+
+#pragma mark  -- UNUserNotificationCenterDelegate ios10 以上的推送接收方法
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [UMessage setAutoAlert:NO];
+        //应用处于前台时的远程推送接受
+        //必须加这句代码
+        [UMessage didReceiveRemoteNotification:userInfo];
+    }else{
+        //应用处于前台时的本地推送接受
+    }
+    completionHandler(UNNotificationPresentationOptionSound|UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionAlert);
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler {
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //应用处于后台时的远程推送接受
+        //必须加这句代码
+        [UMessage didReceiveRemoteNotification:userInfo];
+    }else{
+        //应用处于后台时的本地推送接受
+    }
 }
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {

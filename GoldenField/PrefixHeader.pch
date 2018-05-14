@@ -48,6 +48,7 @@
 #import <UIImageView+WebCache.h>
 #import <UIImage+GIF.h>
 #import <UMShare/UMShare.h>
+#import <UMPush/UMessage.h>
 
 /////公有接口地址
 //#define kBaseURL @"http://wwww.baseurl:xxxx"
@@ -56,7 +57,7 @@
 #define kUmengAppKey @""
 #define kUmengAppSecretKey @""
 
-
+#define kIsiPhoneX [UIScreen mainScreen].bounds.size.height==812
 #define iPhoneX_BOTTOM_HEIGHT  ([UIScreen mainScreen].bounds.size.height==812?34:0)
 #define kiOSVersion     [UIDevice currentDevice].systemVersion.floatValue
 #define kIMAGE(XXX) [[UIImage imageNamed:XXX] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
