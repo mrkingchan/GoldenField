@@ -29,10 +29,14 @@
     }
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
-            [self loadingFail];
+            [self networkError];
         }
     }];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+}
+
+- (void)networkError {
+    puts(__func__);
 }
 
 - (void)verifyLogin:(void (^)(void))complete {

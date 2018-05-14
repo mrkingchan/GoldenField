@@ -64,6 +64,11 @@
     [_webView addGestureRecognizer:leftSwip];
 }
 
+//重写父类网络错误提示
+- (void)networkError {
+    [self loadingFail];
+}
+
 - (void)swipLeftAction:(UISwipeGestureRecognizer *)tap {
     if ([_webView canGoBack]) {
         [_webView goBack];

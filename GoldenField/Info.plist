@@ -33,6 +33,10 @@
 	<string>使用您的相机以扫描二维码</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>使用您的相册以识别二维码</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -29,6 +29,9 @@
 
 - (void)releaseNetWork;
 
+///网络错误提示 需要在子类中进行重写(根据需要去重写)
+- (void)networkError;
+
 
 #pragma mark  -- loadingView
 //加载成功

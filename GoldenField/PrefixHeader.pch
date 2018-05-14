@@ -47,10 +47,15 @@
 #import <SGQRCode/SGQRCode.h>
 #import <UIImageView+WebCache.h>
 #import <UIImage+GIF.h>
+#import <UMShare/UMShare.h>
 
 /////公有接口地址
 //#define kBaseURL @"http://wwww.baseurl:xxxx"
 #define kBaseURL isTrueEnviroment ? @"http://xxxx/":@"http://wwww.baidu.com/"
+#define kAppID @""
+#define kUmengAppKey @""
+#define kUmengAppSecretKey @""
+
 
 #define iPhoneX_BOTTOM_HEIGHT  ([UIScreen mainScreen].bounds.size.height==812?34:0)
 #define kiOSVersion     [UIDevice currentDevice].systemVersion.floatValue

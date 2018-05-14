@@ -12,6 +12,13 @@
 
 - (void)confurationWithComplete:(void (^)(void))complete {
     //xxx配置某些三方之内的代码
+    
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession
+                                          appKey:kUmengAppKey
+                                       appSecret:kUmengAppSecretKey
+                                     redirectURL:@""];
+    
+    
     [self registerAppWithComplete:complete];
 }
 

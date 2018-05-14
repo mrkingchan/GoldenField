@@ -15,6 +15,7 @@
 		8F4F6E6620A52F3600885A0D /* GoldenField.db in Resources */ = {isa = PBXBuildFile; fileRef = 8F4F6E6520A52F3600885A0D /* GoldenField.db */; };
 		8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E6820A5475E00885A0D /* ChanView.m */; };
 		8F4F6E6C20A58A4200885A0D /* AppDelegate+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */; };
+		8F4F6E9920A9597A00885A0D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4F6E9820A9597A00885A0D /* UserNotifications.framework */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
@@ -83,6 +84,8 @@
 		8F4F6E6820A5475E00885A0D /* ChanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChanView.m; sourceTree = "<group>"; };
 		8F4F6E6A20A58A4200885A0D /* AppDelegate+Configuration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Configuration.h"; sourceTree = "<group>"; };
 		8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Configuration.m"; sourceTree = "<group>"; };
+		8F4F6E9720A9595800885A0D /* GoldenField.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoldenField.entitlements; sourceTree = "<group>"; };
+		8F4F6E9820A9597A00885A0D /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F4F6E9920A9597A00885A0D /* UserNotifications.framework in Frameworks */,
 				F52D1D75763F017544231994 /* libPods-GoldenField.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,23 +180,10 @@
 		70E6976CF8E61933B2F04B2C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F4F6E9820A9597A00885A0D /* UserNotifications.framework */,
 				5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8F338DF820A1A28C0069CFC1 /* Push */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Push;
-			sourceTree = "<group>";
-		};
-		8F338DF920A1A2940069CFC1 /* Share */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Share;
 			sourceTree = "<group>";
 		};
 		8FC83FDB20A197D100F753D6 /* Category */ = {
@@ -231,6 +222,7 @@
 		8FD8CD53209BEB3B00918C0C /* GoldenField */ = {
 			isa = PBXGroup;
 			children = (
+				8F4F6E9720A9595800885A0D /* GoldenField.entitlements */,
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
 				8FD8CD54209BEB3B00918C0C /* AppDelegate.h */,
 				8FD8CD55209BEB3B00918C0C /* AppDelegate.m */,
@@ -238,8 +230,6 @@
 				8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */,
 				8FD8CD9A209BEF5700918C0C /* MainVC.h */,
 				8FD8CD9B209BEF5700918C0C /* MainVC.m */,
-				8F338DF920A1A2940069CFC1 /* Share */,
-				8F338DF820A1A28C0069CFC1 /* Push */,
 				8FEF0152209C616500C2F301 /* Login */,
 				8FEF0134209C317F00C2F301 /* Utils */,
 				8FEF012D209C280A00C2F301 /* BaseMVC */,
@@ -607,6 +597,14 @@
 				TargetAttributes = {
 					8FD8CD50209BEB3B00918C0C = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					8FD8CD68209BEB3D00918C0C = {
 						CreatedOnToolsVersion = 9.3;
@@ -694,11 +692,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SGQRCode/SGQRCode/SGQRCode.bundle",
+				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SGQRCode.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -906,8 +906,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/UMSocialUI",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/UMSocialSDK",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/QQ/QQSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GoldenField/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -922,6 +929,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/SMS",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/WeChat/WechatSDK",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/UMSocialSDKPlugin",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -934,8 +949,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/UMSocialUI",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/UMSocialSDK",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/QQ/QQSDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GoldenField/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -949,6 +971,14 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/SMS",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/WeChat/WechatSDK",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/UMSocialSDKPlugin",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
