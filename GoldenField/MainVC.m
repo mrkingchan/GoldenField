@@ -59,7 +59,7 @@
  @param selectedImage tabbarItem的选中图片
  @return viewController
  */
-- (UIViewController *)viewControllerWithClass:(nonnull Class)className
+- ( UIViewController * _Nonnull )viewControllerWithClass:(nonnull Class)className
                                         Title:(NSString*)titleStr
                                   normalImage:(UIImage *)normalImage
                                 selectedImage:(UIImage *)selectedImage {
@@ -70,7 +70,6 @@
                                                            image:[normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:
                               [selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         viewController.tabBarItem = item;
-        
     } else {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"

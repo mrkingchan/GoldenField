@@ -35,6 +35,7 @@
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
 
+#pragma mark  -- 交给子类去重写     
 - (void)networkError {
     puts(__func__);
 }
@@ -68,6 +69,7 @@
     [self.tasks addObject:task];
 }
 
+#pragma mark  -- 在viewWillDisAppear和dealloc的时候 要释放网络操作
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if (self.tasks.count) {

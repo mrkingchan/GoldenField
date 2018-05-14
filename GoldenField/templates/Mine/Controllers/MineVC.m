@@ -33,9 +33,7 @@
      */
     self.showRefreshHeader = YES;
     self.showRefreshFooter = YES;
-    for (int i = 0 ; i < 10; i ++) {
-        [self.dataArray addObject:[NSString stringWithFormat:@"initial Data - %i", i + 1]];
-    }
+    [self tableViewHeaderRefreshAction];
 }
 
 -(void)tableViewHeaderRefreshAction {
