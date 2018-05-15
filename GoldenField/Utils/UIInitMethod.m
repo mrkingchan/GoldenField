@@ -453,7 +453,6 @@ UITableView *InsertTableView(id superView, CGRect rect, id<UITableViewDataSource
         tabView.delegate = delegate;
     }
     tabView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    tabView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     //tabView.separatorInset = UIEdgeInsetsMake(0, AutoWHGetWidth(15), 0, 0);
     //tabView.separatorColor = kLySeparatorColor;
     tabView.showsVerticalScrollIndicator = NO;

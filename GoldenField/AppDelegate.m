@@ -36,6 +36,12 @@
     //注册http和https
     [NSURLProtocol wk_registerScheme:@"http"];
     [NSURLProtocol wk_registerScheme:@"https"];
+//    [NSURLProtocol registerClass:[URLProtocol class]];
+    
+    /*UIView *subView = ({
+     UIView*newView = [UIView new];
+     newView;
+     });*/
     
     return YES;
 }
@@ -255,6 +261,4 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-
 @end

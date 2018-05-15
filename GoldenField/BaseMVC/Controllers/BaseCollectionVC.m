@@ -29,6 +29,16 @@
     self.dataArray = [NSMutableArray new];
 }
 
+-(void)netWorkChangWithNetWorkWithStatus:(AFNetworkReachabilityStatus)status {
+    if (status == AFNetworkReachabilityStatusNotReachable) {
+        self.netWorkErrorView.top = 0;
+    } else {
+        self.netWorkErrorView.top = -35;
+    }
+    _collectionView.top = self.netWorkErrorView.bottom;
+    _collectionView.height = self.view.height - self.netWorkErrorView.bottom;
+}
+
 #pragma mark  -- setSize
 - (void)setItemSize:(CGSize)itemSize {
     _itemSize = itemSize;

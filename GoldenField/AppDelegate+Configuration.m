@@ -26,8 +26,6 @@
                                           appKey:kWeChatAppKey
                                        appSecret:kWechatAppSecretKey
                                      redirectURL:kBaseURL];
-    //注册App
-    [self registerAppWithComplete:complete];
 }
 
 #pragma mark  -- registerApp Method
@@ -42,7 +40,7 @@
                        }];
 }
 
-- (UIViewController *)alertViewControllerWithTitle:(NSString *)titleStr
+- (UIViewController *)buildViewControllerWithTitle:(NSString *)titleStr
                                class:(_Nonnull Class)className
                          normalImage:(UIImage *)normalImage
                        selectedImage:(UIImage *)selectedImage {

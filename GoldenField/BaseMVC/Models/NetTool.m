@@ -9,6 +9,11 @@
 #import "NetTool.h"
 #import "HttpClient.h"
 
+@interface NetTool() {
+    
+}
+@end
+
 @implementation NetTool
 
 + (NSURLSessionDataTask *)innerRequestWithHttpMethod:(HttpMethod)method
@@ -141,7 +146,6 @@
             if (DEBUG) {
                 NSLog(@"-------->%@\%@%@",kBaseURL,urlStr,json);
             }
-    
             if (sucess) {
                 sucess(json);
             }
@@ -156,3 +160,4 @@
 }
 
 @end
+

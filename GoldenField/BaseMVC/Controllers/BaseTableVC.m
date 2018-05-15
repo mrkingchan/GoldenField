@@ -24,6 +24,15 @@
     [self setShowRefreshFooter:NO];
 }
 
+- (void)netWorkChangWithNetWorkWithStatus:(AFNetworkReachabilityStatus)status {
+    if (status == AFNetworkReachabilityStatusNotReachable) {
+        self.netWorkErrorView.top = 0;
+    } else {
+        self.netWorkErrorView.top = -35;
+    }
+    _tableView.top = self.netWorkErrorView.bottom;
+    _tableView.height = self.view.height - self.netWorkErrorView.bottom;
+}
 #pragma mark  -- Getter &Setter Method
 -(void)setShowRefreshFooter:(BOOL)showRefreshFooter {
     _showRefreshFooter = showRefreshFooter;

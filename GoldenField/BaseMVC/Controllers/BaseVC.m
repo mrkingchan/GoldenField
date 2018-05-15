@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _netWorkErrorView = InsertView(self.view, CGRectMake(0, -35, kScreenWidth, 35), kColorRed);
+    InsertLabel(_netWorkErrorView, CGRectMake(0, 0, _netWorkErrorView.width, _netWorkErrorView.height), 1, @"网络未连接，请检查网络连接", kFontSize(13), kColorWhite, NO);
     self.tasks = [NSMutableArray new];
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -27,17 +29,31 @@
     if (@available(iOS 11.0, *)) {
         self.additionalSafeAreaInsets = UIEdgeInsetsMake(0, 0, iPhoneX_BOTTOM_HEIGHT, 0);
     }
+//    [[[NSThread alloc] initWithTarget:self selector:@selector(checkInterNetAction) object:nil] start];
+    @weakify(self);
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        if (status == AFNetworkReachabilityStatusNotReachable) {
-            [self networkError];
-        }
+        @strongify(self);
+        [self netWorkChangWithNetWorkWithStatus:status];
     }];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
 }
 
+- (void)checkInterNetAction {
+    while (true) {
+        /*@weakify(self);
+        [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            @strongify(self);
+            [self netWorkChangWithNetWorkWithStatus:status];
+        }];
+        [[AFNetworkReachabilityManager sharedManager] startMonitoring];*/
+        [self netWorkChangWithNetWorkWithStatus:[AFNetworkReachabilityManager sharedManager].networkReachabilityStatus];
+    }
+}
 #pragma mark  -- 交给子类去重写     
-- (void)networkError {
-    puts(__func__);
+
+- (void)netWorkChangWithNetWorkWithStatus:(AFNetworkReachabilityStatus)status {
+    
 }
 
 - (void)verifyLogin:(void (^)(void))complete {

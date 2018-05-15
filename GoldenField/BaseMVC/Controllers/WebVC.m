@@ -64,9 +64,16 @@
     [_webView addGestureRecognizer:leftSwip];
 }
 
-//重写父类网络错误提示
-- (void)networkError {
-    [self loadingFail];
+//重写父类网络变化
+
+-(void)netWorkChangWithNetWorkWithStatus:(AFNetworkReachabilityStatus)status {
+    if (status == AFNetworkReachabilityStatusNotReachable) {
+        self.netWorkErrorView.top = 0;
+    } else {
+        self.netWorkErrorView.top = -35;
+    }
+    _webView.top = self.netWorkErrorView.bottom;
+    _webView.height = self.view.height - self.netWorkErrorView.bottom;
 }
 
 - (void)swipLeftAction:(UISwipeGestureRecognizer *)tap {

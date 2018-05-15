@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "LoadingAndRefreshView.h"
+#import <AFNetworkReachabilityManager.h>
 
 @interface BaseVC : UIViewController
+
+
+///网络错误提示view
+@property(nonatomic,strong)UIView *netWorkErrorView;
 
 @property(nonatomic,strong)NSMutableArray *tasks;
 
@@ -29,9 +34,13 @@
 
 - (void)releaseNetWork;
 
+/*
 ///网络错误提示 需要在子类中进行重写(根据需要去重写)
 - (void)networkError;
+ */
 
+///网络变化 
+- (void)netWorkChangWithNetWorkWithStatus:(AFNetworkReachabilityStatus)status;
 
 #pragma mark  -- loadingView
 //加载成功
