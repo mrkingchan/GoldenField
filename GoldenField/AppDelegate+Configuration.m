@@ -2,7 +2,7 @@
 //  AppDelegate+Configuration.m
 //  GoldenField
 //
-//  Created by Macx on 2018/5/11.
+//  Created by Chan on 2018/5/11.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
@@ -13,15 +13,20 @@
 - (void)confurationWithComplete:(void (^)(void))complete {
     //xxx配置某些三方之内的代码
     
-    //分享
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession
-                                          appKey:kUmengAppKey
-                                       appSecret:kUmengAppSecretKey
-                                     redirectURL:@""];
+    [[UMSocialManager defaultManager] setUmSocialAppkey:kUmengAppKey];
     
+    //微信分享
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession
+                                          appKey:kWeChatAppKey
+                                       appSecret:kWechatAppSecretKey
+                                     redirectURL:kBaseURL];
+    
+    
+    //注册App
     [self registerAppWithComplete:complete];
 }
 
+#pragma mark  -- registerApp method
 - (void)registerAppWithComplete:(void (^)(void))complete {
     [NetTool innerPostWithUrl:@"register"
                        params:@{}

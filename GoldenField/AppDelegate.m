@@ -32,7 +32,6 @@
     [self buildShorcutItems];
     [self configureGuide];
     [self configureCommonPushWithLanunchOptions:launchOptions];
-    
     return YES;
 }
 

@@ -60,7 +60,7 @@
  @return viewController
  */
 - ( UIViewController * _Nonnull )viewControllerWithClass:(nonnull Class)className
-                                        Title:(NSString*)titleStr
+                                        Title:(NSString* )titleStr
                                   normalImage:(UIImage *)normalImage
                                 selectedImage:(UIImage *)selectedImage {
     UIViewController *viewController = [className new];

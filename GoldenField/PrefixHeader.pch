@@ -54,8 +54,11 @@
 //#define kBaseURL @"http://wwww.baseurl:xxxx"
 #define kBaseURL isTrueEnviroment ? @"http://xxxx/":@"http://wwww.baidu.com/"
 #define kAppID @""
-#define kUmengAppKey @""
+#define kUmengAppKey @"5af95fd4f43e484cfd0000d1"
 #define kUmengAppSecretKey @""
+
+#define kWeChatAppKey @""
+#define kWechatAppSecretKey @""
 
 /*#define dispatch_main_sync_safe(block)\
 if ([NSThread isMainThread]) {\

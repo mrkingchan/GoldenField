@@ -87,7 +87,7 @@
             if (value<1.0) {
                 [_progressView setProgress:value];
             } else {
-                [UIView animateWithDuration:1.0 animations:^{
+                [UIView animateWithDuration:0.3 animations:^{
                     self->_progressView.alpha = 0.0;
                 }];
             }
