@@ -16,7 +16,7 @@
 #pragma mark - 创建UI
 
 #pragma mark  -- UICollectionView 自己新增的方法++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-UICollectionView *InsertCollectionView(id superView,CGRect rec,id <UICollectionViewDataSource>dataSource,id <UICollectionViewDelegate>delegate ,CGSize itemSize,Class cellClass) {
+UICollectionView *InsertCollectionView(id superView,CGRect rec,id <UICollectionViewDataSource>dataSource,id <UICollectionViewDelegate>delegate ,CGFloat lineSpacing,CGFloat interItemSpacing, CGSize itemSize,Class cellClass) {
     UICollectionViewFlowLayout *layout  = [UICollectionViewFlowLayout new];
     layout.itemSize = itemSize;
     layout.minimumLineSpacing = 5.0;

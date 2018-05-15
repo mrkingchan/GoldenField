@@ -19,7 +19,7 @@
 - (instancetype)initWithItemSize:(CGSize)itemsize cellClass:(Class)cellClass {
     if (self = [super initWithNibName:nil bundle:nil]) {
         _itemSize = itemsize;
-        _collectionView = InsertCollectionView(self.view, CGRectMake(0, 0, self.view.width, self.view.height), self, self, itemsize, cellClass);
+        _collectionView = InsertCollectionView(self.view, CGRectMake(0, 0, self.view.width, self.view.height), self, self,5.0,5.0, itemsize, cellClass);
     }
     return self;
 }
@@ -43,7 +43,7 @@
     _collectionView.delegate = self;
     [self.view addSubview:_collectionView];
     [_collectionView registerClass:[UICollectionViewCell  class] forCellWithReuseIdentifier:NSStringFromClass([UICollectionViewCell class])];*/
-    _collectionView = InsertCollectionView(self.view, CGRectMake(0, 0, self.view.width, self.view.height), self, self, itemSize, [UICollectionViewCell class]);
+    _collectionView = InsertCollectionView(self.view, CGRectMake(0, 0, self.view.width, self.view.height), self, self,5.0,5.0, itemSize, [UICollectionViewCell class]);
     NSLog(@"collectionViewHeight = %.2f,self.view.height = %.2f",_collectionView.height,self.view.height);
     //默认为NO 具体的子类中重写设置
     [self setShowRefreshHeader:NO];

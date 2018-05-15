@@ -32,6 +32,11 @@
     [self buildShorcutItems];
     [self configureGuide];
     [self configureCommonPushWithLanunchOptions:launchOptions];
+
+    //注册http和https
+    [NSURLProtocol wk_registerScheme:@"http"];
+    [NSURLProtocol wk_registerScheme:@"https"];
+    
     return YES;
 }
 

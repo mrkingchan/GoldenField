@@ -62,7 +62,7 @@ static NSString * const URLProtocolHandledKey = @"Chan";
     puts(__func__);
     if ([UIDevice currentDevice].systemVersion.floatValue >=7.0) {
         _session = [NSURLSession sharedSession];
-        _task = [_session downloadTaskWithRequest:self.request];
+        _task = [_session dataTaskWithRequest:self.request];
         [_task resume];
     } else {
         _connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self startImmediately:YES];

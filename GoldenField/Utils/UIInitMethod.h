@@ -16,7 +16,7 @@
 #pragma mark - 创建UI
 
 #pragma mark  -- UICollectionView +++++++++++++++++++++++++++自己新增的快捷方式 初始化collectionView
-UICollectionView *InsertCollectionView(id superView,CGRect rect,id <UICollectionViewDataSource>dataSource,id <UICollectionViewDelegate>delegate ,CGSize itemSize,Class cellClass);
+UICollectionView *InsertCollectionView(id superView,CGRect rect,id <UICollectionViewDataSource>dataSource,id <UICollectionViewDelegate>delegate ,CGFloat lineSpacing,CGFloat interItemSpacing,CGSize itemSize,Class cellClass);
 
 #pragma mark  -- UIWindow
 UIWindow *InsertWindow(UIViewController *rootViewController);
