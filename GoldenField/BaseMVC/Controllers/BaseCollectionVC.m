@@ -27,6 +27,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray = [NSMutableArray new];
+    [NSThread detachNewThreadSelector:@selector(checkInterNet) toTarget:self withObject:nil];
+}
+
+- (void)checkInterNet {
+    while (true) {
+        [self netWorkChangWithNetWorkWithStatus:[AFNetworkReachabilityManager sharedManager].networkReachabilityStatus];
+    }
 }
 
 -(void)netWorkChangWithNetWorkWithStatus:(AFNetworkReachabilityStatus)status {

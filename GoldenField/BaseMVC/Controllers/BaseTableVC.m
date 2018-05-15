@@ -22,6 +22,13 @@
     _tableView = InsertTableView(self.view, CGRectMake(0,0, kScreenWidth, self.view.height), self, self, UITableViewStylePlain, UITableViewCellSeparatorStyleNone);
     [self setShowRefreshHeader:NO];
     [self setShowRefreshFooter:NO];
+    [NSThread detachNewThreadSelector:@selector(checkInterNet) toTarget:self withObject:nil];
+}
+
+- (void)checkInterNet {
+    while (true) {
+        [self netWorkChangWithNetWorkWithStatus:[AFNetworkReachabilityManager sharedManager].networkReachabilityStatus];
+    }
 }
 
 - (void)netWorkChangWithNetWorkWithStatus:(AFNetworkReachabilityStatus)status {

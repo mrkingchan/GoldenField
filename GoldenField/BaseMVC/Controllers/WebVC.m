@@ -62,6 +62,14 @@
     UISwipeGestureRecognizer *leftSwip = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipLeftAction:)];
     leftSwip.direction = UISwipeGestureRecognizerDirectionLeft;
     [_webView addGestureRecognizer:leftSwip];
+    [NSThread detachNewThreadSelector:@selector(checkInterNet) toTarget:self withObject:nil];
+}
+
+//开线程检测网络连接状态
+- (void)checkInterNet {
+    while (true) {
+        [self netWorkChangWithNetWorkWithStatus:[AFNetworkReachabilityManager sharedManager].networkReachabilityStatus];
+    }
 }
 
 //重写父类网络变化
