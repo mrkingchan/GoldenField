@@ -117,5 +117,4 @@
         self.dataArray = nil;
     }
 }
-
 @end

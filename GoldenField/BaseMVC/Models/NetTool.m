@@ -118,4 +118,41 @@
                                              sucess:sucess
                                             failure:failure];
 }
+
++ (NSURLSessionDataTask *)innerPostWithUrl:(NSString *)urlStr
+                                 paramters:(id)parameters
+                                    target:(id)target
+                                    sucess:(void(^)(id responseObject))sucess
+                                   failure:(void(^)(NSString *errorStr))failure{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:kURL(urlStr)];
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:parameters
+                                                       options:kNilOptions
+                                                         error:nil];
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSString *errorStr = error.localizedDescription;
+            if (failure) {
+                failure(errorStr);
+            }
+        } else {
+            id json = [NSJSONSerialization JSONObjectWithData:data
+                                                      options:kNilOptions
+                                                        error:nil];
+            if (DEBUG) {
+                NSLog(@"-------->%@\%@%@",kBaseURL,urlStr,json);
+            }
+    
+            if (sucess) {
+                sucess(json);
+            }
+        }
+    }];
+    if (target) {
+        if ([target respondsToSelector:@selector(addNet:)]) {
+            [target performSelector:@selector(addNet:) withObject:task];
+        }
+    }
+    return task;
+}
+
 @end

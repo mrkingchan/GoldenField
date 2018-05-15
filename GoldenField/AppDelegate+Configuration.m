@@ -26,12 +26,11 @@
                                           appKey:kWeChatAppKey
                                        appSecret:kWechatAppSecretKey
                                      redirectURL:kBaseURL];
-    
     //注册App
     [self registerAppWithComplete:complete];
 }
 
-#pragma mark  -- registerApp method
+#pragma mark  -- registerApp Method
 - (void)registerAppWithComplete:(void (^)(void))complete {
     [NetTool innerPostWithUrl:@"register"
                        params:@{}
