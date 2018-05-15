@@ -16,6 +16,6 @@
 
  @param complete 配置之后的回调 
  */
-- (void)confurationWithComplete:(void (^)(void))complete;
+- (void)configurationWithComplete:(void (^)(void))complete;
 
 @end

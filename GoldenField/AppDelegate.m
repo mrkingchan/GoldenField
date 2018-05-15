@@ -35,6 +35,70 @@
     return YES;
 }
 
+
+/**
+ 构建viewController
+
+ @param className 类名
+ @param titleStr 标题
+ @param normalImage 正常image
+ @param selectedImage 选中image
+ @return viewController
+ */
+-(UIViewController *)viewControllerWithClass:(_Nonnull Class)className
+                                    title:(NSString *)titleStr
+                                 normalImage:(UIImage *)normalImage
+                               selectedImage:(UIImage *)selectedImage {
+    UIViewController *viewController = [className new];
+    viewController.title = titleStr;
+    if (kiOSVersion >=7.0) {
+        UITabBarItem  *item = [[UITabBarItem alloc] initWithTitle:titleStr
+                                                            image:[normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        viewController.tabBarItem = item;
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [viewController.tabBarItem setFinishedSelectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] withFinishedUnselectedImage:[normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+#pragma clang diagnostic pop
+    }
+    return viewController;
+}
+
+- (void)loadDataWithParamters:(id)paramters httpMethod:(NSString *)methodStr sucess:(void (^)(id responseData))sucess failure:(void (^)(NSString *))failure {
+    
+    if (isTrueEnviroment) {
+        //发布
+        //使用HttpClient
+        [NetTool innerRequestWithHttpMethod:POST
+                                     urlStr:kBaseURL
+                                     params:paramters
+                                     target:[UIApplication sharedApplication].keyWindow.rootViewController
+                                     sucess:^(id responseObject) {
+                                         
+                                     }
+                                    failure:^(NSString *errorStr) {
+                                        
+                                    }];
+    } else {
+        //使用默认session
+        [[[NSURLSession sharedSession] dataTaskWithURL:kURL(kBaseURL)
+                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                         if (!error) {
+                                             id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+                                             if (json) {
+                                                 if (sucess) {
+                                                     sucess(json);
+                                                 }
+                                             }
+                                         } else {
+                                             NSString *errorStr = error.localizedDescription;
+                                             if (failure) {
+                                                 failure(errorStr);
+                                             }
+                                         }
+                                     }]resume];
+    }
+}
 #pragma mark  -- 推送设置
 - (void)configureCommonPushWithLanunchOptions:(NSDictionary*)launchOptions {
     //推送
@@ -133,11 +197,12 @@
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
     NSDictionary * userInfo = notification.request.content.userInfo;
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        //APNS走远程推送
         [UMessage setAutoAlert:NO];
         //应用处于前台时的远程推送接受
         //必须加这句代码
         [UMessage didReceiveRemoteNotification:userInfo];
-    }else{
+    } else {
         //应用处于前台时的本地推送接受
     }
     completionHandler(UNNotificationPresentationOptionSound|UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionAlert);

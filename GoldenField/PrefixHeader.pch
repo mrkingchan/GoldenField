@@ -25,6 +25,7 @@
 #import "BaseScrollVC.h"
 #import "BaseModel.h"
 #import "WebVC.h"
+#import "URLProtocol.h"
 
 ////自己写的封装类
 #import "SuperNaviVC.h"
@@ -35,7 +36,7 @@
 #import "NetTool.h"
 //#import "iToast.h"
 //#import "iToast+Category.h"
-
+#import "NSURLProtocol+WebKitSupport.h"
 
 ////////三方库
 #import <MJRefresh/MJRefresh.h>
@@ -57,6 +58,7 @@
 #define kUmengAppKey @"5af95fd4f43e484cfd0000d1"
 #define kUmengAppSecretKey @""
 
+////三方开发平台申请的Key
 #define kWeChatAppKey @""
 #define kWechatAppSecretKey @""
 

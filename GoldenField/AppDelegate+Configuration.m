@@ -10,17 +10,22 @@
 
 @implementation AppDelegate (Configuration)
 
-- (void)confurationWithComplete:(void (^)(void))complete {
+- (void)configurationWithComplete:(void (^)(void))complete {
     //xxx配置某些三方之内的代码
     
     [[UMSocialManager defaultManager] setUmSocialAppkey:kUmengAppKey];
-    
-    //微信分享
+    //开启日志
+    [[UMSocialManager defaultManager] openLog:YES];
+    //微信聊天分享
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession
                                           appKey:kWeChatAppKey
                                        appSecret:kWechatAppSecretKey
                                      redirectURL:kBaseURL];
-    
+    //微信朋友圈分享
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatTimeLine
+                                          appKey:kWeChatAppKey
+                                       appSecret:kWechatAppSecretKey
+                                     redirectURL:kBaseURL];
     
     //注册App
     [self registerAppWithComplete:complete];

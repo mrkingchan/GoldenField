@@ -16,6 +16,8 @@
 		8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E6820A5475E00885A0D /* ChanView.m */; };
 		8F4F6E6C20A58A4200885A0D /* AppDelegate+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */; };
 		8F4F6E9920A9597A00885A0D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4F6E9820A9597A00885A0D /* UserNotifications.framework */; };
+		8F6AC7FB20AAA88A003E68D6 /* NSURLProtocol+WebKitSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC7F820AAA889003E68D6 /* NSURLProtocol+WebKitSupport.m */; };
+		8F6AC7FC20AAA88A003E68D6 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC7FA20AAA88A003E68D6 /* URLProtocol.m */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
@@ -86,6 +88,10 @@
 		8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Configuration.m"; sourceTree = "<group>"; };
 		8F4F6E9720A9595800885A0D /* GoldenField.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoldenField.entitlements; sourceTree = "<group>"; };
 		8F4F6E9820A9597A00885A0D /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		8F6AC7F720AAA888003E68D6 /* URLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLProtocol.h; sourceTree = "<group>"; };
+		8F6AC7F820AAA889003E68D6 /* NSURLProtocol+WebKitSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLProtocol+WebKitSupport.m"; sourceTree = "<group>"; };
+		8F6AC7F920AAA889003E68D6 /* NSURLProtocol+WebKitSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLProtocol+WebKitSupport.h"; sourceTree = "<group>"; };
+		8F6AC7FA20AAA88A003E68D6 /* URLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLProtocol.m; sourceTree = "<group>"; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -189,6 +195,8 @@
 		8FC83FDB20A197D100F753D6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				8F6AC7F920AAA889003E68D6 /* NSURLProtocol+WebKitSupport.h */,
+				8F6AC7F820AAA889003E68D6 /* NSURLProtocol+WebKitSupport.m */,
 				8FEF0149209C595C00C2F301 /* UIResponder+CurrentResponder.h */,
 				8FEF014A209C595C00C2F301 /* UIResponder+CurrentResponder.m */,
 				8FEF0142209C545700C2F301 /* UIView+Frame.h */,
@@ -474,6 +482,8 @@
 			isa = PBXGroup;
 			children = (
 				8FC83FDB20A197D100F753D6 /* Category */,
+				8F6AC7F720AAA888003E68D6 /* URLProtocol.h */,
+				8F6AC7FA20AAA88A003E68D6 /* URLProtocol.m */,
 				8FEF0131209C283D00C2F301 /* GuideHelpView.h */,
 				8FEF0132209C283D00C2F301 /* GuideHelpView.m */,
 				8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */,
@@ -731,6 +741,8 @@
 				8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */,
 				8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */,
 				8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */,
+				8F6AC7FC20AAA88A003E68D6 /* URLProtocol.m in Sources */,
+				8F6AC7FB20AAA88A003E68D6 /* NSURLProtocol+WebKitSupport.m in Sources */,
 				8FC83F89209FFBA000F753D6 /* BaseCollectionVC.m in Sources */,
 				8F338DFC20A1A5EF0069CFC1 /* DiscoveryCell.m in Sources */,
 				8F4F6E6C20A58A4200885A0D /* AppDelegate+Configuration.m in Sources */,
