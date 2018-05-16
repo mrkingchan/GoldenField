@@ -33,9 +33,6 @@
     [self buildShorcutItems];
     [self configureGuide];
     
-    [self configurationWithComplete:^{
-        
-    }];
     [self configureCommonPushWithLanunchOptions:launchOptions];
 
     //注册http和https
@@ -45,12 +42,14 @@
     
     /*UIView *subView = ({
      UIView*newView = [UIView new];
+     newView.backgroundColor =kColorOrange;
+     newView.clipToBounds = YES;
+     newView.layer.cornerRadius = 5.0;
      newView;
      });*/
     
     return YES;
 }
-
 
 /**
  构建viewController
@@ -244,6 +243,21 @@
         
     }
 }
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    if ([url.host rangeOfString:@"safePay"].length) {
+       //支付宝支付
+        return YES;
+    } else if ([options[UIApplicationOpenURLOptionsSourceApplicationKey] isEqualToString:@"com.tecent.xin"] && [url.absoluteString rangeOfString:@"pay"].length) {
+        //微信支付
+        return YES;
+        
+    }else {
+        return [[UMSocialManager defaultManager] handleOpenURL:url options:options];
+    }
+}
+
+
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
     if (DEBUG) {
         NSLog(@"您点击的是%@",shortcutItem.localizedTitle);

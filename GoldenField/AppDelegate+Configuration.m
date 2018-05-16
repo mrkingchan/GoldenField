@@ -14,7 +14,6 @@
 - (void)configurationWithComplete:(void (^)(void))complete {
     //xxx配置某些三方之内的代码
     [[UMSocialManager defaultManager] setUmSocialAppkey:kUmengAppKey];
-    
     //开启日志
     [[UMSocialManager defaultManager] openLog:YES];
     //微信聊天分享
@@ -56,6 +55,7 @@
                                                    }
                                                }
                                            }];
+    [self registerAppWithComplete:complete];
 }
 
 //回调
