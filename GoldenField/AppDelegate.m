@@ -200,10 +200,6 @@
     [UIApplication sharedApplication].shortcutItems = items;
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
-}
-
 #pragma mark  -- UNUserNotificationCenterDelegate ios10 以上的推送接收方法
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
     NSDictionary * userInfo = notification.request.content.userInfo;
@@ -223,13 +219,26 @@
     NSDictionary * userInfo = response.notification.request.content.userInfo;
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         //应用处于后台时的远程推送接受
-        //必须加这句代码
+        
         [UMessage didReceiveRemoteNotification:userInfo];
     }else{
         //应用处于后台时的本地推送接受
     }
 }
 
+//将token给UM
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [UMessage registerDeviceToken:deviceToken];
+}
+
+///ios10以下的消息接收
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [UMessage didReceiveRemoteNotification:userInfo];
+    if (DEBUG) {
+        NSLog(@"接收到的推送消息体:%@",userInfo);
+        
+    }
+}
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
     if (DEBUG) {
         NSLog(@"您点击的是%@",shortcutItem.localizedTitle);
