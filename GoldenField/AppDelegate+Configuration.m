@@ -10,10 +10,11 @@
 
 @implementation AppDelegate (Configuration)
 
+////配置信息
 - (void)configurationWithComplete:(void (^)(void))complete {
     //xxx配置某些三方之内的代码
-    
     [[UMSocialManager defaultManager] setUmSocialAppkey:kUmengAppKey];
+    
     //开启日志
     [[UMSocialManager defaultManager] openLog:YES];
     //微信聊天分享
@@ -26,6 +27,56 @@
                                           appKey:kWeChatAppKey
                                        appSecret:kWechatAppSecretKey
                                      redirectURL:kBaseURL];
+    
+    //分享的代码
+    UMShareImageObject *image = [UMShareImageObject shareObjectWithTitle:@"xxx"
+                                                                   descr:@"xxx"
+                                                               thumImage:nil];
+    UMSocialMessageObject *shareMessage = [UMSocialMessageObject messageObjectWithMediaObject:image];
+    shareMessage.text = @"xxx";
+    shareMessage.title = @"xxx";
+    shareMessage.moreInfo = @{@"ext":@"ext"};
+    
+    [[UMSocialManager defaultManager] shareToPlatform:UMSocialPlatformType_WechatSession
+                                        messageObject:shareMessage
+                                currentViewController:[UIApplication sharedApplication].keyWindow.rootViewController
+                                           completion:^(id result, NSError *error) {
+                                              //分享成功or失败回调
+                                               if (error) {
+                                                   if (DEBUG) {
+                                                       NSLog(@"shareError = %@",error.localizedDescription);
+                                                   }
+                                               }else {
+                                                   //分享response
+                                                   if ([result isKindOfClass:[UMSocialShareResponse class]]) {
+                                                       UMSocialShareResponse *response = (UMSocialShareResponse *)result;
+                                                       if (DEBUG) {
+                                                           NSLog(@"分享结果:%@",response.message);
+                                                       }
+                                                   }
+                                               }
+                                           }];
+}
+
+//回调
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    if ([url.host rangeOfString:@"safePay"].location != NSNotFound) {
+        //支付宝支付
+        //跳转至支付宝代码。。。
+        return YES;
+    } else if ([options[UIApplicationOpenURLOptionsSourceApplicationKey] isEqualToString:@"com.tecent.xin"] && [url.absoluteString rangeOfString:@"pay"].length) {
+        //微信支付 url里面会出现pay而分享里面不会有pay 区分就在这里
+        //跳转微信支付代码
+        return  YES;
+    } else {
+        //友盟分享 跳转微信去分享
+        return [[UMSocialManager defaultManager] handleOpenURL:url options:options];
+    }
+}
+
+///depreccated Method
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [[UMSocialManager defaultManager] handleOpenURL:url];
 }
 
 #pragma mark  -- registerApp Method

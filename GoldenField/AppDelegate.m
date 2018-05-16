@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainVC.h"
 #import "GuideHelpView.h"
+#import "AppDelegate+Configuration.h"
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
 
@@ -31,6 +32,10 @@
     }
     [self buildShorcutItems];
     [self configureGuide];
+    
+    [self configurationWithComplete:^{
+        
+    }];
     [self configureCommonPushWithLanunchOptions:launchOptions];
 
     //注册http和https
