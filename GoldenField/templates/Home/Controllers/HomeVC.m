@@ -46,8 +46,23 @@
     self.tableView.tableHeaderView = _bannerView;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([FreshFishCell class]) bundle:[NSBundle mainBundle]] forCellReuseIdentifier:[FreshFishCell cellIdentifier]];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:kIMAGE(@"scan")   style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"share" style:UIBarButtonItemStylePlain target:self action:@selector(share)];
 }
 
+- (void)share {
+    NSMutableArray *titles = [NSMutableArray new];
+    NSMutableArray *images = [NSMutableArray new];
+    for (int i = 0; i < 8; i ++) {
+        [titles addObject:@"微信朋友圈"];
+        [images  addObject:kIMAGE(@"friendCircle")];
+    }
+    [SharePanel sharePanelWithTitleArray:titles
+                              imageArray:images complete:^(NSString *selctedItem, NSInteger index) {
+                                  if (DEBUG) {
+                                      NSLog(@"你点击的是%@ index = %zd",selctedItem,index);
+                                  }
+                              }];
+}
 #pragma mark  -- private Method
 - (void)buttonAction:(id)sender {
 #if TARGET_IPHONE_SIMULATOR

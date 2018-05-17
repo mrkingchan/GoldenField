@@ -42,17 +42,15 @@
     
     /*UIView *subView = ({
      UIView*newView = [UIView new];
-     newView.backgroundColor =kColorOrange;
+     newView.backgroundColor = kColorOrange;
      newView.clipToBounds = YES;
      newView.layer.cornerRadius = 5.0;
      newView;
      });*/
     
-    [AdvertiseView advertiseVieWithURL:@"http://www.baidu.com" showSeconds:4.0];
-    
+    [AdvertiseView advertiseVieWithURL:kBaseURL showSeconds:4.0];    
     return YES;
 }
-
 
 /**
  构建viewController

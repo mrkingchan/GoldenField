@@ -38,7 +38,7 @@
 //#import "iToast+Category.h"
 #import "NSURLProtocol+WebKitSupport.h"
 #import "AdvertiseView.h"
-
+#import "SharePanel.h"
 
 ////////三方库
 #import <MJRefresh/MJRefresh.h>

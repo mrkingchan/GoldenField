@@ -20,6 +20,7 @@
 		8F6AC7FC20AAA88A003E68D6 /* URLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC7FA20AAA88A003E68D6 /* URLProtocol.m */; };
 		8F6AC80820AD122E003E68D6 /* LoadingTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC80720AD122E003E68D6 /* LoadingTipView.m */; };
 		8F6AC81A20AD291D003E68D6 /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC81920AD291D003E68D6 /* AdvertiseView.m */; };
+		8F6AC82020AD641B003E68D6 /* SharePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC81E20AD641A003E68D6 /* SharePanel.m */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
@@ -98,6 +99,8 @@
 		8F6AC80720AD122E003E68D6 /* LoadingTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingTipView.m; sourceTree = "<group>"; };
 		8F6AC81820AD291D003E68D6 /* AdvertiseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvertiseView.h; sourceTree = "<group>"; };
 		8F6AC81920AD291D003E68D6 /* AdvertiseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvertiseView.m; sourceTree = "<group>"; };
+		8F6AC81E20AD641A003E68D6 /* SharePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePanel.m; sourceTree = "<group>"; };
+		8F6AC81F20AD641B003E68D6 /* SharePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePanel.h; sourceTree = "<group>"; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -487,6 +490,8 @@
 		8FEF0134209C317F00C2F301 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8F6AC81F20AD641B003E68D6 /* SharePanel.h */,
+				8F6AC81E20AD641A003E68D6 /* SharePanel.m */,
 				8F6AC80620AD122D003E68D6 /* LoadingTipView.h */,
 				8F6AC80720AD122E003E68D6 /* LoadingTipView.m */,
 				8FC83FDB20A197D100F753D6 /* Category */,
@@ -749,6 +754,7 @@
 				8FEF014E209C5B3B00C2F301 /* WebVC.m in Sources */,
 				8FC83FD420A1500300F753D6 /* LoadingAndRefreshView.m in Sources */,
 				8F6AC81A20AD291D003E68D6 /* AdvertiseView.m in Sources */,
+				8F6AC82020AD641B003E68D6 /* SharePanel.m in Sources */,
 				8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */,
 				8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */,
 				8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */,
