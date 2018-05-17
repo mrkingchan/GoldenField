@@ -48,8 +48,11 @@
      newView;
      });*/
     
+    [AdvertiseView advertiseVieWithURL:@"http://www.baidu.com" showSeconds:4.0];
+    
     return YES;
 }
+
 
 /**
  构建viewController
@@ -225,7 +228,7 @@
         //应用处于后台时的远程推送接受
         
         [UMessage didReceiveRemoteNotification:userInfo];
-    }else{
+    } else{
         //应用处于后台时的本地推送接受
     }
 }
@@ -233,6 +236,10 @@
 //将token给UM
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [UMessage registerDeviceToken:deviceToken];
+    NSString *token = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
+    if (DEBUG) {
+        NSLog(@"token = %@",token);
+    }
 }
 
 ///ios10以下的消息接收
@@ -240,7 +247,6 @@
     [UMessage didReceiveRemoteNotification:userInfo];
     if (DEBUG) {
         NSLog(@"接收到的推送消息体:%@",userInfo);
-        
     }
 }
 
@@ -278,6 +284,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    [AdvertiseView advertiseVieWithURL:@"http://www.baidu.com" showSeconds:4.0];
+
 }
 
 

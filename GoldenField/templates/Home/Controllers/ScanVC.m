@@ -109,10 +109,16 @@
         id json = [NSJSONSerialization JSONObjectWithData:jsonData
                                                   options:kNilOptions
                                                     error:nil];
+        if (result.stringValue.length) {
+            //扫描到url 做内部跳转
+            [self.navigationController popViewControllerAnimated:YES];
+            WebVC *baiduVC = [[WebVC alloc] initWithUrlString:kBaseURL];
+            [self.navigationController pushViewController:baiduVC animated:YES];
+        }
 #if TARGET_IPHONE_SIMULATOR
         NSLog(@"simulator can't support QRCode scaning! ");
 #elif TARGET_OS_IPHONE
-        NSLog(@"scan result = %@",json);
+        NSLog(@"scan result = %@",result.stringValue);
 #endif
     } else {
         NSLog(@"暂未识别出扫描的二维码");

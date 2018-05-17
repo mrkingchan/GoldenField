@@ -37,6 +37,8 @@
 //#import "iToast.h"
 //#import "iToast+Category.h"
 #import "NSURLProtocol+WebKitSupport.h"
+#import "AdvertiseView.h"
+
 
 ////////三方库
 #import <MJRefresh/MJRefresh.h>
@@ -53,7 +55,7 @@
 
 /////公有接口地址
 //#define kBaseURL @"http://wwww.baseurl:xxxx"
-#define kBaseURL isTrueEnviroment ? @"http://xxxx/":@"http://wwww.baidu.com/"
+#define kBaseURL isTrueEnviroment ? @"http://xxxx/":@"http://www.baidu.com/"
 #define kAppID @""
 #define kUmengAppKey @"5af95fd4f43e484cfd0000d1"
 #define kUmengAppSecretKey @""

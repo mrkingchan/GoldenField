@@ -91,6 +91,16 @@
                        }];
 }
 
+
+/**
+ 构建指定class的viewConttroller
+
+ @param titleStr title
+ @param className className
+ @param normalImage normalImage
+ @param selectedImage selectedImage
+ @return class->UIViewController
+ */
 - (UIViewController *)buildViewControllerWithTitle:(NSString *)titleStr
                                class:(_Nonnull Class)className
                          normalImage:(UIImage *)normalImage
