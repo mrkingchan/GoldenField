@@ -34,7 +34,6 @@ class NetManager: NSObject {
             }
         }
         return dataTask;
-        let tool = Tool.init();
     }
     
     // MARK: - POST
