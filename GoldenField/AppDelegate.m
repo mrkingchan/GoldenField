@@ -11,8 +11,10 @@
 #import "GuideHelpView.h"
 #import "AppDelegate+Configuration.h"
 
-@interface AppDelegate () <UNUserNotificationCenterDelegate>
-
+@interface AppDelegate () <UNUserNotificationCenterDelegate> {
+    UIAlertController *_alertVC;
+    NSMutableString *_messageStr;
+}
 @end
 
 @implementation AppDelegate
@@ -48,8 +50,76 @@
      newView;
      });*/
     
-    [AdvertiseView advertiseVieWithURL:kBaseURL showSeconds:4.0];    
+    [AdvertiseView advertiseVieWithURL:kBaseURL showSeconds:4.0];
+    [self checkUpdateInfo];
     return YES;
+}
+
+
+#pragma mark  -- checkUpdateInfo
+- (void)checkUpdateInfo {
+    __weak typeof(self)weakSelf = self;
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://itunes.apple.com/lookup?id=1334606367"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        AppDelegate *strongSelf = weakSelf;
+        if (!error) {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            NSDictionary *results = dic[@"results"][0];
+            //App更新
+            if ([results[@"version"] floatValue] > [AppVersion floatValue]) {
+                NSString *messageStr = [[results[@"releaseNotes"]  componentsSeparatedByString:@"。"]firstObject];
+                NSArray *titleArray = [messageStr componentsSeparatedByString:@"\n"];
+                NSMutableString *newStr = [NSMutableString new];
+                [newStr appendString:@" \n"];
+                for (NSString *subStr in titleArray) {
+                    [newStr appendFormat:@"%@\n",subStr];
+                }
+                strongSelf->_messageStr = newStr;
+                //更新弹框
+                strongSelf->_alertVC = [UIAlertController alertControllerWithTitle:@"应用有新版本" message:newStr preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    //更新跳转
+                    NSString *downloadURL = @"https://itunes.apple.com/us/app/%E4%BA%BA%E6%89%8D%E8%B5%A2%E8%A1%8C/id1334606367?l=zh&ls=1&mt=8";
+                    NSURL *appStoreURL = [NSURL URLWithString:downloadURL];
+                    if ([[UIApplication sharedApplication] canOpenURL:appStoreURL]) {
+                        //跳转appstore
+                        [[UIApplication sharedApplication] openURL:appStoreURL];
+                    }
+                }];
+                UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"下次" style:UIAlertActionStyleDefault handler:nil];
+                [strongSelf->_alertVC addAction:action1];
+                [strongSelf-> _alertVC addAction:action2];
+                [strongSelf runtimeProperty];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[UIApplication sharedApplication].keyWindow.rootViewController  presentViewController:strongSelf->_alertVC animated:YES completion:nil];
+                });
+            }
+        } else {
+            NSLog(@"update Error = %@",error.localizedDescription);
+        }
+    }]resume];
+}
+
+#pragma mark  -- runtime method to change the UIAlertController property
+- (void)runtimeProperty {
+    unsigned int count = 0;
+    Ivar *property = class_copyIvarList([UIAlertController class], &count);
+    for (int i = 0; i < count; i++) {
+        Ivar var = property[i];
+        const char *name = ivar_getName(var);
+        const char *type = ivar_getTypeEncoding(var);
+        NSLog(@"%s =====property========== %s",name,type);
+    }
+    Ivar message = property[2];
+    
+    NSMutableAttributedString *newStr = [[NSMutableAttributedString alloc]initWithString:_messageStr attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}];
+    
+    NSMutableParagraphStyle *paragraph = [NSMutableParagraphStyle new];
+    paragraph.firstLineHeadIndent = 30;
+    paragraph.paragraphSpacing = 7.0;
+    paragraph.alignment = 0;
+    [newStr setAttributes:@{NSParagraphStyleAttributeName:paragraph,NSFontAttributeName:[UIFont systemFontOfSize:14],} range:NSMakeRange(0, _messageStr.length)];
+    object_setIvar(_alertVC, message, newStr);
+    //    object_setIvar(_alert, message, paragraph);
 }
 
 /**

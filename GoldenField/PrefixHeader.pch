@@ -91,6 +91,8 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
+#define AppVersion  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+
 #define kUserDefaultSetValue(key,value)   [[NSUserDefaults standardUserDefaults] setValue:value forKey:key]
 #define kUserDefaultValueForKey(key)     [[NSUserDefaults standardUserDefaults] valueForKey:key]
 #define kSynchronize     [[NSUserDefaults standardUserDefaults] synchronize]

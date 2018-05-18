@@ -49,7 +49,12 @@
     _jump.titleLabel.font =kFontSize(16);
     _jump.clipsToBounds = YES;
     _jump.layer.cornerRadius = 5.0;
-    _jump.hidden = YES;
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                              target:self selector:@selector(timeAction:)
+                                            userInfo:nil
+                                             repeats:YES];
+    [[NSRunLoop currentRunLoop]addTimer:_timer forMode:NSDefaultRunLoopMode];
 }
 
 #pragma mark  -- private Method
@@ -77,11 +82,5 @@
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    _jump.hidden = NO;
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                              target:self selector:@selector(timeAction:)
-                                            userInfo:nil
-                                             repeats:YES];
-    [[NSRunLoop currentRunLoop]addTimer:_timer forMode:NSDefaultRunLoopMode];
 }
 @end

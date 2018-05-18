@@ -12,6 +12,15 @@
 
 @property(nonatomic,copy) void (^completeBlock)(NSString *selectedItem,NSInteger index);
 
+
+/**
+ 自定义分享面板
+
+ @param titleArray 标题
+ @param imageArray 图片
+ @param complete 点击之后的回调
+ @return instanceType
+ */
 + (instancetype)sharePanelWithTitleArray:(NSArray *)titleArray
                               imageArray:(NSArray *)imageArray
                                 complete:(void (^)(NSString *selectedItem,NSInteger index ))complete;
