@@ -69,10 +69,15 @@ class Tool: NSObject {
         return button;
     }
     
+    // MARK: - UIImageView
     class func InsertImageView(_ superView:UIView,rect:CGRect,image:UIImage) -> UIImageView {
         let imageView = UIImageView.init(frame: rect);
         imageView.image = image;
         superView.addSubview(imageView);
         return imageView;
+    }
+    
+    func kIntoFloat(value:Int) -> CGFloat {
+        return CGFloat(value);
     }
 }

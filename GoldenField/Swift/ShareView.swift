@@ -72,7 +72,6 @@ class ShareView: UIView {
         let index:Int = (tap.view?.tag)!;
         _complete!(_titleArray?.object(at: index) as! String,index);
     }
-
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.hide();
