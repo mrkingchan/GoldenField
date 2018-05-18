@@ -56,9 +56,9 @@
         [titles addObject:@"微信朋友圈"];
         [images  addObject:kIMAGE(@"friendCircle")];
     }
-    [SharePanel sharePanelWithTitleArray:titles
+    /*[SharePanel sharePanelWithTitleArray:titles
                               ImageArray:images complete:^(NSString *selctedItem, NSInteger index) {
-                                  /*
+                                  
                                   if (DEBUG) {
                                       NSLog(@"你点击的是%@ index = %zd",selctedItem,index);
                                   }
@@ -93,8 +93,12 @@
                                                                                      
                                                                                  }
                                                                              }
-                                                                         }];*/
-                              }];
+                                                                         }];
+                              }];*/
+    
+    [ShareView shareView:titles imageArray:images complete:^(NSString * _Nonnull selctedItem, NSInteger index) {
+        
+    }];
     
     /*
     //友盟的分享面板
@@ -105,7 +109,6 @@
         
     }];
      */
-    
 }
 #pragma mark  -- private Method
 - (void)buttonAction:(id)sender {

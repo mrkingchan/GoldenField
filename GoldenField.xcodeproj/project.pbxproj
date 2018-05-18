@@ -21,6 +21,11 @@
 		8F6AC80820AD122E003E68D6 /* LoadingTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC80720AD122E003E68D6 /* LoadingTipView.m */; };
 		8F6AC81A20AD291D003E68D6 /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC81920AD291D003E68D6 /* AdvertiseView.m */; };
 		8F6AC82020AD641B003E68D6 /* SharePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC81E20AD641A003E68D6 /* SharePanel.m */; };
+		8F6AC82920AEB0D1003E68D6 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC82820AEB0D1003E68D6 /* BaseController.swift */; };
+		8F6AC82B20AEB0DC003E68D6 /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC82A20AEB0DC003E68D6 /* WebController.swift */; };
+		8F6AC82D20AEB754003E68D6 /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC82C20AEB754003E68D6 /* NetManager.swift */; };
+		8F6AC83020AEC0A9003E68D6 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC82F20AEC0A9003E68D6 /* Tool.swift */; };
+		8F6AC83220AEC9B7003E68D6 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83120AEC9B7003E68D6 /* ShareView.swift */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
@@ -101,6 +106,12 @@
 		8F6AC81920AD291D003E68D6 /* AdvertiseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvertiseView.m; sourceTree = "<group>"; };
 		8F6AC81E20AD641A003E68D6 /* SharePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePanel.m; sourceTree = "<group>"; };
 		8F6AC81F20AD641B003E68D6 /* SharePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePanel.h; sourceTree = "<group>"; };
+		8F6AC82720AEB0D0003E68D6 /* GoldenField-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoldenField-Bridging-Header.h"; sourceTree = "<group>"; };
+		8F6AC82820AEB0D1003E68D6 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		8F6AC82A20AEB0DC003E68D6 /* WebController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
+		8F6AC82C20AEB754003E68D6 /* NetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
+		8F6AC82F20AEC0A9003E68D6 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		8F6AC83120AEC9B7003E68D6 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -201,6 +212,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8F6AC82E20AEC08C003E68D6 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				8F6AC82820AEB0D1003E68D6 /* BaseController.swift */,
+				8F6AC82A20AEB0DC003E68D6 /* WebController.swift */,
+				8F6AC82C20AEB754003E68D6 /* NetManager.swift */,
+				8F6AC82F20AEC0A9003E68D6 /* Tool.swift */,
+				8F6AC83120AEC9B7003E68D6 /* ShareView.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
 		8FC83FDB20A197D100F753D6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +262,7 @@
 		8FD8CD53209BEB3B00918C0C /* GoldenField */ = {
 			isa = PBXGroup;
 			children = (
+				8F6AC82E20AEC08C003E68D6 /* Swift */,
 				8F4F6E9720A9595800885A0D /* GoldenField.entitlements */,
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
 				8FD8CD54209BEB3B00918C0C /* AppDelegate.h */,
@@ -456,6 +480,7 @@
 				8FEF014D209C5B3B00C2F301 /* WebVC.m */,
 				8FEF014F209C5CC100C2F301 /* SuperNaviVC.h */,
 				8FEF0150209C5CC100C2F301 /* SuperNaviVC.m */,
+				8F6AC82720AEB0D0003E68D6 /* GoldenField-Bridging-Header.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -622,6 +647,7 @@
 				TargetAttributes = {
 					8FD8CD50209BEB3B00918C0C = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -737,6 +763,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F6AC82920AEB0D1003E68D6 /* BaseController.swift in Sources */,
 				8FD8CD9C209BEF5700918C0C /* MainVC.m in Sources */,
 				8FD8CDA2209BF39100918C0C /* ProductVC.m in Sources */,
 				8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */,
@@ -757,15 +784,19 @@
 				8F6AC82020AD641B003E68D6 /* SharePanel.m in Sources */,
 				8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */,
 				8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */,
+				8F6AC82D20AEB754003E68D6 /* NetManager.swift in Sources */,
 				8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */,
 				8F6AC7FC20AAA88A003E68D6 /* URLProtocol.m in Sources */,
+				8F6AC83220AEC9B7003E68D6 /* ShareView.swift in Sources */,
 				8F6AC7FB20AAA88A003E68D6 /* NSURLProtocol+WebKitSupport.m in Sources */,
 				8FC83F89209FFBA000F753D6 /* BaseCollectionVC.m in Sources */,
 				8F338DFC20A1A5EF0069CFC1 /* DiscoveryCell.m in Sources */,
+				8F6AC82B20AEB0DC003E68D6 /* WebController.swift in Sources */,
 				8F4F6E6C20A58A4200885A0D /* AppDelegate+Configuration.m in Sources */,
 				8FEF014B209C595D00C2F301 /* UIResponder+CurrentResponder.m in Sources */,
 				8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */,
 				8FD8CDA8209BF3A300918C0C /* MineVC.m in Sources */,
+				8F6AC83020AEC0A9003E68D6 /* Tool.swift in Sources */,
 				8F4F6E1F20A3103E00885A0D /* BaseModel.m in Sources */,
 				8FC83FCE20A03FFA00F753D6 /* ScanVC.m in Sources */,
 				8FC83FD120A1399100F753D6 /* BaseScrollVC.m in Sources */,
@@ -936,6 +967,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
@@ -969,6 +1001,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoldenField/BaseMVC/Controllers/GoldenField-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -979,6 +1014,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
@@ -1012,6 +1048,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GoldenField/BaseMVC/Controllers/GoldenField-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1019,6 +1057,7 @@
 		8FD8CD81209BEB3D00918C0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
@@ -1038,6 +1077,7 @@
 		8FD8CD82209BEB3D00918C0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
@@ -1057,6 +1097,7 @@
 		8FD8CD84209BEB3D00918C0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldUITests/Info.plist;
@@ -1075,6 +1116,7 @@
 		8FD8CD85209BEB3D00918C0C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldUITests/Info.plist;
