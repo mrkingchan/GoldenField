@@ -17,15 +17,15 @@
 
 @implementation SharePanel
 + (instancetype)sharePanelWithTitleArray:(NSArray *)titleArray
-                              imageArray:(NSArray *)imageArray
+                              ImageArray:(NSArray *)imageArray
                                 complete:(void (^)(NSString *selectedItem,NSInteger index ))complete {
     return [[SharePanel alloc] initWithTitleArray:titleArray
-                                       imageArray:imageArray
+                                       ImageArray:imageArray
                                          complete:complete];
 }
 
 - (instancetype)initWithTitleArray:(NSArray *)titleArray
-                        imageArray:(NSArray *)imageArray
+                        ImageArray:(NSArray *)imageArray
                           complete:(void (^)(NSString *selectedItem,NSInteger index ))complete {
     if (self = [super initWithFrame:[UIScreen mainScreen].bounds]) {
         _completeBlock = complete;

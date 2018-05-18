@@ -52,7 +52,7 @@
 #import <UIImage+GIF.h>
 #import <UMShare/UMShare.h>
 #import <UMPush/UMessage.h>
-
+#import <UShareUI/UShareUI.h>
 /////公有接口地址
 //#define kBaseURL @"http://wwww.baseurl:xxxx"
 #define kBaseURL isTrueEnviroment ? @"http://xxxx/":@"http://www.baidu.com/"

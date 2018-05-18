@@ -22,7 +22,7 @@
  @return instanceType
  */
 + (instancetype)sharePanelWithTitleArray:(NSArray *)titleArray
-                              imageArray:(NSArray *)imageArray
+                              ImageArray:(NSArray *)imageArray
                                 complete:(void (^)(NSString *selectedItem,NSInteger index ))complete;
 
 @end

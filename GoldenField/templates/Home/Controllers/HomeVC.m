@@ -57,11 +57,55 @@
         [images  addObject:kIMAGE(@"friendCircle")];
     }
     [SharePanel sharePanelWithTitleArray:titles
-                              imageArray:images complete:^(NSString *selctedItem, NSInteger index) {
+                              ImageArray:images complete:^(NSString *selctedItem, NSInteger index) {
+                                  /*
                                   if (DEBUG) {
                                       NSLog(@"你点击的是%@ index = %zd",selctedItem,index);
                                   }
+                                  UMSocialPlatformType type  = 0;
+                                  switch (index) {
+                                      case 0:
+                                          type = UMSocialPlatformType_WechatSession;
+                                          break;
+                                      case 1:
+                                          type = UMSocialPlatformType_WechatTimeLine;
+                                          break;
+                                      case 2:
+                                          type = UMSocialPlatformType_QQ;
+                                          break;
+                                      default:
+                                          break;
+                                  }
+                                  
+                                  UMSocialMessageObject *messageObject = [UMSocialMessageObject new];
+                                  messageObject.text = @"xxx";
+                                  messageObject.shareObject = [UMShareObject shareObjectWithTitle:@"xxx" descr:@"xxx" thumImage:kIMAGE(@"tabbar_1")];
+                                  
+                                  [[UMSocialManager defaultManager] shareToPlatform:type
+                                                                      messageObject:messageObject currentViewController:self
+                                                                         completion:^(id result, NSError *error) {
+                                                                             if (error) {
+                                                                                 
+                                                                             } else {
+                                                                                 if ([result isKindOfClass:[UMSocialShareResponse class]]) {
+                                                                                     //分享结果
+                                                                                     NSLog(@"shareResult = %@",((UMSocialShareResponse *) result).message);
+                                                                                     
+                                                                                 }
+                                                                             }
+                                                                         }];*/
                               }];
+    
+    /*
+    //友盟的分享面板
+    [UMSocialShareUIConfig shareInstance].sharePageGroupViewConfig.sharePageGroupViewPostionType = UMSocialSharePageGroupViewPositionType_Bottom;
+    [UMSocialShareUIConfig shareInstance].sharePageScrollViewConfig.shareScrollViewPageItemStyleType = UMSocialPlatformItemViewBackgroudType_None;
+    
+    [UMSocialUIManager  showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        
+    }];
+     */
+    
 }
 #pragma mark  -- private Method
 - (void)buttonAction:(id)sender {
