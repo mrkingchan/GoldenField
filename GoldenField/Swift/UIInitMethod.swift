@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-class Tool: NSObject {
+extension  NSObject {
     
     // MARK: - UIView
-    class func InsertView(_ superView:UIView,rect:CGRect,backgroundColor:UIColor) -> UIView {
+     func InsertView(_ superView:UIView,rect:CGRect,backgroundColor:UIColor) -> UIView {
         let view = UIView.init(frame: rect) as UIView;
         superView.addSubview(view);
         view.backgroundColor = backgroundColor;
@@ -21,7 +21,7 @@ class Tool: NSObject {
     
     // MARK: - UITableView
     
-    class func InsertTableView(_ superview:UIView,rect:CGRect,dataSource:Any,delegate:Any) -> UITableView {
+     func InsertTableView(_ superview:UIView,rect:CGRect,dataSource:Any,delegate:Any) -> UITableView {
         let tableView = UITableView.init(frame: rect);
         tableView.dataSource = dataSource as? UITableViewDataSource;
         tableView.delegate = delegate as? UITableViewDelegate;
@@ -31,10 +31,12 @@ class Tool: NSObject {
     
     // MARK: - UICollectionView
     
-    class func InsertCollectionView(_ superView:UIView,rect:CGRect,itemSize:CGSize, dataSource:Any,delegate:Any)
+    func InsertCollectionView(_ superView:UIView,rect:CGRect,itemSize:CGSize,interSpacing:CGFloat,lineSpacing:CGFloat, dataSource:Any,delegate:Any)
         -> UICollectionView {
             let flowlayout = UICollectionViewFlowLayout.init();
             flowlayout.itemSize = itemSize;
+            flowlayout.minimumLineSpacing = lineSpacing;
+            flowlayout.minimumInteritemSpacing = interSpacing;
            let collectionView = UICollectionView.init(frame: rect, collectionViewLayout: flowlayout);
             collectionView.dataSource = dataSource as?  UICollectionViewDataSource;
             collectionView.delegate = delegate as? UICollectionViewDelegate;
@@ -42,7 +44,7 @@ class Tool: NSObject {
     }
     
     // MARK: - UILabel
-     class func InsertLabel(_ superview:UIView,rect:CGRect,backgroundColor:UIColor,font:UIFont,textAlignment:NSTextAlignment,textColor:UIColor,textStr:String) -> UILabel {
+      func InsertLabel(_ superview:UIView,rect:CGRect,backgroundColor:UIColor,font:UIFont,textAlignment:NSTextAlignment,textColor:UIColor,textStr:String) -> UILabel {
         let label = UILabel.init(frame: rect);
         label.text = textStr;
         label.font = font;
@@ -55,7 +57,7 @@ class Tool: NSObject {
     
     // MARK: - UIButton
     
-   class func InsertButton(_ superView:UIView,rect:CGRect,backgroundColor:UIColor,titleColor:UIColor,titleFont:UIFont,textAlignment:NSTextAlignment,text:String,tag:Int,target:Any,selector:Selector) -> UIButton {
+    func InsertButton(_ superView:UIView,rect:CGRect,backgroundColor:UIColor,titleColor:UIColor,titleFont:UIFont,textAlignment:NSTextAlignment,text:String,tag:Int,target:Any,selector:Selector) -> UIButton {
         let button = UIButton.init(type: UIButtonType.custom);
         button.frame = rect;
         button.setTitle(text, for: UIControlState.normal);
@@ -70,11 +72,23 @@ class Tool: NSObject {
     }
     
     // MARK: - UIImageView
-    class func InsertImageView(_ superView:UIView,rect:CGRect,image:UIImage) -> UIImageView {
+     func InsertImageView(_ superView:UIView,rect:CGRect,image:UIImage) -> UIImageView {
         let imageView = UIImageView.init(frame: rect);
         imageView.image = image;
         superView.addSubview(imageView);
         return imageView;
+    }
+    
+    // MARK: - InsertPageControl
+    
+    func InsertPageControl(_ superView:UIView,rect:CGRect,currentPage:Int,pageIndicatorColor:UIColor,currentPageIndicatorColor:UIColor,numberofPage:Int) -> UIPageControl {
+        let pageControl = UIPageControl.init(frame: rect);
+        pageControl.currentPage =  currentPage;
+        pageControl.pageIndicatorTintColor = pageIndicatorColor;
+        pageControl.currentPageIndicatorTintColor = currentPageIndicatorColor;
+        pageControl.numberOfPages = numberofPage;
+        superView.addSubview(pageControl);
+        return pageControl;
     }
     
     func kIntoFloat(value:Int) -> CGFloat {

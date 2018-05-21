@@ -10,7 +10,6 @@ import Foundation
 
 class NetManager: NSObject {
     
-    
     /// 网络请求
     ///
     /// - Parameters:
@@ -21,6 +20,7 @@ class NetManager: NSObject {
     ///   - failure: 失败回调
     /// - Returns: URLSessionDataTask
     class func request(httpMethod httpmethod:String,urlStr:String,parameters:Any,sucess:@escaping ( _ repsoneData:Any)->(),failure:@escaping (_ errorStr:String)->()) -> URLSessionDataTask {
+        
         let session = URLSession.shared;
         var request:URLRequest = URLRequest.init(url: URL.init(string: urlStr as String)!) as URLRequest;
         request.httpBody =  try?JSONSerialization.data(withJSONObject: parameters, options: []);

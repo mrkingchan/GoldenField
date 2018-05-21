@@ -32,7 +32,16 @@ extension NSObject {
     func kiOSVersion() -> Float {
         return Float(UIDevice.current.systemVersion)!;
     }
-    
-    
-    
+
+    // MARK: - data to json
+    func kDataToJson(_ data:Data) -> Any {
+        let json = try? JSONSerialization.jsonObject(with: data, options: []);
+        return json!;
+    }
+
+    // MARK: - json to Data
+    func kJsonToData(json:Any) -> Data {
+        let jsonData =  try? JSONSerialization.data(withJSONObject: json, options: []);
+        return jsonData!;
+    }
 }

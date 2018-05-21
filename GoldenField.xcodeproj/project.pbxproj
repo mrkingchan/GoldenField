@@ -24,11 +24,11 @@
 		8F6AC82920AEB0D1003E68D6 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC82820AEB0D1003E68D6 /* BaseController.swift */; };
 		8F6AC82B20AEB0DC003E68D6 /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC82A20AEB0DC003E68D6 /* WebController.swift */; };
 		8F6AC82D20AEB754003E68D6 /* NetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC82C20AEB754003E68D6 /* NetManager.swift */; };
-		8F6AC83020AEC0A9003E68D6 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC82F20AEC0A9003E68D6 /* Tool.swift */; };
+		8F6AC83020AEC0A9003E68D6 /* UIInitMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC82F20AEC0A9003E68D6 /* UIInitMethod.swift */; };
 		8F6AC83220AEC9B7003E68D6 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83120AEC9B7003E68D6 /* ShareView.swift */; };
 		8F6AC83420AEEBDA003E68D6 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83320AEEBDA003E68D6 /* TabbarController.swift */; };
 		8F6AC83A20AEEF52003E68D6 /* Position(UIView).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83920AEEF52003E68D6 /* Position(UIView).swift */; };
-		8F6AC83C20AEF27C003E68D6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83B20AEF27C003E68D6 /* Common.swift */; };
+		8F6AC83C20AEF27C003E68D6 /* Common(NSObejct).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83B20AEF27C003E68D6 /* Common(NSObejct).swift */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
@@ -113,11 +113,11 @@
 		8F6AC82820AEB0D1003E68D6 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		8F6AC82A20AEB0DC003E68D6 /* WebController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
 		8F6AC82C20AEB754003E68D6 /* NetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetManager.swift; sourceTree = "<group>"; };
-		8F6AC82F20AEC0A9003E68D6 /* Tool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tool.swift; sourceTree = "<group>"; };
+		8F6AC82F20AEC0A9003E68D6 /* UIInitMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIInitMethod.swift; sourceTree = "<group>"; };
 		8F6AC83120AEC9B7003E68D6 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		8F6AC83320AEEBDA003E68D6 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		8F6AC83920AEEF52003E68D6 /* Position(UIView).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Position(UIView).swift"; sourceTree = "<group>"; };
-		8F6AC83B20AEF27C003E68D6 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		8F6AC83B20AEF27C003E68D6 /* Common(NSObejct).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Common(NSObejct).swift"; sourceTree = "<group>"; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -224,11 +224,11 @@
 				8F6AC82820AEB0D1003E68D6 /* BaseController.swift */,
 				8F6AC82A20AEB0DC003E68D6 /* WebController.swift */,
 				8F6AC82C20AEB754003E68D6 /* NetManager.swift */,
-				8F6AC82F20AEC0A9003E68D6 /* Tool.swift */,
+				8F6AC82F20AEC0A9003E68D6 /* UIInitMethod.swift */,
 				8F6AC83120AEC9B7003E68D6 /* ShareView.swift */,
 				8F6AC83320AEEBDA003E68D6 /* TabbarController.swift */,
 				8F6AC83920AEEF52003E68D6 /* Position(UIView).swift */,
-				8F6AC83B20AEF27C003E68D6 /* Common.swift */,
+				8F6AC83B20AEF27C003E68D6 /* Common(NSObejct).swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -785,7 +785,7 @@
 				8FEF0151209C5CC100C2F301 /* SuperNaviVC.m in Sources */,
 				8FEF0143209C545800C2F301 /* UIView+Frame.m in Sources */,
 				8FEF0137209C3EF500C2F301 /* BaseTableVC.m in Sources */,
-				8F6AC83C20AEF27C003E68D6 /* Common.swift in Sources */,
+				8F6AC83C20AEF27C003E68D6 /* Common(NSObejct).swift in Sources */,
 				8FD8CD64209BEB3D00918C0C /* main.m in Sources */,
 				8FEF0147209C551300C2F301 /* FreshFishCell.m in Sources */,
 				8FEF014E209C5B3B00C2F301 /* WebVC.m in Sources */,
@@ -807,7 +807,7 @@
 				8FEF014B209C595D00C2F301 /* UIResponder+CurrentResponder.m in Sources */,
 				8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */,
 				8FD8CDA8209BF3A300918C0C /* MineVC.m in Sources */,
-				8F6AC83020AEC0A9003E68D6 /* Tool.swift in Sources */,
+				8F6AC83020AEC0A9003E68D6 /* UIInitMethod.swift in Sources */,
 				8F4F6E1F20A3103E00885A0D /* BaseModel.m in Sources */,
 				8FC83FCE20A03FFA00F753D6 /* ScanVC.m in Sources */,
 				8FC83FD120A1399100F753D6 /* BaseScrollVC.m in Sources */,

@@ -14,7 +14,7 @@ class TabbarController: UITabBarController {
         super.viewDidLoad();
         self.view.backgroundColor = UIColor.white;
     }
-    
+
     /// 构建指定类名的ViewController
     ///
     /// - Parameters:
@@ -24,6 +24,7 @@ class TabbarController: UITabBarController {
     ///   - selectedImage: selectedImage
     /// - Returns: UIViewController
     func buildController(_ className:AnyClass,titleStr:String,normalImage:UIImage, selectedImage:UIImage) -> UIViewController {
+        
         return UIViewController.init(nibName: nil, bundle: nil);
     }
 }

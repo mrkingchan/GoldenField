@@ -23,10 +23,8 @@ class ShareView: UIView {
     class func shareView(_ titleArray:NSArray,imageArray:NSArray,complete:@escaping (_ selectedItem:String,_  inde:Int)->()) -> ShareView {
         return ShareView.init(frame: UIScreen.main.bounds, titleArray: titleArray, imageArray: imageArray, complete: complete);
     }
-
     
     override init(frame: CGRect) {
-        
         super.init(frame: frame);
     }
     
@@ -40,26 +38,27 @@ class ShareView: UIView {
         UIApplication.shared.keyWindow?.addSubview(self);
         
         
-        _contentView = Tool.InsertView(self, rect: CGRect.init(x: CGFloat(0), y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 80 * 2), backgroundColor: UIColor.white);
+        _contentView = InsertView(self, rect: CGRect.init(x: CGFloat(0), y: UIScreen.main.bounds.size.height, width: UIScreen.main.bounds.size.width, height: 80 * 2), backgroundColor: UIColor.white);
         _contentView?.isUserInteractionEnabled = true;
         let ContainerW :CGFloat = UIScreen.main.bounds.size.width  / 4;
         let ContaincerH :CGFloat = 80.0;
-        
         for (index,_) in  titleArray.enumerated() {
             let rows = index/4;
             let column = index%4;
             let X = CGFloat(CGFloat(column) * ContainerW);
             let Y = CGFloat(CGFloat(rows) * ContaincerH);
     
-            let subView = Tool.InsertView(_contentView!, rect: CGRect.init(x:X, y:Y, width: ContainerW, height: ContaincerH), backgroundColor: UIColor.white);
+            let subView = InsertView(_contentView!, rect: CGRect.init(x:X, y:Y, width: ContainerW, height: ContaincerH), backgroundColor: UIColor.white);
             subView.isUserInteractionEnabled = true;
             let gesture = UITapGestureRecognizer.init(target: self, action: #selector(self.buttonAction(_:))) ;
             
             subView.addGestureRecognizer(gesture as UIGestureRecognizer);
             
-            let imageView = Tool.InsertImageView(subView, rect: CGRect.init(x: ContainerW / 2 - 30, y: 0, width: 60, height: 60), image:imageArray.object(at: index) as! UIImage);
+            let imageView = InsertImageView(subView, rect: CGRect.init(x: ContainerW / 2 - 30, y: 0, width: 60, height: 60), image:imageArray.object(at: index) as! UIImage);
             
-            let title = Tool.InsertLabel(subView, rect: CGRect.init(x: 0, y: 60, width: ContainerW, height: 20), backgroundColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), textAlignment: NSTextAlignment.center, textColor: UIColor.black, textStr: titleArray.object(at: index) as! String);
+            let title = InsertLabel(subView, rect: CGRect.init(x: 0, y: 60, width: ContainerW, height: 20), backgroundColor: UIColor.white, font: UIFont.systemFont(ofSize: 14), textAlignment: NSTextAlignment.center, textColor: UIColor.black, textStr: titleArray.object(at: index) as! String);
+            title.numberOfLines = 0;
+            
         }
         _contentView?.frame = CGRect.init(x: CGFloat(0), y: UIScreen.main.bounds.size.height - 160, width: UIScreen.main.bounds.size.width, height: 80 * 2);
     }
@@ -74,7 +73,7 @@ class ShareView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.hide();
+        hide();
     }
     
     // MARK: - hide

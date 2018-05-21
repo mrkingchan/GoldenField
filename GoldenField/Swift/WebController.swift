@@ -15,7 +15,7 @@ class WebController: UIViewController {
     var _configuration:WKWebViewConfiguration?;
     var _url:String?;
     
-    
+
     // MARK: - lifeCircle
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -32,3 +32,4 @@ class WebController: UIViewController {
         _webView?.load(URLRequest.init(url: URL.init(string: url)!));
     }
 }
+
