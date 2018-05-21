@@ -33,6 +33,7 @@ class NetManager: NSObject {
                 sucess(json!);
             }
         }
+        dataTask.resume();
         return dataTask;
     }
     

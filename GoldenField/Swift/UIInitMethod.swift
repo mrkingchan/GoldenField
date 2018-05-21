@@ -94,4 +94,45 @@ extension  NSObject {
     func kIntoFloat(value:Int) -> CGFloat {
         return CGFloat(value);
     }
+    
+    // MARK: - UIAlertController
+    func InsertAlerController(_ title:String,messageStr:String,alertStyle:UIAlertControllerStyle,button1Title:String?,button1Action:@escaping ((_ title1:String)->()),button2Title:String?,button2Action:@escaping ((_ title2:String)->()),targetController:UIViewController) ->UIAlertController {
+        let alertController = UIAlertController.init(title: title, message: messageStr, preferredStyle: alertStyle);
+        if button1Title != nil {
+            alertController.addAction(UIAlertAction.init(title: button1Title, style: UIAlertActionStyle.default, handler: { (alertAction) in
+                button1Action(alertAction.title!);
+            }));
+        }
+        if button2Title != nil {
+            alertController.addAction(UIAlertAction.init(title: button2Title!, style: UIAlertActionStyle.default, handler: { (alertAction) in
+                button2Action(alertAction.title!);
+            }));
+        }
+        targetController.present(alertController, animated: true, completion: nil);
+        return alertController;
+    }
+    
+    // MARK: - UIActionSheet
+    func InsertActionSheet(title:String,messageStr:String,button1Title:String?,button1Action:@escaping ((_ title:String)->()),button2Title:String?,button2Action:@escaping((_  title:String)->()),targetController:UIViewController) -> UIAlertController{
+        let actionSheet = UIAlertController.init(title: title, message: messageStr, preferredStyle: UIAlertControllerStyle.actionSheet);
+        if button1Title != nil {
+            actionSheet.addAction(UIAlertAction.init(title: button1Title, style: UIAlertActionStyle.default, handler: { (alertAction) in
+                button1Action(alertAction.title!);
+            }));
+        }
+        if button2Title != nil {
+            actionSheet.addAction(UIAlertAction.init(title: button2Title, style: UIAlertActionStyle.default, handler: { (alertAction) in
+                button2Action(alertAction.title!);
+            }));
+        }
+        
+        //cancel
+        
+        actionSheet.addAction(UIAlertAction.init(title:"取消", style: UIAlertActionStyle.cancel,
+                                                 handler: nil));
+        
+        targetController.present(actionSheet, animated: true, completion: nil);
+        return actionSheet;
+    }
 }
+

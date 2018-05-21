@@ -51,7 +51,7 @@
      });*/
     
     [AdvertiseView advertiseVieWithURL:kBaseURL showSeconds:4.0];
-    [self checkUpdateInfo];
+//    [self checkUpdateInfo];
     return YES;
 }
 

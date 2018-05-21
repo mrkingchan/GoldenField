@@ -23,7 +23,4 @@ class BaseController: UIViewController {
     func adddNet(_ net:URLSessionDataTask) -> Void {
         _tasks?.add(net);
     }
-    func releaseNet() -> Void {
-        
-    }
 }
