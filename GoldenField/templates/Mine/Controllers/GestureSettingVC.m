@@ -21,7 +21,8 @@
     [super viewDidLoad];
     self.navigationItem.title = @"设置手势密码";
     self.view.backgroundColor = kColorLightGray;
-    _lockView = [[PCCircleView alloc] initWithType:[PCCircleViewConst getGestureWithKey:gestureFinalSaveKey].length ? CircleViewTypeVerify: CircleViewTypeSetting clip:YES arrow:YES];
+    BOOL isVerify = [PCCircleViewConst getGestureWithKey:gestureFinalSaveKey].length > 0;
+    _lockView = [[PCCircleView alloc] initWithType:isVerify? CircleViewTypeVerify: CircleViewTypeSetting clip:YES arrow:YES];
     _lockView.frame = CGRectMake(20, kScreenHeight / 2 - ((kScreenWidth - 40)/2), kScreenWidth - 40, kScreenWidth - 40);
     _lockView.delegate = self;
     [self.view addSubview:_lockView];
@@ -46,12 +47,34 @@
         NSLog(@"手势设置成功");
         _tip.text =@"手势设置成功";
         [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        _tip.text = @"与上次密码不一致!";
+        [view.layer shake];
     }
 }
 
 - (void)circleView:(PCCircleView *)view type:(CircleViewType)type didCompleteLoginGesture:(NSString *)gesture result:(BOOL)equal {
-    if (equal) {
-        _tip.text = @"请重新设置密码!";
+    if (type == CircleViewTypeVerify) {
+        if (equal) {
+         _tip.text = @"请重新设置密码!";
+            _lockView.type = CircleViewTypeSetting;
+            
+            //清空以前设置过的手势密码
+            kUserDefaultSetValue(gestureOneSaveKey, @"");
+            kUserDefaultSetValue(gestureFinalSaveKey, @"");
+            kSynchronize;
+            
+        }else {
+            _tip.text = @"请重新输入!";
+            [_lockView.layer shake];
+        }
+    } else if (type == CircleViewTypeSetting) {
+        if (equal) {
+            _tip.text = @"密码设置成功!";
+        } else {
+            _tip.text = @"请重新输入!";
+            [_lockView.layer shake];
+        }
     }
 }
 @end
