@@ -433,7 +433,6 @@
     }
 }
 
-//将token给UM
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [UMessage registerDeviceToken:deviceToken];
     NSString *token = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
@@ -484,12 +483,17 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 //    [AdvertiseView advertiseVieWithURL:@"http://www.baidu.com" showSeconds:4.0];
-    application.keyWindow.rootViewController = [TouchVC new];
+    
+    //支持touchID
+    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_8_0 && [[LAContext new] canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:nil]) {
+        application.keyWindow.rootViewController = [TouchVC new];
+    }
+    
     if ([PCCircleViewConst getGestureWithKey:gestureFinalSaveKey].length) {
+        //有手势
         [_window bringSubviewToFront:_lockView];
     }
 }
-
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.

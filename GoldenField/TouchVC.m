@@ -2,7 +2,7 @@
 //  TouchVC.m
 //  GoldenField
 //
-//  Created by Macx on 2018/5/22.
+//  Created by Chan on 2018/5/22.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "MainVC.h"
 @interface TouchVC () {
-    UIImageView *_touch;
+    UIImageView *_touchIcon;
     UILabel *_tip;
 }
 
@@ -18,19 +18,20 @@
 
 @implementation TouchVC
 
+// MARK: - viewController LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kColorWhite;
-    
-    _touch = InsertImageView(self.view, CGRectMake(kScreenWidth / 2 - 30, self.view.height / 2 - 30, 60, 60), kIMAGE(@"touch"));
-    _touch.userInteractionEnabled = YES;
+    _touchIcon = InsertImageView(self.view, CGRectMake(kScreenWidth / 2 - 30, self.view.height / 2 - 30, 60, 60), kIMAGE(@"touch"));
+    _touchIcon.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchAction)];
-    [_touch addGestureRecognizer:tap];
+    [_touchIcon addGestureRecognizer:tap];
     
-    _tip = InsertLabel(self.view, CGRectMake(0, _touch.top - 60, kScreenWidth, 40), 1, @"点击指纹图标，按住home键解锁", kFontSize(15), kColorRed, NO);
+    _tip = InsertLabel(self.view, CGRectMake(0, _touchIcon.top - 60, kScreenWidth, 40), 1, @"点击指纹图标，按住home键解锁", kFontSize(15), kColorRed, NO);
     _tip.numberOfLines = 0;
 }
 
+// MARK: - touchAction
 - (void)touchAction {
     if (NSFoundationVersionNumber < NSFoundationVersionNumber_iOS_8_0) {
         NSLog(@"系统版本不支持TouchID");
@@ -69,7 +70,7 @@
                     }
                         break;
                     case LAErrorUserFallback:{
-                    
+                        
                         tipStr = @"用户不使用TouchID,选择手动输入密码";
                     }
                         break;
@@ -93,7 +94,7 @@
                            tipStr = @"TouchID被锁定(请锁定屏幕,输入您手机的密码,然后再试一次！)";
                     }
                         break;
-                    case LAErrorAppCancel:{
+                    case LAErrorAppCancel: {
                            tipStr = @"当前软件被挂起并取消了授权 (如App进入了后台等)";
                     }
                         break;
@@ -112,6 +113,16 @@
         }];
     } else {
         NSLog(@"当前设备不支持TouchID");
+    }
+}
+
+// MARK: - memory management
+- (void)dealloc {
+    if (_tip) {
+        _tip = nil;
+    }
+    if (_touchIcon) {
+        _touchIcon = nil;
     }
 }
 @end

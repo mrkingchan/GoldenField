@@ -2,7 +2,7 @@
 //  LoadingTipView.h
 //  GoldFullOfField
 //
-//  Created by Macx on 2018/5/15.
+//  Created by Chan on 2018/5/15.
 //  Copyright © 2018年 Chan. All rights reserved.
 //
 
