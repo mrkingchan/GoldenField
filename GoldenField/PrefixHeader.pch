@@ -101,6 +101,8 @@ dispatch_async(dispatch_get_main_queue(), block);\
 
 #define kUserDefaultSetValue(key,value)   [[NSUserDefaults standardUserDefaults] setValue:value forKey:key]
 #define kUserDefaultValueForKey(key)     [[NSUserDefaults standardUserDefaults] valueForKey:key]
+#define kUserDefaultRemoveKey(key)             [[NSUserDefaults  standardUserDefaults] removeObjectForKey:key]
+
 #define kSynchronize     [[NSUserDefaults standardUserDefaults] synchronize]
 
 /////常用颜色

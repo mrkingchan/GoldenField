@@ -21,11 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kColorWhite;
+    
     _touch = InsertImageView(self.view, CGRectMake(kScreenWidth / 2 - 30, self.view.height / 2 - 30, 60, 60), kIMAGE(@"touch"));
     _touch.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchAction)];
     [_touch addGestureRecognizer:tap];
-    _tip = InsertLabel(self.view, CGRectMake(0, _touch.top - 50, kScreenWidth, 30), 1, @"点击指纹图标，按住home键解锁", kFontSize(15), kApperanceColor, NO);
+    
+    _tip = InsertLabel(self.view, CGRectMake(0, _touch.top - 60, kScreenWidth, 40), 1, @"点击指纹图标，按住home键解锁", kFontSize(15), kColorRed, NO);
+    _tip.numberOfLines = 0;
 }
 
 - (void)touchAction {
@@ -87,7 +90,7 @@
                     }
                         break;
                     case LAErrorTouchIDLockout:{
-                           tipStr = @"TouchID 被锁定(连续多次验证TouchID失败,系统需要用户手动输入密码)";
+                           tipStr = @"TouchID被锁定(请锁定屏幕,输入您手机的密码,然后再试一次！)";
                     }
                         break;
                     case LAErrorAppCancel:{
@@ -101,7 +104,10 @@
                     default:
                         break;
                 }
-                _tip.text = tipStr;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   self-> _tip.text = tipStr;
+                    [self.view.layer shake];
+                });
             }
         }];
     } else {

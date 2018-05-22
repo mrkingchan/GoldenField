@@ -17,6 +17,7 @@
 
 @implementation GestureSettingVC
 
+// MARK: - ViewContorller LifiCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"设置手势密码";
@@ -31,6 +32,7 @@
     _tip.text =  @"设置手势密码";
 }
 
+// MARK: - CircleViewDelegate
 - (void)circleView:(PCCircleView *)view type:(CircleViewType)type connectCirclesLessThanNeedWithGesture:(NSString *)gesture {
     NSLog(@"手势少于需要数量!");
     _tip.text = @"手势少于需要数量!";
@@ -58,10 +60,13 @@
         if (equal) {
          _tip.text = @"请重新设置密码!";
             _lockView.type = CircleViewTypeSetting;
-            
             //清空以前设置过的手势密码
-            kUserDefaultSetValue(gestureOneSaveKey, @"");
+            /*kUserDefaultSetValue(gestureOneSaveKey, @"");
             kUserDefaultSetValue(gestureFinalSaveKey, @"");
+            kSynchronize;*/
+            
+            kUserDefaultRemoveKey(gestureOneSaveKey);
+            kUserDefaultRemoveKey(gestureFinalSaveKey);
             kSynchronize;
             
         }else {
@@ -77,4 +82,16 @@
         }
     }
 }
+
+// MARK: -memory management
+
+- (void)dealloc {
+    if (_tip) {
+        _tip = nil;
+    }
+    if (_lockView) {
+        _lockView = nil;
+    }
+}
+
 @end
