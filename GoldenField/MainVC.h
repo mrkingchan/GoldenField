@@ -10,5 +10,7 @@
 
 @interface MainVC : UITabBarController
 
++ (instancetype)shareInstance;
+
 
 @end

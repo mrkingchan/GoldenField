@@ -29,6 +29,15 @@
 		8F6AC83420AEEBDA003E68D6 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83320AEEBDA003E68D6 /* TabbarController.swift */; };
 		8F6AC83A20AEEF52003E68D6 /* Position(UIView).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83920AEEF52003E68D6 /* Position(UIView).swift */; };
 		8F6AC83C20AEF27C003E68D6 /* Common(NSObejct).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83B20AEF27C003E68D6 /* Common(NSObejct).swift */; };
+		8FA8ED8720B3B199003551F9 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8620B3B199003551F9 /* SettingVC.m */; };
+		8FA8ED8A20B3B2AB003551F9 /* GestureSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8920B3B2AB003551F9 /* GestureSettingVC.m */; };
+		8FA8ED9220B3B309003551F9 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8E20B3B308003551F9 /* PCCircle.m */; };
+		8FA8ED9320B3B309003551F9 /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8F20B3B308003551F9 /* PCCircleViewConst.m */; };
+		8FA8ED9420B3B309003551F9 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED9020B3B308003551F9 /* PCCircleView.m */; };
+		8FA8ED9A20B3B319003551F9 /* PCCircleInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED9620B3B319003551F9 /* PCCircleInfoView.m */; };
+		8FA8ED9B20B3B319003551F9 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED9920B3B319003551F9 /* PCLockLabel.m */; };
+		8FA8ED9E20B3B33B003551F9 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED9D20B3B33B003551F9 /* CALayer+Anim.m */; };
+		8FA8EDA120B3D821003551F9 /* TouchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8EDA020B3D821003551F9 /* TouchVC.m */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
@@ -118,6 +127,24 @@
 		8F6AC83320AEEBDA003E68D6 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		8F6AC83920AEEF52003E68D6 /* Position(UIView).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Position(UIView).swift"; sourceTree = "<group>"; };
 		8F6AC83B20AEF27C003E68D6 /* Common(NSObejct).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Common(NSObejct).swift"; sourceTree = "<group>"; };
+		8FA8ED8520B3B199003551F9 /* SettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
+		8FA8ED8620B3B199003551F9 /* SettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
+		8FA8ED8820B3B2AB003551F9 /* GestureSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GestureSettingVC.h; sourceTree = "<group>"; };
+		8FA8ED8920B3B2AB003551F9 /* GestureSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GestureSettingVC.m; sourceTree = "<group>"; };
+		8FA8ED8C20B3B308003551F9 /* PCCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleView.h; sourceTree = "<group>"; };
+		8FA8ED8D20B3B308003551F9 /* PCCircleViewConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleViewConst.h; sourceTree = "<group>"; };
+		8FA8ED8E20B3B308003551F9 /* PCCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircle.m; sourceTree = "<group>"; };
+		8FA8ED8F20B3B308003551F9 /* PCCircleViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleViewConst.m; sourceTree = "<group>"; };
+		8FA8ED9020B3B308003551F9 /* PCCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleView.m; sourceTree = "<group>"; };
+		8FA8ED9120B3B308003551F9 /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
+		8FA8ED9620B3B319003551F9 /* PCCircleInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleInfoView.m; sourceTree = "<group>"; };
+		8FA8ED9720B3B319003551F9 /* PCLockLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLockLabel.h; sourceTree = "<group>"; };
+		8FA8ED9820B3B319003551F9 /* PCCircleInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleInfoView.h; sourceTree = "<group>"; };
+		8FA8ED9920B3B319003551F9 /* PCLockLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCLockLabel.m; sourceTree = "<group>"; };
+		8FA8ED9C20B3B33B003551F9 /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
+		8FA8ED9D20B3B33B003551F9 /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
+		8FA8ED9F20B3D821003551F9 /* TouchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchVC.h; sourceTree = "<group>"; };
+		8FA8EDA020B3D821003551F9 /* TouchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchVC.m; sourceTree = "<group>"; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -233,6 +260,41 @@
 			path = Swift;
 			sourceTree = "<group>";
 		};
+		8FA8ED8420B3B073003551F9 /* GestureLock */ = {
+			isa = PBXGroup;
+			children = (
+				8FA8ED9C20B3B33B003551F9 /* CALayer+Anim.h */,
+				8FA8ED9D20B3B33B003551F9 /* CALayer+Anim.m */,
+				8FA8ED9520B3B319003551F9 /* View */,
+				8FA8ED8B20B3B308003551F9 /* FrameWork */,
+			);
+			path = GestureLock;
+			sourceTree = "<group>";
+		};
+		8FA8ED8B20B3B308003551F9 /* FrameWork */ = {
+			isa = PBXGroup;
+			children = (
+				8FA8ED8C20B3B308003551F9 /* PCCircleView.h */,
+				8FA8ED9020B3B308003551F9 /* PCCircleView.m */,
+				8FA8ED9120B3B308003551F9 /* PCCircle.h */,
+				8FA8ED8E20B3B308003551F9 /* PCCircle.m */,
+				8FA8ED8D20B3B308003551F9 /* PCCircleViewConst.h */,
+				8FA8ED8F20B3B308003551F9 /* PCCircleViewConst.m */,
+			);
+			path = FrameWork;
+			sourceTree = "<group>";
+		};
+		8FA8ED9520B3B319003551F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8FA8ED9620B3B319003551F9 /* PCCircleInfoView.m */,
+				8FA8ED9820B3B319003551F9 /* PCCircleInfoView.h */,
+				8FA8ED9720B3B319003551F9 /* PCLockLabel.h */,
+				8FA8ED9920B3B319003551F9 /* PCLockLabel.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8FC83FDB20A197D100F753D6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +341,9 @@
 				8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */,
 				8FD8CD9A209BEF5700918C0C /* MainVC.h */,
 				8FD8CD9B209BEF5700918C0C /* MainVC.m */,
+				8FA8ED9F20B3D821003551F9 /* TouchVC.h */,
+				8FA8EDA020B3D821003551F9 /* TouchVC.m */,
+				8FA8ED8420B3B073003551F9 /* GestureLock */,
 				8F6AC82E20AEC08C003E68D6 /* Swift */,
 				8FEF0152209C616500C2F301 /* Login */,
 				8FEF0134209C317F00C2F301 /* Utils */,
@@ -446,6 +511,10 @@
 			children = (
 				8FD8CDA6209BF3A300918C0C /* MineVC.h */,
 				8FD8CDA7209BF3A300918C0C /* MineVC.m */,
+				8FA8ED8520B3B199003551F9 /* SettingVC.h */,
+				8FA8ED8620B3B199003551F9 /* SettingVC.m */,
+				8FA8ED8820B3B2AB003551F9 /* GestureSettingVC.h */,
+				8FA8ED8920B3B2AB003551F9 /* GestureSettingVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -773,14 +842,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F6AC82920AEB0D1003E68D6 /* BaseController.swift in Sources */,
+				8FA8ED8A20B3B2AB003551F9 /* GestureSettingVC.m in Sources */,
 				8FD8CD9C209BEF5700918C0C /* MainVC.m in Sources */,
 				8FD8CDA2209BF39100918C0C /* ProductVC.m in Sources */,
 				8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */,
+				8FA8ED9420B3B309003551F9 /* PCCircleView.m in Sources */,
 				8F4F6E2220A314E000885A0D /* iToast.m in Sources */,
 				8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */,
 				8FEF0158209C619300C2F301 /* LoginVC.m in Sources */,
+				8FA8ED9A20B3B319003551F9 /* PCCircleInfoView.m in Sources */,
 				8FEF0140209C438000C2F301 /* UserModel.m in Sources */,
 				8FEF013A209C41BA00C2F301 /* HttpClient.m in Sources */,
+				8FA8ED9220B3B309003551F9 /* PCCircle.m in Sources */,
 				8FD8CD9F209BF38500918C0C /* HomeVC.m in Sources */,
 				8FEF0151209C5CC100C2F301 /* SuperNaviVC.m in Sources */,
 				8FEF0143209C545800C2F301 /* UIView+Frame.m in Sources */,
@@ -789,12 +862,16 @@
 				8FD8CD64209BEB3D00918C0C /* main.m in Sources */,
 				8FEF0147209C551300C2F301 /* FreshFishCell.m in Sources */,
 				8FEF014E209C5B3B00C2F301 /* WebVC.m in Sources */,
+				8FA8ED8720B3B199003551F9 /* SettingVC.m in Sources */,
 				8FC83FD420A1500300F753D6 /* LoadingAndRefreshView.m in Sources */,
 				8F6AC81A20AD291D003E68D6 /* AdvertiseView.m in Sources */,
+				8FA8EDA120B3D821003551F9 /* TouchVC.m in Sources */,
 				8F6AC82020AD641B003E68D6 /* SharePanel.m in Sources */,
 				8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */,
 				8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */,
 				8F6AC82D20AEB754003E68D6 /* NetManager.swift in Sources */,
+				8FA8ED9B20B3B319003551F9 /* PCLockLabel.m in Sources */,
+				8FA8ED9320B3B309003551F9 /* PCCircleViewConst.m in Sources */,
 				8F6AC83A20AEEF52003E68D6 /* Position(UIView).swift in Sources */,
 				8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */,
 				8F6AC7FC20AAA88A003E68D6 /* URLProtocol.m in Sources */,
@@ -812,6 +889,7 @@
 				8FC83FCE20A03FFA00F753D6 /* ScanVC.m in Sources */,
 				8FC83FD120A1399100F753D6 /* BaseScrollVC.m in Sources */,
 				8FEF013D209C41C800C2F301 /* DataManager.m in Sources */,
+				8FA8ED9E20B3B33B003551F9 /* CALayer+Anim.m in Sources */,
 				8F6AC83420AEEBDA003E68D6 /* TabbarController.swift in Sources */,
 				8FC83F86209FF37700F753D6 /* NetTool.m in Sources */,
 				8F338DFF20A1A66A0069CFC1 /* DiscoveryModel.m in Sources */,

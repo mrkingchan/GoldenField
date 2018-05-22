@@ -21,6 +21,7 @@
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+    self.view.backgroundColor = kColorWhite;
     _tableView = InsertTableView(self.view, CGRectMake(0, 0, self.view.width, self.view.height), self, self, 0, 0);
     _tableView.tableFooterView = [UIView new];
     _tableView.delegate = self;

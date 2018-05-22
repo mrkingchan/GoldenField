@@ -12,5 +12,9 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property(nonatomic,strong)UIView *lockView;
+
+@property(nonatomic,strong)UILabel *tip;
+
 @end
 

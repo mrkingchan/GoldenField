@@ -12,7 +12,16 @@
 
 @end
 
+static MainVC *shareInstance = nil;
 @implementation MainVC
+
++ (instancetype)shareInstance {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shareInstance = [[MainVC alloc] init];
+    });
+    return shareInstance;
+}
 
 #pragma mark  -- lifeCircle
 - (void)viewDidLoad {

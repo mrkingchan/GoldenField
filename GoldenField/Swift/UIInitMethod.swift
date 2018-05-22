@@ -125,12 +125,9 @@ extension  NSObject {
                 button2Action(alertAction.title!);
             }));
         }
-        
         //cancel
-        
         actionSheet.addAction(UIAlertAction.init(title:"取消", style: UIAlertActionStyle.cancel,
                                                  handler: nil));
-        
         targetController.present(actionSheet, animated: true, completion: nil);
         return actionSheet;
     }

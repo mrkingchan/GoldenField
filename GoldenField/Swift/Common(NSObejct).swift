@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-
 extension NSObject {
     
     // MARK: - kImage
@@ -44,4 +43,5 @@ extension NSObject {
         let jsonData =  try? JSONSerialization.data(withJSONObject: json, options: []);
         return jsonData!;
     }
+    
 }

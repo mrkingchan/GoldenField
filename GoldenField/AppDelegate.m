@@ -10,8 +10,10 @@
 #import "MainVC.h"
 #import "GuideHelpView.h"
 #import "AppDelegate+Configuration.h"
+#import <LocalAuthentication/LocalAuthentication.h>
+#import "TouchVC.h"
 
-@interface AppDelegate () <UNUserNotificationCenterDelegate> {
+@interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate> {
     UIAlertController *_alertVC;
     NSMutableString *_messageStr;
 }
@@ -34,9 +36,8 @@
     }
     [self buildShorcutItems];
     [self configureGuide];
-    
     [self configureCommonPushWithLanunchOptions:launchOptions];
-
+//    [self verifyTouch];
     //注册http和https
     [NSURLProtocol wk_registerScheme:@"http"];
     [NSURLProtocol wk_registerScheme:@"https"];
@@ -51,15 +52,144 @@
      });*/
     
     [AdvertiseView advertiseVieWithURL:kBaseURL showSeconds:4.0];
-//    [self checkUpdateInfo];
+    [self checkUpdateInfo];
+    
+    _lockView = InsertView(_window, _window.bounds, kColorLightGray);
+   PCCircleView *_gestureView = [[PCCircleView alloc] initWithType:CircleViewTypeVerify clip:YES arrow:YES];
+    _gestureView.delegate = self;
+    _gestureView.frame = CGRectMake(20, kScreenHeight / 2 - ((kScreenWidth - 40)/2), kScreenWidth - 40, kScreenWidth - 40);
+    _tip = InsertLabel(_lockView, CGRectMake(0, _gestureView.top - 50, kScreenWidth, 30), 1, @"", kFontSize(15), kApperanceColor, NO);
+    _tip.text = @"手势解锁";
+    [_lockView addSubview:_gestureView];
+    [_window sendSubviewToBack:_lockView];
     return YES;
 }
 
+// MARK: - CircleViewDeletate
+
+- (void)circleView:(PCCircleView *)view type:(CircleViewType)type didCompleteLoginGesture:(NSString *)gesture result:(BOOL)equal {
+    if (type == CircleViewTypeVerify) {
+        if (equal) {
+            [_window sendSubviewToBack:_lockView];
+        } else {
+            [_lockView.layer shake];
+            _tip.text = @"请重新输入!";
+        }
+    }
+}
+
+- (void)circleView:(PCCircleView *)view type:(CircleViewType)type connectCirclesLessThanNeedWithGesture:(NSString *)gesture {
+    NSLog(@"连接点少于需要!");
+    _tip.text = @"连接点至少为4个!";
+    [_lockView.layer shake];
+}
+
+/*
+// MARK: - verifyTouchID
+-(void)verifyTouch {
+    if (NSFoundationVersionNumber < NSFoundationVersionNumber_iOS_8_0) {
+        NSLog(@"系统版本不支持TouchID");
+        
+        return;
+    }
+    LAContext *context = [LAContext new];
+    context.localizedFallbackTitle = @"输入密码";
+    if (@available(iOS 10.0, *)) {
+        context.localizedCancelTitle = @"取消";
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    NSError *error = nil;
+    @weakify(self);
+    if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
+        //可以验证指纹
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:@"通过Home键验证已有手机指纹" reply:^(BOOL success, NSError * _Nullable error) {
+            @strongify(self);
+            if (success) {
+                //验证成功
+                dispatch_main_async_safe(^{
+                    NSLog(@"TouchID 验证成功");
+//                    [self->_window sendSubviewToBack:self->_touchIDView];
+                });
+            } else if(error){
+//                [self->_window bringSubviewToFront:self->_touchIDView];
+                switch (error.code) {
+                    case LAErrorAuthenticationFailed:{
+                        dispatch_main_async_safe(^{
+                        NSLog(@"TouchID 验证失败");
+                        });
+                        break;
+                    }
+                    case LAErrorUserCancel:{
+                        dispatch_main_async_safe(^{
+                            NSLog(@"TouchID 被用户手动取消");
+                        });
+                    }
+                        break;
+                    case LAErrorUserFallback:{
+                        dispatch_main_async_safe(^{
+                            NSLog(@"用户不使用TouchID,选择手动输入密码");
+                        });
+                    }
+                        break;
+                    case LAErrorSystemCancel:{
+                        dispatch_main_async_safe(^{
+                            NSLog(@"TouchID 被系统取消 (如遇到来电,锁屏,按了Home键等)");
+                        });
+                    }
+                        break;
+                    case LAErrorPasscodeNotSet:{
+                        dispatch_main_async_safe(^{
+                            NSLog(@"TouchID 无法启动,因为用户没有设置密码");
+                        });
+                    }
+                        break;
+                    case LAErrorTouchIDNotEnrolled:{
+                        dispatch_main_async_safe(^{
+                            NSLog(@"TouchID 无法启动,因为用户没有设置TouchID");
+                        });
+                    }
+                        break;
+                    case LAErrorTouchIDNotAvailable:{
+                        dispatch_main_async_safe(^{
+                            NSLog(@"TouchID 无效");
+                        });
+                    }
+                        break;
+                    case LAErrorTouchIDLockout:{
+                        dispatch_main_async_safe(^{
+                            NSLog(@"TouchID 被锁定(连续多次验证TouchID失败,系统需要用户手动输入密码)");
+                        });
+                    }
+                        break;
+                    case LAErrorAppCancel:{
+                        dispatch_main_async_safe(^{
+                            NSLog(@"当前软件被挂起并取消了授权 (如App进入了后台等)");
+                        });
+                    }
+                        break;
+                    case LAErrorInvalidContext:{
+                        dispatch_main_async_safe(^{
+                            NSLog(@"当前软件被挂起并取消了授权 (LAContext对象无效)");
+                        });
+                    }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }];
+    } else {
+        NSLog(@"当前设备不支持TouchID");
+    }
+}
+ */
 
 #pragma mark  -- checkUpdateInfo
 - (void)checkUpdateInfo {
     __weak typeof(self)weakSelf = self;
-    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://itunes.apple.com/lookup?id=1334606367"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",kAppID]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         AppDelegate *strongSelf = weakSelf;
         if (!error) {
             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
@@ -78,7 +208,7 @@
                     //更新弹框
                     strongSelf->_alertVC = [UIAlertController alertControllerWithTitle:@"应用有新版本" message:newStr preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        //更新跳转
+                        //更新跳转 这里跳转的url是中文转码的url
                         NSString *downloadURL = @"https://itunes.apple.com/us/app/%E4%BA%BA%E6%89%8D%E8%B5%A2%E8%A1%8C/id1334606367?l=zh&ls=1&mt=8";
                         NSURL *appStoreURL = [NSURL URLWithString:downloadURL];
                         if ([[UIApplication sharedApplication] canOpenURL:appStoreURL]) {
@@ -90,7 +220,7 @@
                     [strongSelf->_alertVC addAction:action1];
                     [strongSelf-> _alertVC addAction:action2];
                     [strongSelf runtimeProperty];
-                    dispatch_async(dispatch_get_main_queue(), ^{
+                    dispatch_main_async_safe(^{
                         [[UIApplication sharedApplication].keyWindow.rootViewController  presentViewController:strongSelf->_alertVC animated:YES completion:nil];
                     });
                 }
@@ -351,11 +481,13 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    [AdvertiseView advertiseVieWithURL:@"http://www.baidu.com" showSeconds:4.0];
-
+//    [AdvertiseView advertiseVieWithURL:@"http://www.baidu.com" showSeconds:4.0];
+    application.keyWindow.rootViewController = [TouchVC new];
+    if ([PCCircleViewConst getGestureWithKey:gestureFinalSaveKey].length) {
+        [_window bringSubviewToFront:_lockView];
+    }
 }
 
 

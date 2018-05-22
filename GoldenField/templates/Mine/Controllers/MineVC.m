@@ -7,6 +7,7 @@
 //
 
 #import "MineVC.h"
+#import "SettingVC.h"
 
 @interface MineVC () <UITableViewDelegate,UITableViewDataSource> {
     UITableView *_tableView;
@@ -34,6 +35,12 @@
     self.showRefreshHeader = YES;
     self.showRefreshFooter = YES;
     [self tableViewHeaderRefreshAction];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"setting" style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
+}
+
+- (void)buttonAction:(id)sender {
+    SettingVC *VC = [SettingVC new];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 -(void)tableViewHeaderRefreshAction {
