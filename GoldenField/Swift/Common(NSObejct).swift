@@ -44,4 +44,12 @@ extension NSObject {
         return jsonData!;
     }
     
+    // MARK: - kScreenWidth & Height
+    func kScreenWidth() -> CGFloat {
+        return UIScreen.main.bounds.size.width;
+    }
+    
+    func kScreenHeight() -> CGFloat {
+        return UIScreen.main.bounds.size.height;
+    }
 }

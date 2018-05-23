@@ -10,6 +10,8 @@ import Foundation
 
 class NetManager: NSObject {
     
+    // MARK: - NSURLSession
+    
     /// 网络请求
     ///
     /// - Parameters:
@@ -57,4 +59,54 @@ class NetManager: NSObject {
                                           sucess: sucess,
                                           failure: failure);
     }
+    
+    
+    // MARK: - NSURLConnection
+    
+    func requestConnection(urlStr:String,
+                           httpmethodStr:String,
+                           paramtes:Any,
+                           sucess:@escaping (_ responseData:AnyObject)->(),
+                           failure:@escaping ( _ errorStr:String)->()) -> Void {
+        let requestURL:URL = URL.init(string: urlStr)!;
+        var request:URLRequest = URLRequest.init(url:requestURL);
+        request.httpBody = try? JSONSerialization.data(withJSONObject: paramtes, options: []);
+        request.httpMethod = httpmethodStr;
+        NSURLConnection.sendAsynchronousRequest(request,
+                                                queue: OperationQueue.main) { (response, data, error) in
+                                                    if error != nil {
+                                                        failure(error!.localizedDescription);
+                                                    } else {
+                                                        let json = try? JSONSerialization.jsonObject(with: data!, options: []);
+                                                        sucess(json! as AnyObject);
+                                                    }
+        }
+        
+    }
+    
+    // MARK: - GET
+    func requestGetConnection(urlStr:String,
+                              parametes:AnyObject,
+                              sucess:@escaping (_ responseObject:AnyObject)->(),
+                              failure:@escaping (_ errorStr:String)->()) -> Void {
+        return  self.requestConnection(urlStr: urlStr,
+                                       httpmethodStr: "GET",
+                                       paramtes: parametes,
+                                       sucess: sucess,
+                                       failure: failure);
+    }
+    
+    
+    // MARK: - POST
+    func requestPOSTConnection(urlStr:String,
+                              parametes:AnyObject,
+                              sucess:@escaping (_ responseObject:AnyObject)->(),
+                              failure:@escaping (_ errorStr:String)->()) -> Void {
+        return  self.requestConnection(urlStr: urlStr,
+                                       httpmethodStr: "POST",
+                                       paramtes: parametes,
+                                       sucess: sucess,
+                                       failure: failure);
+    }
+    
 }

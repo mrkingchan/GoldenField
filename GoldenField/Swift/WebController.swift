@@ -15,7 +15,6 @@ class WebController: UIViewController {
     var _configuration:WKWebViewConfiguration?;
     var _url:String?;
     
-
     // MARK: - lifeCircle
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -30,6 +29,30 @@ class WebController: UIViewController {
     // MARK: - loadURL
     func loadUrl(url:String) {
         _webView?.load(URLRequest.init(url: URL.init(string: url)!));
+    }
+    
+    
+    // MARK: - UITableViewDataSource &Delegate
+    
+    func numberofRows(_ seciton:Int, tableView:UITableView) -> Int {
+        return 100;
+    }
+    
+    func cellForRow(_ tableView:UITableView,indexPath:NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell");
+        if cell == nil {
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell");
+        }
+        return cell!;
+    }
+    
+    
+    func heightForRow(_ tableView:UITableView, indexPath:NSIndexPath) -> CGFloat {
+        return 100;
+    }
+    
+    func numbeofSection(_ tableView:UITableView) -> Int {
+        return 10;
     }
 }
 
