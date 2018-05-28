@@ -27,6 +27,13 @@
                                        appSecret:kWechatAppSecretKey
                                      redirectURL:kBaseURL];
     
+    //收藏
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatFavorite
+                                          appKey:kWeChatAppKey
+                                       appSecret:kWechatAppSecretKey
+                                     redirectURL:kBaseURL];
+    
+    /*
     //分享的代码
     UMShareImageObject *image = [UMShareImageObject shareObjectWithTitle:@"xxx"
                                                                    descr:@"xxx"
@@ -54,7 +61,8 @@
                                                        }
                                                    }
                                                }
-                                           }];
+                                           }];*/
+    
     [self registerAppWithComplete:complete];
 }
 
@@ -76,7 +84,11 @@
 
 ///depreccated Method
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [[UMSocialManager defaultManager] handleOpenURL:url];
+    if ([url.absoluteString rangeOfString:@"com.tecent.xin"].location != NSNotFound) {
+        return YES;
+    }else {
+        return [[UMSocialManager defaultManager] handleOpenURL:url];
+    }
 }
 
 #pragma mark  -- registerApp Method

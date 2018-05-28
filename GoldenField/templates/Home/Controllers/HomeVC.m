@@ -104,11 +104,19 @@
     //友盟的分享面板
     [UMSocialShareUIConfig shareInstance].sharePageGroupViewConfig.sharePageGroupViewPostionType = UMSocialSharePageGroupViewPositionType_Bottom;
     [UMSocialShareUIConfig shareInstance].sharePageScrollViewConfig.shareScrollViewPageItemStyleType = UMSocialPlatformItemViewBackgroudType_None;
+    NSMutableArray *items = [NSMutableArray new];
+    //预定义平台设置 要上架App必须要进行这项设置
+    if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]) {
+        [items addObject:@(UMSocialPlatformType_WechatFavorite)];
+        [items addObject:@(UMSocialPlatformType_WechatTimeLine)];
+        [items addObject:@(UMSocialPlatformType_WechatSession)];
+    }
+    [UMSocialUIManager setPreDefinePlatforms:items];
     
     [UMSocialUIManager  showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         
-    }];
-     */
+    }];*/
+    
 }
 #pragma mark  -- private Method
 - (void)buttonAction:(id)sender {
@@ -117,6 +125,7 @@
 #elif TARGET_OS_IPHONE
     [self.navigationController pushViewController:[ScanVC new] animated:YES];
 #endif
+    
 }
 
 #pragma mark  -- UITableViewDataSource&Delegate

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import WebKit
 
 extension  NSObject {
     
@@ -120,6 +121,7 @@ extension  NSObject {
                 button1Action(alertAction.title!);
             }));
         }
+        
         if button2Title != nil {
             actionSheet.addAction(UIAlertAction.init(title: button2Title, style: UIAlertActionStyle.default, handler: { (alertAction) in
                 button2Action(alertAction.title!);
@@ -130,6 +132,20 @@ extension  NSObject {
                                                  handler: nil));
         targetController.present(actionSheet, animated: true, completion: nil);
         return actionSheet;
+    }
+    
+    // MARK: - webView
+    func InsertWebView(rect:CGRect, delegate:Any,url:String) -> UIWebView {
+        let webView = UIWebView(frame: rect);
+        webView.dataDetectorTypes = UIDataDetectorTypes.all;
+        webView.delegate = delegate as? UIWebViewDelegate;
+        return webView;
+    }
+    
+    func InsertWKWwebView(rect:CGRect,navigationDelegate:Any,configuration:WKWebViewConfiguration) -> WKWebView  {
+        let webView = WKWebView.init(frame: rect, configuration: configuration);
+        webView.navigationDelegate = navigationDelegate as? WKNavigationDelegate;
+        return webView;
     }
 }
 

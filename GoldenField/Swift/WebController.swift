@@ -31,7 +31,7 @@ class WebController: UIViewController {
         _webView?.load(URLRequest.init(url: URL.init(string: url)!));
     }
     
-    
+    /*
     // MARK: - UITableViewDataSource &Delegate
     
     func numberofRows(_ seciton:Int, tableView:UITableView) -> Int {
@@ -54,5 +54,6 @@ class WebController: UIViewController {
     func numbeofSection(_ tableView:UITableView) -> Int {
         return 10;
     }
+ */
 }
 

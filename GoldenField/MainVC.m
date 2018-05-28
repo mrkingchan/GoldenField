@@ -13,6 +13,7 @@
 @end
 
 static MainVC *shareInstance = nil;
+
 @implementation MainVC
 
 + (instancetype)shareInstance {

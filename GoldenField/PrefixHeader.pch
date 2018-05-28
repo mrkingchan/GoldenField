@@ -59,15 +59,17 @@
 #import <UShareUI/UShareUI.h>
 #import "PCCircleView.h"
 #import "PCCircleViewConst.h"
+#import <MJExtension/MJExtension.h>
+
 /////公有接口地址
 //#define kBaseURL @"http://wwww.baseurl:xxxx"
 #define kBaseURL isTrueEnviroment ? @"http://xxxx/":@"http://www.baidu.com/"
 #define kAppID @""
 #define kUmengAppKey @"5af95fd4f43e484cfd0000d1"
-#define kUmengAppSecretKey @""
+#define kUmengAppSecretKey @"70e930b4ef1a7a2e2bdead85aafda8c2"
 
 ////三方开发平台申请的Key
-#define kWeChatAppKey @""
+#define kWeChatAppKey @"wxe7c691ed8a543216"
 #define kWechatAppSecretKey @""
 
 /*#define dispatch_main_sync_safe(block)\

@@ -11,19 +11,19 @@ import UIKit
 extension NSObject {
     
     // MARK: - kImage
-    func kImage(imageName:String) -> UIImage {
+    func kImage(_ imageName:String) -> UIImage {
         let image = UIImage.init(named: imageName);
 //        image?.renderingMode = UIImageRenderingMode.alwaysOriginal;
         return image!;
     }
     
     // MARK: - Int -> Float
-    func kIntToFloat(value:Int) -> CGFloat {
+    func kIntToFloat(_ value:Int) -> CGFloat {
         return CGFloat(value);
     }
     
     // MARK: - URL
-    func kURL(urlStr:String) -> URL {
+    func kURL(_ urlStr:String) -> URL {
         return URL.init(string: urlStr)!;
     }
     
@@ -39,7 +39,7 @@ extension NSObject {
     }
 
     // MARK: - json to Data
-    func kJsonToData(json:Any) -> Data {
+    func kJsonToData(_ json:Any) -> Data {
         let jsonData =  try? JSONSerialization.data(withJSONObject: json, options: []);
         return jsonData!;
     }

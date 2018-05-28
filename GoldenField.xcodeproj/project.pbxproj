@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F18EAE120BBDEE900862CCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F18EAE020BBDEE900862CCE /* Assets.xcassets */; };
 		8F338DFC20A1A5EF0069CFC1 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFB20A1A5EF0069CFC1 /* DiscoveryCell.m */; };
 		8F338DFF20A1A66A0069CFC1 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFE20A1A66A0069CFC1 /* DiscoveryModel.m */; };
 		8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338E0120A1A6F50069CFC1 /* BoxView.m */; };
@@ -38,6 +39,8 @@
 		8FA8ED9B20B3B319003551F9 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED9920B3B319003551F9 /* PCLockLabel.m */; };
 		8FA8ED9E20B3B33B003551F9 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED9D20B3B33B003551F9 /* CALayer+Anim.m */; };
 		8FA8EDA120B3D821003551F9 /* TouchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8EDA020B3D821003551F9 /* TouchVC.m */; };
+		8FBBF65D20B7FB030015728D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBBF65C20B7FB030015728D /* libWeChatSDK.a */; };
+		8FBBF66620B80B7F0015728D /* ResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBBF66520B80B7F0015728D /* ResponseModel.m */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
 		8FC83F86209FF37700F753D6 /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F85209FF37700F753D6 /* NetTool.m */; };
@@ -47,7 +50,6 @@
 		8FC83FD420A1500300F753D6 /* LoadingAndRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83FD320A1500300F753D6 /* LoadingAndRefreshView.m */; };
 		8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD55209BEB3B00918C0C /* AppDelegate.m */; };
 		8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5A209BEB3B00918C0C /* Main.storyboard */; };
-		8FD8CD5E209BEB3D00918C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */; };
 		8FD8CD64209BEB3D00918C0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD63209BEB3D00918C0C /* main.m */; };
 		8FD8CD6E209BEB3D00918C0C /* GoldenFieldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD6D209BEB3D00918C0C /* GoldenFieldTests.m */; };
 		8FD8CD79209BEB3D00918C0C /* GoldenFieldUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FD8CD78209BEB3D00918C0C /* GoldenFieldUITests.m */; };
@@ -91,6 +93,7 @@
 /* Begin PBXFileReference section */
 		3D4D14761B6F0283E6054ED9 /* Pods-GoldenField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenField.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField.release.xcconfig"; sourceTree = "<group>"; };
 		5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoldenField.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F18EAE020BBDEE900862CCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F338DFA20A1A5EF0069CFC1 /* DiscoveryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell.h; sourceTree = "<group>"; };
 		8F338DFB20A1A5EF0069CFC1 /* DiscoveryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCell.m; sourceTree = "<group>"; };
 		8F338DFD20A1A66A0069CFC1 /* DiscoveryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoveryModel.h; sourceTree = "<group>"; };
@@ -145,6 +148,9 @@
 		8FA8ED9D20B3B33B003551F9 /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
 		8FA8ED9F20B3D821003551F9 /* TouchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchVC.h; sourceTree = "<group>"; };
 		8FA8EDA020B3D821003551F9 /* TouchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchVC.m; sourceTree = "<group>"; };
+		8FBBF65C20B7FB030015728D /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = Pods/UMCShare/UMShare/SocialLibraries/WeChat/WechatSDK/libWeChatSDK.a; sourceTree = "<group>"; };
+		8FBBF66420B80B7F0015728D /* ResponseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResponseModel.h; sourceTree = "<group>"; };
+		8FBBF66520B80B7F0015728D /* ResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponseModel.m; sourceTree = "<group>"; };
 		8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIInitMethod.h; sourceTree = "<group>"; };
 		8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIInitMethod.m; sourceTree = "<group>"; };
 		8FC83F81209FEF5500F753D6 /* BaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
@@ -163,7 +169,6 @@
 		8FD8CD54209BEB3B00918C0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FD8CD55209BEB3B00918C0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8FD8CD5B209BEB3B00918C0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FD8CD62209BEB3D00918C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FD8CD63209BEB3D00918C0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8FD8CD69209BEB3D00918C0C /* GoldenFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoldenFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FBBF65D20B7FB030015728D /* libWeChatSDK.a in Frameworks */,
 				8F4F6E9920A9597A00885A0D /* UserNotifications.framework in Frameworks */,
 				F52D1D75763F017544231994 /* libPods-GoldenField.a in Frameworks */,
 			);
@@ -239,6 +245,7 @@
 		70E6976CF8E61933B2F04B2C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8FBBF65C20B7FB030015728D /* libWeChatSDK.a */,
 				8F4F6E9820A9597A00885A0D /* UserNotifications.framework */,
 				5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */,
 			);
@@ -350,8 +357,8 @@
 				8FEF012D209C280A00C2F301 /* BaseMVC */,
 				8FD8CD86209BEB7D00918C0C /* templates */,
 				8FD8CD5A209BEB3B00918C0C /* Main.storyboard */,
-				8FD8CD5D209BEB3D00918C0C /* Assets.xcassets */,
 				8FD8CD62209BEB3D00918C0C /* Info.plist */,
+				8F18EAE020BBDEE900862CCE /* Assets.xcassets */,
 				8FD8CD63209BEB3D00918C0C /* main.m */,
 			);
 			path = GoldenField;
@@ -585,6 +592,8 @@
 				8FC83F85209FF37700F753D6 /* NetTool.m */,
 				8F4F6E1D20A3103E00885A0D /* BaseModel.h */,
 				8F4F6E1E20A3103E00885A0D /* BaseModel.m */,
+				8FBBF66420B80B7F0015728D /* ResponseModel.h */,
+				8FBBF66520B80B7F0015728D /* ResponseModel.m */,
 				8F4F6E6520A52F3600885A0D /* GoldenField.db */,
 			);
 			path = Models;
@@ -771,8 +780,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FEF0148209C551300C2F301 /* FreshFishCell.xib in Resources */,
-				8FD8CD5E209BEB3D00918C0C /* Assets.xcassets in Resources */,
 				8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */,
+				8F18EAE120BBDEE900862CCE /* Assets.xcassets in Resources */,
 				8F4F6E6620A52F3600885A0D /* GoldenField.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -858,6 +867,7 @@
 				8FEF0151209C5CC100C2F301 /* SuperNaviVC.m in Sources */,
 				8FEF0143209C545800C2F301 /* UIView+Frame.m in Sources */,
 				8FEF0137209C3EF500C2F301 /* BaseTableVC.m in Sources */,
+				8FBBF66620B80B7F0015728D /* ResponseModel.m in Sources */,
 				8F6AC83C20AEF27C003E68D6 /* Common(NSObejct).swift in Sources */,
 				8FD8CD64209BEB3D00918C0C /* main.m in Sources */,
 				8FEF0147209C551300C2F301 /* FreshFishCell.m in Sources */,
@@ -1088,6 +1098,7 @@
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/QQ",
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/Pods/UMCShare/UMShare/SocialLibraries/WeChat/WechatSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1135,6 +1146,7 @@
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/QQ",
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/Pods/UMCShare/UMShare/SocialLibraries/WeChat/WechatSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField;
 				PRODUCT_NAME = "$(TARGET_NAME)";

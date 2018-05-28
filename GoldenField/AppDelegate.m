@@ -50,8 +50,6 @@
      newView.layer.cornerRadius = 5.0;
      newView;
      });*/
-    
-    [AdvertiseView advertiseVieWithURL:kBaseURL showSeconds:4.0];
     [self checkUpdateInfo];
     
     _lockView = InsertView(_window, _window.bounds, kColorLightGray);
@@ -340,14 +338,16 @@
 - (void)configureGuide {
     NSMutableArray *images = [NSMutableArray new];
     for (int i = 0; i < 3; i ++) {
-        NSString *imageName = [NSString stringWithFormat:@"guide_%i",i +1];
-        UIImage *image = kIMAGE(imageName);
-        [images addObject:image];
+        NSString *imageName = [NSString stringWithFormat:@"%i",i +1];
+        /*UIImage *image = kIMAGE(imageName);
+        [images addObject:image];*/
+        [images addObject:imageName];
     }
     if ([kUserDefaultValueForKey(@"guidePass") integerValue]!=1) {
         [GuideHelpView guidehelpViewWithImageArray:images complete:^{
             kUserDefaultSetValue(@"guidePass", @(1));
             kSynchronize;
+            [AdvertiseView advertiseVieWithURL:kBaseURL showSeconds:4.0];
         }];
     }
 }

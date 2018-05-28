@@ -37,7 +37,7 @@
         //指引页面
         for (int i = 0; i < imageArray.count; i ++) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenHeight)];
-            imageView.image = imageArray[i];
+            imageView.image = [UIImage imageNamed:kIsiPhoneX? [NSString stringWithFormat:@"%@_x",imageArray[i]]:imageArray[i]];
             imageView.userInteractionEnabled = YES;
             imageView.tag = 1000 + i;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageViewTapAction:)];

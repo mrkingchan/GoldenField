@@ -186,4 +186,57 @@
     NSString* createTableSQL = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@(%@)", [self getTableName], tablePars];
     return createTableSQL;
 }
+
+// MARK: - net request
+
++ (NSURLSessionDataTask *)innerRequestWithHttpMethod:(HttpMethod)httpMethod
+                                              urlStr:(NSString *)urlStr
+                                           paramters:(id)paramters
+                                              target:(id)target
+                                              sucess:(void (^)(ResponseModel *))sucess {
+    NSString *methodStr = nil;
+    switch (httpMethod) {
+        case GET:
+            methodStr = @"GET";
+            break;
+            case POST:
+            methodStr = @"POST";
+        default:
+            break;
+    }
+    NSMutableURLRequest  *request = [NSMutableURLRequest requestWithURL:kURL(urlStr)];
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:paramters options:NSJSONWritingPrettyPrinted error:nil];
+    request.HTTPMethod = methodStr;
+    NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        ResponseModel *model = [ResponseModel new];
+        if (error) {
+            model.code = 0;
+            model.message = error.localizedDescription;
+            sucess(model);
+        } else {
+            //转json
+            id json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            
+        //判断json类型
+            ResponseModel *model = [ResponseModel new];
+            if ([json isKindOfClass:[NSDictionary class]]) {
+                id jsonData = json[@"data"];
+                if ([jsonData isKindOfClass:[NSArray class]]) {
+                    //json数组
+                    model.data = [[self class] mj_objectArrayWithKeyValuesArray:jsonData];
+                } else if ([jsonData isKindOfClass:[NSDictionary class]]) {
+                     //单个json
+                    model.data = [[self class] mj_objectWithKeyValues:jsonData];
+                }
+                sucess(model);
+            }
+        }
+    }];
+    [task resume];
+    if (target && [target respondsToSelector:@selector(addNet:)]) {
+        [target performSelector:@selector(addNet:) withObject:task];
+    }
+    return task;
+}
+
 @end
