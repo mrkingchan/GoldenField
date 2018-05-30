@@ -29,7 +29,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = kColorOrange;
     //背景图片
-    self.view.layer.contents = (id) kIMAGE(@"guide_1").CGImage;
+    self.view.layer.contents = (id) kIMAGE(@"1").CGImage;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"暂不登录" style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
     self.navigationItem.title = @"登录";
     

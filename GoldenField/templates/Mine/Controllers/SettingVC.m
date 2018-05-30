@@ -8,6 +8,7 @@
 
 #import "SettingVC.h"
 #import "GestureSettingVC.h"
+#import "SkinVC.h"
 
 @interface SettingVC ()
 
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"设置";
     [self.dataArray addObject:@"手势密码"];
+    [self.dataArray addObject:@"皮肤设置"];
 }
 
 #pragma mark  -- UITableViewDataSource&Delegate
@@ -43,8 +45,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        GestureSettingVC *VC = [GestureSettingVC new];
-        [self.navigationController pushViewController:VC animated:YES];
+        //手势
+        [self.navigationController pushViewController:[GestureSettingVC new] animated:YES];
+    } else if (indexPath.row == 1 ) {
+        //皮肤
+        [self.navigationController pushViewController:[SkinVC new] animated:YES];
+        
     }
 }
 

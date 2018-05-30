@@ -23,8 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"一亩黄金";
-    _bannerView = [SDCycleScrollView  cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 200) delegate:self placeholderImage:kIMAGE(@"guide_1")];
-    _bannerView.imageURLStringsGroup = @[@"guide_1",@"guide_2",@"guide_3",@"guide_1",@"guide_2",@"guide_3"];
+    _bannerView = [SDCycleScrollView  cycleScrollViewWithFrame:CGRectMake(0, 0, kScreenWidth, 200) delegate:self placeholderImage:kIMAGE(@"1")];
+    _bannerView.imageURLStringsGroup = @[@"1",@"2",@"3",@"1",@"2",@"3"];
     /*//tableView初始化
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, self.view.height) style:UITableViewStyleGrouped];
     _tableView.dataSource = self;

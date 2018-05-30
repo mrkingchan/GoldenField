@@ -36,7 +36,7 @@
         [json setObject:[NSString stringWithFormat:@"XXXXHIHILHTIG4TIBTIBTUIBTI%i",i] forKey:@"contentStr"];
         NSMutableArray *temArray = [NSMutableArray new];
         for (int index = 0; index < 9; index ++) {
-            [temArray addObject:[NSString stringWithFormat:@"guide_%i",index %2 == 0 ? 1:2]];
+            [temArray addObject:[NSString stringWithFormat:@"%i",index %2 == 0 ? 1:2]];
         }
         [json  setObject:temArray forKey:@"pictureItems"];
         DiscoveryModel *model = [DiscoveryModel jsonToModel:json];

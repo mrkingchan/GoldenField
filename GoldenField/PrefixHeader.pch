@@ -43,7 +43,8 @@
 #import "AdvertiseView.h"
 #import "SharePanel.h"
 #import "CALayer+Anim.h"
-
+#import "ThemManager.h"
+#import "SwizzleManager.h"
 ////////三方库
 #import <MJRefresh/MJRefresh.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>

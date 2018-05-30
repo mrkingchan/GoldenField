@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F165B7B20BE479F00851C8A /* SkinVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F165B7A20BE479F00851C8A /* SkinVC.m */; };
 		8F18EAE120BBDEE900862CCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F18EAE020BBDEE900862CCE /* Assets.xcassets */; };
 		8F338DFC20A1A5EF0069CFC1 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFB20A1A5EF0069CFC1 /* DiscoveryCell.m */; };
 		8F338DFF20A1A66A0069CFC1 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFE20A1A66A0069CFC1 /* DiscoveryModel.m */; };
@@ -30,6 +31,17 @@
 		8F6AC83420AEEBDA003E68D6 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83320AEEBDA003E68D6 /* TabbarController.swift */; };
 		8F6AC83A20AEEF52003E68D6 /* Position(UIView).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83920AEEF52003E68D6 /* Position(UIView).swift */; };
 		8F6AC83C20AEF27C003E68D6 /* Common(NSObejct).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83B20AEF27C003E68D6 /* Common(NSObejct).swift */; };
+		8F9F106620BD3C0F00A0F317 /* UIView+ChangeThem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F106520BD3C0F00A0F317 /* UIView+ChangeThem.m */; };
+		8F9F106920BD3C6C00A0F317 /* SwizzleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F106820BD3C6C00A0F317 /* SwizzleManager.m */; };
+		8F9F106C20BD452E00A0F317 /* ThemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F106B20BD452E00A0F317 /* ThemManager.m */; };
+		8F9F107120BD580D00A0F317 /* ThemeDefaultTag.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F9F106D20BD580C00A0F317 /* ThemeDefaultTag.plist */; };
+		8F9F107220BD580D00A0F317 /* ThemeNight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F9F106E20BD580C00A0F317 /* ThemeNight.plist */; };
+		8F9F107320BD580D00A0F317 /* ThemeDefault.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F9F106F20BD580D00A0F317 /* ThemeDefault.plist */; };
+		8F9F107420BD580D00A0F317 /* ThemeNightTag.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F9F107020BD580D00A0F317 /* ThemeNightTag.plist */; };
+		8F9F107720BD59E400A0F317 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F107520BD59E400A0F317 /* UIColor+Hex.m */; };
+		8F9F107A20BE323300A0F317 /* UILabel+ChangeThem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F107920BE323300A0F317 /* UILabel+ChangeThem.m */; };
+		8F9F107D20BE326400A0F317 /* UITableView+ChangeThem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F107C20BE326400A0F317 /* UITableView+ChangeThem.m */; };
+		8F9F108020BE327100A0F317 /* UITableViewCell+ChangeThem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F107F20BE327100A0F317 /* UITableViewCell+ChangeThem.m */; };
 		8FA8ED8720B3B199003551F9 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8620B3B199003551F9 /* SettingVC.m */; };
 		8FA8ED8A20B3B2AB003551F9 /* GestureSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8920B3B2AB003551F9 /* GestureSettingVC.m */; };
 		8FA8ED9220B3B309003551F9 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8E20B3B308003551F9 /* PCCircle.m */; };
@@ -93,6 +105,8 @@
 /* Begin PBXFileReference section */
 		3D4D14761B6F0283E6054ED9 /* Pods-GoldenField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenField.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField.release.xcconfig"; sourceTree = "<group>"; };
 		5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoldenField.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F165B7920BE479F00851C8A /* SkinVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinVC.h; sourceTree = "<group>"; };
+		8F165B7A20BE479F00851C8A /* SkinVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkinVC.m; sourceTree = "<group>"; };
 		8F18EAE020BBDEE900862CCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F338DFA20A1A5EF0069CFC1 /* DiscoveryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoveryCell.h; sourceTree = "<group>"; };
 		8F338DFB20A1A5EF0069CFC1 /* DiscoveryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryCell.m; sourceTree = "<group>"; };
@@ -130,6 +144,24 @@
 		8F6AC83320AEEBDA003E68D6 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		8F6AC83920AEEF52003E68D6 /* Position(UIView).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Position(UIView).swift"; sourceTree = "<group>"; };
 		8F6AC83B20AEF27C003E68D6 /* Common(NSObejct).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Common(NSObejct).swift"; sourceTree = "<group>"; };
+		8F9F106420BD3C0F00A0F317 /* UIView+ChangeThem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ChangeThem.h"; sourceTree = "<group>"; };
+		8F9F106520BD3C0F00A0F317 /* UIView+ChangeThem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ChangeThem.m"; sourceTree = "<group>"; };
+		8F9F106720BD3C6C00A0F317 /* SwizzleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwizzleManager.h; sourceTree = "<group>"; };
+		8F9F106820BD3C6C00A0F317 /* SwizzleManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwizzleManager.m; sourceTree = "<group>"; };
+		8F9F106A20BD452E00A0F317 /* ThemManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemManager.h; sourceTree = "<group>"; };
+		8F9F106B20BD452E00A0F317 /* ThemManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemManager.m; sourceTree = "<group>"; };
+		8F9F106D20BD580C00A0F317 /* ThemeDefaultTag.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThemeDefaultTag.plist; sourceTree = "<group>"; };
+		8F9F106E20BD580C00A0F317 /* ThemeNight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThemeNight.plist; sourceTree = "<group>"; };
+		8F9F106F20BD580D00A0F317 /* ThemeDefault.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThemeDefault.plist; sourceTree = "<group>"; };
+		8F9F107020BD580D00A0F317 /* ThemeNightTag.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThemeNightTag.plist; sourceTree = "<group>"; };
+		8F9F107520BD59E400A0F317 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		8F9F107620BD59E400A0F317 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		8F9F107820BE323300A0F317 /* UILabel+ChangeThem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+ChangeThem.h"; sourceTree = "<group>"; };
+		8F9F107920BE323300A0F317 /* UILabel+ChangeThem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ChangeThem.m"; sourceTree = "<group>"; };
+		8F9F107B20BE326400A0F317 /* UITableView+ChangeThem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+ChangeThem.h"; sourceTree = "<group>"; };
+		8F9F107C20BE326400A0F317 /* UITableView+ChangeThem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ChangeThem.m"; sourceTree = "<group>"; };
+		8F9F107E20BE327100A0F317 /* UITableViewCell+ChangeThem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+ChangeThem.h"; sourceTree = "<group>"; };
+		8F9F107F20BE327100A0F317 /* UITableViewCell+ChangeThem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+ChangeThem.m"; sourceTree = "<group>"; };
 		8FA8ED8520B3B199003551F9 /* SettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
 		8FA8ED8620B3B199003551F9 /* SettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
 		8FA8ED8820B3B2AB003551F9 /* GestureSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GestureSettingVC.h; sourceTree = "<group>"; };
@@ -267,6 +299,27 @@
 			path = Swift;
 			sourceTree = "<group>";
 		};
+		8F9F106320BD3BEA00A0F317 /* Them Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8F9F107620BD59E400A0F317 /* UIColor+Hex.h */,
+				8F9F107520BD59E400A0F317 /* UIColor+Hex.m */,
+				8F9F106420BD3C0F00A0F317 /* UIView+ChangeThem.h */,
+				8F9F106520BD3C0F00A0F317 /* UIView+ChangeThem.m */,
+				8F9F107820BE323300A0F317 /* UILabel+ChangeThem.h */,
+				8F9F107920BE323300A0F317 /* UILabel+ChangeThem.m */,
+				8F9F107B20BE326400A0F317 /* UITableView+ChangeThem.h */,
+				8F9F107C20BE326400A0F317 /* UITableView+ChangeThem.m */,
+				8F9F107E20BE327100A0F317 /* UITableViewCell+ChangeThem.h */,
+				8F9F107F20BE327100A0F317 /* UITableViewCell+ChangeThem.m */,
+				8F9F106720BD3C6C00A0F317 /* SwizzleManager.h */,
+				8F9F106820BD3C6C00A0F317 /* SwizzleManager.m */,
+				8F9F106A20BD452E00A0F317 /* ThemManager.h */,
+				8F9F106B20BD452E00A0F317 /* ThemManager.m */,
+			);
+			path = "Them Manager";
+			sourceTree = "<group>";
+		};
 		8FA8ED8420B3B073003551F9 /* GestureLock */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +403,11 @@
 				8FD8CD9B209BEF5700918C0C /* MainVC.m */,
 				8FA8ED9F20B3D821003551F9 /* TouchVC.h */,
 				8FA8EDA020B3D821003551F9 /* TouchVC.m */,
+				8F9F106F20BD580D00A0F317 /* ThemeDefault.plist */,
+				8F9F106D20BD580C00A0F317 /* ThemeDefaultTag.plist */,
+				8F9F106E20BD580C00A0F317 /* ThemeNight.plist */,
+				8F9F107020BD580D00A0F317 /* ThemeNightTag.plist */,
+				8F9F106320BD3BEA00A0F317 /* Them Manager */,
 				8FA8ED8420B3B073003551F9 /* GestureLock */,
 				8F6AC82E20AEC08C003E68D6 /* Swift */,
 				8FEF0152209C616500C2F301 /* Login */,
@@ -522,6 +580,8 @@
 				8FA8ED8620B3B199003551F9 /* SettingVC.m */,
 				8FA8ED8820B3B2AB003551F9 /* GestureSettingVC.h */,
 				8FA8ED8920B3B2AB003551F9 /* GestureSettingVC.m */,
+				8F165B7920BE479F00851C8A /* SkinVC.h */,
+				8F165B7A20BE479F00851C8A /* SkinVC.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -779,10 +839,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F9F107220BD580D00A0F317 /* ThemeNight.plist in Resources */,
 				8FEF0148209C551300C2F301 /* FreshFishCell.xib in Resources */,
+				8F9F107320BD580D00A0F317 /* ThemeDefault.plist in Resources */,
 				8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */,
 				8F18EAE120BBDEE900862CCE /* Assets.xcassets in Resources */,
+				8F9F107420BD580D00A0F317 /* ThemeNightTag.plist in Resources */,
 				8F4F6E6620A52F3600885A0D /* GoldenField.db in Resources */,
+				8F9F107120BD580D00A0F317 /* ThemeDefaultTag.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,7 +926,9 @@
 				8FA8ED9A20B3B319003551F9 /* PCCircleInfoView.m in Sources */,
 				8FEF0140209C438000C2F301 /* UserModel.m in Sources */,
 				8FEF013A209C41BA00C2F301 /* HttpClient.m in Sources */,
+				8F165B7B20BE479F00851C8A /* SkinVC.m in Sources */,
 				8FA8ED9220B3B309003551F9 /* PCCircle.m in Sources */,
+				8F9F107720BD59E400A0F317 /* UIColor+Hex.m in Sources */,
 				8FD8CD9F209BF38500918C0C /* HomeVC.m in Sources */,
 				8FEF0151209C5CC100C2F301 /* SuperNaviVC.m in Sources */,
 				8FEF0143209C545800C2F301 /* UIView+Frame.m in Sources */,
@@ -873,6 +939,7 @@
 				8FEF0147209C551300C2F301 /* FreshFishCell.m in Sources */,
 				8FEF014E209C5B3B00C2F301 /* WebVC.m in Sources */,
 				8FA8ED8720B3B199003551F9 /* SettingVC.m in Sources */,
+				8F9F106C20BD452E00A0F317 /* ThemManager.m in Sources */,
 				8FC83FD420A1500300F753D6 /* LoadingAndRefreshView.m in Sources */,
 				8F6AC81A20AD291D003E68D6 /* AdvertiseView.m in Sources */,
 				8FA8EDA120B3D821003551F9 /* TouchVC.m in Sources */,
@@ -880,12 +947,15 @@
 				8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */,
 				8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */,
 				8F6AC82D20AEB754003E68D6 /* NetManager.swift in Sources */,
+				8F9F106620BD3C0F00A0F317 /* UIView+ChangeThem.m in Sources */,
+				8F9F108020BE327100A0F317 /* UITableViewCell+ChangeThem.m in Sources */,
 				8FA8ED9B20B3B319003551F9 /* PCLockLabel.m in Sources */,
 				8FA8ED9320B3B309003551F9 /* PCCircleViewConst.m in Sources */,
 				8F6AC83A20AEEF52003E68D6 /* Position(UIView).swift in Sources */,
 				8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */,
 				8F6AC7FC20AAA88A003E68D6 /* URLProtocol.m in Sources */,
 				8F6AC83220AEC9B7003E68D6 /* ShareView.swift in Sources */,
+				8F9F106920BD3C6C00A0F317 /* SwizzleManager.m in Sources */,
 				8F6AC7FB20AAA88A003E68D6 /* NSURLProtocol+WebKitSupport.m in Sources */,
 				8FC83F89209FFBA000F753D6 /* BaseCollectionVC.m in Sources */,
 				8F338DFC20A1A5EF0069CFC1 /* DiscoveryCell.m in Sources */,
@@ -893,6 +963,7 @@
 				8F4F6E6C20A58A4200885A0D /* AppDelegate+Configuration.m in Sources */,
 				8FEF014B209C595D00C2F301 /* UIResponder+CurrentResponder.m in Sources */,
 				8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */,
+				8F9F107D20BE326400A0F317 /* UITableView+ChangeThem.m in Sources */,
 				8FD8CDA8209BF3A300918C0C /* MineVC.m in Sources */,
 				8F6AC83020AEC0A9003E68D6 /* UIInitMethod.swift in Sources */,
 				8F4F6E1F20A3103E00885A0D /* BaseModel.m in Sources */,
@@ -902,6 +973,7 @@
 				8FA8ED9E20B3B33B003551F9 /* CALayer+Anim.m in Sources */,
 				8F6AC83420AEEBDA003E68D6 /* TabbarController.swift in Sources */,
 				8FC83F86209FF37700F753D6 /* NetTool.m in Sources */,
+				8F9F107A20BE323300A0F317 /* UILabel+ChangeThem.m in Sources */,
 				8F338DFF20A1A66A0069CFC1 /* DiscoveryModel.m in Sources */,
 				8FD8CDA5209BF39B00918C0C /* DiscoveryVC.m in Sources */,
 				8F6AC80820AD122E003E68D6 /* LoadingTipView.m in Sources */,
@@ -1066,7 +1138,7 @@
 			baseConfigurationReference = AEEA02365E0B3A840EB5EA63 /* Pods-GoldenField.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1114,7 +1186,7 @@
 			baseConfigurationReference = 3D4D14761B6F0283E6054ED9 /* Pods-GoldenField.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
 				CODE_SIGN_STYLE = Automatic;
