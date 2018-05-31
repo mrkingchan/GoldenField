@@ -522,7 +522,7 @@
     }
 }
 
-// weChatPayInfo中的数据是调用统一下单API之后返回的数据
+// weChatPayInfo中的数据是调用统一下单API之后返回的数据(这个是后台返回来的数据,一般的签名加密参数大多数后台签名然后返回给移动端使用，这里使用的是移动端自己签名)
 - (void)wxPay:(NSDictionary *)weChatPayInfo {
     time_t now;
     time(&now);
@@ -538,7 +538,7 @@
                            };
     NSMutableString *contentString = [NSMutableString string];
     NSArray *keys = [dict allKeys];
-    // 按照ASCII 码排序
+    // 按照ASCII码排序
     NSArray *sortedArray = [keys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         return [obj1 compare:obj2 options:NSNumericSearch];
     }];
@@ -554,7 +554,7 @@
     // 加密
     NSString *md5Sign = [self md5:contentString];
     // 支付数据
-    /*PayReq *req = [[PayReq alloc] init];
+    PayReq *req = [[PayReq alloc] init];
     req.openID = weChatPayInfo[@"appId"];
     req.partnerId = weChatPayInfo[@"partnerId"];
     req.prepayId = weChatPayInfo[@"prepayId"];
@@ -562,8 +562,7 @@
     req.nonceStr = noncestr;
     req.timeStamp = [timestamp intValue];
     req.sign = md5Sign;
-    [WXApi sendReq:req];*/
-    
+    [WXApi sendReq:req];
 }
 
 // MARK: - md5签名加密 不过在App签名加密没有在后台签名安全
