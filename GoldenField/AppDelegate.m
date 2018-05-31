@@ -516,7 +516,7 @@
             if (DEBUG) {
                 NSLog(@"支付结果:%@",payResp.errStr);
             }
-            //通知支付的那页面 方便其返回并刷新订交易单页面的状态
+            //通知支付的页面 方便其返回并刷新订交易单页面的状态
             [[NSNotificationCenter defaultCenter] postNotificationName:kWeChatPaySucessNotification object:nil];
         }
     }
@@ -527,6 +527,7 @@
     time_t now;
     time(&now);
     NSString *timestamp = [NSString stringWithFormat:@"%ld",now];
+    //随机串
     NSString *noncestr = [self md5:timestamp];
     NSDictionary *dict = @{
                            @"appid":weChatPayInfo[@"appId"],
@@ -551,7 +552,7 @@
     // 添加商户key字段
     NSString *secretkey = @"1K2222ILTKCH33CQ4444SI5ZNMTM66VS";
     [contentString appendFormat:@"key=%@",secretkey];
-    // 加密
+    // sign签名加密
     NSString *md5Sign = [self md5:contentString];
     // 支付数据
     PayReq *req = [[PayReq alloc] init];
@@ -576,4 +577,41 @@
     }
     return output;
 }
+
+// MARK: -  方法交换
++ (void)swizzleClassMethodWithClass:(Class)originClass
+                     originSelector:(SEL)originSelector
+                    replaceSelector:(SEL)replaceSelector {
+    Method originMethod  = class_getInstanceMethod(originClass, originSelector);
+    Method replaceMethod = class_getInstanceMethod(originClass, replaceSelector);
+    BOOL addSuccess  = class_addMethod(originClass,
+                                       replaceSelector,
+                                       method_getImplementation(replaceMethod), method_getTypeEncoding(replaceMethod));
+    if (addSuccess) {
+        class_replaceMethod(originClass,
+                            replaceSelector,
+                            method_getImplementation(originMethod),
+                            method_getTypeEncoding(originMethod));
+    } else {
+        method_exchangeImplementations(originMethod, replaceMethod);
+    }
+}
+
++ (void)swizzleClassMethodWithClass:(Class)originClass
+                      originSlector:(SEL)originSelector
+                    replaceSelector:(SEL)replacceSelector {
+    Method originMethod = class_getClassMethod(originClass, originSelector);
+    Method replaceMethod = class_getClassMethod(originClass, replacceSelector);
+    
+     BOOL addsucces = class_addMethod(originClass,
+                                      replacceSelector,
+                                      method_getImplementation(replaceMethod),
+                                      method_getTypeEncoding(replaceMethod));
+    if (addsucces) {
+        class_replaceMethod(originClass, replacceSelector, method_getImplementation(originMethod), method_getTypeEncoding(originMethod));
+    } else {
+        method_exchangeImplementations(originMethod, replaceMethod);
+    }
+}
+
 @end

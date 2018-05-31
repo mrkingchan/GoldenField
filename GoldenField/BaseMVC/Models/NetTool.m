@@ -74,7 +74,10 @@
                                                        }];
     [task resume];
     if ([target respondsToSelector:@selector(addNet:)]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
         [target performSelector:@selector(addNet:) withObject:task];
+#pragma clang diagnostic pop
     }
     return task;
 }
@@ -153,7 +156,10 @@
     }];
     if (target) {
         if ([target respondsToSelector:@selector(addNet:)]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             [target performSelector:@selector(addNet:) withObject:task];
+#pragma clang diagnostic pop
         }
     }
     return task;
