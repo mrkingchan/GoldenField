@@ -51,7 +51,6 @@
 		8FA8ED9B20B3B319003551F9 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED9920B3B319003551F9 /* PCLockLabel.m */; };
 		8FA8ED9E20B3B33B003551F9 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED9D20B3B33B003551F9 /* CALayer+Anim.m */; };
 		8FA8EDA120B3D821003551F9 /* TouchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8EDA020B3D821003551F9 /* TouchVC.m */; };
-		8FBBF65D20B7FB030015728D /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBBF65C20B7FB030015728D /* libWeChatSDK.a */; };
 		8FBBF66620B80B7F0015728D /* ResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBBF66520B80B7F0015728D /* ResponseModel.m */; };
 		8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FC83F82209FEF5500F753D6 /* BaseVC.m */; };
@@ -251,7 +250,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FBBF65D20B7FB030015728D /* libWeChatSDK.a in Frameworks */,
 				8F4F6E9920A9597A00885A0D /* UserNotifications.framework in Frameworks */,
 				F52D1D75763F017544231994 /* libPods-GoldenField.a in Frameworks */,
 			);
@@ -894,13 +892,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField-resources.sh",
 				"${PODS_ROOT}/MJRefresh/MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SGQRCode/SGQRCode/SGQRCode.bundle",
-				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SGQRCode.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1159,10 +1155,7 @@
 				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/SMS",
@@ -1207,10 +1200,7 @@
 				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/SMS",
@@ -1236,11 +1226,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenFieldTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1256,11 +1242,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenFieldTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1275,11 +1257,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenFieldUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1294,11 +1272,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenFieldUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -19,10 +19,23 @@ NSString * const ThemChangeKey =  @"ThemChangekey";
     dispatch_once(&onceToken, ^{
         shareInstace = [[ThemManager alloc] init];
         shareInstace.themType = [kUserDefaultValueForKey(ThemChangeKey) integerValue] ?:ThemChangeTypeDefault;
+        
     });
     return shareInstace;
 }
 
+- (instancetype)init {
+    if (self = [super init]) {
+        [self addObserver:self forKeyPath:@"themType" options:NSKeyValueObservingOptionNew context:nil];
+    }
+    return self;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"themType"]) {
+        //
+    }
+}
 
 -(void)setThemType:(ThemChangeType)themType {
     _themType = themType;

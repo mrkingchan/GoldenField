@@ -11,7 +11,7 @@
 @implementation UITableView (ChangeThem)
 
 + (void)load {
-    
+    [self swizzleColor];
 }
 
 + (void)swizzleColor {
@@ -24,6 +24,6 @@
 }
 
 - (void)swizzleSetBackgroundColor:(UIColor *)newColor {
-    
 }
+
 @end

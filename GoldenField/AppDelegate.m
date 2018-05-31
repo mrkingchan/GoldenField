@@ -12,8 +12,11 @@
 #import "AppDelegate+Configuration.h"
 #import <LocalAuthentication/LocalAuthentication.h>
 #import "TouchVC.h"
+#import <WXApiObject.h>
+#import <WXApi.h>
+#import <CommonCrypto/CommonDigest.h>
 
-@interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate> {
+@interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate,WXApiDelegate> {
     UIAlertController *_alertVC;
     NSMutableString *_messageStr;
 }
@@ -458,7 +461,8 @@
         return YES;
         
     }else {
-        return [[UMSocialManager defaultManager] handleOpenURL:url options:options];
+//        return [[UMSocialManager defaultManager] handleOpenURL:url options:options];
+        return [WXApi handleOpenURL:url delegate:self];
     }
 }
 
@@ -474,7 +478,6 @@
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
 
-
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -489,6 +492,7 @@
         application.keyWindow.rootViewController = [TouchVC new];
     }
     
+    //手势解锁
     if ([PCCircleViewConst getGestureWithKey:gestureFinalSaveKey].length) {
         //有手势
         [_window bringSubviewToFront:_lockView];
@@ -503,4 +507,74 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+// MARK: - WXApiDelegate
+-(void) onResp:(BaseResp*)resp {
+    if ([resp isKindOfClass:[WXNontaxPayResp class]]) {
+        WXNontaxPayResp *payResp = (WXNontaxPayResp *)resp;
+        if (payResp.errCode == 0 ) {
+            //errcode: 0成功支付 -2取消支付 -1其他原因
+            if (DEBUG) {
+                NSLog(@"支付结果:%@",payResp.errStr);
+            }
+            //通知支付的那页面 方便其返回并刷新订交易单页面的状态
+            [[NSNotificationCenter defaultCenter] postNotificationName:kWeChatPaySucessNotification object:nil];
+        }
+    }
+}
+
+// weChatPayInfo中的数据是调用统一下单API之后返回的数据
+- (void)wxPay:(NSDictionary *)weChatPayInfo {
+    time_t now;
+    time(&now);
+    NSString *timestamp = [NSString stringWithFormat:@"%ld",now];
+    NSString *noncestr = [self md5:timestamp];
+    NSDictionary *dict = @{
+                           @"appid":weChatPayInfo[@"appId"],
+                           @"noncestr":noncestr,
+                           @"package":@"Sign=WXPay",
+                           @"partnerid":weChatPayInfo[@"partnerId"],
+                           @"prepayid":weChatPayInfo[@"prepayId"],
+                           @"timestamp":timestamp
+                           };
+    NSMutableString *contentString = [NSMutableString string];
+    NSArray *keys = [dict allKeys];
+    // 按照ASCII 码排序
+    NSArray *sortedArray = [keys sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    // 拼接字符串
+    for (NSString *categoryId in sortedArray) {
+        if (![dict[categoryId] isEqualToString:@""]&&![dict[categoryId] isEqualToString:@"key"]&&![dict[categoryId] isEqualToString:@"sign"]) {
+            [contentString appendFormat:@"%@=%@&",categoryId,dict[categoryId]];
+        }
+    }
+    // 添加商户key字段
+    NSString *secretkey = @"1K2222ILTKCH33CQ4444SI5ZNMTM66VS";
+    [contentString appendFormat:@"key=%@",secretkey];
+    // 加密
+    NSString *md5Sign = [self md5:contentString];
+    // 支付数据
+    /*PayReq *req = [[PayReq alloc] init];
+    req.openID = weChatPayInfo[@"appId"];
+    req.partnerId = weChatPayInfo[@"partnerId"];
+    req.prepayId = weChatPayInfo[@"prepayId"];
+    req.package = @"Sign=WXPay";
+    req.nonceStr = noncestr;
+    req.timeStamp = [timestamp intValue];
+    req.sign = md5Sign;
+    [WXApi sendReq:req];*/
+    
+}
+
+// MARK: - md5签名加密 不过在App签名加密没有在后台签名安全
+- (NSString *)md5:(NSString *)str {
+    const char *cStr = [str UTF8String];
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(cStr,(unsigned int)strlen(cStr),digest);
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i ++) {
+        [output appendFormat:@"%02X",digest[i]];
+    }
+    return output;
+}
 @end

@@ -49,18 +49,6 @@
     }
 }
 
-// MARK: - add property
-/*- (NSMutableDictionary<NSString *,UIColor* > *)colorInfo {
-    return  objc_getAssociatedObject(self, @selector(colorInfo));
-}
-
--(void)setcolorInfo:(NSMutableDictionary<NSString *,UIColor *> *)colorInfo {
-    objc_setAssociatedObject(self, @selector(colorInfo), colorInfo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThems) name:ThemChangeNotification object:nil];
-}*/
-
 - (NSMutableDictionary<NSString *,UIColor *> *)colorInfo {
     NSMutableDictionary <NSString *, UIColor *> *colorInfo = objc_getAssociatedObject(self, @selector(colorInfo));
     if (!colorInfo) {
@@ -73,7 +61,6 @@
 }
 
 - (void)updateThems {
-    
     [self.colorInfo enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, UIColor * _Nonnull obj, BOOL * _Nonnull stop) {
         SEL selector = NSSelectorFromString(key);
         [UIView animateWithDuration:0.3
@@ -85,4 +72,17 @@
                          }];
     }];
 }
+
+// MARK: - add property
+/*- (NSMutableDictionary<NSString *,UIColor* > *)colorInfo {
+    return  objc_getAssociatedObject(self, @selector(colorInfo));
+}
+
+-(void)setcolorInfo:(NSMutableDictionary<NSString *,UIColor *> *)colorInfo {
+    objc_setAssociatedObject(self, @selector(colorInfo), colorInfo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateThems) name:ThemChangeNotification object:nil];
+}*/
+
 @end

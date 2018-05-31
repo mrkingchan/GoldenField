@@ -7,13 +7,13 @@
 //
 
 #import "AppDelegate+Configuration.h"
-
+#import <WXApi.h>
 @implementation AppDelegate (Configuration)
 
 ////配置信息
 - (void)configurationWithComplete:(void (^)(void))complete {
     //xxx配置某些三方之内的代码
-    [[UMSocialManager defaultManager] setUmSocialAppkey:kUmengAppKey];
+    /*[[UMSocialManager defaultManager] setUmSocialAppkey:kUmengAppKey];
     //开启日志
     [[UMSocialManager defaultManager] openLog:YES];
     //微信聊天分享
@@ -78,7 +78,8 @@
         return  YES;
     } else {
         //友盟分享 跳转微信去分享
-        return [[UMSocialManager defaultManager] handleOpenURL:url options:options];
+//        return [[UMSocialManager defaultManager] handleOpenURL:url options:options];
+        return [WXApi handleOpenURL:url delegate:self];
     }
 }
 
@@ -87,7 +88,8 @@
     if ([url.absoluteString rangeOfString:@"com.tecent.xin"].location != NSNotFound) {
         return YES;
     }else {
-        return [[UMSocialManager defaultManager] handleOpenURL:url];
+//        return [[UMSocialManager defaultManager] handleOpenURL:url];
+        return [WXApi handleOpenURL:url delegate:self];
     }
 }
 
@@ -132,4 +134,27 @@
     return viewController;
 }
 
+- (UIViewController *)buildViewControllerWithClass:(Class)className
+                                             title:(NSString *)titleStr
+                                       normalImage:(UIImage *)normalImage
+                                     selectedImage:(UIImage *)selectedImage {
+    if ([className isSubclassOfClass:[UIViewController class]]) {
+        UIViewController *viewController = [className new];
+        if (kiOSVersion >=7.0) {
+            UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:titleStr
+                                                               image:normalImage
+                                                       selectedImage:selectedImage];
+            viewController.tabBarItem = item;
+        } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+[viewController.tabBarItem  setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+#pragma clang diagnostic pop
+
+        }
+        return viewController;
+    } else {
+        return nil;
+    }
+}
 @end
