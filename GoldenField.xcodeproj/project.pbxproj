@@ -31,6 +31,9 @@
 		8F6AC83420AEEBDA003E68D6 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83320AEEBDA003E68D6 /* TabbarController.swift */; };
 		8F6AC83A20AEEF52003E68D6 /* Position(UIView).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83920AEEF52003E68D6 /* Position(UIView).swift */; };
 		8F6AC83C20AEF27C003E68D6 /* Common(NSObejct).swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6AC83B20AEF27C003E68D6 /* Common(NSObejct).swift */; };
+		8F6EC7FC20BFC3B0008F78CE /* WXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6EC7FB20BFC3B0008F78CE /* WXManager.m */; };
+		8F6EC88720C14A34008F78CE /* NNValidationCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6EC88520C14A33008F78CE /* NNValidationCodeView.m */; };
+		8F6EC88A20C14AA2008F78CE /* CodeVerifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6EC88920C14AA2008F78CE /* CodeVerifyVC.m */; };
 		8F9F106620BD3C0F00A0F317 /* UIView+ChangeThem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F106520BD3C0F00A0F317 /* UIView+ChangeThem.m */; };
 		8F9F106920BD3C6C00A0F317 /* SwizzleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F106820BD3C6C00A0F317 /* SwizzleManager.m */; };
 		8F9F106C20BD452E00A0F317 /* ThemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F106B20BD452E00A0F317 /* ThemManager.m */; };
@@ -143,6 +146,12 @@
 		8F6AC83320AEEBDA003E68D6 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		8F6AC83920AEEF52003E68D6 /* Position(UIView).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Position(UIView).swift"; sourceTree = "<group>"; };
 		8F6AC83B20AEF27C003E68D6 /* Common(NSObejct).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Common(NSObejct).swift"; sourceTree = "<group>"; };
+		8F6EC7FA20BFC3B0008F78CE /* WXManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXManager.h; sourceTree = "<group>"; };
+		8F6EC7FB20BFC3B0008F78CE /* WXManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXManager.m; sourceTree = "<group>"; };
+		8F6EC88520C14A33008F78CE /* NNValidationCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNValidationCodeView.m; sourceTree = "<group>"; };
+		8F6EC88620C14A34008F78CE /* NNValidationCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNValidationCodeView.h; sourceTree = "<group>"; };
+		8F6EC88820C14AA2008F78CE /* CodeVerifyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeVerifyVC.h; sourceTree = "<group>"; };
+		8F6EC88920C14AA2008F78CE /* CodeVerifyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeVerifyVC.m; sourceTree = "<group>"; };
 		8F9F106420BD3C0F00A0F317 /* UIView+ChangeThem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ChangeThem.h"; sourceTree = "<group>"; };
 		8F9F106520BD3C0F00A0F317 /* UIView+ChangeThem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ChangeThem.m"; sourceTree = "<group>"; };
 		8F9F106720BD3C6C00A0F317 /* SwizzleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwizzleManager.h; sourceTree = "<group>"; };
@@ -405,6 +414,8 @@
 				8F9F106D20BD580C00A0F317 /* ThemeDefaultTag.plist */,
 				8F9F106E20BD580C00A0F317 /* ThemeNight.plist */,
 				8F9F107020BD580D00A0F317 /* ThemeNightTag.plist */,
+				8F6EC7FA20BFC3B0008F78CE /* WXManager.h */,
+				8F6EC7FB20BFC3B0008F78CE /* WXManager.m */,
 				8F9F106320BD3BEA00A0F317 /* Them Manager */,
 				8FA8ED8420B3B073003551F9 /* GestureLock */,
 				8F6AC82E20AEC08C003E68D6 /* Swift */,
@@ -574,6 +585,8 @@
 			children = (
 				8FD8CDA6209BF3A300918C0C /* MineVC.h */,
 				8FD8CDA7209BF3A300918C0C /* MineVC.m */,
+				8F6EC88820C14AA2008F78CE /* CodeVerifyVC.h */,
+				8F6EC88920C14AA2008F78CE /* CodeVerifyVC.m */,
 				8FA8ED8520B3B199003551F9 /* SettingVC.h */,
 				8FA8ED8620B3B199003551F9 /* SettingVC.m */,
 				8FA8ED8820B3B2AB003551F9 /* GestureSettingVC.h */,
@@ -660,6 +673,8 @@
 		8FEF0134209C317F00C2F301 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8F6EC88620C14A34008F78CE /* NNValidationCodeView.h */,
+				8F6EC88520C14A33008F78CE /* NNValidationCodeView.m */,
 				8F6AC81F20AD641B003E68D6 /* SharePanel.h */,
 				8F6AC81E20AD641A003E68D6 /* SharePanel.m */,
 				8F6AC80620AD122D003E68D6 /* LoadingTipView.h */,
@@ -916,6 +931,7 @@
 				8FD8CDA2209BF39100918C0C /* ProductVC.m in Sources */,
 				8FC83F80209FE7AD00F753D6 /* UIInitMethod.m in Sources */,
 				8FA8ED9420B3B309003551F9 /* PCCircleView.m in Sources */,
+				8F6EC88720C14A34008F78CE /* NNValidationCodeView.m in Sources */,
 				8F4F6E2220A314E000885A0D /* iToast.m in Sources */,
 				8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */,
 				8FEF0158209C619300C2F301 /* LoginVC.m in Sources */,
@@ -926,6 +942,7 @@
 				8FA8ED9220B3B309003551F9 /* PCCircle.m in Sources */,
 				8F9F107720BD59E400A0F317 /* UIColor+Hex.m in Sources */,
 				8FD8CD9F209BF38500918C0C /* HomeVC.m in Sources */,
+				8F6EC7FC20BFC3B0008F78CE /* WXManager.m in Sources */,
 				8FEF0151209C5CC100C2F301 /* SuperNaviVC.m in Sources */,
 				8FEF0143209C545800C2F301 /* UIView+Frame.m in Sources */,
 				8FEF0137209C3EF500C2F301 /* BaseTableVC.m in Sources */,
@@ -960,6 +977,7 @@
 				8FEF014B209C595D00C2F301 /* UIResponder+CurrentResponder.m in Sources */,
 				8FD8CD56209BEB3B00918C0C /* AppDelegate.m in Sources */,
 				8F9F107D20BE326400A0F317 /* UITableView+ChangeThem.m in Sources */,
+				8F6EC88A20C14AA2008F78CE /* CodeVerifyVC.m in Sources */,
 				8FD8CDA8209BF3A300918C0C /* MineVC.m in Sources */,
 				8F6AC83020AEC0A9003E68D6 /* UIInitMethod.swift in Sources */,
 				8F4F6E1F20A3103E00885A0D /* BaseModel.m in Sources */,
@@ -1155,7 +1173,10 @@
 				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/SMS",
@@ -1200,7 +1221,10 @@
 				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoldenField/Share/UMSocial_6.4.4/SocialLibraries/SMS",
@@ -1226,7 +1250,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenFieldTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1242,7 +1270,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenFieldTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1257,7 +1289,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenFieldUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1272,7 +1308,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				INFOPLIST_FILE = GoldenFieldUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenFieldUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

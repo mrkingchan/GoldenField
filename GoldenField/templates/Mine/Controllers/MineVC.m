@@ -8,6 +8,7 @@
 
 #import "MineVC.h"
 #import "SettingVC.h"
+#import "CodeVerifyVC.h"
 
 @interface MineVC () <UITableViewDelegate,UITableViewDataSource> {
     UITableView *_tableView;
@@ -36,6 +37,11 @@
     self.showRefreshFooter = YES;
     [self tableViewHeaderRefreshAction];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"setting" style:UIBarButtonItemStylePlain target:self action:@selector(buttonAction:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"验证码" style:UIBarButtonItemStylePlain target:self action:@selector(codeAction) ];
+}
+
+- (void)codeAction {
+    [self.navigationController pushViewController:[CodeVerifyVC new] animated:YES];
 }
 
 - (void)buttonAction:(id)sender {
