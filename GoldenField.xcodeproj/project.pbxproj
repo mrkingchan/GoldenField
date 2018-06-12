@@ -12,6 +12,7 @@
 		8F338DFC20A1A5EF0069CFC1 /* DiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFB20A1A5EF0069CFC1 /* DiscoveryCell.m */; };
 		8F338DFF20A1A66A0069CFC1 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFE20A1A66A0069CFC1 /* DiscoveryModel.m */; };
 		8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338E0120A1A6F50069CFC1 /* BoxView.m */; };
+		8F3C17BF20CF7280009311FD /* CommonDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C17BE20CF7280009311FD /* CommonDefine.m */; };
 		8F4F6E1F20A3103E00885A0D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E1E20A3103E00885A0D /* BaseModel.m */; };
 		8F4F6E2220A314E000885A0D /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E2020A314E000885A0D /* iToast.m */; };
 		8F4F6E6620A52F3600885A0D /* GoldenField.db in Resources */ = {isa = PBXBuildFile; fileRef = 8F4F6E6520A52F3600885A0D /* GoldenField.db */; };
@@ -34,6 +35,7 @@
 		8F6EC7FC20BFC3B0008F78CE /* WXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6EC7FB20BFC3B0008F78CE /* WXManager.m */; };
 		8F6EC88720C14A34008F78CE /* NNValidationCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6EC88520C14A33008F78CE /* NNValidationCodeView.m */; };
 		8F6EC88A20C14AA2008F78CE /* CodeVerifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6EC88920C14AA2008F78CE /* CodeVerifyVC.m */; };
+		8F6EC89C20C7C0ED008F78CE /* RespondeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F6EC89B20C7C0ED008F78CE /* RespondeData.m */; };
 		8F9F106620BD3C0F00A0F317 /* UIView+ChangeThem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F106520BD3C0F00A0F317 /* UIView+ChangeThem.m */; };
 		8F9F106920BD3C6C00A0F317 /* SwizzleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F106820BD3C6C00A0F317 /* SwizzleManager.m */; };
 		8F9F106C20BD452E00A0F317 /* ThemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F106B20BD452E00A0F317 /* ThemManager.m */; };
@@ -116,6 +118,8 @@
 		8F338DFE20A1A66A0069CFC1 /* DiscoveryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoveryModel.m; sourceTree = "<group>"; };
 		8F338E0020A1A6F50069CFC1 /* BoxView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoxView.h; sourceTree = "<group>"; };
 		8F338E0120A1A6F50069CFC1 /* BoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
+		8F3C17BD20CF7280009311FD /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
+		8F3C17BE20CF7280009311FD /* CommonDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonDefine.m; sourceTree = "<group>"; };
 		8F4F6E1D20A3103E00885A0D /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		8F4F6E1E20A3103E00885A0D /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		8F4F6E2020A314E000885A0D /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 		8F6EC88620C14A34008F78CE /* NNValidationCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNValidationCodeView.h; sourceTree = "<group>"; };
 		8F6EC88820C14AA2008F78CE /* CodeVerifyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeVerifyVC.h; sourceTree = "<group>"; };
 		8F6EC88920C14AA2008F78CE /* CodeVerifyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeVerifyVC.m; sourceTree = "<group>"; };
+		8F6EC89A20C7C0ED008F78CE /* RespondeData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RespondeData.h; sourceTree = "<group>"; };
+		8F6EC89B20C7C0ED008F78CE /* RespondeData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RespondeData.m; sourceTree = "<group>"; };
 		8F9F106420BD3C0F00A0F317 /* UIView+ChangeThem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ChangeThem.h"; sourceTree = "<group>"; };
 		8F9F106520BD3C0F00A0F317 /* UIView+ChangeThem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ChangeThem.m"; sourceTree = "<group>"; };
 		8F9F106720BD3C6C00A0F317 /* SwizzleManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwizzleManager.h; sourceTree = "<group>"; };
@@ -402,6 +408,8 @@
 			children = (
 				8F4F6E9720A9595800885A0D /* GoldenField.entitlements */,
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
+				8F3C17BD20CF7280009311FD /* CommonDefine.h */,
+				8F3C17BE20CF7280009311FD /* CommonDefine.m */,
 				8FD8CD54209BEB3B00918C0C /* AppDelegate.h */,
 				8FD8CD55209BEB3B00918C0C /* AppDelegate.m */,
 				8F4F6E6A20A58A4200885A0D /* AppDelegate+Configuration.h */,
@@ -665,6 +673,8 @@
 				8F4F6E1E20A3103E00885A0D /* BaseModel.m */,
 				8FBBF66420B80B7F0015728D /* ResponseModel.h */,
 				8FBBF66520B80B7F0015728D /* ResponseModel.m */,
+				8F6EC89A20C7C0ED008F78CE /* RespondeData.h */,
+				8F6EC89B20C7C0ED008F78CE /* RespondeData.m */,
 				8F4F6E6520A52F3600885A0D /* GoldenField.db */,
 			);
 			path = Models;
@@ -938,6 +948,7 @@
 				8FA8ED9A20B3B319003551F9 /* PCCircleInfoView.m in Sources */,
 				8FEF0140209C438000C2F301 /* UserModel.m in Sources */,
 				8FEF013A209C41BA00C2F301 /* HttpClient.m in Sources */,
+				8F3C17BF20CF7280009311FD /* CommonDefine.m in Sources */,
 				8F165B7B20BE479F00851C8A /* SkinVC.m in Sources */,
 				8FA8ED9220B3B309003551F9 /* PCCircle.m in Sources */,
 				8F9F107720BD59E400A0F317 /* UIColor+Hex.m in Sources */,
@@ -955,6 +966,7 @@
 				8F9F106C20BD452E00A0F317 /* ThemManager.m in Sources */,
 				8FC83FD420A1500300F753D6 /* LoadingAndRefreshView.m in Sources */,
 				8F6AC81A20AD291D003E68D6 /* AdvertiseView.m in Sources */,
+				8F6EC89C20C7C0ED008F78CE /* RespondeData.m in Sources */,
 				8FA8EDA120B3D821003551F9 /* TouchVC.m in Sources */,
 				8F6AC82020AD641B003E68D6 /* SharePanel.m in Sources */,
 				8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */,

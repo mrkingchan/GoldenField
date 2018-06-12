@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"验证码";
     _codeView = [[NNValidationCodeView alloc] initWithFrame:CGRectMake(40,kScreenHeight / 2 - 25,kScreenWidth - 80 ,50) andLabelCount:6 andLabelDistance:10];
