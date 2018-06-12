@@ -297,6 +297,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8F3C17C020CF731C009311FD /* theme resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F9F106F20BD580D00A0F317 /* ThemeDefault.plist */,
+				8F9F106D20BD580C00A0F317 /* ThemeDefaultTag.plist */,
+				8F9F106E20BD580C00A0F317 /* ThemeNight.plist */,
+				8F9F107020BD580D00A0F317 /* ThemeNightTag.plist */,
+			);
+			path = "theme resources";
+			sourceTree = "<group>";
+		};
+		8F3C17C120CF733E009311FD /* TouchID */ = {
+			isa = PBXGroup;
+			children = (
+				8FA8ED9F20B3D821003551F9 /* TouchVC.h */,
+				8FA8EDA020B3D821003551F9 /* TouchVC.m */,
+			);
+			path = TouchID;
+			sourceTree = "<group>";
+		};
+		8F3C17C220CF7353009311FD /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				8FD8CD54209BEB3B00918C0C /* AppDelegate.h */,
+				8FD8CD55209BEB3B00918C0C /* AppDelegate.m */,
+				8F4F6E6A20A58A4200885A0D /* AppDelegate+Configuration.h */,
+				8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		8F3C17C320CF7369009311FD /* Const&Define */ = {
+			isa = PBXGroup;
+			children = (
+				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
+				8F3C17BD20CF7280009311FD /* CommonDefine.h */,
+				8F3C17BE20CF7280009311FD /* CommonDefine.m */,
+			);
+			path = "Const&Define";
+			sourceTree = "<group>";
+		};
 		8F6AC82E20AEC08C003E68D6 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,9 +353,10 @@
 			path = Swift;
 			sourceTree = "<group>";
 		};
-		8F9F106320BD3BEA00A0F317 /* Them Manager */ = {
+		8F9F106320BD3BEA00A0F317 /* Theme Manager */ = {
 			isa = PBXGroup;
 			children = (
+				8F3C17C020CF731C009311FD /* theme resources */,
 				8F9F107620BD59E400A0F317 /* UIColor+Hex.h */,
 				8F9F107520BD59E400A0F317 /* UIColor+Hex.m */,
 				8F9F106420BD3C0F00A0F317 /* UIView+ChangeThem.h */,
@@ -330,7 +372,7 @@
 				8F9F106A20BD452E00A0F317 /* ThemManager.h */,
 				8F9F106B20BD452E00A0F317 /* ThemManager.m */,
 			);
-			path = "Them Manager";
+			path = "Theme Manager";
 			sourceTree = "<group>";
 		};
 		8FA8ED8420B3B073003551F9 /* GestureLock */ = {
@@ -407,24 +449,14 @@
 			isa = PBXGroup;
 			children = (
 				8F4F6E9720A9595800885A0D /* GoldenField.entitlements */,
-				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
-				8F3C17BD20CF7280009311FD /* CommonDefine.h */,
-				8F3C17BE20CF7280009311FD /* CommonDefine.m */,
-				8FD8CD54209BEB3B00918C0C /* AppDelegate.h */,
-				8FD8CD55209BEB3B00918C0C /* AppDelegate.m */,
-				8F4F6E6A20A58A4200885A0D /* AppDelegate+Configuration.h */,
-				8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */,
 				8FD8CD9A209BEF5700918C0C /* MainVC.h */,
 				8FD8CD9B209BEF5700918C0C /* MainVC.m */,
-				8FA8ED9F20B3D821003551F9 /* TouchVC.h */,
-				8FA8EDA020B3D821003551F9 /* TouchVC.m */,
-				8F9F106F20BD580D00A0F317 /* ThemeDefault.plist */,
-				8F9F106D20BD580C00A0F317 /* ThemeDefaultTag.plist */,
-				8F9F106E20BD580C00A0F317 /* ThemeNight.plist */,
-				8F9F107020BD580D00A0F317 /* ThemeNightTag.plist */,
 				8F6EC7FA20BFC3B0008F78CE /* WXManager.h */,
 				8F6EC7FB20BFC3B0008F78CE /* WXManager.m */,
-				8F9F106320BD3BEA00A0F317 /* Them Manager */,
+				8F3C17C320CF7369009311FD /* Const&Define */,
+				8F3C17C220CF7353009311FD /* AppDelegate */,
+				8F3C17C120CF733E009311FD /* TouchID */,
+				8F9F106320BD3BEA00A0F317 /* Theme Manager */,
 				8FA8ED8420B3B073003551F9 /* GestureLock */,
 				8F6AC82E20AEC08C003E68D6 /* Swift */,
 				8FEF0152209C616500C2F301 /* Login */,
