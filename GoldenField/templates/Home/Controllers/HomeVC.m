@@ -9,6 +9,7 @@
 #import "HomeVC.h"
 #import "FreshFishCell.h"
 #import "ScanVC.h"
+#import <WXApi.h>
 
 @interface HomeVC () <UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate> {
     UIBarButtonItem *_scan;
@@ -96,11 +97,10 @@
                                                                          }];
                               }];*/
     
-    [ShareView shareView:titles imageArray:images complete:^(NSString * _Nonnull selctedItem, NSInteger index) {
+    /*[ShareView shareView:titles imageArray:images complete:^(NSString * _Nonnull selctedItem, NSInteger index) {
         
-    }];
+    }];*/
     
-    /*
     //友盟的分享面板
     [UMSocialShareUIConfig shareInstance].sharePageGroupViewConfig.sharePageGroupViewPostionType = UMSocialSharePageGroupViewPositionType_Bottom;
     [UMSocialShareUIConfig shareInstance].sharePageScrollViewConfig.shareScrollViewPageItemStyleType = UMSocialPlatformItemViewBackgroudType_None;
@@ -111,11 +111,12 @@
         [items addObject:@(UMSocialPlatformType_WechatTimeLine)];
         [items addObject:@(UMSocialPlatformType_WechatSession)];
     }
+    
     [UMSocialUIManager setPreDefinePlatforms:items];
     
     [UMSocialUIManager  showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         
-    }];*/
+    }];
     
 }
 #pragma mark  -- private Method

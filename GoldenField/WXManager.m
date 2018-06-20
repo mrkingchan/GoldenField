@@ -29,7 +29,7 @@ static WXManager *shareInstance = nil;
 
 // MARK: -  支付结果
 - (void)onResp:(BaseResp *)resp {
-    if ([resp isKindOfClass:[PayResp class]]) {
+    /*if ([resp isKindOfClass:[PayResp class]]) {
         //支付结果
         PayResp *payResult = (PayResp *)resp;
         if (payResult.errCode == 0) {
@@ -40,6 +40,7 @@ static WXManager *shareInstance = nil;
                 NSLog(@"payResult = %@",payResult.errStr);
             }
         }
-    }
+    }*/
+    
 }
 @end

@@ -30,7 +30,7 @@ static MainVC *shareInstance = nil;
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-    
+    [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
     NSArray *classNames = @[[HomeVC class],
                             [ProductVC class],
                             [DiscoveryVC class],
@@ -59,6 +59,26 @@ static MainVC *shareInstance = nil;
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:kFontSize(16),NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake) {
+        //摇一摇
+        [self.view.layer shake];
+    }
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake) {
+        [self InsertAlerController:@"别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!" messageStr:nil alertStyle:UIAlertControllerStyleAlert button1Title:@"确定" button1Action:^(NSString * title1 ) {
+            
+        } button2Title:nil
+                     button2Action:^(NSString * title2) {
+                         
+                     } targetController:[UIApplication sharedApplication].keyWindow.rootViewController
+         
+         ];
+    }
+}
+
 #pragma mark  -- private Method
 /**
   构建viewController
@@ -69,10 +89,11 @@ static MainVC *shareInstance = nil;
  @param selectedImage tabbarItem的选中图片
  @return viewController
  */
-- ( UIViewController * _Nonnull )viewControllerWithClass:(nonnull Class)className
+- (UIViewController * _Nonnull )viewControllerWithClass:(nonnull Class)className
                                         Title:(NSString* )titleStr
                                   normalImage:(UIImage *)normalImage
                                 selectedImage:(UIImage *)selectedImage {
+    puts(__func__);
     UIViewController *viewController = [className new];
     viewController.navigationItem.title = titleStr;
     if (kiOSVersion >=7.0) {

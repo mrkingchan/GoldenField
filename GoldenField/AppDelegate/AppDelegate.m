@@ -15,6 +15,7 @@
 #import <WXApiObject.h>
 #import <WXApi.h>
 #import <CommonCrypto/CommonDigest.h>
+#import "ScreenShotView.h"
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate,WXApiDelegate> {
     UIAlertController *_alertVC;
@@ -39,6 +40,7 @@
     }
     [self buildShorcutItems];
     [self configureGuide];
+    [self configureShare];
     [self configureCommonPushWithLanunchOptions:launchOptions];
 //    [self verifyTouch];
     //注册http和https
@@ -63,9 +65,99 @@
     _tip.text = @"手势解锁";
     [_lockView addSubview:_gestureView];
     [_window sendSubviewToBack:_lockView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(snapShotAction) name:UIApplicationUserDidTakeScreenshotNotification object:nil];
     return YES;
 }
 
+// MARK: - 检测到截屏的事件响应
+- (void)snapShotAction {
+    NSLog(@"检测到截屏");
+    UIImage *screeenShotImage = [UIImage imageWithData:[self dataWithScreenshotInPNGFormat]];
+    //将图片写入沙盒
+    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;
+    NSData *imageData = UIImagePNGRepresentation(screeenShotImage);
+    //时间戳
+    NSString *fileName = [NSString stringWithFormat:@"screenShot%0.f.png",[[NSDate date] timeIntervalSince1970]];
+    
+    [imageData  writeToFile:[documentPath stringByAppendingPathComponent:fileName] atomically:NO];
+    
+    [ScreenShotView screenShotViewWithScreenImage:screeenShotImage
+                                         complete:^(UIImage *image) {
+                                             
+                                         }];
+}
+
+- (NSData *)dataWithScreenshotInPNGFormat {
+    CGSize imageSize = CGSizeZero;
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    if (UIInterfaceOrientationIsPortrait(orientation))
+        imageSize = [UIScreen mainScreen].bounds.size;
+    else
+        imageSize = CGSizeMake([UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width);
+    
+    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    for (UIWindow *window in [[UIApplication sharedApplication] windows]) {
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, window.center.x, window.center.y);
+        CGContextConcatCTM(context, window.transform);
+        CGContextTranslateCTM(context, -window.bounds.size.width * window.layer.anchorPoint.x, -window.bounds.size.height * window.layer.anchorPoint.y);
+        if (orientation == UIInterfaceOrientationLandscapeLeft) {
+            CGContextRotateCTM(context, M_PI_2);
+            CGContextTranslateCTM(context, 0, -imageSize.width);
+        }else if (orientation == UIInterfaceOrientationLandscapeRight) {
+            CGContextRotateCTM(context, -M_PI_2);
+            CGContextTranslateCTM(context, -imageSize.height, 0);
+        } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
+            CGContextRotateCTM(context, M_PI);
+            CGContextTranslateCTM(context, -imageSize.width, -imageSize.height);
+        }
+        if ([window respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)])
+        {
+            [window drawViewHierarchyInRect:window.bounds afterScreenUpdates:YES];
+        }
+        else
+        {
+            [window.layer renderInContext:context];
+        }
+        CGContextRestoreGState(context);
+    }
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return UIImagePNGRepresentation(image);
+}
+- (void)configureShare {
+    [[UMSocialManager defaultManager] setUmSocialAppkey:kUmengAppKey];
+    //分享
+    //微信
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession
+                                          appKey:kWeChatAppKey
+                                       appSecret:kWechatAppSecretKey
+                                     redirectURL:kBaseURL];
+    
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatTimeLine
+                                          appKey:kWeChatAppKey
+                                       appSecret:kWechatAppSecretKey
+                                     redirectURL:kBaseURL];
+    
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatFavorite
+                                          appKey:kWeChatAppKey
+                                       appSecret:kWechatAppSecretKey
+                                     redirectURL:kBaseURL];
+    
+    //QQ
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ
+                                          appKey:kQQAppKey
+                                       appSecret:kQQAppSecretKey
+                                     redirectURL:kBaseURL];
+    //QQ空间
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Qzone
+                                          appKey:kQQZoneKey
+                                       appSecret:kQQZoneSecretKey
+                                     redirectURL:kBaseURL];
+}
 // MARK: - CircleViewDeletate
 
 - (void)circleView:(PCCircleView *)view type:(CircleViewType)type didCompleteLoginGesture:(NSString *)gesture result:(BOOL)equal {
@@ -554,8 +646,8 @@
     [contentString appendFormat:@"key=%@",secretkey];
     // sign签名加密
     NSString *md5Sign = [self md5:contentString];
-    // 支付数据
-    PayReq *req = [[PayReq alloc] init];
+    // 支付参数
+   /* PayReq *req = [[PayReq alloc] init];
     req.openID = weChatPayInfo[@"appId"];
     req.partnerId = weChatPayInfo[@"partnerId"];
     req.prepayId = weChatPayInfo[@"prepayId"];
@@ -563,7 +655,7 @@
     req.nonceStr = noncestr;
     req.timeStamp = [timestamp intValue];
     req.sign = md5Sign;
-    [WXApi sendReq:req];
+    [WXApi sendReq:req];*/
 }
 
 // MARK: - md5签名加密 不过在App签名加密没有在后台签名安全
