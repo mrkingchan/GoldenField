@@ -63,7 +63,7 @@
     }
 }
 
-#pragma mark  -- UITableViewDataSource&Delegate
+// MARK:  -- UITableViewDataSource&Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -85,7 +85,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self verifyLogin:^{
-        
+
     }];
 }
 @end
+

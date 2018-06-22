@@ -11,7 +11,7 @@
 
 @implementation BaseModel
 
-#pragma mark  -- NSCoding
+// MARK:  -- NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     unsigned int count = 0;
@@ -41,7 +41,7 @@
     return model;
 }
 
-#pragma mark  -- private Method
+// MARK:  -- private Method
 
  -(id)modelToJson {
     /*NSMutableDictionary *json = [NSMutableDictionary new];
@@ -121,8 +121,8 @@
     return complete([self class],json);
 }
 
-#pragma mark  -- DataBase Support
-#pragma mark - DB
+// MARK:  -- DataBase Support
+// MARK: - DB
 + (LKDBHelper *)getUsingLKDBHelper {
     static LKDBHelper* db;
     static dispatch_once_t onceToken;
@@ -137,7 +137,7 @@
     return db;
 }
 
-#pragma mark --DBPath
+// MARK: --DBPath
 + (NSString *)downloadPath {
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString *downloadPath = [documentPath stringByAppendingPathComponent:@"GoldenField"];
@@ -147,7 +147,7 @@
     return downloadPath;
 }
 
-#pragma mark --create Table
+// MARK: --create Table
 + (NSString *)getCreateTableSQL {
     LKModelInfos *infos = [self getModelInfos];
     //主键

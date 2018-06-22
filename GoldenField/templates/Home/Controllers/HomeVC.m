@@ -119,7 +119,7 @@
     }];
     
 }
-#pragma mark  -- private Method
+// MARK:  -- private Method
 - (void)buttonAction:(id)sender {
 #if TARGET_IPHONE_SIMULATOR
     NSLog(@"simulator can't support Camera!");
@@ -129,7 +129,7 @@
     
 }
 
-#pragma mark  -- UITableViewDataSource&Delegate
+// MARK:  -- UITableViewDataSource&Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 4;
 }
@@ -164,7 +164,7 @@
     [self.navigationController pushViewController:nextVC animated:YES];
 }
 
-#pragma mark  -- memerory management
+// MARK:  -- memerory management
 - (void)dealloc {
     if (self.tableView) {
         self.tableView.delegate = nil;

@@ -85,6 +85,6 @@ static NSString * const URLProtocolHandledKey = @"Chan";
     }
 }
 
-#pragma mark  -- NSURLConnectionDelegate &&NSURLConnectionDataDelegate
+// MARK:  -- NSURLConnectionDelegate &&NSURLConnectionDataDelegate
 
 @end

@@ -18,7 +18,7 @@
 
 @implementation PCCircleView
 
-#pragma mark - 重写arrow的setter
+// MARK: - 重写arrow的setter
 - (void)setArrow:(BOOL)arrow
 {
     _arrow = arrow;
@@ -37,7 +37,7 @@
     return _circleSet;
 }
 
-#pragma mark - 初始化方法：初始化type、clip、arrow
+// MARK: - 初始化方法：初始化type、clip、arrow
 /**
  *  初始化方法
  *
@@ -76,7 +76,7 @@
     return self;
 }
 
-#pragma mark - 解锁视图准备
+// MARK: - 解锁视图准备
 /*
  *  解锁视图准备
  */
@@ -128,7 +128,7 @@
     }];
 }
 
-#pragma mark - touch began - moved - end
+// MARK: - touch began - moved - end
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self gestureEndResetMembers];
@@ -221,7 +221,7 @@
     [self errorToDisplay];
 }
 
-#pragma mark - 是否错误回显重绘
+// MARK: - 是否错误回显重绘
 /**
  *  是否错误回显重绘
  */
@@ -241,7 +241,7 @@
     }
 }
 
-#pragma mark - 手势结束时的清空操作
+// MARK: - 手势结束时的清空操作
 /**
  *  手势结束时的清空操作
  */
@@ -265,13 +265,13 @@
     }
 }
 
-#pragma mark - 获取当前选中圆的状态
+// MARK: - 获取当前选中圆的状态
 - (CircleState)getCircleState
 {
     return [(PCCircle *)[self.circleSet firstObject] state];
 }
 
-#pragma mark - 清空所有子控件的方向
+// MARK: - 清空所有子控件的方向
 - (void)resetAllCirclesDirect
 {
     [self.subviews enumerateObjectsUsingBlock:^(PCCircle *obj, NSUInteger idx, BOOL *stop) {
@@ -279,13 +279,13 @@
     }];
 }
 
-#pragma mark - 对数组中最后一个对象的处理
+// MARK: - 对数组中最后一个对象的处理
 - (void)circleSetLastObjectWithState:(CircleState)state
 {
     [[self.circleSet lastObject] setState:state];
 }
 
-#pragma mark - 解锁类型：设置 手势路径的处理
+// MARK: - 解锁类型：设置 手势路径的处理
 /**
  *  解锁类型：设置 手势路径的处理
  */
@@ -339,7 +339,7 @@
     }
 }
 
-#pragma mark - 解锁类型：登陆 手势路径的处理
+// MARK: - 解锁类型：登陆 手势路径的处理
 /**
  *  解锁类型：登陆 手势路径的处理
  */
@@ -361,7 +361,7 @@
     }
 }
 
-#pragma mark - 解锁类型：验证 手势路径的处理
+// MARK: - 解锁类型：验证 手势路径的处理
 - (void)gestureEndByTypeVerifyWithGesture:(NSString *)gesture length:(CGFloat)length
 {
     //    NSString *password = [CircleViewConst getGestureWithKey:gestureFinalSaveKey];
@@ -380,7 +380,7 @@
     [self gestureEndByTypeLoginWithGesture:gesture length:length];
 }
 
-#pragma mark - 改变选中数组CircleSet子控件状态
+// MARK: - 改变选中数组CircleSet子控件状态
 - (void)changeCircleInCircleSetWithState:(CircleState)state
 {
     [self.circleSet enumerateObjectsUsingBlock:^(PCCircle *circle, NSUInteger idx, BOOL *stop) {
@@ -399,7 +399,7 @@
     [self setNeedsDisplay];
 }
 
-#pragma mark - 将circleSet数组解析遍历，拼手势密码字符串
+// MARK: - 将circleSet数组解析遍历，拼手势密码字符串
 - (NSString *)getGestureResultFromCircleSet:(NSMutableArray *)circleSet
 {
     NSMutableString *gesture = [NSMutableString string];
@@ -412,7 +412,7 @@
     return gesture;
 }
 
-#pragma mark - drawRect
+// MARK: - drawRect
 - (void)drawRect:(CGRect)rect
 {
     // 如果没有任何选中按钮， 直接retrun
@@ -429,7 +429,7 @@
     [self connectCirclesInRect:rect lineColor:color];
 }
 
-#pragma mark - 连线绘制图案(以设定颜色绘制)
+// MARK: - 连线绘制图案(以设定颜色绘制)
 /**
  *  将选中的圆形以color颜色链接起来
  *
@@ -493,7 +493,7 @@
     CGContextStrokePath(ctx);
 }
 
-#pragma mark - 是否剪裁
+// MARK: - 是否剪裁
 /**
  *  是否剪裁子控件
  *
@@ -512,7 +512,7 @@
     }
 }
 
-#pragma mark - 每添加一个圆，就计算一次方向
+// MARK: - 每添加一个圆，就计算一次方向
 -(void)calAngleAndconnectTheJumpedCircle{
     
     if(self.circleSet == nil || [self.circleSet count] <= 1) return;
@@ -547,7 +547,7 @@
     }
 }
 
-#pragma mark - 提供两个点，返回一个它们的中点
+// MARK: - 提供两个点，返回一个它们的中点
 - (CGPoint)centerPointWithPointOne:(CGPoint)pointOne pointTwo:(CGPoint)pointTwo
 {
     CGFloat x1 = fmax(pointOne.x, pointTwo.x);
@@ -558,7 +558,7 @@
     return CGPointMake((x1+x2)/2, (y1 + y2)/2);
 }
 
-#pragma mark - 给一个点，判断这个点是否被圆包含，如果包含就返回当前圆，如果不包含返回的是nil
+// MARK: - 给一个点，判断这个点是否被圆包含，如果包含就返回当前圆，如果不包含返回的是nil
 /**
  *  给一个点，判断这个点是否被圆包含，如果包含就返回当前圆，如果不包含返回的是nil
  *

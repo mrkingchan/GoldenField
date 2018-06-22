@@ -74,7 +74,7 @@
     }
 }
 
-#pragma mark - - - SGQRCodeAlbumManagerDelegate
+// MARK: - - - SGQRCodeAlbumManagerDelegate
 - (void)QRCodeAlbumManagerDidCancelWithImagePickerController:(SGQRCodeAlbumManager *)albumManager {
     [self.view addSubview:self.scanningView];
 }
@@ -98,7 +98,7 @@
     NSLog(@"暂未识别出二维码");
 }
 
-#pragma mark - - - SGQRCodeScanManagerDelegate
+// MARK: - - - SGQRCodeScanManagerDelegate
 - (void)QRCodeScanManager:(SGQRCodeScanManager *)scanManager didOutputMetadataObjects:(NSArray *)metadataObjects {
     if (metadataObjects != nil && metadataObjects.count > 0) {
         [scanManager playSoundName:@"SGQRCode.bundle/sound.caf"];

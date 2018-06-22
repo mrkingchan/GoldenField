@@ -23,7 +23,7 @@
     [self.dataArray addObject:@"皮肤设置"];
 }
 
-#pragma mark  -- UITableViewDataSource&Delegate
+// MARK:  -- UITableViewDataSource&Delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return  self.dataArray.count;

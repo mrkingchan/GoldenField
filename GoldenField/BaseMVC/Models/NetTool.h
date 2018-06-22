@@ -36,7 +36,7 @@ typedef enum{
                                               sucess:(void(^)(id responseObject))sucess
                                              failure:(void(^)(NSString *errorStr))failure;
 
-#pragma mark  -- GET & POST
+// MARK:  -- GET & POST
 + (NSURLSessionDataTask *)innerPostWithUrl:(NSString *)urlStr
                                     params:(id)params
                                     target:(id)target

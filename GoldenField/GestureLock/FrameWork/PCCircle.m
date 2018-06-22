@@ -69,7 +69,7 @@
     }
 }
 
-#pragma mark - 画外圆环
+// MARK: - 画外圆环
 /**
  *  画外圆环
  *
@@ -88,7 +88,7 @@
     CGPathRelease(circlePath);
 }
 
-#pragma mark - 画实心圆
+// MARK: - 画实心圆
 /**
  *  画实心圆
  *
@@ -107,7 +107,7 @@
     CGPathRelease(circlePath);
 }
 
-#pragma mark - 画三角形
+// MARK: - 画三角形
 /**
  *  画三角形
  *

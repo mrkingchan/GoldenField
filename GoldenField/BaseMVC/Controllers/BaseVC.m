@@ -49,7 +49,7 @@
         [self netWorkChangWithNetWorkWithStatus:[AFNetworkReachabilityManager sharedManager].networkReachabilityStatus];
     }
 }
-#pragma mark  -- 交给子类去重写     
+// MARK:  -- 交给子类去重写     
 
 - (void)netWorkChangWithNetWorkWithStatus:(AFNetworkReachabilityStatus)status {
     
@@ -84,7 +84,7 @@
     [self.tasks addObject:task];
 }
 
-#pragma mark  -- 在viewWillDisAppear和dealloc的时候 要释放网络操作
+// MARK:  -- 在viewWillDisAppear和dealloc的时候 要释放网络操作
 -(void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if (self.tasks.count) {
@@ -95,7 +95,7 @@
     }
 }
 
-#pragma mark  -- memerory management
+// MARK:  -- memerory management
 -(void)dealloc {
     //释放网络操作
     [self.tasks enumerateObjectsUsingBlock:^(NSURLSessionDataTask *task, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -104,7 +104,7 @@
     self.tasks = nil;
 }
 
-#pragma mark  -- loadingView
+// MARK:  -- loadingView
 
 - (void)addLoadingViewWithOffset:(CGFloat)offset {
     if (!_loadingAndRefreshView) {
@@ -117,7 +117,7 @@
     [self.view bringSubviewToFront:_loadingAndRefreshView];
 }
 
-#pragma mark - 加载成功
+// MARK: - 加载成功
 - (UIView *)loadingSuccess {
     if (_loadingAndRefreshView.superview) {
         [_loadingAndRefreshView removeFromSuperview];
@@ -125,7 +125,7 @@
     return _loadingAndRefreshView;
 }
 
-#pragma mark - 加载中view
+// MARK: - 加载中view
 - (UIView *)loadingStart {
     return [self loadingStartWithOffset:0];
 }
@@ -148,7 +148,7 @@
     return _loadingAndRefreshView;
 }
 
-#pragma mark - 未偏移量的加载失败view
+// MARK: - 未偏移量的加载失败view
 - (UIView *)loadingFail {
     [self loadingFailWithTitle:@"" imageStr:@""];
     return _loadingAndRefreshView;
@@ -165,7 +165,7 @@
     return _loadingAndRefreshView;
 }
 
-#pragma mark - 带偏移量的加载失败view
+// MARK: - 带偏移量的加载失败view
 - (UIView *)loadingFailWithOffset:(CGFloat)offset {
     [self loadingFailWithOffset:offset title:@"" imageStr:@""];
     return _loadingAndRefreshView;
@@ -183,7 +183,7 @@
     return _loadingAndRefreshView;
 }
 
-#pragma mark - 未带偏移量的无数据view
+// MARK: - 未带偏移量的无数据view
 - (UIView *)loadingBlank {
     return [self loadingBlankWithTitle:@""];
 }
@@ -196,7 +196,7 @@
     return [self loadingBlankWithOffset:0 title:title imageStr:imageStr];
 }
 
-#pragma mark - 带偏移量的无数据view
+// MARK: - 带偏移量的无数据view
 - (UIView *)loadingBlankWithOffset:(CGFloat)offset {
     return [self loadingBlankWithOffset:offset title:@""];
 }
@@ -219,7 +219,7 @@
     [self refreshClick];
 }
 
-#pragma mark  --交给子类去重写
+// MARK:  --交给子类去重写
 - (void)refreshClick {
     puts(__func__);
 }

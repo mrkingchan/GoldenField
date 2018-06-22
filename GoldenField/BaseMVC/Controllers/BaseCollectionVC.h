@@ -10,7 +10,7 @@
 
 @interface BaseCollectionVC : BaseVC <UICollectionViewDelegate,UICollectionViewDataSource>
 
-@property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,strong)NSMutableArray * _Nullable dataArray;
 
 @property(nonatomic,strong)UICollectionView  *collectionView;
 
@@ -24,12 +24,12 @@
 
 @property(nonatomic,assign) CGFloat minimumLineSpacing;
 
-#pragma mark  -- 交给子类去重写     
+// MARK:  -- 交给子类去重写     
 - (void)refreshHeaderAction;
 
 - (void)refreshFooterAction;
 
-#pragma mark  -- initialized method
+// MARK:  -- initialized method
 - (instancetype)initWithItemSize:(CGSize)itemsize cellClass:(nonnull Class)cellClass;
 
 @end

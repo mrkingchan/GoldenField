@@ -20,7 +20,7 @@
 @property(nonatomic,strong)NSMutableArray *dataArray;
 
 
-#pragma mark  -- 交给子类去重写
+// MARK:  -- 交给子类去重写
 - (void)tableViewHeaderRefreshAction;
 
 -(void)tableViewFooterRefreshAction;

@@ -23,7 +23,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"refresh" style:UIBarButtonItemStylePlain target:self action:@selector(loadData)];
 }
 
-#pragma mark  -- loadData
+// MARK:  -- loadData
 - (void)loadData {
     [self loadingStartBgClear];
     [NetTool innerRequestWithHttpMethod:POST
@@ -41,7 +41,7 @@
     [self loadData];
 }
 
-#pragma mark  -- 上下拉刷新
+// MARK:  -- 上下拉刷新
 - (void)refreshHeaderAction {
     for ( int i = 0; i  < 10; i ++) {
         [self.dataArray addObject:@(i)];
@@ -54,7 +54,7 @@
     }
 }
 
-#pragma mark  -- UIColletioncViewDataSource&Delegate
+// MARK:  -- UIColletioncViewDataSource&Delegate
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }

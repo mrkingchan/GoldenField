@@ -19,13 +19,13 @@
 
 @implementation WebVC
 
-#pragma mark  -- Setter Method
+// MARK:  -- Setter Method
 -(void)setUrlStr:(NSString *)urlStr {
     _urlStr = urlStr;
     [_webView loadRequest:[NSURLRequest requestWithURL:kURL(urlStr)]];
 }
 
-#pragma mark  -- initialize method
+// MARK:  -- initialize method
 -(instancetype)initWithUrlString:(NSString *)urlStr {
     if (self = [super initWithNibName:nil bundle:nil]) {
         _urlStr = urlStr;
@@ -33,7 +33,7 @@
     return self;
 }
 
-#pragma mark  -- lifeCircle
+// MARK:  -- lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
      _configuration = [WKWebViewConfiguration new];
@@ -90,7 +90,7 @@
     }
 }
 
-#pragma mark  -- KVO 监测加载进度和标题 
+// MARK:  -- KVO 监测加载进度和标题 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([object  isEqual:_webView]) {
         if ([keyPath isEqualToString:@"title"]) {
@@ -110,7 +110,7 @@
     }
 }
 
-#pragma mark  -- WKNavigationDelegate
+// MARK:  -- WKNavigationDelegate
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
     [self loadingStartBgClear];
 }
@@ -132,9 +132,9 @@
     decisionHandler(WKNavigationActionPolicyAllow);
 }
 
-#pragma mark  -- WKUIDelegate
+// MARK:  -- WKUIDelegate
 
-#pragma mark  -- WKScriptMessageHandler
+// MARK:  -- WKScriptMessageHandler
 - (void)userContentController:(nonnull WKUserContentController *)userContentController didReceiveScriptMessage:(nonnull WKScriptMessage *)message {
     NSString *methodName = message.name;
     //根据methodName来吊起OC OC来进行响应的处理 像比如分享、相机相册吊起等等
@@ -143,7 +143,7 @@
     }
 }
 
-#pragma mark  -- memerory management
+// MARK:  -- memerory management
 - (void)dealloc{
     if (_webView) {
         //KVO一定要移除 否则会出现崩溃情况
@@ -153,7 +153,7 @@
     }
 }
 
-#pragma mark  -- refreshClick
+// MARK:  -- refreshClick
 - (void)refreshClick {
     //重新加载webView
     [_webView loadRequest:[NSURLRequest requestWithURL:kURL(_urlStr)]];

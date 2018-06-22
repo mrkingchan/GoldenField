@@ -42,7 +42,7 @@
 ///网络变化 
 - (void)netWorkChangWithNetWorkWithStatus:(AFNetworkReachabilityStatus)status;
 
-#pragma mark  -- loadingView
+// MARK:  -- loadingView
 //加载成功
 - (UIView *)loadingSuccess;
 // 开始加载转圈view

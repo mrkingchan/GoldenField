@@ -123,6 +123,7 @@
 		8F3C17BE20CF7280009311FD /* CommonDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonDefine.m; sourceTree = "<group>"; };
 		8F469D2720D9F003007F1166 /* ScreenShotView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenShotView.h; sourceTree = "<group>"; };
 		8F469D2820D9F003007F1166 /* ScreenShotView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShotView.m; sourceTree = "<group>"; };
+		8F469E1220DC8C80007F1166 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
 		8F4F6E1D20A3103E00885A0D /* BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		8F4F6E1E20A3103E00885A0D /* BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		8F4F6E2020A314E000885A0D /* iToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iToast.m; sourceTree = "<group>"; };
@@ -452,6 +453,7 @@
 			children = (
 				8F4F6E9720A9595800885A0D /* GoldenField.entitlements */,
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
+				8F469E1220DC8C80007F1166 /* Configure.h */,
 				8FD8CD9A209BEF5700918C0C /* MainVC.h */,
 				8FD8CD9B209BEF5700918C0C /* MainVC.m */,
 				8F6EC7FA20BFC3B0008F78CE /* WXManager.h */,

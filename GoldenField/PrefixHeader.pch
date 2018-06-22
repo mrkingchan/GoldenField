@@ -95,7 +95,6 @@ dispatch_async(dispatch_get_main_queue(), block);\
 }
  */
 
-
 #define kIsiPhoneX [UIScreen mainScreen].bounds.size.height==812
 #define iPhoneX_BOTTOM_HEIGHT  ([UIScreen mainScreen].bounds.size.height==812?34:0)
 #define kiOSVersion     [UIDevice currentDevice].systemVersion.floatValue

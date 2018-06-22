@@ -51,7 +51,7 @@
     return self;
 }
 
-#pragma mark  -- private Method
+// MARK:  -- private Method
 - (void)imageViewTapAction:(UITapGestureRecognizer *)tap {
     NSInteger index = tap.view.tag;
     if (index != _imageArray.count - 1) {
@@ -61,7 +61,7 @@
     }
 }
 
-#pragma mark  -- hide
+// MARK:  -- hide
 - (void)hide {
     [UIView  animateWithDuration:0.1 animations:^{
         [self removeFromSuperview];
@@ -71,7 +71,7 @@
     }];
 }
 
-#pragma mark  -- UIScrollViewDelegate
+// MARK:  -- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     //索引
     NSInteger index = scrollView.contentOffset.x / kScreenWidth;

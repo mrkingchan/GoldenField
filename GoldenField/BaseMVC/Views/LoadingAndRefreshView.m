@@ -143,7 +143,7 @@
     }
 }
 
-#pragma mark - 旋转动画
+// MARK: - 旋转动画
 -(void)startRotation {
     CABasicAnimation* rotation;
     rotation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];

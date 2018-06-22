@@ -14,7 +14,7 @@
 
 @implementation BaseTableVC
 
-#pragma mark  -- lifeCircle
+// MARK:  -- lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -40,7 +40,7 @@
     _tableView.top = self.netWorkErrorView.bottom;
     _tableView.height = self.view.height - self.netWorkErrorView.bottom;
 }
-#pragma mark  -- Getter &Setter Method
+// MARK:  -- Getter &Setter Method
 -(void)setShowRefreshFooter:(BOOL)showRefreshFooter {
     _showRefreshFooter = showRefreshFooter;
     if (showRefreshFooter) {
@@ -100,7 +100,7 @@
     }
 }
 
-#pragma mark  -- 交给子类去重写
+// MARK:  -- 交给子类去重写
 - (void)tableViewHeaderRefreshAction {
     puts(__func__);
 }
@@ -109,7 +109,7 @@
     puts(__func__);
 }
 
-#pragma mark  -- UITableViewDataSource&Delegate
+// MARK:  -- UITableViewDataSource&Delegate
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     return cell;
@@ -123,7 +123,7 @@
     return 1;
 }
 
-#pragma mark  -- memerory management
+// MARK:  -- memerory management
 - (void)dealloc {
     if (self.tableView) {
         self.tableView.delegate = nil;

@@ -24,7 +24,7 @@ static MainVC *shareInstance = nil;
     return shareInstance;
 }
 
-#pragma mark  -- lifeCircle
+// MARK:  -- lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
@@ -59,6 +59,7 @@ static MainVC *shareInstance = nil;
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:kFontSize(16),NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
+// MARK: - 摇晃事件
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (motion == UIEventSubtypeMotionShake) {
         //摇一摇
@@ -79,7 +80,7 @@ static MainVC *shareInstance = nil;
     }
 }
 
-#pragma mark  -- private Method
+// MARK:  -- private Method
 /**
   构建viewController
  
@@ -116,7 +117,7 @@ static MainVC *shareInstance = nil;
     [self animationActionWithIndex:index];
 }
 
-#pragma mark  -- animation Method
+// MARK:  -- animation Method
 - (void)animationActionWithIndex:(NSUInteger)index {
     NSMutableArray *tempArray = [NSMutableArray new];
     for (UIView *subView in self.tabBar.subviews) {
@@ -124,7 +125,7 @@ static MainVC *shareInstance = nil;
             [tempArray addObject:subView];
         }
     }
-    //这里的排序是为了针对StoryBoard里面的无序处理，在StoryBoard里面会出现item是无序的情况
+    //这里的排序是为了针对StoryBoard里面的无序处理，在StoryBoard里面会出现item是无序的情况,阿西吧!前任就特么会用storyBoard
     tempArray = [NSMutableArray arrayWithArray:[tempArray sortedArrayUsingComparator:^NSComparisonResult(UIView *subView1, UIView *subView2) {
         CGFloat X1 = subView1.frame.origin.x;
         CGFloat X2 = subView2.frame.origin.x;

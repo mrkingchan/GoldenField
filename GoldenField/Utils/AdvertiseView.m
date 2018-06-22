@@ -35,7 +35,7 @@
     return self;
 }
 
-#pragma mark  -- setUI
+// MARK:  -- setUI
 - (void)setUI {
     _webView = [[WKWebView alloc] initWithFrame:self.bounds];
     _webView.navigationDelegate = self;
@@ -57,7 +57,7 @@
     [[NSRunLoop currentRunLoop]addTimer:_timer forMode:NSDefaultRunLoopMode];
 }
 
-#pragma mark  -- private Method
+// MARK:  -- private Method
 - (void)jumpAction {
     [_timer invalidate];
     _timer = nil;
@@ -75,7 +75,7 @@
     }
 }
 
-#pragma mark  -- WKNavigationDelegate
+// MARK:  -- WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     decisionHandler(WKNavigationActionPolicyAllow);

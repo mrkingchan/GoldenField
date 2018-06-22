@@ -15,7 +15,7 @@
 
 @implementation BaseScrollVC
 
-#pragma mark  -- ViewController lifeCircle
+// MARK:  -- ViewController lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
@@ -31,7 +31,7 @@
     self.view = _tableView;
 }
 
-#pragma mark  -- UITableViewDataSource&Delegate
+// MARK:  -- UITableViewDataSource&Delegate
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
@@ -51,7 +51,7 @@
     return 0;
 }
 
-#pragma mark  -- memerory management
+// MARK:  -- memerory management
 - (void)dealloc {
     if (_tableView ) {
         _tableView = nil;

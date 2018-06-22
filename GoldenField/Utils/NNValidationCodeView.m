@@ -78,7 +78,7 @@
     }
 }
 
-#pragma mark - UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([string isEqualToString:@"\n"]) {
         [textField resignFirstResponder];
@@ -92,7 +92,7 @@
     }
 }
 
-#pragma mark - 懒加载
+// MARK: - 懒加载
 - (NNTextField *)codeTextField {
     if (!_codeTextField) {
         _codeTextField = [[NNTextField alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, NNCodeViewHeight)];
@@ -109,7 +109,7 @@
     return _codeTextField;
 }
 
-#pragma mark - 懒加载
+// MARK: - 懒加载
 - (NSMutableArray *)labelArr {
     if (!_labelArr) {
         _labelArr = [NSMutableArray array];

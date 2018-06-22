@@ -46,7 +46,7 @@
     _collectionView.height = self.view.height - self.netWorkErrorView.bottom;
 }
 
-#pragma mark  -- setSize
+// MARK:  -- setSize
 - (void)setItemSize:(CGSize)itemSize {
     _itemSize = itemSize;
     /*UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
@@ -67,7 +67,7 @@
     [self setShowRefreshFooter:NO];
 }
 
-#pragma mark  --Setter &Getter Method
+// MARK:  --Setter &Getter Method
 -(void)setShowRefreshFooter:(BOOL)showRefreshFooter {
     _showRefreshFooter = showRefreshFooter;
     if (_showRefreshFooter) {
@@ -104,7 +104,7 @@
     }
 }
 
-#pragma mark  -- 交给子类去重写
+// MARK:  -- 交给子类去重写
 
 -(void)refreshHeaderAction {
     
@@ -114,7 +114,7 @@
     
 }
 
-#pragma mark  -- 刷新完成之后的reloadData
+// MARK:  -- 刷新完成之后的reloadData
 - (void)refreshDoneisHeader:(BOOL)isHeader {
     [self loadingSuccess];
     if (isHeader) {
@@ -133,7 +133,7 @@
     });
 }
 
-#pragma mark  -- UICollectionViewDataSource&Delegate
+// MARK:  -- UICollectionViewDataSource&Delegate
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return  1;
@@ -148,7 +148,7 @@
     return cell;
 }
 
-#pragma mark  -- memerory management
+// MARK:  -- memerory management
 
 -(void)dealloc {
     if (_collectionView) {

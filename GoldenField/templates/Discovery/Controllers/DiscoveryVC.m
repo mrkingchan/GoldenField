@@ -49,7 +49,7 @@
     }*/
 }
 
-#pragma mark  -- 上下拉刷新的方法 交给子类去重写
+// MARK:  -- 上下拉刷新的方法 交给子类去重写
 - (void)tableViewHeaderRefreshAction {
     puts(__func__);
     [self loadingStart];
@@ -96,7 +96,7 @@
                                  }];
 }
 
-#pragma mark  -- UITableViewDataSource&Delegate
+// MARK:  -- UITableViewDataSource&Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -124,18 +124,18 @@
     return [DiscoveryCell cellHeightWithModel:self.dataArray[indexPath.row]];
 }
 
-#pragma mark  -- BoxViewDelegate
+// MARK:  -- BoxViewDelegate
 - (void)boxView:(id)boxView selectedIndex:(NSInteger)index items:(NSArray *)items{
     puts(__func__);
 }
 
-#pragma mark  -- DisCoveryCellDelegate
+// MARK:  -- DisCoveryCellDelegate
 - (void)disCoveryCell:(DiscoveryCell *)cell avatarSelected:(DiscoveryModel *)model {
     puts(__func__);
     NSLog(@"click model = %@",[model modelToJson]);
 }
 
-#pragma mark  -- memerory management
+// MARK:  -- memerory management
 -(void)dealloc {
     if (self.tableView) {
         self.tableView.dataSource = nil;

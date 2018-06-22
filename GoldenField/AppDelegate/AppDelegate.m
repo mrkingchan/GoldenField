@@ -279,7 +279,7 @@
 }
  */
 
-#pragma mark  -- checkUpdateInfo
+// MARK:  -- checkUpdateInfo
 - (void)checkUpdateInfo {
     __weak typeof(self)weakSelf = self;
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",kAppID]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -324,7 +324,7 @@
     }]resume];
 }
 
-#pragma mark  -- runtime method to change the UIAlertController property
+// MARK:  -- runtime method to change the UIAlertController property
 - (void)runtimeProperty {
     unsigned int count = 0;
     Ivar *property = class_copyIvarList([UIAlertController class], &count);
@@ -410,7 +410,7 @@
                                      }]resume];
     }
 }
-#pragma mark  -- 推送设置
+// MARK:  -- 推送设置
 - (void)configureCommonPushWithLanunchOptions:(NSDictionary*)launchOptions {
     //推送
     UMessageRegisterEntity *entity = [UMessageRegisterEntity new];
@@ -429,7 +429,7 @@
     }];
 }
 
-#pragma mark  -- 引导页
+// MARK:  -- 引导页
 - (void)configureGuide {
     NSMutableArray *images = [NSMutableArray new];
     for (int i = 0; i < 3; i ++) {
@@ -447,7 +447,7 @@
     }
 }
 
-#pragma mark  -- 交互推送
+// MARK:  -- 交互推送
 - (void)configureInteractPushWithLaunchOptions:(NSDictionary *)launchOptions {
     UMessageRegisterEntity * entity = [UMessageRegisterEntity new];
     entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionAlert|UMessageAuthorizationOptionSound;
@@ -486,7 +486,7 @@
     }];
 }
 
-#pragma mark  -- touchPress
+// MARK:  -- touchPress
 -(void)buildShorcutItems {
     NSMutableArray *items = [NSMutableArray new];
     NSArray *types = @[@(UIApplicationShortcutIconTypeDate),
@@ -502,7 +502,7 @@
     [UIApplication sharedApplication].shortcutItems = items;
 }
 
-#pragma mark  -- UNUserNotificationCenterDelegate ios10 以上的推送接收方法
+// MARK:  -- UNUserNotificationCenterDelegate ios10 以上的推送接收方法
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
     NSDictionary * userInfo = notification.request.content.userInfo;
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {

@@ -12,7 +12,7 @@
 
 @interface BaseModel : NSObject <NSCoding>
 
-#pragma mark  -- 子类继承与BaseModel
+// MARK:  -- 子类继承与BaseModel
 
 - (id)modelToJson;
 

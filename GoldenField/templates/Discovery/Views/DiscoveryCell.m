@@ -44,7 +44,7 @@
     
 }
 
-#pragma mark  -- private Method
+// MARK:  -- private Method
 -(void)buttonAction:(UITapGestureRecognizer *)tap {
     if ([tap.view isEqual:_header]) {
         if (_delegate && [_delegate respondsToSelector:@selector(disCoveryCell:avatarSelected:)]) {

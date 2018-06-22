@@ -76,4 +76,17 @@
         _image = nil;
     }
 }
+
+// MARK: - loadData
+
+- (void)loadData {
+    @weakify(self);
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:kBaseURL]
+                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                     @strongify(self);
+                                     if (data.length) {
+                                         self->_imageView.image = [[UIImage alloc] initWithData:data];
+                                     }
+                                 }]resume];
+}
 @end

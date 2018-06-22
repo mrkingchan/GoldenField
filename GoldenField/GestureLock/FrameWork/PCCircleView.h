@@ -17,7 +17,7 @@ typedef enum{
 
 @optional
 
-#pragma mark - 设置手势密码代理方法
+// MARK: - 设置手势密码代理方法
 /**
  *  连线个数少于4个时，通知代理
  *
@@ -46,7 +46,7 @@ typedef enum{
  */
 - (void)circleView:(PCCircleView *)view type:(CircleViewType)type didCompleteSetSecondGesture:(NSString *)gesture result:(BOOL)equal;
 
-#pragma mark - 登录手势密码代理方法
+// MARK: - 登录手势密码代理方法
 /**
  *  登陆或者验证手势密码输入完成时的代理方法
  *

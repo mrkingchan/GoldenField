@@ -93,7 +93,7 @@
     }
 }
 
-#pragma mark  -- registerApp Method
+// MARK:  -- registerApp Method
 - (void)registerAppWithComplete:(void (^)(void))complete {
     [NetTool innerPostWithUrl:@"register"
                        params:@{}

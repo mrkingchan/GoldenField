@@ -13,9 +13,9 @@
 
 /****************************************************************/
 
-#pragma mark - 创建UI
+// MARK: - 创建UI
 
-#pragma mark  -- UICollectionView 自己新增的方法++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// MARK:  -- UICollectionView 自己新增的方法++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 UICollectionView *InsertCollectionView(id superView,CGRect rec,id <UICollectionViewDataSource>dataSource,id <UICollectionViewDelegate>delegate ,CGFloat lineSpacing,CGFloat interItemSpacing, CGSize itemSize,Class cellClass) {
     UICollectionViewFlowLayout *layout  = [UICollectionViewFlowLayout new];
     layout.itemSize = itemSize;
@@ -38,7 +38,7 @@ UICollectionView *InsertCollectionView(id superView,CGRect rec,id <UICollectionV
     return collectionView;
 }
 
-#pragma mark  -- UIWindow
+// MARK:  -- UIWindow
 UIWindow *InsertWindow(UIViewController *rootViewController) {
     UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     window.backgroundColor = [UIColor whiteColor];
@@ -50,7 +50,7 @@ UIWindow *InsertWindow(UIViewController *rootViewController) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
-#pragma mark UIAlertView
+// MARK: UIAlertView
 UIAlertView *SimpleAlert(UIAlertViewStyle style, NSString *title, NSString *message, NSInteger tag, id delegate, NSString *cancel, NSString *ok)
 {
     UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:title message:message delegate:delegate cancelButtonTitle:cancel otherButtonTitles:ok, nil];
@@ -117,7 +117,7 @@ UIAlertView *AlertSetString(NSString *title, NSString *cancel, NSString *ok, NSS
 
 #pragma clang diagnostic pop
 
-#pragma mark UIDatePicker
+// MARK: UIDatePicker
 UIDatePicker *SetDate(UIView *view, NSInteger tag, id delegate, UIInterfaceOrientation orientation)
 {
     NSString *title = UIDeviceOrientationIsLandscape(orientation) ? @"\n\n\n\n\n\n\n\n\n" : @"\n\n\n\n\n\n\n\n\n\n\n";
@@ -140,7 +140,7 @@ UIDatePicker *SetDate(UIView *view, NSInteger tag, id delegate, UIInterfaceOrien
     return datePicker;
 }
 
-#pragma mark UIScrollView
+// MARK: UIScrollView
 UIScrollView *InsertScrollView(UIView *superView, CGRect rect, NSInteger tag,id<UIScrollViewDelegate> delegate)
 {
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:rect];
@@ -161,7 +161,7 @@ UIScrollView *InsertScrollView(UIView *superView, CGRect rect, NSInteger tag,id<
     return scrollView;
 }
 
-#pragma mark UILabel
+// MARK: UILabel
 UILabel *InsertLabel(id superView, CGRect cRect, NSTextAlignment align, NSString *contentStr, UIFont *textFont, UIColor *textColor, BOOL resize)
 {
     return InsertLabelWithShadow(superView, cRect, align, contentStr, textFont, textColor, resize, NO, nil, CGSizeMake(0.0, 0.0));
@@ -243,7 +243,7 @@ CATextLayer *InsertLabelWithCAText(id superView, id superLayer, CGRect cRect, NS
     return tempLayer;
 }
 
-#pragma mark UIWebView
+// MARK: UIWebView
 UIWebView *InsertWebView(id superView,CGRect cRect, id<UIWebViewDelegate>delegate, NSInteger tag)
 {
     UIWebView *tempWebView = [[UIWebView alloc] initWithFrame:cRect];
@@ -278,7 +278,7 @@ void WebSimpleLoadRequestWithCookie(UIWebView *web, NSString *strURL, NSString *
     [web loadRequest:request];
 }
 
-#pragma mark UIbutton
+// MARK: UIbutton
 UIButton *InsertButtonRoundedRect(id view,  CGRect rc, NSInteger tag, NSString *title, id target, SEL action)
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -433,11 +433,11 @@ UIButton *InsertButtonWithType(id view, CGRect rc, NSInteger tag, id target, SEL
 }
 
 /*
-#pragma mark  -- UICollectionView
+// MARK:  -- UICollectionView
 UICollectionView *InsertCollectionView(id superView,CGRect rect,id  <UICollectionViewDataSource>dataSource,id <UICollectionViewDelegate>delegate,Class cellClass) {
 
 }*/
-#pragma mark UITableView
+// MARK: UITableView
 UITableView *InsertTableView(id superView, CGRect rect, id<UITableViewDataSource> dataSoure, id<UITableViewDelegate> delegate, UITableViewStyle style, UITableViewCellSeparatorStyle cellStyle)
 {
     UITableView *tabView = [[UITableView alloc] initWithFrame:rect style:style];
@@ -473,7 +473,7 @@ UITableView *InsertTableView(id superView, CGRect rect, id<UITableViewDataSource
     return tabView;
 }
 
-#pragma mark UITextField
+// MARK: UITextField
 UITextField *InsertTextField(id view, id delegate, CGRect rc, NSString *placeholder, UIFont *font, NSTextAlignment textAlignment, UIControlContentVerticalAlignment contentVerticalAlignment)
 {
     return InsertTextFieldWithTextColor(view, delegate, rc, placeholder, font, textAlignment, contentVerticalAlignment, nil);
@@ -525,7 +525,7 @@ UITextField *InsertTextFieldWithBorderAndCorRadius(id view, id delegate, CGRect 
     return myTextField;
 }
 
-#pragma mark UITextView
+// MARK: UITextView
 UITextView *InsertTextView(id view, id delegate, CGRect rc, UIFont *font, NSTextAlignment textAlignment)
 {
     return InsertTextViewWithTextColor(view, delegate, rc, font, textAlignment, nil);
@@ -575,7 +575,7 @@ UITextView *InsertTextViewWithBorderAndCorRadius(id view, id delegate, CGRect rc
     return textview;
 }
 
-#pragma mark UISwitch
+// MARK: UISwitch
 UISwitch *InsertSwitch(id view, CGRect rc)
 {
     UISwitch *sw = [[UISwitch alloc] initWithFrame:rc];
@@ -590,7 +590,7 @@ UISwitch *InsertSwitch(id view, CGRect rc)
     return sw;
 }
 
-#pragma mark UIImageView
+// MARK: UIImageView
 UIImageView *InsertImageView(id view, CGRect rect, UIImage *image)
 {
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:rect];
@@ -614,7 +614,7 @@ UIImageView *InsertImageView(id view, CGRect rect, UIImage *image)
     return imageView;
 }
 
-#pragma mark UIView
+// MARK: UIView
 UIView *InsertView(id view, CGRect rect, UIColor *backColor)
 {
     return InsertViewWithBorder(view, rect, backColor, 0.0, nil);
@@ -648,8 +648,8 @@ UIView *InsertViewWithBorderAndCorRadius(id view, CGRect rect, UIColor *backColo
     
     return _view;
 }
-#pragma mark  -- UITableView
-#pragma mark UIPickerView
+// MARK:  -- UITableView
+// MARK: UIPickerView
 UIPickerView *InsertPickerView(id view, CGRect rect)
 {
     UIPickerView *_view = [[UIPickerView alloc] initWithFrame:rect];
@@ -663,7 +663,7 @@ UIPickerView *InsertPickerView(id view, CGRect rect)
     return _view;
 }
 
-#pragma mark UIBarButtonItem
+// MARK: UIBarButtonItem
 UIBarButtonItem *InsertBarButtonItem(CGRect rect, NSInteger tag, UIImage *normalImage, UIImage *hightlightImage, NSString *titleBtn, UIFont *titleFont, UIColor *titleColor, id target, SEL action)
 {
     UIButton *btn = InsertImageButtonWithTitle(nil, rect, tag, normalImage, hightlightImage, titleBtn, UIEdgeInsetsMake(0,0,0,0), titleFont, titleColor, target, action);
@@ -673,7 +673,7 @@ UIBarButtonItem *InsertBarButtonItem(CGRect rect, NSInteger tag, UIImage *normal
     return barButtonItem;
 }
 
-#pragma mark UIProgressView
+// MARK: UIProgressView
 UIProgressView *InsertProgressView(id view, CGRect rect, UIProgressViewStyle style, CGFloat progressValue, UIColor *progressColor, UIColor *backColor)
 {
     UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:rect];
@@ -700,7 +700,7 @@ UIProgressView *InsertProgressView(id view, CGRect rect, UIProgressViewStyle sty
     return progressView;
 }
 
-#pragma mark UIActivityIndicatorView
+// MARK: UIActivityIndicatorView
 UIActivityIndicatorView *InsertActivityIndicatorView(id view, CGRect rect, UIColor *backColor, UIColor *styleColor, UIActivityIndicatorViewStyle style)
 {
     UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithFrame:rect];
@@ -726,7 +726,7 @@ UIActivityIndicatorView *InsertActivityIndicatorView(id view, CGRect rect, UICol
     return activityView;
 }
 
-#pragma mark UIActionSheet
+// MARK: UIActionSheet
 // 两个按钮（取消与确定）
 UIActionSheet *InsertActionSheet(id view, id delegate, UIActionSheetStyle style, NSString *title, NSString *canael, NSString *confirm)
 {
@@ -752,7 +752,7 @@ UIActionSheet *InsertActionSheetWithTwoSelected(id view, id delegate, UIActionSh
     return actionSheet;
 }
 
-#pragma mark UISearchBar
+// MARK: UISearchBar
 // 搜索视图
 UISearchBar *InsertSearchBar(id view, CGRect rect, id delegate, NSString *placeholder)
 {
@@ -795,7 +795,7 @@ UISearchBar *InsertSearchBarWithStyle(id view, CGRect rect, id delegate, NSStrin
     return searchBar;
 }
 
-#pragma mark UIPageControl
+// MARK: UIPageControl
 UIPageControl *InsertPageControl(id view, CGRect rect, NSInteger pageCounts, NSInteger currentPage, UIColor *backColor, UIColor *pageColor, UIColor *currentPageColor)
 {
     UIPageControl *pageCtr = [[UIPageControl alloc] initWithFrame:rect];
@@ -823,7 +823,7 @@ UIPageControl *InsertPageControl(id view, CGRect rect, NSInteger pageCounts, NSI
     return pageCtr;
 }
 
-#pragma mark UISlider
+// MARK: UISlider
 // 创建UISlider
 UISlider *insertSlider(id view, CGRect rect, id target, SEL action)
 {
@@ -890,7 +890,7 @@ UISlider *insertSliderWithValueAndColorAndImage(id view, CGRect rect, id target,
     return sliderView;
 }
 
-#pragma mark UISegmentedControl
+// MARK: UISegmentedControl
 // 创建UISegmentedControl
 UISegmentedControl *insertSegment(id view, NSArray *titleArray, CGRect rect, id target, SEL action)
 {
@@ -929,7 +929,7 @@ UISegmentedControl *insertSegmentWithSelectedIndexAndColor(id view, NSArray *tit
     return segmentCtr;
 }
 
-#pragma mark UIImagePickerController
+// MARK: UIImagePickerController
 UIImagePickerController *InsertImagePicker(UIImagePickerControllerSourceType style, id delegate, UIImage *navImage)
 {
     UIImagePickerController *imagePickCtr = [[UIImagePickerController alloc] init];
@@ -945,7 +945,7 @@ UIImagePickerController *InsertImagePicker(UIImagePickerControllerSourceType sty
 
 /****************************************************************/
 
-#pragma mark - 父视图或父视图控制器的操作
+// MARK: - 父视图或父视图控制器的操作
 
 void AddSubController(UIView *view, UIViewController *ctrl, BOOL animation)
 {
@@ -971,7 +971,7 @@ void RemoveAllSubviews(UIView *view)
 
 /****************************************************************/
 
-#pragma mark - 设置时间定时器
+// MARK: - 设置时间定时器
 
 NSTimer *SetTimer(NSTimeInterval timeElapsed, id target, SEL selector)
 {

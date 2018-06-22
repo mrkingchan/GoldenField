@@ -82,7 +82,7 @@
     self.frame = frame;
 }
 
-#pragma mark - Shortcuts for frame properties
+// MARK: - Shortcuts for frame properties
 
 - (CGPoint)origin {
     return self.frame.origin;
@@ -103,7 +103,7 @@
     frame.size = size;
     self.frame = frame;
 }
-#pragma mark - Shortcuts for positions
+// MARK: - Shortcuts for positions
 
 - (CGFloat)centerX {
     return self.center.x;

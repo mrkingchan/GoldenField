@@ -65,7 +65,7 @@
     }];
 }
 
-#pragma mark  -- ChanViewDataSource &Delegate
+// MARK:  -- ChanViewDataSource &Delegate
 - (UIColor *)backgroudColorInChanView:(ChanView *)chanView {
     return kRandomColor;
 }
