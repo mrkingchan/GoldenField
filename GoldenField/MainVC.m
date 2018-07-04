@@ -77,6 +77,8 @@ static MainVC *shareInstance = nil;
                      } targetController:[UIApplication sharedApplication].keyWindow.rootViewController
          
          ];
+    } else if (motion == UIEventSubtypeRemoteControlPlay) {
+        //线控
     }
 }
 
@@ -161,5 +163,15 @@ static MainVC *shareInstance = nil;
     
     UIView *itemView = (UIView *)tempArray[index];
     [itemView.layer addAnimation:scaleAnimation forKey:nil];
+}
+
+// MARK: - memory management
+-(void)dealloc {
+    
+}
+
+// MARK: - fixMemoryHotIssuesAction
+- (void)fixHotMemoryIssueAction {
+
 }
 @end

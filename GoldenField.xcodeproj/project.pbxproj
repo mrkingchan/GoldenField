@@ -954,12 +954,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField-resources.sh",
+				"${PODS_ROOT}/LCProgressHUD/LCProgressHUD/LCProgressHUD.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefreshExample/MJRefreshExample/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SGQRCode/SGQRCode/SGQRCode.bundle",
 				"${PODS_ROOT}/UMCShare/UMShare/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LCProgressHUD.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SGQRCode.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKResources.bundle",

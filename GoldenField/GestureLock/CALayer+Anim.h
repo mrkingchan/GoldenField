@@ -3,9 +3,7 @@
 
 @interface CALayer (Anim)
 
-/*
- *  摇动
- */
+//震动效果
 -(void)shake;
 
 @end

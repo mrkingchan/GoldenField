@@ -21,6 +21,7 @@
 
 @implementation HomeVC
 
+// MARK: - viewController's view lifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"一亩黄金";
@@ -50,6 +51,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"share" style:UIBarButtonItemStylePlain target:self action:@selector(share)];
 }
 
+// MARK: - privateMethod
 - (void)share {
     NSMutableArray *titles = [NSMutableArray new];
     NSMutableArray *images = [NSMutableArray new];
@@ -105,7 +107,7 @@
     [UMSocialShareUIConfig shareInstance].sharePageGroupViewConfig.sharePageGroupViewPostionType = UMSocialSharePageGroupViewPositionType_Bottom;
     [UMSocialShareUIConfig shareInstance].sharePageScrollViewConfig.shareScrollViewPageItemStyleType = UMSocialPlatformItemViewBackgroudType_None;
     NSMutableArray *items = [NSMutableArray new];
-    //预定义平台设置 要上架App必须要进行这项设置
+   // MARK: -预定义平台设置 要上架App必须要进行这项设置
     if ([WXApi isWXAppInstalled] && [WXApi isWXAppSupportApi]) {
         [items addObject:@(UMSocialPlatformType_WechatFavorite)];
         [items addObject:@(UMSocialPlatformType_WechatTimeLine)];

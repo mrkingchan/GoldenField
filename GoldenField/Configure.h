@@ -9,8 +9,4 @@
 #ifndef Configure_h
 #define Configure_h
 
-
-
-
-
 #endif /* Configure_h */
