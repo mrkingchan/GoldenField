@@ -132,14 +132,13 @@
     decisionHandler(WKNavigationActionPolicyAllow);
 }
 
-// MARK:  -- WKUIDelegate
-
 // MARK:  -- WKScriptMessageHandler
 - (void)userContentController:(nonnull WKUserContentController *)userContentController didReceiveScriptMessage:(nonnull WKScriptMessage *)message {
     NSString *methodName = message.name;
     //根据methodName来吊起OC OC来进行响应的处理 像比如分享、相机相册吊起等等
     if ([methodName isEqualToString:@"share"]) {
         //三方分享
+        NSDictionary *json = (NSDictionary *)[message.body mj_JSONObject];
     }
 }
 
@@ -158,4 +157,5 @@
     //重新加载webView
     [_webView loadRequest:[NSURLRequest requestWithURL:kURL(_urlStr)]];
 }
+
 @end

@@ -16,6 +16,7 @@
 
 @implementation BaseCollectionVC
 
+// MARK: - initialized Method
 - (instancetype)initWithItemSize:(CGSize)itemsize cellClass:(Class)cellClass {
     if (self = [super initWithNibName:nil bundle:nil]) {
         _itemSize = itemsize;
@@ -24,6 +25,7 @@
     return self;
 }
 
+// MARK: - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataArray = [NSMutableArray new];
@@ -134,7 +136,6 @@
 }
 
 // MARK:  -- UICollectionViewDataSource&Delegate
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return  1;
 }
@@ -149,7 +150,6 @@
 }
 
 // MARK:  -- memerory management
-
 -(void)dealloc {
     if (_collectionView) {
         _collectionView.dataSource = nil;

@@ -21,6 +21,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"验证码";
+    
+    //codeView
     _codeView = [[NNValidationCodeView alloc] initWithFrame:CGRectMake(40,kScreenHeight / 2 - 25,kScreenWidth - 80 ,50) andLabelCount:6 andLabelDistance:10];
     _codeView.changedColor = [UIColor orangeColor];
     __weak typeof(self)weakSelf = self;

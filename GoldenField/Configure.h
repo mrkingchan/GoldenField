@@ -9,4 +9,7 @@
 #ifndef Configure_h
 #define Configure_h
 
+CG_INLINE NSString *kURL(NSString *urlStr) {
+    return [NSURL ]
+}
 #endif /* Configure_h */

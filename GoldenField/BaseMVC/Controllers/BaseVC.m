@@ -55,6 +55,7 @@
     
 }
 
+// MARK: - 登录验证
 - (void)verifyLogin:(void (^)(void))complete {
     if (kAppUser.isLogin) {
         if (complete) {
@@ -71,6 +72,7 @@
     }
 }
 
+// MARK: - 释放网络操作队列
 - (void)releaseNetWork {
     if (self.tasks.count) {
         [self.tasks enumerateObjectsUsingBlock:^(NSURLSessionDataTask *task, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -223,4 +225,5 @@
 - (void)refreshClick {
     puts(__func__);
 }
+
 @end

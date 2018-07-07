@@ -50,8 +50,6 @@
     } else if (indexPath.row == 1 ) {
         //皮肤
         [self.navigationController pushViewController:[SkinVC new] animated:YES];
-        
     }
 }
-
 @end

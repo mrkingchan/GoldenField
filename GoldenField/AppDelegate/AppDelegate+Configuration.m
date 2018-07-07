@@ -105,7 +105,6 @@
                        }];
 }
 
-
 /**
  构建指定class的viewConttroller
 
@@ -134,7 +133,7 @@
     return viewController;
 }
 
-// MARK: - build viewController by given a specified className,titleStr,normalImage.selectedImage return a UIViewController object,which is configured by given paramters
+// MARK: - build viewController by given a specified className,titleStr,normalImage.selectedImage return a UIViewController object,which is configured by given paramters，etc
 - (UIViewController *)buildViewControllerWithClass:(Class)className
                                              title:(NSString *)titleStr
                                        normalImage:(UIImage *)normalImage
@@ -151,23 +150,10 @@
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 [viewController.tabBarItem  setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
 #pragma clang diagnostic pop
-
         }
         return viewController;
     } else {
         return nil;
-    }
-}
-
--(void)reloadInputViews {
-    if (_cmd) {
-        NSString *cmdStr = NSStringFromSelector(_cmd);
-        if ([cmdStr rangeOfString:@"location"].length) {
-            NSArray *items = [cmdStr componentsSeparatedByString:@"."];
-            for (NSString *subStr in items) {
-
-            }
-        }
     }
 }
 @end

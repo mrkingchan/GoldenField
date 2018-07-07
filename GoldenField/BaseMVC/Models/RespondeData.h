@@ -10,11 +10,11 @@
 
 @interface RespondeData : NSObject
 
-@property(nonatomic,strong)NSString *reCode;
+@property(nonatomic,strong)NSString *responseCode;
 
-@property(nonatomic,strong)NSString *reMsg;
+@property(nonatomic,strong)NSString *responseMessage;
 
-@property(nonatomic,strong)NSDictionary *reData;
+@property(nonatomic,strong)NSDictionary *responseData;
 
 
 @end

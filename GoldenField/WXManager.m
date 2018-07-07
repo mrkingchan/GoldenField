@@ -11,6 +11,7 @@
 static WXManager *shareInstance = nil;
 @implementation WXManager
 
+// MARK: - shareInstance
 + (instancetype)shareManager {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -19,10 +20,12 @@ static WXManager *shareInstance = nil;
     return shareInstance;
 }
 
+// MARK: - 初始化微信
 +(void)registerWXWithAppID:(NSString *)appID {
     [WXApi registerApp:appID];
 }
 
+// MARK: - 吊起微信
 - (void)sendReq:(BaseReq *)req {
     [WXApi sendReq:req];
 }
@@ -41,6 +44,6 @@ static WXManager *shareInstance = nil;
             }
         }
     }*/
-    
 }
+
 @end
