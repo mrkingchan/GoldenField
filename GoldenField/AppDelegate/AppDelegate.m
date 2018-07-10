@@ -17,7 +17,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "ScreenShotView.h"
 
-@interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate,WXApiDelegate> {
+@interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate,WXApiDelegate,WeiboSDKDelegate> {
     UIAlertController *_alertVC;
     NSMutableString *_messageStr;
 }
@@ -544,6 +544,7 @@
     }
 }
 
+// MARK: -处理三方跳转
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     if ([url.host rangeOfString:@"safePay"].length) {
        //支付宝支付
@@ -552,12 +553,32 @@
         //微信支付
         return YES;
         
-    }else {
-//        return [[UMSocialManager defaultManager] handleOpenURL:url options:options];
+    }else if ([url.absoluteString rangeOfString:kWeChatAppKey].length) {
+        //微信分享
         return [WXApi handleOpenURL:url delegate:self];
+    } else if ([url.absoluteString rangeOfString:kSinaAppKey].length) {
+        //新浪
+        return [WeiboSDK handleOpenURL:url delegate:self];
     }
+    return YES;
 }
 
+// MARK: - decrepted Method
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    if ([url.host rangeOfString:@"safePay"].length) {
+        return YES;
+    } else if ([url.absoluteString rangeOfString:@"pay"].length) {
+        //微信支付
+        return [WXApi handleOpenURL:url delegate:self];
+    } else if ([url.absoluteString rangeOfString:kWeChatAppKey].length) {
+        //分享
+        return [WXApi handleOpenURL:url delegate:self];
+    } else if ([url.absoluteString rangeOfString:kSinaAppKey].length) {
+        //新浪微博分享
+        return [WeiboSDK handleOpenURL:url delegate:self];
+    }
+    return YES;
+}
 
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
     if (DEBUG) {

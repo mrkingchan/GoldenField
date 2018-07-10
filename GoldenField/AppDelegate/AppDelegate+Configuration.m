@@ -63,6 +63,10 @@
                                                }
                                            }];*/
     
+    //微博
+    [WeiboSDK registerApp:kSinaAppKey];
+    [WeiboSDK enableDebugMode:isTrueEnviroment ? NO:YES];
+    
     [self registerAppWithComplete:complete];
 }
 
@@ -156,4 +160,5 @@
         return nil;
     }
 }
+
 @end

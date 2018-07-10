@@ -61,7 +61,7 @@
 #import "PCCircleView.h"
 #import "PCCircleViewConst.h"
 #import <MJExtension/MJExtension.h>
-
+#import <WeiboSDK.h>
 /////公有接口地址
 //#define kBaseURL @"http://wwww.baseurl:xxxx"
 #define kBaseURL isTrueEnviroment ? @"http://xxxx/":@"http://www.baidu.com/"
@@ -79,6 +79,11 @@
 
 #define kQQZoneKey @""
 #define kQQZoneSecretKey @""
+
+
+//微博
+#define kSinaAppKey @"wb1785244603"
+#define kSinaAppSecretKey @"08c85dc66729516fda44d0264c2d17b6"
 
 /*#define dispatch_main_sync_safe(block)\
 if ([NSThread isMainThread]) {\
