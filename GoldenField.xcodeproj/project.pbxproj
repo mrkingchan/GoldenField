@@ -13,6 +13,9 @@
 		8F338DFF20A1A66A0069CFC1 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFE20A1A66A0069CFC1 /* DiscoveryModel.m */; };
 		8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338E0120A1A6F50069CFC1 /* BoxView.m */; };
 		8F3C17BF20CF7280009311FD /* CommonDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C17BE20CF7280009311FD /* CommonDefine.m */; };
+		8F45B42F20F446C1005F811F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F45B42E20F446C1005F811F /* HealthKit.framework */; };
+		8F45B43320F44701005F811F /* HealthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45B43220F44701005F811F /* HealthVC.m */; };
+		8F45B43A20F44946005F811F /* iToast+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45B43920F44946005F811F /* iToast+Category.m */; };
 		8F469D2920D9F003007F1166 /* ScreenShotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F469D2820D9F003007F1166 /* ScreenShotView.m */; };
 		8F4F6E1F20A3103E00885A0D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E1E20A3103E00885A0D /* BaseModel.m */; };
 		8F4F6E2220A314E000885A0D /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E2020A314E000885A0D /* iToast.m */; };
@@ -121,6 +124,11 @@
 		8F338E0120A1A6F50069CFC1 /* BoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
 		8F3C17BD20CF7280009311FD /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		8F3C17BE20CF7280009311FD /* CommonDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonDefine.m; sourceTree = "<group>"; };
+		8F45B42E20F446C1005F811F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		8F45B43120F44701005F811F /* HealthVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthVC.h; sourceTree = "<group>"; };
+		8F45B43220F44701005F811F /* HealthVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthVC.m; sourceTree = "<group>"; };
+		8F45B43820F44946005F811F /* iToast+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iToast+Category.h"; sourceTree = "<group>"; };
+		8F45B43920F44946005F811F /* iToast+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "iToast+Category.m"; sourceTree = "<group>"; };
 		8F469D2720D9F003007F1166 /* ScreenShotView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenShotView.h; sourceTree = "<group>"; };
 		8F469D2820D9F003007F1166 /* ScreenShotView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShotView.m; sourceTree = "<group>"; };
 		8F469E1220DC8C80007F1166 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
@@ -269,6 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F45B42F20F446C1005F811F /* HealthKit.framework in Frameworks */,
 				8F4F6E9920A9597A00885A0D /* UserNotifications.framework in Frameworks */,
 				F52D1D75763F017544231994 /* libPods-GoldenField.a in Frameworks */,
 			);
@@ -294,6 +303,7 @@
 		70E6976CF8E61933B2F04B2C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F45B42E20F446C1005F811F /* HealthKit.framework */,
 				8FBBF65C20B7FB030015728D /* libWeChatSDK.a */,
 				8F4F6E9820A9597A00885A0D /* UserNotifications.framework */,
 				5972014D5587CDDA6889AD76 /* libPods-GoldenField.a */,
@@ -339,6 +349,26 @@
 				8F3C17BE20CF7280009311FD /* CommonDefine.m */,
 			);
 			path = "Const&Define";
+			sourceTree = "<group>";
+		};
+		8F45B43020F446E0005F811F /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				8F45B43120F44701005F811F /* HealthVC.h */,
+				8F45B43220F44701005F811F /* HealthVC.m */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		8F45B43420F44845005F811F /* iToast */ = {
+			isa = PBXGroup;
+			children = (
+				8F4F6E2120A314E000885A0D /* iToast.h */,
+				8F4F6E2020A314E000885A0D /* iToast.m */,
+				8F45B43820F44946005F811F /* iToast+Category.h */,
+				8F45B43920F44946005F811F /* iToast+Category.m */,
+			);
+			path = iToast;
 			sourceTree = "<group>";
 		};
 		8F6AC82E20AEC08C003E68D6 /* Swift */ = {
@@ -452,6 +482,8 @@
 			isa = PBXGroup;
 			children = (
 				8F4F6E9720A9595800885A0D /* GoldenField.entitlements */,
+				8F45B43420F44845005F811F /* iToast */,
+				8F45B43020F446E0005F811F /* Health */,
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
 				8F469E1220DC8C80007F1166 /* Configure.h */,
 				8FD8CD9A209BEF5700918C0C /* MainVC.h */,
@@ -737,8 +769,6 @@
 				8F6AC81920AD291D003E68D6 /* AdvertiseView.m */,
 				8FC83F7E209FE7AD00F753D6 /* UIInitMethod.h */,
 				8FC83F7F209FE7AD00F753D6 /* UIInitMethod.m */,
-				8F4F6E2120A314E000885A0D /* iToast.h */,
-				8F4F6E2020A314E000885A0D /* iToast.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -859,6 +889,9 @@
 						LastSwiftMigration = 0930;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
 								enabled = 1;
 							};
 							com.apple.Push = {
@@ -1010,10 +1043,12 @@
 				8FC83FD420A1500300F753D6 /* LoadingAndRefreshView.m in Sources */,
 				8F6AC81A20AD291D003E68D6 /* AdvertiseView.m in Sources */,
 				8F6EC89C20C7C0ED008F78CE /* RespondeData.m in Sources */,
+				8F45B43A20F44946005F811F /* iToast+Category.m in Sources */,
 				8FA8EDA120B3D821003551F9 /* TouchVC.m in Sources */,
 				8F6AC82020AD641B003E68D6 /* SharePanel.m in Sources */,
 				8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */,
 				8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */,
+				8F45B43320F44701005F811F /* HealthVC.m in Sources */,
 				8F6AC82D20AEB754003E68D6 /* NetManager.swift in Sources */,
 				8F469D2920D9F003007F1166 /* ScreenShotView.m in Sources */,
 				8F9F106620BD3C0F00A0F317 /* UIView+ChangeThem.m in Sources */,

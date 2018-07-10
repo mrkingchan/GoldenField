@@ -635,6 +635,15 @@
     }
 }
 
+// MARK: - WeiboSDKDelegate
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
+    if (response.statusCode == 0) {
+        iToastText(@"分享成功！");
+    } else {
+        iToastText(@"分享失败！");
+    }
+}
+
 // weChatPayInfo中的数据是调用统一下单API之后返回的数据(这个是后台返回来的数据,一般的签名加密参数大多数后台签名然后返回给移动端使用，这里使用的是移动端自己签名)
 - (void)wxPay:(NSDictionary *)weChatPayInfo {
     time_t now;
