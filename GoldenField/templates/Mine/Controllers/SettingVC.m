@@ -9,6 +9,8 @@
 #import "SettingVC.h"
 #import "GestureSettingVC.h"
 #import "SkinVC.h"
+#import "HealthVC.h"
+#import "AutoLayoutVC.h"
 
 @interface SettingVC ()
 
@@ -21,6 +23,8 @@
     self.navigationItem.title = @"设置";
     [self.dataArray addObject:@"手势密码"];
     [self.dataArray addObject:@"皮肤设置"];
+    [self.dataArray addObject:@"健康数据管理"];
+    [self.dataArray addObject:@"YogaKit"];
 }
 
 // MARK:  -- UITableViewDataSource&Delegate
@@ -50,6 +54,11 @@
     } else if (indexPath.row == 1 ) {
         //皮肤
         [self.navigationController pushViewController:[SkinVC new] animated:YES];
+    } else if (indexPath.row == 2) {
+        //健康数据管理
+        [self.navigationController pushViewController:[HealthVC new] animated:YES];
+    } else if (indexPath.row == 3) {
+        [self.navigationController pushViewController:[AutoLayoutVC new] animated:YES];
     }
 }
 @end

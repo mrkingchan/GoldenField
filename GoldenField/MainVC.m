@@ -16,6 +16,7 @@ static MainVC *shareInstance = nil;
 
 @implementation MainVC
 
+// MARK: - shareInstance
 + (instancetype)shareInstance {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -69,7 +70,7 @@ static MainVC *shareInstance = nil;
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (motion == UIEventSubtypeMotionShake) {
-        [self InsertAlerController:@"别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!" messageStr:nil alertStyle:UIAlertControllerStyleAlert button1Title:@"确定" button1Action:^(NSString * title1 ) {
+        [self InsertAlerController:@"别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!" messageStr:@"" alertStyle:UIAlertControllerStyleAlert button1Title:@"确定" button1Action:^(NSString * title1 ) {
             
         } button2Title:nil
                      button2Action:^(NSString * title2) {
@@ -172,6 +173,16 @@ static MainVC *shareInstance = nil;
 
 // MARK: - fixMemoryHotIssuesAction
 - (void)fixHotMemoryIssueAction {
+    
+}
 
+- (void)loadView {
+    [super loadView];
+    if (_cmd) {
+        NSString *cmdStr = NSStringFromSelector(_cmd);
+        if ([cmdStr rangeOfString:@"loadView"].length) {
+            
+        }
+    }
 }
 @end
