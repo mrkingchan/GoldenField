@@ -59,10 +59,6 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>使用您的相机以扫描二维码</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>共享您的健康数据</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>获取您的健康数据</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>使用您的相册以识别二维码</string>
 	<key>UIBackgroundModes</key>

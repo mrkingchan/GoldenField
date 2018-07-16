@@ -63,6 +63,8 @@
 #import <MJExtension/MJExtension.h>
 #import <WeiboSDK.h>
 #import <YogaKit/UIView+Yoga.h>
+#import <WeiboSDK.h>
+#import <JPUSHService.h>
 
 /////公有接口地址
 //#define kBaseURL @"http://wwww.baseurl:xxxx"

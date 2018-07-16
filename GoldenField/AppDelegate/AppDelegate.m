@@ -20,6 +20,7 @@
 @interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate,WXApiDelegate,WeiboSDKDelegate> {
     UIAlertController *_alertVC;
     NSMutableString *_messageStr;
+    UIBackgroundTaskIdentifier _bgTaskId;
 }
 @end
 
@@ -66,7 +67,13 @@
     [_lockView addSubview:_gestureView];
     [_window sendSubviewToBack:_lockView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(snapShotAction) name:UIApplicationUserDidTakeScreenshotNotification object:nil];
+    [[[NSThread alloc] initWithTarget:self selector:@selector(threadAction) object:nil] start];
     return YES;
+}
+- (void)threadAction {
+    while (true) {
+        puts(__func__);
+    }
 }
 
 // MARK: - 检测到截屏的事件响应
@@ -486,6 +493,49 @@
     }];
 }
 
+
+// MARK: - 配置推送
+- (void)configurePushWithApplication:(UIApplication *)application {
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+        //iOS10特有
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        // 必须写代理，不然无法监听通知的接收与点击
+        center.delegate = self;
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UNAuthorizationOptionSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (granted) {
+                // 点击允许
+                NSLog(@"注册成功");
+                [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+                    NSLog(@"%@", settings);
+                }];
+            } else {
+                // 点击不允许
+                NSLog(@"注册失败");
+            }
+        }];
+    }else if ([[UIDevice currentDevice].systemVersion floatValue] >8.0){
+        //iOS8 - iOS10
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound | UIUserNotificationTypeBadge categories:nil]];
+        
+    }else if ([[UIDevice currentDevice].systemVersion floatValue] < 8.0) {
+        //iOS8系统以下
+        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
+    }
+    // 注册获得device Token
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
+    NSLog(@"remote: %@", userInfo);
+    //回调
+    completionHandler(UIBackgroundFetchResultNewData);
+    //语音播报
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:userInfo[@"aps"][@"alert"]];
+    AVSpeechSynthesizer *synth = [[AVSpeechSynthesizer alloc] init];
+    [synth speakUtterance:utterance];
+}
+
+
 // MARK:  -- touchPress
 -(void)buildShorcutItems {
     NSMutableArray *items = [NSMutableArray new];
@@ -586,16 +636,6 @@
     }
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 //    [AdvertiseView advertiseVieWithURL:@"http://www.baidu.com" showSeconds:4.0];
@@ -612,13 +652,6 @@
     }
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
 
 // MARK: - WXApiDelegate
 -(void) onResp:(BaseResp*)resp {
@@ -676,6 +709,7 @@
     [contentString appendFormat:@"key=%@",secretkey];
     // sign签名加密
     NSString *md5Sign = [self md5:contentString];
+    
     // 支付参数
    /* PayReq *req = [[PayReq alloc] init];
     req.openID = weChatPayInfo[@"appId"];
@@ -688,7 +722,36 @@
     [WXApi sendReq:req];*/
 }
 
-// MARK: - md5签名加密 不过在App签名加密没有在后台签名安全
+- (void)applicationWillResignActive:(UIApplication *)application {
+    if (_bgTaskId == UIBackgroundTaskInvalid) {
+        _bgTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
+    }
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    if (_bgTaskId != UIBackgroundTaskInvalid) {
+        [[UIApplication sharedApplication] endBackgroundTask:_bgTaskId];
+        _bgTaskId = UIBackgroundTaskInvalid;
+    }
+}
+
+- (UIBackgroundTaskIdentifier)backgroundPlayerID:(UIBackgroundTaskIdentifier)backTaskId {
+    // 1. 设置并激活音频会话类别
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error: nil];
+    [session setActive:YES error:nil];
+    // 2. 允许应用程序接收远程控制
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    // 3. 设置后台任务ID
+    UIBackgroundTaskIdentifier newTaskId = UIBackgroundTaskInvalid;
+    newTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+    if (newTaskId != UIBackgroundTaskInvalid && backTaskId != UIBackgroundTaskInvalid) {
+        [[UIApplication sharedApplication] endBackgroundTask:backTaskId];
+    }
+    return newTaskId;
+}
+
+// MARK: - md5签名加密 不过在App签名加密没有在后台签名安全 这里只是模拟支付签名参数
 - (NSString *)md5:(NSString *)str {
     const char *cStr = [str UTF8String];
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
@@ -735,4 +798,5 @@
         method_exchangeImplementations(originMethod, replaceMethod);
     }
 }
+
 @end

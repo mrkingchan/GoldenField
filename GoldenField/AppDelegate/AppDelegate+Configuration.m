@@ -74,27 +74,31 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     if ([url.host rangeOfString:@"safePay"].location != NSNotFound) {
         //支付宝支付
-        //跳转至支付宝代码。。。
         return YES;
     } else if ([options[UIApplicationOpenURLOptionsSourceApplicationKey] isEqualToString:@"com.tecent.xin"] && [url.absoluteString rangeOfString:@"pay"].length) {
         //微信支付 url里面会出现pay而分享里面不会有pay 区分就在这里
         //跳转微信支付代码
         return  YES;
-    } else {
-        //友盟分享 跳转微信去分享
-//        return [[UMSocialManager defaultManager] handleOpenURL:url options:options];
+    } else if ([url.absoluteString rangeOfString:kWeChatAppKey].length) {
         return [WXApi handleOpenURL:url delegate:self];
+    } else if ([url.absoluteString rangeOfCharacterFromSet:kSinaAppKey].length) {
+        return [WeiboSDK handleOpenURL:url delegate:self];
     }
+    return YES;
 }
 
 ///depreccated Method
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     if ([url.absoluteString rangeOfString:@"com.tecent.xin"].location != NSNotFound) {
         return YES;
-    }else {
-//        return [[UMSocialManager defaultManager] handleOpenURL:url];
+    }else if ([url.absoluteString rangeOfString:kWeChatAppKey].length) {
+        //微信分享
         return [WXApi handleOpenURL:url delegate:self];
+    } else if ([url.absoluteString rangeOfString:kSinaAppKey].length) {
+        //微博分享
+        return [WeiboSDK handleOpenURL:url delegate:self];
     }
+    return YES;
 }
 
 // MARK:  -- registerApp Method
@@ -160,5 +164,4 @@
         return nil;
     }
 }
-
 @end

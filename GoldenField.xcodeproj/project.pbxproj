@@ -14,10 +14,14 @@
 		8F338DFF20A1A66A0069CFC1 /* DiscoveryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338DFE20A1A66A0069CFC1 /* DiscoveryModel.m */; };
 		8F338E0220A1A6F50069CFC1 /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F338E0120A1A6F50069CFC1 /* BoxView.m */; };
 		8F3C17BF20CF7280009311FD /* CommonDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C17BE20CF7280009311FD /* CommonDefine.m */; };
-		8F45B42F20F446C1005F811F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F45B42E20F446C1005F811F /* HealthKit.framework */; };
 		8F45B43320F44701005F811F /* HealthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45B43220F44701005F811F /* HealthVC.m */; };
 		8F45B43A20F44946005F811F /* iToast+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45B43920F44946005F811F /* iToast+Category.m */; };
 		8F45B43E20F461DA005F811F /* AutoLayoutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45B43D20F461DA005F811F /* AutoLayoutVC.m */; };
+		8F45B45820F5A1CF005F811F /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45B45720F5A1CF005F811F /* NotificationService.m */; };
+		8F45B45C20F5A1CF005F811F /* NotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8F45B45420F5A1CF005F811F /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8F45B47420F5B617005F811F /* UIViewController+PopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45B47320F5B617005F811F /* UIViewController+PopGesture.m */; };
+		8F45B47720F5B688005F811F /* UIScrollView+PopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45B47620F5B688005F811F /* UIScrollView+PopGesture.m */; };
+		8F45B47D20F5DCA5005F811F /* AppDelegate+RemotePush.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F45B47B20F5DCA4005F811F /* AppDelegate+RemotePush.m */; };
 		8F469D2920D9F003007F1166 /* ScreenShotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F469D2820D9F003007F1166 /* ScreenShotView.m */; };
 		8F4F6E1F20A3103E00885A0D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E1E20A3103E00885A0D /* BaseModel.m */; };
 		8F4F6E2220A314E000885A0D /* iToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4F6E2020A314E000885A0D /* iToast.m */; };
@@ -95,6 +99,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8F45B45A20F5A1CF005F811F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8FD8CD49209BEB3A00918C0C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F45B45320F5A1CF005F811F;
+			remoteInfo = NotificationService;
+		};
 		8FD8CD6A209BEB3D00918C0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8FD8CD49209BEB3A00918C0C /* Project object */;
@@ -111,6 +122,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8F45B46020F5A1CF005F811F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8F45B45C20F5A1CF005F811F /* NotificationService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3D4D14761B6F0283E6054ED9 /* Pods-GoldenField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoldenField.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoldenField/Pods-GoldenField.release.xcconfig"; sourceTree = "<group>"; };
 		8F165B7920BE479F00851C8A /* SkinVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkinVC.h; sourceTree = "<group>"; };
@@ -124,13 +149,22 @@
 		8F338E0120A1A6F50069CFC1 /* BoxView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
 		8F3C17BD20CF7280009311FD /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		8F3C17BE20CF7280009311FD /* CommonDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonDefine.m; sourceTree = "<group>"; };
-		8F45B42E20F446C1005F811F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		8F45B43120F44701005F811F /* HealthVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthVC.h; sourceTree = "<group>"; };
 		8F45B43220F44701005F811F /* HealthVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthVC.m; sourceTree = "<group>"; };
 		8F45B43820F44946005F811F /* iToast+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iToast+Category.h"; sourceTree = "<group>"; };
 		8F45B43920F44946005F811F /* iToast+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "iToast+Category.m"; sourceTree = "<group>"; };
 		8F45B43C20F461DA005F811F /* AutoLayoutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayoutVC.h; sourceTree = "<group>"; };
 		8F45B43D20F461DA005F811F /* AutoLayoutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutVC.m; sourceTree = "<group>"; };
+		8F45B45420F5A1CF005F811F /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F45B45620F5A1CF005F811F /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		8F45B45720F5A1CF005F811F /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		8F45B45920F5A1CF005F811F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F45B47220F5B617005F811F /* UIViewController+PopGesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PopGesture.h"; sourceTree = "<group>"; };
+		8F45B47320F5B617005F811F /* UIViewController+PopGesture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PopGesture.m"; sourceTree = "<group>"; };
+		8F45B47520F5B688005F811F /* UIScrollView+PopGesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+PopGesture.h"; sourceTree = "<group>"; };
+		8F45B47620F5B688005F811F /* UIScrollView+PopGesture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+PopGesture.m"; sourceTree = "<group>"; };
+		8F45B47B20F5DCA4005F811F /* AppDelegate+RemotePush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+RemotePush.m"; sourceTree = "<group>"; };
+		8F45B47C20F5DCA5005F811F /* AppDelegate+RemotePush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+RemotePush.h"; sourceTree = "<group>"; };
 		8F469D2720D9F003007F1166 /* ScreenShotView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenShotView.h; sourceTree = "<group>"; };
 		8F469D2820D9F003007F1166 /* ScreenShotView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenShotView.m; sourceTree = "<group>"; };
 		8F469E1220DC8C80007F1166 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
@@ -276,11 +310,17 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8F45B45120F5A1CF005F811F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8FD8CD4E209BEB3B00918C0C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F45B42F20F446C1005F811F /* HealthKit.framework in Frameworks */,
 				8F4F6E9920A9597A00885A0D /* UserNotifications.framework in Frameworks */,
 				0352B09B089EF7DD4B8EEB30 /* Pods_GoldenField.framework in Frameworks */,
 			);
@@ -306,7 +346,6 @@
 		70E6976CF8E61933B2F04B2C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8F45B42E20F446C1005F811F /* HealthKit.framework */,
 				8FBBF65C20B7FB030015728D /* libWeChatSDK.a */,
 				8F4F6E9820A9597A00885A0D /* UserNotifications.framework */,
 				A37BAFE98916D9177BA67A4D /* Pods_GoldenField.framework */,
@@ -339,6 +378,8 @@
 			children = (
 				8FD8CD54209BEB3B00918C0C /* AppDelegate.h */,
 				8FD8CD55209BEB3B00918C0C /* AppDelegate.m */,
+				8F45B47C20F5DCA5005F811F /* AppDelegate+RemotePush.h */,
+				8F45B47B20F5DCA4005F811F /* AppDelegate+RemotePush.m */,
 				8F4F6E6A20A58A4200885A0D /* AppDelegate+Configuration.h */,
 				8F4F6E6B20A58A4200885A0D /* AppDelegate+Configuration.m */,
 			);
@@ -381,6 +422,16 @@
 				8F45B43D20F461DA005F811F /* AutoLayoutVC.m */,
 			);
 			path = YogaKit;
+			sourceTree = "<group>";
+		};
+		8F45B45520F5A1CF005F811F /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				8F45B45620F5A1CF005F811F /* NotificationService.h */,
+				8F45B45720F5A1CF005F811F /* NotificationService.m */,
+				8F45B45920F5A1CF005F811F /* Info.plist */,
+			);
+			path = NotificationService;
 			sourceTree = "<group>";
 		};
 		8F6AC82E20AEC08C003E68D6 /* Swift */ = {
@@ -464,6 +515,10 @@
 				8FEF014A209C595C00C2F301 /* UIResponder+CurrentResponder.m */,
 				8FEF0142209C545700C2F301 /* UIView+Frame.h */,
 				8FEF0141209C545700C2F301 /* UIView+Frame.m */,
+				8F45B47220F5B617005F811F /* UIViewController+PopGesture.h */,
+				8F45B47320F5B617005F811F /* UIViewController+PopGesture.m */,
+				8F45B47520F5B688005F811F /* UIScrollView+PopGesture.h */,
+				8F45B47620F5B688005F811F /* UIScrollView+PopGesture.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -474,6 +529,7 @@
 				8FD8CD53209BEB3B00918C0C /* GoldenField */,
 				8FD8CD6C209BEB3D00918C0C /* GoldenFieldTests */,
 				8FD8CD77209BEB3D00918C0C /* GoldenFieldUITests */,
+				8F45B45520F5A1CF005F811F /* NotificationService */,
 				8FD8CD52209BEB3B00918C0C /* Products */,
 				DD7611E6137260C7DA7E6F29 /* Pods */,
 				70E6976CF8E61933B2F04B2C /* Frameworks */,
@@ -486,6 +542,7 @@
 				8FD8CD51209BEB3B00918C0C /* GoldenField.app */,
 				8FD8CD69209BEB3D00918C0C /* GoldenFieldTests.xctest */,
 				8FD8CD74209BEB3D00918C0C /* GoldenFieldUITests.xctest */,
+				8F45B45420F5A1CF005F811F /* NotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -493,7 +550,6 @@
 		8FD8CD53209BEB3B00918C0C /* GoldenField */ = {
 			isa = PBXGroup;
 			children = (
-				8F45B43B20F461B8005F811F /* YogaKit */,
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
 				8F4F6E9720A9595800885A0D /* GoldenField.entitlements */,
 				8FD8CD9A209BEF5700918C0C /* MainVC.h */,
@@ -501,6 +557,7 @@
 				8F3C17C220CF7353009311FD /* AppDelegate */,
 				8F45B43420F44845005F811F /* iToast */,
 				8F45B43020F446E0005F811F /* HealthKit */,
+				8F45B43B20F461B8005F811F /* YogaKit */,
 				8F469E1220DC8C80007F1166 /* Configure.h */,
 				8F6EC7FA20BFC3B0008F78CE /* WXManager.h */,
 				8F6EC7FB20BFC3B0008F78CE /* WXManager.m */,
@@ -833,6 +890,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8F45B45320F5A1CF005F811F /* NotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F45B45D20F5A1CF005F811F /* Build configuration list for PBXNativeTarget "NotificationService" */;
+			buildPhases = (
+				8F45B45020F5A1CF005F811F /* Sources */,
+				8F45B45120F5A1CF005F811F /* Frameworks */,
+				8F45B45220F5A1CF005F811F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationService;
+			productName = NotificationService;
+			productReference = 8F45B45420F5A1CF005F811F /* NotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8FD8CD50209BEB3B00918C0C /* GoldenField */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FD8CD7D209BEB3D00918C0C /* Build configuration list for PBXNativeTarget "GoldenField" */;
@@ -843,10 +917,12 @@
 				8FD8CD4F209BEB3B00918C0C /* Resources */,
 				D5CDCC41315A563EC50BE36E /* [CP] Copy Pods Resources */,
 				A780F936EC5FE779B335D0BA /* [CP] Embed Pods Frameworks */,
+				8F45B46020F5A1CF005F811F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8F45B45B20F5A1CF005F811F /* PBXTargetDependency */,
 			);
 			name = GoldenField;
 			productName = GoldenField;
@@ -898,6 +974,9 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Chan;
 				TargetAttributes = {
+					8F45B45320F5A1CF005F811F = {
+						CreatedOnToolsVersion = 9.3;
+					};
 					8FD8CD50209BEB3B00918C0C = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 0930;
@@ -906,7 +985,7 @@
 								enabled = 1;
 							};
 							com.apple.HealthKit = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -939,11 +1018,19 @@
 				8FD8CD50209BEB3B00918C0C /* GoldenField */,
 				8FD8CD68209BEB3D00918C0C /* GoldenFieldTests */,
 				8FD8CD73209BEB3D00918C0C /* GoldenFieldUITests */,
+				8F45B45320F5A1CF005F811F /* NotificationService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8F45B45220F5A1CF005F811F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8FD8CD4F209BEB3B00918C0C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1063,6 +1150,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8F45B45020F5A1CF005F811F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F45B45820F5A1CF005F811F /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8FD8CD4D209BEB3B00918C0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1078,6 +1173,7 @@
 				8FC83F83209FEF5500F753D6 /* BaseVC.m in Sources */,
 				8FEF0158209C619300C2F301 /* LoginVC.m in Sources */,
 				8FA8ED9A20B3B319003551F9 /* PCCircleInfoView.m in Sources */,
+				8F45B47720F5B688005F811F /* UIScrollView+PopGesture.m in Sources */,
 				8FEF0140209C438000C2F301 /* UserModel.m in Sources */,
 				8FEF013A209C41BA00C2F301 /* HttpClient.m in Sources */,
 				8F3C17BF20CF7280009311FD /* CommonDefine.m in Sources */,
@@ -1103,6 +1199,7 @@
 				8F45B43E20F461DA005F811F /* AutoLayoutVC.m in Sources */,
 				8FA8EDA120B3D821003551F9 /* TouchVC.m in Sources */,
 				8F6AC82020AD641B003E68D6 /* SharePanel.m in Sources */,
+				8F45B47420F5B617005F811F /* UIViewController+PopGesture.m in Sources */,
 				8F4F6E6920A5475E00885A0D /* ChanView.m in Sources */,
 				8FEF0133209C283D00C2F301 /* GuideHelpView.m in Sources */,
 				8F45B43320F44701005F811F /* HealthVC.m in Sources */,
@@ -1130,6 +1227,7 @@
 				8F6AC83020AEC0A9003E68D6 /* UIInitMethod.swift in Sources */,
 				8F4F6E1F20A3103E00885A0D /* BaseModel.m in Sources */,
 				8FC83FCE20A03FFA00F753D6 /* ScanVC.m in Sources */,
+				8F45B47D20F5DCA5005F811F /* AppDelegate+RemotePush.m in Sources */,
 				8FC83FD120A1399100F753D6 /* BaseScrollVC.m in Sources */,
 				8FEF013D209C41C800C2F301 /* DataManager.m in Sources */,
 				8FA8ED9E20B3B33B003551F9 /* CALayer+Anim.m in Sources */,
@@ -1161,6 +1259,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8F45B45B20F5A1CF005F811F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F45B45320F5A1CF005F811F /* NotificationService */;
+			targetProxy = 8F45B45A20F5A1CF005F811F /* PBXContainerItemProxy */;
+		};
 		8FD8CD6B209BEB3D00918C0C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8FD8CD50209BEB3B00918C0C /* GoldenField */;
@@ -1185,6 +1288,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8F45B45E20F5A1CF005F811F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3WGXX8M8S;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F45B45F20F5A1CF005F811F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3WGXX8M8S;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8FD8CD7B209BEB3D00918C0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1303,6 +1444,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1320,7 +1462,7 @@
 					"COCOAPODS=1",
 				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1336,6 +1478,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GoldenField/BaseMVC/Controllers/GoldenField-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1351,6 +1495,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3WGXX8M8S;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1368,7 +1513,7 @@
 					"isTrueEnviroment=1",
 				);
 				INFOPLIST_FILE = GoldenField/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1384,6 +1529,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.qianft.GoldenField;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GoldenField/BaseMVC/Controllers/GoldenField-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1471,6 +1617,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8F45B45D20F5A1CF005F811F /* Build configuration list for PBXNativeTarget "NotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F45B45E20F5A1CF005F811F /* Debug */,
+				8F45B45F20F5A1CF005F811F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8FD8CD4C209BEB3A00918C0C /* Build configuration list for PBXProject "GoldenField" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

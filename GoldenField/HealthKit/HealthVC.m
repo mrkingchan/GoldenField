@@ -8,6 +8,7 @@
 
 #import "HealthVC.h"
 #import <HealthKit/HealthKit.h>
+
 @interface HealthVC () {
     HKHealthStore *_store;
 }
@@ -27,12 +28,11 @@
     _store = [HKHealthStore new];
     
     //读取健康数据类别
-    NSSet *readObjectTypes = [NSSet setWithObjects:[HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount],[HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWalkingRunning],
+    NSSet *readObjectTypes = [NSSet setWithObjects:
+                              [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount],
+                              [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWalkingRunning],
                               [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceCycling],
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
                             [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWheelchair],
-#pragma clang diagnostic pop
                               [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBasalEnergyBurned],
                               [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierActiveEnergyBurned],
                               nil];
@@ -49,8 +49,6 @@
                                           iToastText(error.localizedDescription);
                                       }
     }];
-    
-    
     
     //获取每一天的健康数据
     HKQuantityType *quantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
@@ -80,4 +78,5 @@
         _store = nil;
     }
 }
+
 @end

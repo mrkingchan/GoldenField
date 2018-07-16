@@ -17,6 +17,7 @@
     return self;
 }
 
+// MARK: - setUI
 - (void)setUI {
     //背景
     _loadingViewBg = [[UIImageView alloc] init];
@@ -36,7 +37,7 @@
     _loadingTip = [[UILabel alloc] initWithFrame:CGRectMake(0, _loadingViewBg.bottom, self.width, 30)];
     _loadingTip.textAlignment = NSTextAlignmentCenter;
     _loadingTip.backgroundColor = [UIColor clearColor];
-    _loadingTip.font = kFontSize(13);
+    _loadingTip.font = [UIFont systemFontOfSize:13];
     _loadingTip.textColor = UIColorHex(0x787878);
     _loadingTip.text = @"正在玩命加载中...";
     [self addSubview:_loadingTip];
@@ -49,7 +50,7 @@
 //    [_refreshBtn setBackgroundImage:kIMAGE(@"button_image_yellow") forState:UIControlStateNormal];
     [_refreshBtn setBackgroundColor:[UIColor yellowColor]];
     
-    [_refreshBtn setTitleColor:kColorBlack forState:UIControlStateNormal];
+    [_refreshBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     _refreshBtn.layer.cornerRadius = 5;
     _refreshBtn.clipsToBounds = YES;
     [self addSubview:_refreshBtn];
@@ -104,7 +105,7 @@
     _refreshBtn.hidden = YES;
     _loadingViewBg.hidden = YES;
     [_loadingView.layer removeAllAnimations];
-    self.backgroundColor = kColorWhite;
+    self.backgroundColor = [UIColor whiteColor];
     // status1加载中 2加载失败 3无数据 4无数据带按钮
     if (style == LoadingStyleNormal) {
         [self startRotation];
@@ -115,7 +116,7 @@
         _status = LoadingStatusStart;
     } else if (style == LoadingStyleBgClear) {
         [self startRotation];
-        self.backgroundColor = kColorClear;
+        self.backgroundColor = [UIColor clearColor];
         _loadingViewBg.hidden = NO;
         _loadingViewBg.centerY -= _loadingTip.height;
         _loadingView.centerY = _loadingViewBg.centerY;
@@ -157,7 +158,7 @@
 // 刷新
 - (void)refreshClick {
 //    _loadingView.image = [UIImage sd_animatedGIFNamed:@"loading_icon"];
-    _loadingView.image = [UIImage sd_animatedGIFWithData:UIImagePNGRepresentation(kIMAGE(@"loading_icon"))];
+    _loadingView.image = [UIImage sd_animatedGIFWithData:UIImagePNGRepresentation([UIImage imageNamed:  @"loading_icon"])];
     _loadingTip.text = @"正在玩命加载中...";
     if (_delegate && [_delegate respondsToSelector:@selector(refreshClickWithStatus:)]) {
         [_delegate refreshClickWithStatus:_status];

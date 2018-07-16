@@ -175,14 +175,4 @@ static MainVC *shareInstance = nil;
 - (void)fixHotMemoryIssueAction {
     
 }
-
-- (void)loadView {
-    [super loadView];
-    if (_cmd) {
-        NSString *cmdStr = NSStringFromSelector(_cmd);
-        if ([cmdStr rangeOfString:@"loadView"].length) {
-            
-        }
-    }
-}
 @end
