@@ -57,6 +57,7 @@
 		8F9F107A20BE323300A0F317 /* UILabel+ChangeThem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F107920BE323300A0F317 /* UILabel+ChangeThem.m */; };
 		8F9F107D20BE326400A0F317 /* UITableView+ChangeThem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F107C20BE326400A0F317 /* UITableView+ChangeThem.m */; };
 		8F9F108020BE327100A0F317 /* UITableViewCell+ChangeThem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F107F20BE327100A0F317 /* UITableViewCell+ChangeThem.m */; };
+		8FA8357120FC8AE60055F177 /* pushAttach.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FA8357020FC8AE50055F177 /* pushAttach.png */; };
 		8FA8ED8720B3B199003551F9 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8620B3B199003551F9 /* SettingVC.m */; };
 		8FA8ED8A20B3B2AB003551F9 /* GestureSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8920B3B2AB003551F9 /* GestureSettingVC.m */; };
 		8FA8ED9220B3B309003551F9 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8E20B3B308003551F9 /* PCCircle.m */; };
@@ -224,6 +225,7 @@
 		8F9F107C20BE326400A0F317 /* UITableView+ChangeThem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ChangeThem.m"; sourceTree = "<group>"; };
 		8F9F107E20BE327100A0F317 /* UITableViewCell+ChangeThem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+ChangeThem.h"; sourceTree = "<group>"; };
 		8F9F107F20BE327100A0F317 /* UITableViewCell+ChangeThem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+ChangeThem.m"; sourceTree = "<group>"; };
+		8FA8357020FC8AE50055F177 /* pushAttach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pushAttach.png; sourceTree = "<group>"; };
 		8FA8ED8520B3B199003551F9 /* SettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
 		8FA8ED8620B3B199003551F9 /* SettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
 		8FA8ED8820B3B2AB003551F9 /* GestureSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GestureSettingVC.h; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 		8FD8CD53209BEB3B00918C0C /* GoldenField */ = {
 			isa = PBXGroup;
 			children = (
+				8FA8357020FC8AE50055F177 /* pushAttach.png */,
 				8FD8CDA9209BF3AF00918C0C /* PrefixHeader.pch */,
 				8F4F6E9720A9595800885A0D /* GoldenField.entitlements */,
 				8FD8CD9A209BEF5700918C0C /* MainVC.h */,
@@ -1039,6 +1042,7 @@
 				8FEF0148209C551300C2F301 /* FreshFishCell.xib in Resources */,
 				8F9F107320BD580D00A0F317 /* ThemeDefault.plist in Resources */,
 				8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */,
+				8FA8357120FC8AE60055F177 /* pushAttach.png in Resources */,
 				8F18EAE120BBDEE900862CCE /* Assets.xcassets in Resources */,
 				8F9F107420BD580D00A0F317 /* ThemeNightTag.plist in Resources */,
 				8F4F6E6620A52F3600885A0D /* GoldenField.db in Resources */,

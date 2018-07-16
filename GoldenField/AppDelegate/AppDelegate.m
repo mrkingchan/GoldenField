@@ -16,8 +16,9 @@
 #import <WXApi.h>
 #import <CommonCrypto/CommonDigest.h>
 #import "ScreenShotView.h"
+#import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate,WXApiDelegate,WeiboSDKDelegate> {
+@interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate,WXApiDelegate,WeiboSDKDelegate,UNUserNotificationCenterDelegate> {
     UIAlertController *_alertVC;
     NSMutableString *_messageStr;
     UIBackgroundTaskIdentifier _bgTaskId;
@@ -26,6 +27,83 @@
 
 @implementation AppDelegate
 
+// MARK: - iOS10之后的本地推送
+- (void)fireNotificationWithContent:(NSDictionary *)content {
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        center.delegate = self;
+        __weak typeof(self) weaksSelf  = self;
+        [center requestAuthorizationWithOptions:UNAuthorizationOptionAlert|UNAuthorizationOptionSound|UNAuthorizationOptionBadge
+                              completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                                  if (!granted) {
+                                      AppDelegate *strongSelf = weaksSelf;
+                                      [self InsertAlerController:@"请前往设置打开通知权限" messageStr:nil alertStyle:UIAlertControllerStyleAlert button1Title:@"前往" button1Action:^(NSString * _Nonnull positiveStr) {
+                                          
+                                      } button2Title:@"取消"
+                                                   button2Action:^(NSString * _Nonnull cancelStr) {
+                                        
+                                                   } targetController: strongSelf->_window.rootViewController
+                                       ];
+                                  } else {
+                                      
+                                  }
+                              }];
+        
+        //推送内容
+        UNMutableNotificationContent *notiContent = [UNMutableNotificationContent new];
+        notiContent.sound = [UNNotificationSound defaultSound];
+        notiContent.title = content[@"title"];
+        //附件
+        notiContent.attachments = @[[UNNotificationAttachment attachmentWithIdentifier:@"Chan"
+                                                                                   URL:[[NSBundle mainBundle]URLForResource:@"pushAttach" withExtension:@"png"] options:nil error:nil]];
+        notiContent.badge = [NSNumber numberWithInteger:100];
+        notiContent.userInfo = content;
+        notiContent.subtitle = content[@"content"];
+        notiContent.body = content[@"content"];
+        
+        //类别
+        NSMutableArray *cates = [NSMutableArray new];
+        for (int i = 0 ; i < 3; i  ++) {
+            if (i == 0) {
+             UNTextInputNotificationAction *inputAction = [UNTextInputNotificationAction actionWithIdentifier:@"inputIndentifier" title:@"输入" options:UNNotificationActionOptionForeground textInputButtonTitle:@"回复" textInputPlaceholder:@"请回复"];
+                [cates addObject:inputAction];
+            } else {
+                UNNotificationAction *action = [UNNotificationAction actionWithIdentifier:[NSString stringWithFormat:@"actionIdentifier:%i",i] title: [NSString stringWithFormat:@"%@",i == 1 ? @"提交":@"取消"] options:i == 0 ? UNNotificationActionOptionForeground:i== 1 ? UNNotificationActionOptionAuthenticationRequired: UNNotificationActionOptionAuthenticationRequired];
+                [cates addObject:action];
+            }
+        }
+        
+        //类别
+        UNNotificationCategory *cate = [UNNotificationCategory categoryWithIdentifier:@"com.Chan.notification"
+                                                                              actions:cates intentIdentifiers:@[@"1",@"2",@"3"] options:  UNNotificationCategoryOptionCustomDismissAction];
+        [center setNotificationCategories:[NSSet setWithObject:cate]];
+        
+        //触发器
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:2.0 repeats:NO];
+        notiContent.categoryIdentifier = @"com.Chan.notification";
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"Chan"
+                                                                              content:notiContent trigger:trigger];
+        
+        //触发通知请求
+        [center addNotificationRequest:request
+                 withCompletionHandler:^(NSError * _Nullable error) {
+                     if (!error) {
+                         NSLog(@"触发通知成功!");
+                     }
+                 }];
+        
+    } else {
+        UILocalNotification *localNotification = [UILocalNotification new];
+        if (@available(iOS 8.2, *)) {
+            localNotification.alertTitle = content[@"title"];
+        } else {
+        }
+        localNotification.alertBody = content[@"content"];
+        localNotification.alertLaunchImage = @"AppIcon";
+    }
+}
+
+// MARK: - 程序入口
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /*_window = [UIWindow new];
     _window.frame = [UIScreen mainScreen].bounds;
@@ -67,7 +145,26 @@
     [_lockView addSubview:_gestureView];
     [_window sendSubviewToBack:_lockView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(snapShotAction) name:UIApplicationUserDidTakeScreenshotNotification object:nil];
-    [[[NSThread alloc] initWithTarget:self selector:@selector(threadAction) object:nil] start];
+//    [[[NSThread alloc] initWithTarget:self selector:@selector(threadAction) object:nil] start];
+    
+    //远程推送打开
+    if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
+        NSDictionary *info = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+        NSLog(@"remoteNoti = %@",info);
+    } else if (launchOptions[UIApplicationLaunchOptionsLocalNotificationKey]) {
+        //本地推送打开App
+        UILocalNotification* localNoti = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
+        NSLog(@"localNoti = %@",localNoti.userInfo);
+    } else {
+     
+    }
+    
+    [self configurePushWithApplication:application];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self fireNotificationWithContent:@{@"title":@"Chan",
+                                            @"content":@"Chan"
+                                            }];
+    });
     return YES;
 }
 - (void)threadAction {
@@ -535,7 +632,6 @@
     [synth speakUtterance:utterance];
 }
 
-
 // MARK:  -- touchPress
 -(void)buildShorcutItems {
     NSMutableArray *items = [NSMutableArray new];
@@ -569,12 +665,14 @@
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler {
     NSDictionary * userInfo = response.notification.request.content.userInfo;
+    NSLog(@"notiUserInfo = %@",userInfo);
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         //应用处于后台时的远程推送接受
         
         [UMessage didReceiveRemoteNotification:userInfo];
-    } else{
+    } else if ([response.notification.request.trigger isKindOfClass:[UNTimeIntervalNotificationTrigger class]]){
         //应用处于后台时的本地推送接受
+        
     }
 }
 
@@ -651,7 +749,6 @@
         [_window bringSubviewToFront:_lockView];
     }
 }
-
 
 // MARK: - WXApiDelegate
 -(void) onResp:(BaseResp*)resp {
@@ -750,6 +847,7 @@
     }
     return newTaskId;
 }
+
 
 // MARK: - md5签名加密 不过在App签名加密没有在后台签名安全 这里只是模拟支付签名参数
 - (NSString *)md5:(NSString *)str {
