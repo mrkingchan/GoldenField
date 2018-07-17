@@ -37,6 +37,7 @@
                               completionHandler:^(BOOL granted, NSError * _Nullable error) {
                                   if (!granted) {
                                       AppDelegate *strongSelf = weaksSelf;
+                                      //swift的桥接文件，自动转换成OC的语法
                                       [self InsertAlerController:@"请前往设置打开通知权限" messageStr:nil alertStyle:UIAlertControllerStyleAlert button1Title:@"前往" button1Action:^(NSString * _Nonnull positiveStr) {
                                           
                                       } button2Title:@"取消"
@@ -68,18 +69,18 @@
              UNTextInputNotificationAction *inputAction = [UNTextInputNotificationAction actionWithIdentifier:@"inputIndentifier" title:@"输入" options:UNNotificationActionOptionForeground textInputButtonTitle:@"回复" textInputPlaceholder:@"请回复"];
                 [cates addObject:inputAction];
             } else {
-                UNNotificationAction *action = [UNNotificationAction actionWithIdentifier:[NSString stringWithFormat:@"actionIdentifier:%i",i] title: [NSString stringWithFormat:@"%@",i == 1 ? @"提交":@"取消"] options:i == 0 ? UNNotificationActionOptionForeground:i== 1 ? UNNotificationActionOptionAuthenticationRequired: UNNotificationActionOptionAuthenticationRequired];
+                UNNotificationAction *action = [UNNotificationAction actionWithIdentifier:[NSString stringWithFormat:@"actionIdentifier:%i",i] title: [NSString stringWithFormat:@"%@",i == 1 ? @"提交":@"取消"] options:i== 1 ? UNNotificationActionOptionAuthenticationRequired: UNNotificationActionOptionDestructive];
                 [cates addObject:action];
             }
         }
         
         //类别
-        UNNotificationCategory *cate = [UNNotificationCategory categoryWithIdentifier:@"com.Chan.notification"
+        UNNotificationCategory *cate = [UNNotificationCategory categoryWithIdentifier:@"com.Chan.notificationCate"
                                                                               actions:cates intentIdentifiers:@[@"1",@"2",@"3"] options:  UNNotificationCategoryOptionCustomDismissAction];
         [center setNotificationCategories:[NSSet setWithObject:cate]];
         
         //触发器
-        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:2.0 repeats:NO];
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:60 repeats:YES];
         notiContent.categoryIdentifier = @"com.Chan.notification";
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"Chan"
                                                                               content:notiContent trigger:trigger];
@@ -159,14 +160,18 @@
      
     }
     
+    //配置推送
     [self configurePushWithApplication:application];
+    //测试推送
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self fireNotificationWithContent:@{@"title":@"Chan",
-                                            @"content":@"Chan"
+                                            @"content":@"Chan",
+                                            @"category":@"com.Chan.notificationCate"
                                             }];
     });
     return YES;
 }
+
 - (void)threadAction {
     while (true) {
         puts(__func__);
@@ -672,7 +677,16 @@
         [UMessage didReceiveRemoteNotification:userInfo];
     } else if ([response.notification.request.trigger isKindOfClass:[UNTimeIntervalNotificationTrigger class]]){
         //应用处于后台时的本地推送接受
-        
+        //判断点击按钮
+        NSString *actionIdentifier = response.actionIdentifier;
+        puts(__func__);
+        if ([actionIdentifier isEqualToString:@"inputIndentifier"]) {
+            //输入
+        } else if ([actionIdentifier isEqualToString:@"actionIdentifier:1"]) {
+            //提交
+        } else if ([actionIdentifier isEqualToString:@"actionIdentifier2"]) {
+            //取消
+        }
     }
 }
 
@@ -697,20 +711,29 @@
     if ([url.host rangeOfString:@"safePay"].length) {
        //支付宝支付
         return YES;
-    } else if ([options[UIApplicationOpenURLOptionsSourceApplicationKey] isEqualToString:@"com.tecent.xin"] && [url.absoluteString rangeOfString:@"pay"].length) {
-        //微信支付
-        return YES;
+    } else if (@available(iOS 9.0, *)) {
+        if ([options[UIApplicationOpenURLOptionsSourceApplicationKey] isEqualToString:@"com.tecent.xin"] && [url.absoluteString rangeOfString:@"pay"].length) {
+            //微信支付
+            return YES;
+        }else if ([url.absoluteString rangeOfString:kWeChatAppKey].length) {
+            //微信分享
+            return [WXApi handleOpenURL:url delegate:self];
+        } else if ([url.absoluteString rangeOfString:kSinaAppKey].length) {
+            //新浪
+            return [WeiboSDK handleOpenURL:url delegate:self];
+        }
+    } else {
         
-    }else if ([url.absoluteString rangeOfString:kWeChatAppKey].length) {
-        //微信分享
-        return [WXApi handleOpenURL:url delegate:self];
-    } else if ([url.absoluteString rangeOfString:kSinaAppKey].length) {
-        //新浪
-        return [WeiboSDK handleOpenURL:url delegate:self];
     }
     return YES;
 }
 
+- (void)viewDidLoadMethod {
+    NSString *cmdStr = NSStringFromSelector(_cmd);
+    if ([cmdStr rangeOfString:@"location"].location!= NSNotFound) {
+        
+    }
+}
 // MARK: - decrepted Method
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     if ([url.host rangeOfString:@"safePay"].length) {
@@ -728,7 +751,8 @@
     return YES;
 }
 
-- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+// MARK: - 3D Touch Action点击事件
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler  API_AVAILABLE(ios(9.0)){
     if (DEBUG) {
         NSLog(@"您点击的是%@",shortcutItem.localizedTitle);
     }
@@ -765,7 +789,7 @@
     }
 }
 
-// MARK: - WeiboSDKDelegate
+// MARK: - WeiboSDKDelegate,因为都是requiredMethod 为避免警告，这连个代理方法最好bestAttemptContent最好都写上
 - (void)didReceiveWeiboResponse:(WBBaseResponse *)response {
     if (response.statusCode == 0) {
         iToastText(@"分享成功！");
@@ -774,7 +798,11 @@
     }
 }
 
-// weChatPayInfo中的数据是调用统一下单API之后返回的数据(这个是后台返回来的数据,一般的签名加密参数大多数后台签名然后返回给移动端使用，这里使用的是移动端自己签名)
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request {
+    
+}
+
+// MARK: -  weChatPayInfo中的数据是调用统一下单API之后返回的数据(这个是后台返回来的数据,一般的签名加密参数大多数后台签名然后返回给移动端使用，这里使用的是移动端自己签名)
 - (void)wxPay:(NSDictionary *)weChatPayInfo {
     time_t now;
     time(&now);
@@ -848,7 +876,6 @@
     return newTaskId;
 }
 
-
 // MARK: - md5签名加密 不过在App签名加密没有在后台签名安全 这里只是模拟支付签名参数
 - (NSString *)md5:(NSString *)str {
     const char *cStr = [str UTF8String];
@@ -896,5 +923,4 @@
         method_exchangeImplementations(originMethod, replaceMethod);
     }
 }
-
 @end

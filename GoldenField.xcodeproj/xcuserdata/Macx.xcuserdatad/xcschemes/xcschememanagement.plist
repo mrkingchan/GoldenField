@@ -4,15 +4,87 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>GoldenField.xcscheme</key>
+		<key>GoldenField 2.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+		<key>GoldenField 4.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
-		<key>NotificationService.xcscheme</key>
+		<key>GoldenField.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>MyNotificationContent.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>17</integer>
+		</dict>
+		<key>NotificationContent 2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
+		<key>NotificationContent.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>NotificationService.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>8F45B45320F5A1CF005F811F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8FA8357520FC98280055F177</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8FA835AB20FC9CAC0055F177</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8FD8CD50209BEB3B00918C0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8FD8CD68209BEB3D00918C0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8FD8CD73209BEB3D00918C0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
