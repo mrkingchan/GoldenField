@@ -12,7 +12,7 @@
 #import "HealthVC.h"
 #import "AutoLayoutVC.h"
 
-@interface SettingVC ()
+@interface SettingVC () <TZImagePickerControllerDelegate>
 
 @end
 
@@ -25,6 +25,7 @@
     [self.dataArray addObject:@"皮肤设置"];
     [self.dataArray addObject:@"健康数据管理"];
     [self.dataArray addObject:@"YogaKit"];
+    [self.dataArray addObject:@"设置启动图"];
 }
 
 // MARK:  -- UITableViewDataSource&Delegate
@@ -59,6 +60,34 @@
         [self.navigationController pushViewController:[HealthVC new] animated:YES];
     } else if (indexPath.row == 3) {
         [self.navigationController pushViewController:[AutoLayoutVC new] animated:YES];
+    } else if (indexPath.row == 4) {
+        //设置动态启动图
+        TZImagePickerController *pickerVC = [[TZImagePickerController alloc] initWithMaxImagesCount:1 columnNumber:4 delegate:self];
+        pickerVC.showSelectBtn = YES;
+        pickerVC.showSelectedIndex = YES;
+        [self presentViewController:pickerVC animated:YES completion:nil];
+    }
+}
+
+// MARK: - TZImagePickerControllerDelegate
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto infos:(NSArray<NSDictionary *> *)infos {
+    if (photos.count) {
+        NSArray *paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+        NSString *filePath = [[paths objectAtIndex:0]stringByAppendingPathComponent:
+                              [NSString stringWithFormat:@"launchImage.png"]];
+        BOOL result =[UIImagePNGRepresentation(photos.firstObject)writeToFile:filePath   atomically:YES];
+        if (result == YES) {
+            NSLog(@"保存成功");
+        }
+    }
+}
+
+// MARK: - memory management
+- (void)dealloc {
+    if (self.tableView) {
+        self.tableView.delegate = nil;
+        self.tableView.dataSource = nil;
+        self.tableView = nil;
     }
 }
 @end

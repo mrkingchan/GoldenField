@@ -61,6 +61,8 @@
 		8FA835B220FC9CAC0055F177 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA835B120FC9CAC0055F177 /* NotificationViewController.m */; };
 		8FA835B520FC9CAC0055F177 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FA835B320FC9CAC0055F177 /* MainInterface.storyboard */; };
 		8FA835B920FC9CAC0055F177 /* MyNotificationContent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8FA835AC20FC9CAC0055F177 /* MyNotificationContent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8FA835C620FDCB6D0055F177 /* LaunchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA835C420FDCB6D0055F177 /* LaunchVC.m */; };
+		8FA835C720FDCB6D0055F177 /* LaunchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA835C520FDCB6D0055F177 /* LaunchVC.xib */; };
 		8FA8ED8720B3B199003551F9 /* SettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8620B3B199003551F9 /* SettingVC.m */; };
 		8FA8ED8A20B3B2AB003551F9 /* GestureSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8920B3B2AB003551F9 /* GestureSettingVC.m */; };
 		8FA8ED9220B3B309003551F9 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA8ED8E20B3B308003551F9 /* PCCircle.m */; };
@@ -235,6 +237,9 @@
 		8FA835B120FC9CAC0055F177 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		8FA835B420FC9CAC0055F177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		8FA835B620FC9CAC0055F177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FA835C320FDCB6D0055F177 /* LaunchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchVC.h; sourceTree = "<group>"; };
+		8FA835C420FDCB6D0055F177 /* LaunchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchVC.m; sourceTree = "<group>"; };
+		8FA835C520FDCB6D0055F177 /* LaunchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchVC.xib; sourceTree = "<group>"; };
 		8FA8ED8520B3B199003551F9 /* SettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingVC.h; sourceTree = "<group>"; };
 		8FA8ED8620B3B199003551F9 /* SettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingVC.m; sourceTree = "<group>"; };
 		8FA8ED8820B3B2AB003551F9 /* GestureSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GestureSettingVC.h; sourceTree = "<group>"; };
@@ -767,6 +772,9 @@
 				8FA8ED8920B3B2AB003551F9 /* GestureSettingVC.m */,
 				8F165B7920BE479F00851C8A /* SkinVC.h */,
 				8F165B7A20BE479F00851C8A /* SkinVC.m */,
+				8FA835C320FDCB6D0055F177 /* LaunchVC.h */,
+				8FA835C420FDCB6D0055F177 /* LaunchVC.m */,
+				8FA835C520FDCB6D0055F177 /* LaunchVC.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1065,6 +1073,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F9F107220BD580D00A0F317 /* ThemeNight.plist in Resources */,
+				8FA835C720FDCB6D0055F177 /* LaunchVC.xib in Resources */,
 				8FEF0148209C551300C2F301 /* FreshFishCell.xib in Resources */,
 				8F9F107320BD580D00A0F317 /* ThemeDefault.plist in Resources */,
 				8FD8CD5C209BEB3B00918C0C /* Main.storyboard in Resources */,
@@ -1131,6 +1140,7 @@
 				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SGQRCode/SGQRCode.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
 				"${BUILT_PRODUCTS_DIR}/Yoga/yoga.framework",
 				"${BUILT_PRODUCTS_DIR}/YogaKit/YogaKit.framework",
 			);
@@ -1149,6 +1159,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SGQRCode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YogaKit.framework",
 			);
@@ -1209,6 +1220,7 @@
 				8F3C17BF20CF7280009311FD /* CommonDefine.m in Sources */,
 				8F165B7B20BE479F00851C8A /* SkinVC.m in Sources */,
 				8FA8ED9220B3B309003551F9 /* PCCircle.m in Sources */,
+				8FA835C620FDCB6D0055F177 /* LaunchVC.m in Sources */,
 				8F9F107720BD59E400A0F317 /* UIColor+Hex.m in Sources */,
 				8FD8CD9F209BF38500918C0C /* HomeVC.m in Sources */,
 				8F6EC7FC20BFC3B0008F78CE /* WXManager.m in Sources */,
@@ -1487,7 +1499,7 @@
 			baseConfigurationReference = AEEA02365E0B3A840EB5EA63 /* Pods-GoldenField.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1538,7 +1550,7 @@
 			baseConfigurationReference = 3D4D14761B6F0283E6054ED9 /* Pods-GoldenField.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-1";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = GoldenField/GoldenField.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

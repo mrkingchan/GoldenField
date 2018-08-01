@@ -16,5 +16,7 @@
 
 @property(nonatomic,strong)UILabel *tip;
 
+- (void)fireNotificationWithContent:(NSDictionary *)content;
+
 @end
 

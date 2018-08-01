@@ -82,6 +82,7 @@
     return task;
 }
 
+// MARK: - 转json
 + (id)transformResponseObejctToJson:(id)responseObject url:(NSString *)urlStr{
     id json;
     if ([responseObject isKindOfClass:[NSData class]]) {
@@ -98,7 +99,7 @@
     return json ?:@{};
 }
 
-// MARK:  -- GET & POST
+// MARK:  -- POST
 + (NSURLSessionDataTask *)innerPostWithUrl:(NSString *)urlStr
                                     params:(id)params
                                     target:(id)target
@@ -113,7 +114,7 @@
                                            failure:failure];
 }
 
-
+// MARK: - GET
 + (NSURLSessionDataTask *)innerGetWithUrl:(NSString *)urlStr
                                     params:(id)params
                                     target:(id)target
@@ -164,6 +165,5 @@
     }
     return task;
 }
-
 @end
 

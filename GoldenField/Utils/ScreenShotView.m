@@ -85,7 +85,9 @@
                                  completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
                                      @strongify(self);
                                      if (data.length) {
-                                         self->_imageView.image = [[UIImage alloc] initWithData:data];
+                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                            self->_imageView.image = [[UIImage alloc] initWithData:data];
+                                         });
                                      }
                                  }]resume];
 }

@@ -17,6 +17,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import "ScreenShotView.h"
 #import <UserNotifications/UserNotifications.h>
+#import "LaunchVC.h"
 
 @interface AppDelegate () <UNUserNotificationCenterDelegate,CircleViewDelegate,WXApiDelegate,WeiboSDKDelegate,UNUserNotificationCenterDelegate> {
     UIAlertController *_alertVC;
@@ -26,83 +27,6 @@
 @end
 
 @implementation AppDelegate
-
-// MARK: - iOS10之后的本地推送
-- (void)fireNotificationWithContent:(NSDictionary *)content {
-    if (@available(iOS 10.0, *)) {
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        center.delegate = self;
-        __weak typeof(self) weaksSelf  = self;
-        [center requestAuthorizationWithOptions:UNAuthorizationOptionAlert|UNAuthorizationOptionSound|UNAuthorizationOptionBadge
-                              completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                                  if (!granted) {
-                                      AppDelegate *strongSelf = weaksSelf;
-                                      //swift的桥接文件，自动转换成OC的语法
-                                      [self InsertAlerController:@"请前往设置打开通知权限" messageStr:nil alertStyle:UIAlertControllerStyleAlert button1Title:@"前往" button1Action:^(NSString * _Nonnull positiveStr) {
-                                          
-                                      } button2Title:@"取消"
-                                                   button2Action:^(NSString * _Nonnull cancelStr) {
-                                        
-                                                   } targetController: strongSelf->_window.rootViewController
-                                       ];
-                                  } else {
-                                      
-                                  }
-                              }];
-        
-        //推送内容
-        UNMutableNotificationContent *notiContent = [UNMutableNotificationContent new];
-        notiContent.sound = [UNNotificationSound defaultSound];
-        notiContent.title = content[@"title"];
-        //附件
-        notiContent.attachments = @[[UNNotificationAttachment attachmentWithIdentifier:@"Chan"
-                                                                                   URL:[[NSBundle mainBundle]URLForResource:@"pushAttach" withExtension:@"png"] options:nil error:nil]];
-        notiContent.badge = [NSNumber numberWithInteger:100];
-        notiContent.userInfo = content;
-        notiContent.subtitle = content[@"content"];
-        notiContent.body = content[@"content"];
-        
-        //类别
-        NSMutableArray *cates = [NSMutableArray new];
-        for (int i = 0 ; i < 3; i  ++) {
-            if (i == 0) {
-             UNTextInputNotificationAction *inputAction = [UNTextInputNotificationAction actionWithIdentifier:@"inputIndentifier" title:@"输入" options:UNNotificationActionOptionForeground textInputButtonTitle:@"回复" textInputPlaceholder:@"请回复"];
-                [cates addObject:inputAction];
-            } else {
-                UNNotificationAction *action = [UNNotificationAction actionWithIdentifier:[NSString stringWithFormat:@"actionIdentifier:%i",i] title: [NSString stringWithFormat:@"%@",i == 1 ? @"提交":@"取消"] options:i== 1 ? UNNotificationActionOptionAuthenticationRequired: UNNotificationActionOptionDestructive];
-                [cates addObject:action];
-            }
-        }
-        
-        //类别
-        UNNotificationCategory *cate = [UNNotificationCategory categoryWithIdentifier:@"com.Chan.notificationCate"
-                                                                              actions:cates intentIdentifiers:@[@"1",@"2",@"3"] options:  UNNotificationCategoryOptionCustomDismissAction];
-        [center setNotificationCategories:[NSSet setWithObject:cate]];
-        
-        //触发器
-        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:60 repeats:YES];
-        notiContent.categoryIdentifier = @"com.Chan.notification";
-        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"Chan"
-                                                                              content:notiContent trigger:trigger];
-        
-        //触发通知请求
-        [center addNotificationRequest:request
-                 withCompletionHandler:^(NSError * _Nullable error) {
-                     if (!error) {
-                         NSLog(@"触发通知成功!");
-                     }
-                 }];
-        
-    } else {
-        UILocalNotification *localNotification = [UILocalNotification new];
-        if (@available(iOS 8.2, *)) {
-            localNotification.alertTitle = content[@"title"];
-        } else {
-        }
-        localNotification.alertBody = content[@"content"];
-        localNotification.alertLaunchImage = @"AppIcon";
-    }
-}
 
 // MARK: - 程序入口
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -118,7 +42,6 @@
     } else {
         NSLog(@"ReleaseMode");
     }
-    [self buildShorcutItems];
     [self configureGuide];
     [self configureShare];
     [self configureCommonPushWithLanunchOptions:launchOptions];
@@ -127,7 +50,7 @@
     [NSURLProtocol wk_registerScheme:@"http"];
     [NSURLProtocol wk_registerScheme:@"https"];
 //    [NSURLProtocol registerClass:[URLProtocol class]];
-    
+
     /*UIView *subView = ({
      UIView*newView = [UIView new];
      newView.backgroundColor = kColorOrange;
@@ -163,13 +86,91 @@
     //配置推送
     [self configurePushWithApplication:application];
     //测试推送
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    /*dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self fireNotificationWithContent:@{@"title":@"Chan",
                                             @"content":@"Chan",
                                             @"category":@"com.Chan.notificationCate"
                                             }];
-    });
+    });*/
+    
     return YES;
+}
+
+// MARK: - iOS10之后的本地推送
+- (void)fireNotificationWithContent:(NSDictionary *)content {
+    if (@available(iOS 10.0, *)) {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        center.delegate = self;
+        __weak typeof(self) weaksSelf  = self;
+        [center requestAuthorizationWithOptions:UNAuthorizationOptionAlert|UNAuthorizationOptionSound|UNAuthorizationOptionBadge
+                              completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                                  if (!granted) {
+                                      AppDelegate *strongSelf = weaksSelf;
+                                      //swift的桥接文件，自动转换成OC的语法
+                                      [self InsertAlerController:@"请前往设置打开通知权限" messageStr:nil alertStyle:UIAlertControllerStyleAlert button1Title:@"前往" button1Action:^(NSString * _Nonnull positiveStr) {
+                                          
+                                      } button2Title:@"取消"
+                                                   button2Action:^(NSString * _Nonnull cancelStr) {
+                                                       
+                                                   } targetController: strongSelf->_window.rootViewController
+                                       ];
+                                  } else {
+                                      
+                                  }
+                              }];
+        
+        //推送内容
+        UNMutableNotificationContent *notiContent = [UNMutableNotificationContent new];
+        notiContent.sound = [UNNotificationSound defaultSound];
+        notiContent.title = content[@"title"];
+        //附件
+        notiContent.attachments = @[[UNNotificationAttachment attachmentWithIdentifier:@"Chan"
+                                                                                   URL:[[NSBundle mainBundle]URLForResource:@"pushAttach" withExtension:@"png"] options:nil error:nil]];
+        notiContent.badge = [NSNumber numberWithInteger:100];
+        notiContent.userInfo = content;
+        notiContent.subtitle = content[@"content"];
+        notiContent.body = content[@"content"];
+        
+        //类别
+        NSMutableArray *cates = [NSMutableArray new];
+        for (int i = 0 ; i < 3; i  ++) {
+            if (i == 0) {
+                UNTextInputNotificationAction *inputAction = [UNTextInputNotificationAction actionWithIdentifier:@"inputIndentifier" title:@"输入" options:UNNotificationActionOptionForeground textInputButtonTitle:@"回复" textInputPlaceholder:@"请回复"];
+                [cates addObject:inputAction];
+            } else {
+                UNNotificationAction *action = [UNNotificationAction actionWithIdentifier:[NSString stringWithFormat:@"actionIdentifier:%i",i] title: [NSString stringWithFormat:@"%@",i == 1 ? @"提交":@"取消"] options:i== 1 ? UNNotificationActionOptionAuthenticationRequired: UNNotificationActionOptionDestructive];
+                [cates addObject:action];
+            }
+        }
+        
+        //类别
+        UNNotificationCategory *cate = [UNNotificationCategory categoryWithIdentifier:@"com.Chan.notificationCate"
+                                                                              actions:cates intentIdentifiers:@[@"1",@"2",@"3"] options:  UNNotificationCategoryOptionCustomDismissAction];
+        [center setNotificationCategories:[NSSet setWithObject:cate]];
+        
+        //触发器
+        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:0.1 repeats:NO];
+        notiContent.categoryIdentifier = @"com.Chan.notification";
+        UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"Chan"
+                                                                              content:notiContent trigger:trigger];
+        
+        //触发通知请求
+        [center addNotificationRequest:request
+                 withCompletionHandler:^(NSError * _Nullable error) {
+                     if (!error) {
+                         NSLog(@"触发通知成功!");
+                     }
+                 }];
+        
+    } else {
+        UILocalNotification *localNotification = [UILocalNotification new];
+        if (@available(iOS 8.2, *)) {
+            localNotification.alertTitle = content[@"title"];
+        } else {
+        }
+        localNotification.alertBody = content[@"content"];
+        localNotification.alertLaunchImage = @"AppIcon";
+    }
 }
 
 - (void)threadAction {
@@ -285,7 +286,6 @@
     _tip.text = @"连接点至少为4个!";
     [_lockView.layer shake];
 }
-
 /*
 // MARK: - verifyTouchID
 -(void)verifyTouch {
@@ -557,7 +557,7 @@
 }
 
 // MARK:  -- 交互推送
-- (void)configureInteractPushWithLaunchOptions:(NSDictionary *)launchOptions {
+- (void)configureInteractPushWithLaunchOptions:(NSDictionary *)launchOptions  {
     UMessageRegisterEntity * entity = [UMessageRegisterEntity new];
     entity.types = UMessageAuthorizationOptionBadge|UMessageAuthorizationOptionAlert|UMessageAuthorizationOptionSound;
     if (kiOSVersion>=8 && kiOSVersion<10) {
@@ -594,7 +594,6 @@
     [UMessage registerForRemoteNotificationsWithLaunchOptions:launchOptions Entity:entity completionHandler:^(BOOL granted, NSError * _Nullable error) {
     }];
 }
-
 
 // MARK: - 配置推送
 - (void)configurePushWithApplication:(UIApplication *)application {
@@ -638,7 +637,7 @@
 }
 
 // MARK:  -- touchPress
--(void)buildShorcutItems {
+-(void)buildShorcutItems API_AVAILABLE(ios(9.0)){
     NSMutableArray *items = [NSMutableArray new];
     NSArray *types = @[@(UIApplicationShortcutIconTypeDate),
                        @(UIApplicationShortcutIconTypeHome),
@@ -654,7 +653,7 @@
 }
 
 // MARK:  -- UNUserNotificationCenterDelegate ios10 以上的推送接收方法
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler  API_AVAILABLE(ios(10.0)){
     NSDictionary * userInfo = notification.request.content.userInfo;
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         //APNS走远程推送
@@ -673,13 +672,15 @@
     NSLog(@"notiUserInfo = %@",userInfo);
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         //应用处于后台时的远程推送接受
-        
         [UMessage didReceiveRemoteNotification:userInfo];
     } else if ([response.notification.request.trigger isKindOfClass:[UNTimeIntervalNotificationTrigger class]]){
+        //定时推送
         //应用处于后台时的本地推送接受
         //判断点击按钮
         NSString *actionIdentifier = response.actionIdentifier;
         puts(__func__);
+        NSLog(@"你点击的是%@",actionIdentifier);
+        //根据idnntifier来判断点击的是哪个按钮
         if ([actionIdentifier isEqualToString:@"inputIndentifier"]) {
             //输入
         } else if ([actionIdentifier isEqualToString:@"actionIdentifier:1"]) {
@@ -689,6 +690,7 @@
         }
     }
 }
+
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [UMessage registerDeviceToken:deviceToken];
@@ -766,7 +768,6 @@
     if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_8_0 && [[LAContext new] canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:nil]) {
         application.keyWindow.rootViewController = [TouchVC new];
     }
-    
     //手势解锁
     if ([PCCircleViewConst getGestureWithKey:gestureFinalSaveKey].length) {
         //有手势
@@ -917,10 +918,13 @@
                                       replacceSelector,
                                       method_getImplementation(replaceMethod),
                                       method_getTypeEncoding(replaceMethod));
+    
     if (addsucces) {
+        //exchange the Method each other
         class_replaceMethod(originClass, replacceSelector, method_getImplementation(originMethod), method_getTypeEncoding(originMethod));
     } else {
         method_exchangeImplementations(originMethod, replaceMethod);
     }
 }
+
 @end

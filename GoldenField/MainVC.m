@@ -45,7 +45,8 @@ static MainVC *shareInstance = nil;
                                                                    Title: titles[i]
                                                              normalImage:kIMAGE(normalImageName) selectedImage:kIMAGE(selectedImageName)];
         SuperNaviVC *naviController = [[SuperNaviVC alloc] initWithRootViewController:viewController];
-        naviController.navigationItem.title = titles[i];
+        id extractedExpr = titles[i];
+        naviController.navigationItem.title = extractedExpr;
         [subViewControllers addObject:naviController];
     }
     self.viewControllers = subViewControllers;
@@ -68,8 +69,11 @@ static MainVC *shareInstance = nil;
     }
 }
 
+// MARK: - 陀螺仪事件
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if (motion == UIEventSubtypeMotionShake) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         [self InsertAlerController:@"别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!别摇啦，脑子进水啦!" messageStr:@"" alertStyle:UIAlertControllerStyleAlert button1Title:@"确定" button1Action:^(NSString * title1 ) {
             
         } button2Title:nil
@@ -78,6 +82,7 @@ static MainVC *shareInstance = nil;
                      } targetController:[UIApplication sharedApplication].keyWindow.rootViewController
          
          ];
+#pragma clang diagnostic pop
     } else if (motion == UIEventSubtypeRemoteControlPlay) {
         //线控
     }
@@ -128,7 +133,7 @@ static MainVC *shareInstance = nil;
             [tempArray addObject:subView];
         }
     }
-    //这里的排序是为了针对StoryBoard里面的无序处理，在StoryBoard里面会出现item是无序的情况,阿西吧!前任就特么会用storyBoard
+    //这里的排序是为了针对StoryBoard里面的无序处理，在StoryBoard里面会出现item是无序的情况,阿西吧嘞
     tempArray = [NSMutableArray arrayWithArray:[tempArray sortedArrayUsingComparator:^NSComparisonResult(UIView *subView1, UIView *subView2) {
         CGFloat X1 = subView1.frame.origin.x;
         CGFloat X2 = subView2.frame.origin.x;
@@ -173,6 +178,5 @@ static MainVC *shareInstance = nil;
 
 // MARK: - fixMemoryHotIssuesAction
 - (void)fixHotMemoryIssueAction {
-    
 }
 @end

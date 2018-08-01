@@ -48,4 +48,13 @@ typedef enum{
                                     target:(id)target
                                     sucess:(void(^)(id responseData))sucess
                                   failure:(void(^)(NSString *errorStr))failure;
+
+// MARK: - UploadImage
+
++ (NSURLSessionDataTask *)uploadImageWithImageArray:(NSArray *)imageArray
+                                          paramters:(NSDictionary *)params
+                                             target:(id)target
+                                             sucess:(void (^)(id responseData))sucess
+                                            failure:(void (^)(NSString *errorStr))failure;
+
 @end

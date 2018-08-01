@@ -119,16 +119,15 @@
     [UMSocialUIManager  showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         
     }];
-    
 }
+
 // MARK:  -- private Method
 - (void)buttonAction:(id)sender {
 #if TARGET_IPHONE_SIMULATOR
-    NSLog(@"simulator can't support Camera!");
+   iToastText(@"simulator can't support Camera!");
 #elif TARGET_OS_IPHONE
     [self.navigationController pushViewController:[ScanVC new] animated:YES];
 #endif
-    
 }
 
 // MARK:  -- UITableViewDataSource&Delegate

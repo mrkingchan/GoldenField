@@ -8,6 +8,7 @@
 
 #import "AppDelegate+Configuration.h"
 #import <WXApi.h>
+
 @implementation AppDelegate (Configuration)
 
 ////配置信息
@@ -66,7 +67,6 @@
     //微博
     [WeiboSDK registerApp:kSinaAppKey];
     [WeiboSDK enableDebugMode:isTrueEnviroment ? NO:YES];
-    
     [self registerAppWithComplete:complete];
 }
 
@@ -146,6 +146,7 @@
                                              title:(NSString *)titleStr
                                        normalImage:(UIImage *)normalImage
                                      selectedImage:(UIImage *)selectedImage {
+    assert([className isSubclassOfClass:[UIViewController class]]);
     if ([className isSubclassOfClass:[UIViewController class]]) {
         UIViewController *viewController = [className new];
         if (kiOSVersion >=7.0) {

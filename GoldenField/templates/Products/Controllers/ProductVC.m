@@ -7,6 +7,7 @@
 //
 
 #import "ProductVC.h"
+#import "AppDelegate.h"
 
 @interface ProductVC ()
 
@@ -21,8 +22,16 @@
     [self setShowRefreshHeader:YES];
     [self refreshHeaderAction];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"refresh" style:UIBarButtonItemStylePlain target:self action:@selector(loadData)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"iOS10分享测试" style:UIBarButtonItemStylePlain target:self action:@selector(testPush)];
 }
 
+-(void)testPush {
+    AppDelegate *delegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    [delegate fireNotificationWithContent:@{@"title":@"Chan",
+                                        @"content":@"Chan",
+                                        @"category":@"com.Chan.notificationCate"
+                                        }];
+}
 // MARK:  -- loadData
 - (void)loadData {
     [self loadingStartBgClear];
