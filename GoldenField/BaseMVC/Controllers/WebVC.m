@@ -157,5 +157,4 @@
     //重新加载webView
     [_webView loadRequest:[NSURLRequest requestWithURL:kURL(_urlStr)]];
 }
-
 @end

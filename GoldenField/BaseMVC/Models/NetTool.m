@@ -68,9 +68,6 @@
                                                            if (failure) {
                                                                failure(errorStr);
                                                            }
-                                                           /*if ([target respondsToSelector:@selector(loadingFail)]) {
-                                                               [target performSelectorOnMainThread:@selector(loadingFail) withObject:nil waitUntilDone:NO];
-                                                           }*/
                                                        }];
     [task resume];
     if ([target respondsToSelector:@selector(addNet:)]) {
@@ -162,6 +159,39 @@
             [target performSelector:@selector(addNet:) withObject:task];
 #pragma clang diagnostic pop
         }
+    }
+    return task;
+}
+
+///图片上传
++(NSURLSessionDataTask *)uploadImageWithImageArray:(NSArray *)imageArray
+                                            path:(NSString *)pathStr
+                                         paramters:(NSDictionary *)params
+                                            target:(id)target
+                                            sucess:(void (^)(id))sucess
+                                           failure:(void (^)(NSString *))failure {
+    NSAssert(imageArray.count >0, @"uploadImage should not be null!");
+    NSURLSessionDataTask *task = [kHttpClient POST:pathStr
+                                        parameters:params
+                         constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+                             //拼接图片流
+                             for (int i = 0 ; i < imageArray.count; i ++) {
+                                 [formData appendPartWithFileData:UIImagePNGRepresentation(imageArray[i]) name:[NSString stringWithFormat:@"uploadImage%i",i]
+                                                         fileName:@"file"
+                                                         mimeType:@"png"];
+                             }
+                         } progress:^(NSProgress * _Nonnull uploadProgress) {
+                             
+                         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                             
+                         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                             
+                         }];
+    if ([target respondsToSelector:@selector(addNet:)]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [target performSelector:@selector(addNet) withObject:task];
+#pragma clang diagnostic pop
     }
     return task;
 }

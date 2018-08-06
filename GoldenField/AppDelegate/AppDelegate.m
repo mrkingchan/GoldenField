@@ -691,7 +691,6 @@
     }
 }
 
-
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [UMessage registerDeviceToken:deviceToken];
     NSString *token = [[NSString alloc] initWithData:deviceToken encoding:NSUTF8StringEncoding];
@@ -835,7 +834,6 @@
     [contentString appendFormat:@"key=%@",secretkey];
     // sign签名加密
     NSString *md5Sign = [self md5:contentString];
-    
     // 支付参数
    /* PayReq *req = [[PayReq alloc] init];
     req.openID = weChatPayInfo[@"appId"];
@@ -926,5 +924,5 @@
         method_exchangeImplementations(originMethod, replaceMethod);
     }
 }
-
-@end
+@
+end

@@ -165,4 +165,16 @@
         return nil;
     }
 }
+
+- (UIViewController *)webViewControllerWithClass:(Class)className
+                                        titleStr:(NSString *)titleStr
+                                     normalImage:(UIImage *)normalImage
+                                   selectedImage:(UIImage *)selectedImage {
+    NSAssert([className isSubclassOfClass:[UIViewController class]], @"className should be the subClass of UIViewController");
+    UIViewController *viewController = [className new];
+    UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:titleStr
+                                                       image:[normalImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    viewController.tabBarItem = item;
+    return viewController;
+}
 @end

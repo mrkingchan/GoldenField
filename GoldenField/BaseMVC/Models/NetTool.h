@@ -52,6 +52,7 @@ typedef enum{
 // MARK: - UploadImage
 
 + (NSURLSessionDataTask *)uploadImageWithImageArray:(NSArray *)imageArray
+                                               path:(NSString *)pathStr
                                           paramters:(NSDictionary *)params
                                              target:(id)target
                                              sucess:(void (^)(id responseData))sucess

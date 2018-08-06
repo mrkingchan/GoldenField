@@ -9,6 +9,7 @@
 #import "DataManager.h"
 
 static DataManager *manager = nil;
+
 @implementation DataManager
 
 + (instancetype)shareInstance {

@@ -12,4 +12,9 @@
 
 @property(nonatomic,assign) BOOL isLogin;
 
+@property(nonatomic,strong)NSString *userName;
+
+@property(nonatomic,strong)NSString *passWord;
+
 @end
+

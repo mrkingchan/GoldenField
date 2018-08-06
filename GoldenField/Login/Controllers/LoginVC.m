@@ -53,6 +53,24 @@
 
 - (void)buttonAction:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    //使用返回的登录model信息更新
+    if (kEmpty(_inputs[0])) {
+        iToastText(@"用户名空!");
+        return;
+    }
+    if (kEmpty(_inputs[1])) {
+        iToastText(@"密码空!");
+        return;
+    }
+    UserModel *model = [UserModel new];
+    model.userName = _inputs[0].text;
+    model.passWord = _inputs[1].text;
+    model.isLogin = YES;
+    [model saveToDB];
+    kAppUser = model;
+    if (_complete) {
+        _complete();
+    }
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
